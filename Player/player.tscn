@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2360ojxsegcj"]
+
+[ext_resource type="Texture2D" uid="uid://d6ffqje4owhg" path="res://Assets/Lander_3.png" id="1_58gib"]
+
+[node name="Player" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_58gib")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
