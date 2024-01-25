@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bigfqmulmemg4"]
+
+[ext_resource type="Texture2D" uid="uid://bhq5g6541sskh" path="res://Assets/parallax_images/spr_stars01.png" id="1_25c6m"]
+[ext_resource type="Texture2D" uid="uid://dg6esfseef6nj" path="res://Assets/parallax_images/spr_stars02.png" id="2_2hbde"]
+
+[node name="Parallax" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="FarthestSky" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+texture = ExtResource("2_2hbde")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(720, 1280)
+
+[node name="MiddleSky" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+texture = ExtResource("1_25c6m")
+centered = false
