@@ -23,6 +23,7 @@ rotation = 1.5708
 texture = ExtResource("1_itpif")
 
 [node name="Player" parent="." instance=ExtResource("2_rymwd")]
+modulate = Color(0.282353, 1, 0.317647, 1)
 position = Vector2(1907, 1366)
 rotation = -3.14159
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.2, 0.2)

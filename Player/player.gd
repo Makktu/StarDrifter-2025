@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var max_speed = 100
 @onready var gravity = 0 #0 FOR FULL WEIGHTLESSNESS
 @onready var rotation_speed = 5 #6
+@onready var starting_energy = 1000
+
 var input_vector : Vector2
 var rotation_direction: int
 
@@ -28,5 +30,15 @@ func _physics_process(delta):
 		var slide_direction := get_last_slide_collision().get_normal()
 		velocity = velocity.slide(slide_direction)
 
-	input_vector.x = Input.get_action_strength("ui_down")
+	input_vector.x = Input.get_action_strength("Thrust")
+	
+	if Input.is_action_pressed("Thrust"):
+		$AnimatedSprite2D.visible = true
+		$AnimatedSprite2D.play()
+		starting_energy -= 0.5
+		print(starting_energy)
+		
+	if Input.is_action_just_released("Thrust"):
+		$AnimatedSprite2D.visible = false
+		$AnimatedSprite2D.stop()
 			
