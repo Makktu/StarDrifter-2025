@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://global/global.tscn"
+Global="*res://scenes/global/global.tscn"
 
 [display]
 

@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2360ojxsegcj"]
+[gd_scene load_steps=9 format=3 uid="uid://b2360ojxsegcj"]
 
-[ext_resource type="Script" path="res://Player/player.gd" id="1_2n4p6"]
-[ext_resource type="Texture2D" uid="uid://d6ffqje4owhg" path="res://Assets/Lander_3.png" id="1_58gib"]
-[ext_resource type="Script" path="res://Player/Camera2D.gd" id="3_7kmc0"]
-[ext_resource type="Texture2D" uid="uid://dh2vu2v8tr85d" path="res://Assets/animations/Sprite-0002.png" id="4_knjd2"]
-[ext_resource type="Texture2D" uid="uid://cyu6jckk1nbvj" path="res://Assets/animations/Sprite-0003.png" id="5_x5nsf"]
-[ext_resource type="Texture2D" uid="uid://cb4dtes4mma8h" path="res://Assets/animations/Sprite-0004.png" id="6_a4c0k"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_2n4p6"]
+[ext_resource type="Texture2D" uid="uid://d6ffqje4owhg" path="res://assets/graphics/Lander_3.png" id="1_58gib"]
+[ext_resource type="Script" path="res://scripts/Camera2D.gd" id="3_7kmc0"]
+[ext_resource type="Texture2D" uid="uid://dh2vu2v8tr85d" path="res://assets/animations/Sprite-0002.png" id="4_knjd2"]
+[ext_resource type="PackedScene" uid="uid://b47pdejejhyjn" path="res://scenes/global/hud.tscn" id="4_ok8lk"]
+[ext_resource type="Texture2D" uid="uid://cyu6jckk1nbvj" path="res://assets/animations/Sprite-0003.png" id="5_x5nsf"]
+[ext_resource type="Texture2D" uid="uid://cb4dtes4mma8h" path="res://assets/animations/Sprite-0004.png" id="6_a4c0k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xct2y"]
 animations = [{
@@ -53,3 +54,5 @@ rotation = 1.5708
 scale = Vector2(0.5, 3)
 sprite_frames = SubResource("SpriteFrames_xct2y")
 animation = &"thrusters"
+
+[node name="hud" parent="." instance=ExtResource("4_ok8lk")]

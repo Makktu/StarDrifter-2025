@@ -1,14 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://cy8am7rjugpas"]
 
-[ext_resource type="Texture2D" uid="uid://cx5cnyea2mahv" path="res://Assets/Stage_6.png" id="1_itpif"]
-[ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://Environment/parallax_background.tscn" id="1_me2wf"]
-[ext_resource type="PackedScene" uid="uid://b2360ojxsegcj" path="res://Player/player.tscn" id="2_rymwd"]
+[ext_resource type="Texture2D" uid="uid://cx5cnyea2mahv" path="res://assets/graphics/Stage_6.png" id="1_itpif"]
+[ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/Environment/parallax_background.tscn" id="1_me2wf"]
+[ext_resource type="PackedScene" uid="uid://b2360ojxsegcj" path="res://scenes/Player/player.tscn" id="2_rymwd"]
 
 [node name="World" type="Node2D"]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_me2wf")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.882353, 0.0588235, 1)
 position = Vector2(4561, 5189)
 texture = ExtResource("1_itpif")
 
@@ -24,6 +25,6 @@ texture = ExtResource("1_itpif")
 
 [node name="Player" parent="." instance=ExtResource("2_rymwd")]
 modulate = Color(0.282353, 1, 0.317647, 1)
-position = Vector2(1907, 1366)
+position = Vector2(1839, 2282)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)

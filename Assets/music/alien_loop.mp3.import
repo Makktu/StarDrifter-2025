@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dcofrmcd3m83l"
-path="res://.godot/imported/alien_loop.mp3-4f2cf3fa7fa77555207387691a8b8a91.mp3str"
+path="res://.godot/imported/alien_loop.mp3-bfe05edc0829ffecde7a338276473fb9.mp3str"
 
 [deps]
 
-source_file="res://Assets/music/alien_loop.mp3"
-dest_files=["res://.godot/imported/alien_loop.mp3-4f2cf3fa7fa77555207387691a8b8a91.mp3str"]
+source_file="res://assets/music/alien_loop.mp3"
+dest_files=["res://.godot/imported/alien_loop.mp3-bfe05edc0829ffecde7a338276473fb9.mp3str"]
 
 [params]
 

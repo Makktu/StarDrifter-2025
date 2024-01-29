@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b56gvbsu6vl50"]
+
+[ext_resource type="Script" path="res://scripts/global.gd" id="1_7dcjs"]
+[ext_resource type="AudioStream" uid="uid://dcofrmcd3m83l" path="res://assets/music/alien_loop.mp3" id="2_1ajfm"]
+
+[node name="Global" type="Node2D"]
+script = ExtResource("1_7dcjs")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_1ajfm")

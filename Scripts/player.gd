@@ -9,6 +9,8 @@ extends CharacterBody2D
 var input_vector : Vector2
 var rotation_direction: int
 
+var energy_warning_shown = false
+
 func _physics_process(delta):
 	
 	if Input.is_action_pressed("Left") and rotation_direction != -1:
@@ -41,4 +43,8 @@ func _physics_process(delta):
 	if Input.is_action_just_released("Thrust"):
 		$AnimatedSprite2D.visible = false
 		$AnimatedSprite2D.stop()
+		
+	if starting_energy < 900 and !energy_warning_shown:
+		energy_warning_shown = true
+		$hud.show_warning()
 			

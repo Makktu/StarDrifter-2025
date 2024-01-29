@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://burts31ura6eo"
-path="res://.godot/imported/nebulawetstars.png-8c8801ace0bde37ae802d71b4a49f01d.ctex"
+uid="uid://5heeei0wju4k"
+path="res://.godot/imported/Energy.png-138a1c4486f5ea9603e6e3ba01c7ef7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/parallax_images/nebulawetstars.png"
-dest_files=["res://.godot/imported/nebulawetstars.png-8c8801ace0bde37ae802d71b4a49f01d.ctex"]
+source_file="res://assets/graphics/Energy.png"
+dest_files=["res://.godot/imported/Energy.png-138a1c4486f5ea9603e6e3ba01c7ef7c.ctex"]
 
 [params]
 

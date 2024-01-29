@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d6ffqje4owhg"
-path="res://.godot/imported/Lander_3.png-8a7e9ecf89a3adaa1e09539ed6787d8c.ctex"
+uid="uid://ctfroiv5s6ons"
+path="res://.godot/imported/velocity.png-89650638d49de116cfb5092c69ef09c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Lander_3.png"
-dest_files=["res://.godot/imported/Lander_3.png-8a7e9ecf89a3adaa1e09539ed6787d8c.ctex"]
+source_file="res://assets/graphics/velocity.png"
+dest_files=["res://.godot/imported/velocity.png-89650638d49de116cfb5092c69ef09c9.ctex"]
 
 [params]
 
