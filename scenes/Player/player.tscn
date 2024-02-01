@@ -34,7 +34,7 @@ rotation = 1.5708
 texture = ExtResource("1_58gib")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.1
@@ -46,9 +46,10 @@ script = ExtResource("3_7kmc0")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(5.55, 0.16)
 rotation = 1.5708
-polygon = PackedVector2Array(5, -23.2, 5, -20.5, 29.2, 28, 25.6, 28, 22.1, 30.3, 20, 29.2, 20, 28.5, 6.9, 25.5, -4.6, 30, -6.7, 30, -10.7, 27, -13.7, 27, -20.6, 30, -24.8, 30, -28, 26.8, -28, 23.5, -3, -23.5, -3, -27.2)
+polygon = PackedVector2Array(2.83993, -19.45, 25.8401, 26.5499, 18.8401, 26.5499, 6.84009, 24.55, -1.15991, 23.55, -9.15991, 25.55, -18.1599, 25.5501, -24.1599, 24.5501, -0.16007, -19.45)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(-72, 2.27374e-13)
 rotation = 1.5708
 scale = Vector2(0.5, 3)

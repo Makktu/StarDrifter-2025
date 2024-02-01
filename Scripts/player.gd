@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var max_speed = 100
 @onready var gravity = 0 #0 FOR FULL WEIGHTLESSNESS
 @onready var rotation_speed = 5 #6
-@onready var starting_energy = 1000
+@onready var starting_energy = 10000
 
 var input_vector : Vector2
 var rotation_direction: int
@@ -37,14 +37,16 @@ func _physics_process(delta):
 	if Input.is_action_pressed("Thrust"):
 		$AnimatedSprite2D.visible = true
 		$AnimatedSprite2D.play()
-		starting_energy -= 0.5
-		print(starting_energy)
+		starting_energy -= 1
+		$hud.show_energy(starting_energy)
 		
 	if Input.is_action_just_released("Thrust"):
 		$AnimatedSprite2D.visible = false
 		$AnimatedSprite2D.stop()
+	
+	$hud.show_velocity(velocity.x, velocity.y, delta)
 		
-	if starting_energy < 900 and !energy_warning_shown:
+	if starting_energy < 9500 and !energy_warning_shown:
 		energy_warning_shown = true
 		$hud.show_warning()
 			

@@ -9,8 +9,8 @@
 script = ExtResource("1_t4t8u")
 
 [node name="velocity" type="Sprite2D" parent="."]
-position = Vector2(96, 101)
-scale = Vector2(0.2, 0.2)
+position = Vector2(54, 363)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_ogl4b")
 
 [node name="Label" type="Label" parent="velocity"]
@@ -23,8 +23,8 @@ text = "100000
 "
 
 [node name="energy" type="Sprite2D" parent="."]
-position = Vector2(59, 26)
-scale = Vector2(0.15, 0.15)
+position = Vector2(44, 323)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_u7wf2")
 
 [node name="Label" type="Label" parent="energy"]
@@ -35,11 +35,40 @@ offset_bottom = 143.0
 scale = Vector2(13, 9)
 text = "300421"
 
+[node name="velocity2" type="Sprite2D" parent="."]
+position = Vector2(672, 368)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ogl4b")
+
+[node name="Label" type="Label" parent="velocity2"]
+offset_left = -455.0
+offset_top = 85.0
+offset_right = -400.0
+offset_bottom = 108.0
+scale = Vector2(9.8, 8.20001)
+text = "100000
+"
+horizontal_alignment = 2
+
+[node name="energy2" type="Sprite2D" parent="."]
+position = Vector2(680, 325)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_u7wf2")
+
+[node name="Label" type="Label" parent="energy2"]
+offset_left = -353.333
+offset_top = 120.0
+offset_right = -298.333
+offset_bottom = 143.0
+scale = Vector2(13, 9)
+text = "300421"
+horizontal_alignment = 2
+
 [node name="warning" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 0.00784314, 0.00784314, 1)
-position = Vector2(349, 397)
-scale = Vector2(0.6, 0.6)
+position = Vector2(349, 330)
+scale = Vector2(0.199999, 0.119999)
 texture = ExtResource("2_dgchh")
 
 [node name="WarningTimer" type="Timer" parent="."]
