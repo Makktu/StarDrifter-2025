@@ -75,4 +75,18 @@ texture = ExtResource("2_dgchh")
 wait_time = 2.0
 one_shot = true
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+modulate = Color(1, 0.439216, 0.266667, 1)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 283.0
+offset_right = 136.0
+offset_bottom = 310.0
+
 [connection signal="timeout" from="WarningTimer" to="." method="_on_warning_timer_timeout"]

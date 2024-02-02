@@ -1,11 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b56gvbsu6vl50"]
+[gd_scene load_steps=2 format=3 uid="uid://b56gvbsu6vl50"]
 
 [ext_resource type="Script" path="res://scripts/global.gd" id="1_7dcjs"]
-[ext_resource type="AudioStream" uid="uid://dxq1utuwxjw02" path="res://assets/music/my_mood_music.mp3" id="2_81gng"]
 
 [node name="Global" type="Node2D"]
 script = ExtResource("1_7dcjs")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_81gng")
 volume_db = -50.744

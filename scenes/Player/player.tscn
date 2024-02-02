@@ -57,3 +57,5 @@ sprite_frames = SubResource("SpriteFrames_xct2y")
 animation = &"thrusters"
 
 [node name="hud" parent="." instance=ExtResource("4_ok8lk")]
+
+[connection signal="energy_change" from="." to="hud" method="_on_player_energy_change"]
