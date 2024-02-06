@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var energy_bar = $Control/ProgressBar
 
 var warning_showing = false
+var warning_times = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,11 +32,16 @@ func show_energy(energy):
 	$energy/Label.text = str(energy)
 
 func _on_warning_timer_timeout():
-	$WarningTimer.start()
-	if $warning.visible:
-		$warning.visible = false
+	warning_times += 1
+	if warning_times <= 6:
+		$WarningTimer.start()
+		if $warning.visible:
+			$warning.visible = false
+		else:
+			$warning.visible = true
 	else:
-		$warning.visible = true
+		$warning.visible = false
+		return
 
 
 func _on_player_energy_change(energy):

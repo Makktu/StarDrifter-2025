@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv6ryaxouwbfs"
-path="res://.godot/imported/placeholder_sun.png-569fa08b1ce831d652464cfd90d95450.ctex"
+uid="uid://cqserdgs8ipsw"
+path="res://.godot/imported/SL2D_world1.png-395c053b36dfc04b2e9dca883792522b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/placeholder_sun.png"
-dest_files=["res://.godot/imported/placeholder_sun.png-569fa08b1ce831d652464cfd90d95450.ctex"]
+source_file="res://assets/graphics/SL2D_world1.png"
+dest_files=["res://.godot/imported/SL2D_world1.png-395c053b36dfc04b2e9dca883792522b.ctex"]
 
 [params]
 

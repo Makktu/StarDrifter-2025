@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsc3eg575vy2a"
-path="res://.godot/imported/Hellion_norings.png-cc2f1de846316c95fc00011f14a0302c.ctex"
+uid="uid://jr455hvmmmvs"
+path="res://.godot/imported/TheSun.png-6e1b7c5fe660076270528a9336878975.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/Hellion_norings.png"
-dest_files=["res://.godot/imported/Hellion_norings.png-cc2f1de846316c95fc00011f14a0302c.ctex"]
+source_file="res://assets/graphics/TheSun.png"
+dest_files=["res://.godot/imported/TheSun.png-6e1b7c5fe660076270528a9336878975.ctex"]
 
 [params]
 
