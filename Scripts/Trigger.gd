@@ -13,4 +13,3 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.name == 'Player':
 		$"/root/Global".trigger_one()
-		#Music_manager.trigger_one()

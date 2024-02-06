@@ -41,7 +41,6 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play()
 		starting_energy -= 0.05
 		emit_signal("energy_change", starting_energy)
-		#$hud.show_energy(starting_energy)
 		
 	if Input.is_action_just_released("Thrust"):
 		$AnimatedSprite2D.visible = false

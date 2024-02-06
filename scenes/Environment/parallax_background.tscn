@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bigfqmulmemg4"]
 
 [ext_resource type="Texture2D" uid="uid://bykrk7xm88jtp" path="res://assets/parallax_images/nebula2.png" id="1_euui5"]
-[ext_resource type="Texture2D" uid="uid://jr455hvmmmvs" path="res://assets/graphics/TheSun.png" id="3_k6kxo"]
+[ext_resource type="Texture2D" uid="uid://bmfo8cksdafso" path="res://assets/graphics/Sun3.png" id="3_lu4kk"]
 [ext_resource type="Texture2D" uid="uid://burts31ura6eo" path="res://assets/parallax_images/nebulawetstars.png" id="3_n1xnf"]
 [ext_resource type="Texture2D" uid="uid://cqserdgs8ipsw" path="res://assets/graphics/SL2D_world1.png" id="4_r8xa3"]
 
@@ -32,15 +32,15 @@ centered = false
 motion_scale = Vector2(0.8, 0.8)
 
 [node name="Sun" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
-modulate = Color(0.196078, 1, 1, 1)
+modulate = Color(0.615686, 0.921569, 0.27451, 1)
 texture_filter = 1
-position = Vector2(1622, 1964)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("3_k6kxo")
+position = Vector2(420, 2993)
+rotation = -0.687821
+texture = ExtResource("3_lu4kk")
 centered = false
 
 [node name="RedWorld" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 modulate = Color(0.141176, 1, 0.141176, 1)
-position = Vector2(1790, 2919)
+position = Vector2(2164, 2771)
 scale = Vector2(3, 3)
 texture = ExtResource("4_r8xa3")

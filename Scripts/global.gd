@@ -3,14 +3,11 @@ extends Node
 var all_music:Array[String]
 
 var current_track = 0
-
 var maximum_track
+var times_played = 0
 
 @onready var main_audio_player = $AudioStreamPlayer
 
-#var new_music = preload("res://assets/music/five_second_sting.ogg")
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	for filePath in DirAccess.get_files_at("res://assets/music/bg_music/"):
 		if filePath.get_extension() != "import":
@@ -31,10 +28,11 @@ func trigger_one():
 	main_audio_player.volume_db = -50
 	main_audio_player.stream = load(all_music[current_track])
 	main_audio_player.play()
-	if current_track < maximum_track:
-		current_track += 1
-	else:
-		current_track = 0
+	if times_played == 0:
+		if current_track < maximum_track:
+			current_track += 1
+		else:
+			current_track = 0
 	raise_volume()
 	
 func raise_volume():
