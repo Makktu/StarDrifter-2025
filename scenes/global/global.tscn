@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b56gvbsu6vl50"]
+[gd_scene load_steps=3 format=3 uid="uid://b56gvbsu6vl50"]
 
 [ext_resource type="Script" path="res://scripts/global.gd" id="1_7dcjs"]
+[ext_resource type="PackedScene" uid="uid://pywg4n2040iu" path="res://scenes/Util/bg_music_manager.tscn" id="2_8gu2u"]
 
 [node name="Global" type="Node2D"]
 script = ExtResource("1_7dcjs")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -50.744
+[node name="BGMusicManager" parent="." instance=ExtResource("2_8gu2u")]
