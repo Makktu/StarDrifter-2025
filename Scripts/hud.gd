@@ -5,10 +5,11 @@ extends CanvasLayer
 var warning_showing = false
 var warning_times = 0
 
+var basic_damage = 10
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	energy_bar.value = 100
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

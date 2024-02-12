@@ -13,3 +13,9 @@ func dynamic_zoom(player_velocity_x, player_velocity_y, special = null):
 		if zoom.x < starting_zoom:
 			zoom.x += zoomin_amount
 			zoom.y += zoomin_amount
+			
+func zoom_special(direction):
+	if direction == 'zoomout':
+		for n in 100:
+			zoom.x -= zoomout_amount * 1.2
+			zoom.y -= zoomout_amount * 1.2

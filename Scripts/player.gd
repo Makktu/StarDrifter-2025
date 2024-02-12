@@ -13,6 +13,8 @@ var rotation_direction: int
 
 var energy_warning_shown = false
 
+var collided_with = ""
+
 func _physics_process(delta):
 	
 	if Input.is_action_pressed("Left") and rotation_direction != -1:
@@ -51,4 +53,16 @@ func _physics_process(delta):
 	if starting_energy < 9500 and !energy_warning_shown:
 		energy_warning_shown = true
 		$hud.show_warning()
-			
+		
+	for index in get_slide_collision_count():
+		var collision = get_slide_collision(index)
+		var body := collision.get_collider()
+		collided_with = body.name.left(5)
+		if collided_with == 'World':
+			print("GAME OVER")
+		starting_energy -= 1
+		emit_signal("energy_change", starting_energy)
+
+
+func _on_zoom_out_1_body_entered(body):
+	$Camera2D.zoom_special('zoomout')
