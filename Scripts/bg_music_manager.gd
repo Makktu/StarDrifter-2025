@@ -23,15 +23,15 @@ func start_bg_music():
 
 func play_next_track():
 	print ('????')
-	main_audio_player.volume_db = -50
 	main_audio_player.stream = load(all_music[current_track])
 	main_audio_player.play()
-	if times_played == 0:
-		if current_track < maximum_track:
-			current_track += 1
-		else:
-			current_track = 0
-	raise_volume()
+	if current_track < maximum_track:
+		current_track += 1
+	else:
+		current_track = 0
+		
+func play_shorts():
+	pass
 	
 func raise_volume():
 	for n in 50:

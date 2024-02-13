@@ -1,7 +1,10 @@
 extends Node
 
+var global_music_on = false
+
 func _ready():
-	$BGMusicManager.start_bg_music()
+	if global_music_on:
+		$BGMusicManager.start_bg_music()
 	
 	
 

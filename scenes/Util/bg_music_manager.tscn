@@ -6,7 +6,6 @@
 script = ExtResource("1_0aadr")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -50.744
 
 [node name="bg_music_timer" type="Timer" parent="."]
 wait_time = 10.0

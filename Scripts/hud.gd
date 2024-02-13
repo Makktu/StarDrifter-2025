@@ -1,15 +1,17 @@
 extends CanvasLayer
 
-@onready var energy_bar = $Control/ProgressBar
+#@onready var energy_bar = $Control/EnergyBar
 
 var warning_showing = false
 var warning_times = 0
 
 var basic_damage = 10
 
+var energy_is_low = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	energy_bar.value = 100
+	%EnergyBar.value = 100
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,4 +48,10 @@ func _on_warning_timer_timeout():
 
 
 func _on_player_energy_change(energy):
-	energy_bar.value = energy
+	%EnergyBar.value = energy
+	if energy <= 15 and !energy_is_low:
+		energy_is_low = true
+		%LowEnergy.play("low_energy")
+	if energy > 15 and energy_is_low:
+		energy_is_low = false
+		%LowEnergy.play("RESET")

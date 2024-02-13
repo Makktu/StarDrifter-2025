@@ -1,9 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://b47pdejejhyjn"]
+[gd_scene load_steps=8 format=3 uid="uid://b47pdejejhyjn"]
 
 [ext_resource type="Texture2D" uid="uid://ctfroiv5s6ons" path="res://assets/graphics/velocity.png" id="1_ogl4b"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_t4t8u"]
 [ext_resource type="Texture2D" uid="uid://c6vq4r28abfhm" path="res://assets/graphics/Warning.png" id="2_dgchh"]
 [ext_resource type="Texture2D" uid="uid://5heeei0wju4k" path="res://assets/graphics/Energy.png" id="3_u7wf2"]
+
+[sub_resource type="Animation" id="Animation_eihor"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%EnergyBar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.968627, 0.0705882, 0.0196078, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0w6cv"]
+resource_name = "low_energy"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%EnergyBar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.968627, 0.0705882, 0.0196078, 1), Color(1, 0.996078, 0.992157, 1), Color(0.968627, 0.0705882, 0.0196078, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5u0p3"]
+_data = {
+"RESET": SubResource("Animation_eihor"),
+"low_energy": SubResource("Animation_0w6cv")
+}
 
 [node name="hud" type="CanvasLayer"]
 script = ExtResource("1_t4t8u")
@@ -81,12 +119,19 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ProgressBar" type="ProgressBar" parent="Control"]
-modulate = Color(1, 0.439216, 0.266667, 1)
+[node name="EnergyBar" type="ProgressBar" parent="Control"]
+unique_name_in_owner = true
+modulate = Color(0.968627, 0.0705882, 0.0196078, 1)
 layout_mode = 0
 offset_left = 10.0
 offset_top = 283.0
 offset_right = 136.0
 offset_bottom = 310.0
+
+[node name="LowEnergy" type="AnimationPlayer" parent="Control"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_5u0p3")
+}
 
 [connection signal="timeout" from="WarningTimer" to="." method="_on_warning_timer_timeout"]
