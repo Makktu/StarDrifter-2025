@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2360ojxsegcj"]
+[gd_scene load_steps=13 format=3 uid="uid://b2360ojxsegcj"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2n4p6"]
 [ext_resource type="Texture2D" uid="uid://d6ffqje4owhg" path="res://assets/graphics/Lander_3.png" id="1_58gib"]
@@ -6,7 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dh2vu2v8tr85d" path="res://assets/animations/Sprite-0002.png" id="4_knjd2"]
 [ext_resource type="PackedScene" uid="uid://b47pdejejhyjn" path="res://scenes/global/hud.tscn" id="4_ok8lk"]
 [ext_resource type="Texture2D" uid="uid://cyu6jckk1nbvj" path="res://assets/animations/Sprite-0003.png" id="5_x5nsf"]
+[ext_resource type="Script" path="res://scripts/Thrust_Manager.gd" id="5_x14mg"]
 [ext_resource type="Texture2D" uid="uid://cb4dtes4mma8h" path="res://assets/animations/Sprite-0004.png" id="6_a4c0k"]
+[ext_resource type="AudioStream" uid="uid://bbi7wvoqrg21o" path="res://assets/sfx/thrust_begins1.wav" id="8_gdvxp"]
+[ext_resource type="AudioStream" uid="uid://ccmet6w3828ad" path="res://assets/sfx/thrust_mid1.wav" id="9_ohpnd"]
+[ext_resource type="AudioStream" uid="uid://dlsrf2tswwe6g" path="res://assets/sfx/thrust_released1.wav" id="10_kvpty"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xct2y"]
 animations = [{
@@ -48,7 +52,13 @@ position = Vector2(5.55, 0.16)
 rotation = 1.5708
 polygon = PackedVector2Array(4.83993, -19.45, 29.8401, 29.5499, 18.8401, 26.5499, 6.84009, 24.55, -1.15989, 29.55, -9.15991, 25.55, -18.1599, 25.5501, -28.1599, 28.5501, -1.1601, -26.45)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="hud" parent="." instance=ExtResource("4_ok8lk")]
+
+[node name="Thrust_Manager" type="Node2D" parent="."]
+script = ExtResource("5_x14mg")
+
+[node name="thrust_flames" type="AnimatedSprite2D" parent="Thrust_Manager"]
+unique_name_in_owner = true
 visible = false
 position = Vector2(-72, 2.27374e-13)
 rotation = 1.5708
@@ -56,6 +66,16 @@ scale = Vector2(0.5, 3)
 sprite_frames = SubResource("SpriteFrames_xct2y")
 animation = &"thrusters"
 
-[node name="hud" parent="." instance=ExtResource("4_ok8lk")]
+[node name="thrust_sound_start" type="AudioStreamPlayer" parent="Thrust_Manager"]
+unique_name_in_owner = true
+stream = ExtResource("8_gdvxp")
+
+[node name="thrust_sound_mid" type="AudioStreamPlayer" parent="Thrust_Manager"]
+unique_name_in_owner = true
+stream = ExtResource("9_ohpnd")
+
+[node name="thrust_sound_end" type="AudioStreamPlayer" parent="Thrust_Manager"]
+unique_name_in_owner = true
+stream = ExtResource("10_kvpty")
 
 [connection signal="energy_change" from="." to="hud" method="_on_player_energy_change"]

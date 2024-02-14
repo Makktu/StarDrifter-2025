@@ -13,6 +13,9 @@ var rotation_direction: int
 
 var energy_warning_shown = false
 
+var player_is_thrusting = false
+var thrusting_for = 0
+
 var collided_with = ""
 
 func _physics_process(delta):
@@ -39,14 +42,13 @@ func _physics_process(delta):
 	input_vector.x = Input.get_action_strength("Thrust")
 	
 	if Input.is_action_pressed("Thrust"):
-		$AnimatedSprite2D.visible = true
-		$AnimatedSprite2D.play()
-		starting_energy -= 0.05
+		starting_energy -= 1
 		emit_signal("energy_change", starting_energy)
+		$Thrust_Manager.thrust_pressed()
 		
 	if Input.is_action_just_released("Thrust"):
-		$AnimatedSprite2D.visible = false
-		$AnimatedSprite2D.stop()
+		$Thrust_Manager.thrust_released()
+		
 	
 	$hud.show_velocity(velocity.x, velocity.y, delta)
 		

@@ -45,3 +45,10 @@ modulate = Color(0.141176, 1, 0.141176, 1)
 position = Vector2(2164, 2771)
 scale = Vector2(3, 3)
 texture = ExtResource("4_r8xa3")
+
+[node name="RedWorld2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+modulate = Color(0.00392157, 0.270588, 0.027451, 1)
+position = Vector2(2352, 6829)
+rotation = -2.05725
+scale = Vector2(2, 2)
+texture = ExtResource("4_r8xa3")
