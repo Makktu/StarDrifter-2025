@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var gravity = 0 #0 FOR FULL WEIGHTLESSNESS
 @onready var rotation_speed = 5 #6
 @onready var starting_energy = 100
+@onready var global = $/root/Global
 
 signal energy_change
 
@@ -34,10 +35,16 @@ func _physics_process(delta):
 	$Camera2D.dynamic_zoom(velocity.x, velocity.y)
 	
 	rotation += rotation_direction * rotation_speed * delta		
-	var collided := move_and_slide()
+	var collided := move_and_collide(velocity * delta)
 	if collided and not get_floor_normal():
-		var slide_direction := get_last_slide_collision().get_normal()
-		velocity = velocity.slide(slide_direction)
+		#var slide_direction := get_last_slide_collision().get_normal()
+		velocity = velocity.bounce(collided.get_normal())
+		if rotation_direction == 1:
+			rotation_direction = -1
+		elif rotation_direction == -1:
+			rotation_direction = 1
+		else:
+			rotation_direction = 1
 
 	input_vector.x = Input.get_action_strength("Thrust")
 	
@@ -68,3 +75,6 @@ func _physics_process(delta):
 
 func _on_zoom_out_1_body_entered(body):
 	$Camera2D.zoom_special('zoomout')
+	if !global.alarm_in_progress:
+		global.sound_alarm()
+	

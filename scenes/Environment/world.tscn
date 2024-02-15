@@ -18,7 +18,7 @@ script = ExtResource("1_vgc64")
 
 [node name="starting_world" type="Sprite2D" parent="World1"]
 unique_name_in_owner = true
-modulate = Color(0.156863, 0.905882, 0.443137, 1)
+modulate = Color(0.345098, 0.701961, 0.294118, 1)
 position = Vector2(4560, 5189)
 texture = ExtResource("2_5x27x")
 
@@ -40,7 +40,7 @@ polygon = PackedVector2Array(-2854, -1249.4, -2854, -1245.6, -2866.6, -1241, -28
 
 [node name="Player" parent="." instance=ExtResource("2_rymwd")]
 modulate = Color(0.282353, 1, 0.317647, 1)
-position = Vector2(1584, 7788)
+position = Vector2(1770, 8054)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)
 

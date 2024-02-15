@@ -1,5 +1,10 @@
 extends Node2D
 
+@onready var thrust_start = %thrust_sound_start
+@onready var thrust_mid = %thrust_sound_mid
+@onready var thrust_end = %thrust_sound_end
+@onready var thrust_flames = %thrust_flames
+
 var player_is_thrusting = false
 var thrusting_for = 0
 
@@ -15,7 +20,7 @@ func _process(delta):
 func thrust_pressed():
 	if !player_is_thrusting:	
 		player_is_thrusting = true
-		%thrust_sound_mid.play()
+		thrust_mid.play()
 		%thrust_flames.visible = true
 		$thrust_flames.play()
 		thrusting_for += 1

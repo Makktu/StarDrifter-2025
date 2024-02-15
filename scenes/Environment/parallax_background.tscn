@@ -33,17 +33,17 @@ centered = false
 motion_scale = Vector2(0.8, 0.8)
 
 [node name="Sun" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
-modulate = Color(0.876238, 0.703481, 0.294948, 1)
+modulate = Color(0.862745, 0.768627, 0.254902, 1)
 texture_filter = 1
-position = Vector2(420, 2993)
+position = Vector2(63, 1861.57)
 rotation = -0.687821
 texture = ExtResource("3_lu4kk")
 centered = false
 
 [node name="RedWorld" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 modulate = Color(0.141176, 1, 0.141176, 1)
-position = Vector2(2164, 2771)
-scale = Vector2(3, 3)
+position = Vector2(1354, 2240.57)
+rotation = 1.14961
 texture = ExtResource("4_r8xa3")
 
 [node name="RedWorld2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]

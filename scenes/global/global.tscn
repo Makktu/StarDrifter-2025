@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://b56gvbsu6vl50"]
+[gd_scene load_steps=4 format=3 uid="uid://b56gvbsu6vl50"]
 
 [ext_resource type="Script" path="res://scripts/global.gd" id="1_7dcjs"]
 [ext_resource type="PackedScene" uid="uid://pywg4n2040iu" path="res://scenes/Util/bg_music_manager.tscn" id="2_8gu2u"]
+[ext_resource type="AudioStream" uid="uid://dqxbi8qyxc7le" path="res://assets/sfx/alert1.wav" id="3_6xs00"]
 
 [node name="Global" type="Node2D"]
 script = ExtResource("1_7dcjs")
 
 [node name="BGMusicManager" parent="." instance=ExtResource("2_8gu2u")]
+
+[node name="alarms" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6xs00")
+
+[connection signal="finished" from="alarms" to="." method="_on_alarms_finished"]
