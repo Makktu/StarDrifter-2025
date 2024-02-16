@@ -1,46 +1,68 @@
-[gd_scene load_steps=8 format=3 uid="uid://b47pdejejhyjn"]
+[gd_scene load_steps=13 format=3 uid="uid://b47pdejejhyjn"]
 
 [ext_resource type="Texture2D" uid="uid://ctfroiv5s6ons" path="res://assets/graphics/velocity.png" id="1_ogl4b"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_t4t8u"]
 [ext_resource type="Texture2D" uid="uid://c6vq4r28abfhm" path="res://assets/graphics/Warning.png" id="2_dgchh"]
 [ext_resource type="Texture2D" uid="uid://5heeei0wju4k" path="res://assets/graphics/Energy.png" id="3_u7wf2"]
 
+[sub_resource type="Gradient" id="Gradient_x6rqy"]
+offsets = PackedFloat32Array(0, 0.236567, 1)
+colors = PackedColorArray(0.893149, 0.160521, 0.197114, 1, 0.270588, 0.623529, 0.137255, 1, 0.192157, 1, 0.27451, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_30157"]
+gradient = SubResource("Gradient_x6rqy")
+fill_from = Vector2(0.499526, 1)
+fill_to = Vector2(0.518484, 0)
+
 [sub_resource type="Animation" id="Animation_eihor"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_0w6cv"]
+resource_name = "low_energy"
+length = 2.0
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5u0p3"]
+_data = {
+"RESET": SubResource("Animation_eihor"),
+"low_energy": SubResource("Animation_0w6cv")
+}
+
+[sub_resource type="Animation" id="Animation_3l5ys"]
+resource_name = "accel_glow"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/VelocityBar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.0509804, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1aa0v"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("%EnergyBar:modulate")
+tracks/0/path = NodePath("Control/VelocityBar:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.968627, 0.0705882, 0.0196078, 1)]
+"values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_0w6cv"]
-resource_name = "low_energy"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%EnergyBar:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0.968627, 0.0705882, 0.0196078, 1), Color(1, 0.996078, 0.992157, 1), Color(0.968627, 0.0705882, 0.0196078, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5u0p3"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xtnuv"]
 _data = {
-"RESET": SubResource("Animation_eihor"),
-"low_energy": SubResource("Animation_0w6cv")
+"RESET": SubResource("Animation_1aa0v"),
+"accel_glow": SubResource("Animation_3l5ys")
 }
 
 [node name="hud" type="CanvasLayer"]
@@ -119,19 +141,51 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="EnergyBar" type="ProgressBar" parent="Control"]
+[node name="EnergyBar" type="TextureProgressBar" parent="Control"]
 unique_name_in_owner = true
-modulate = Color(0.968627, 0.0705882, 0.0196078, 1)
 layout_mode = 0
-offset_left = 10.0
-offset_top = 283.0
-offset_right = 136.0
-offset_bottom = 310.0
+offset_left = 12.0
+offset_top = 391.0
+offset_right = 76.0
+offset_bottom = 691.0
+scale = Vector2(0.3, 0.6)
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_30157")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Control/EnergyBar"]
+position = Vector2(3.33333, 298.333)
+emitting = false
+amount = 13
+emission_shape = 1
+emission_sphere_radius = 21.0
+gravity = Vector2(0, -10)
+angular_velocity_min = 144.0
+angular_velocity_max = 144.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+
+[node name="VelocityBar" type="TextureProgressBar" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 44.0
+offset_top = 391.0
+offset_right = 108.0
+offset_bottom = 691.0
+scale = Vector2(0.3, 0.6)
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_30157")
 
 [node name="LowEnergy" type="AnimationPlayer" parent="Control"]
 unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_5u0p3")
+}
+
+[node name="acceleration_animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xtnuv")
 }
 
 [connection signal="timeout" from="WarningTimer" to="." method="_on_warning_timer_timeout"]

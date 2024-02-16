@@ -49,12 +49,17 @@ func _physics_process(delta):
 	input_vector.x = Input.get_action_strength("Thrust")
 	
 	if Input.is_action_pressed("Thrust"):
-		starting_energy -= 1
+		starting_energy -= 0.02
 		emit_signal("energy_change", starting_energy)
 		$Thrust_Manager.thrust_pressed()
+		if !player_is_thrusting:
+			player_is_thrusting = true
+			$hud.thrust_pressed()
 		
 	if Input.is_action_just_released("Thrust"):
 		$Thrust_Manager.thrust_released()
+		$hud.thrust_released()
+		player_is_thrusting = false
 		
 	
 	$hud.show_velocity(velocity.x, velocity.y, delta)

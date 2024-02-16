@@ -11,12 +11,8 @@ var energy_is_low = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	%VelocityBar.value = 0
 	%EnergyBar.value = 100
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 	
 
 func show_warning():
@@ -30,7 +26,19 @@ func show_velocity(x, y, delta):
 	if combined_velocity < 0:
 		combined_velocity = -combined_velocity
 	$velocity/Label.text = str(snapped(combined_velocity, 0.1))
+	%VelocityBar.value = (combined_velocity / 2) * 2
+	$acceleration_animation.play("accel_glow")
+
+
+func thrust_pressed():
+	$Control/EnergyBar/CPUParticles2D.emitting = true
 	
+	
+func thrust_released():
+	$Control/EnergyBar/CPUParticles2D.emitting = false
+
+		
+			
 func show_energy(energy):
 	$energy/Label.text = str(energy)
 
