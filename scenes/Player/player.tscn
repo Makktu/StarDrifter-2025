@@ -69,14 +69,16 @@ animation = &"thrusters"
 [node name="thrust_sound_start" type="AudioStreamPlayer" parent="Thrust_Manager"]
 unique_name_in_owner = true
 stream = ExtResource("8_gdvxp")
+volume_db = -25.082
 
 [node name="thrust_sound_mid" type="AudioStreamPlayer" parent="Thrust_Manager"]
 unique_name_in_owner = true
 stream = ExtResource("9_ohpnd")
-volume_db = -14.071
+volume_db = -24.471
 
 [node name="thrust_sound_end" type="AudioStreamPlayer" parent="Thrust_Manager"]
 unique_name_in_owner = true
 stream = ExtResource("10_kvpty")
+volume_db = -25.082
 
 [connection signal="energy_change" from="." to="hud" method="_on_player_energy_change"]

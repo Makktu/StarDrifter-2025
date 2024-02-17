@@ -20,7 +20,7 @@ func _process(delta):
 func thrust_pressed():
 	if !player_is_thrusting:	
 		player_is_thrusting = true
-		thrust_mid.play()
+		#thrust_mid.play()
 		%thrust_flames.visible = true
 		$thrust_flames.play()
 		thrusting_for += 1
@@ -31,6 +31,6 @@ func thrust_released():
 		player_is_thrusting = false
 		%thrust_sound_start.stop()
 		%thrust_sound_mid.stop()
-		%thrust_sound_end.play()
+		#%thrust_sound_end.play()
 		%thrust_flames.visible = false
 		%thrust_flames.stop()

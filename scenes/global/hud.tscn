@@ -28,6 +28,21 @@ _data = {
 "low_energy": SubResource("Animation_0w6cv")
 }
 
+[sub_resource type="Animation" id="Animation_1aa0v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/VelocityBar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_3l5ys"]
 resource_name = "accel_glow"
 loop_mode = 1
@@ -42,21 +57,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.0509804, 1, 1, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_1aa0v"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/VelocityBar:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xtnuv"]
@@ -154,16 +154,20 @@ nine_patch_stretch = true
 texture_progress = SubResource("GradientTexture2D_30157")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Control/EnergyBar"]
-position = Vector2(3.33333, 298.333)
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(36.6667, 278.333)
 emitting = false
-amount = 13
+amount = 19
+lifetime = 3.0
+speed_scale = 4.2
+explosiveness = 0.04
 emission_shape = 1
-emission_sphere_radius = 21.0
+emission_sphere_radius = 23.4
+direction = Vector2(0, 0)
 gravity = Vector2(0, -10)
 angular_velocity_min = 144.0
 angular_velocity_max = 144.0
-scale_amount_min = 3.0
-scale_amount_max = 3.0
+color = Color(1, 1, 0.0196078, 1)
 
 [node name="VelocityBar" type="TextureProgressBar" parent="Control"]
 unique_name_in_owner = true

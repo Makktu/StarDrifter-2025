@@ -76,10 +76,8 @@ func _physics_process(delta):
 			print("GAME OVER")
 		starting_energy -= 1
 		emit_signal("energy_change", starting_energy)
-
-
-func _on_zoom_out_1_body_entered(body):
-	$Camera2D.zoom_special('zoomout')
-	if !global.alarm_in_progress:
-		global.sound_alarm()
-	
+		
+func camera_special(type):
+	if !type:
+		return
+	$Camera2D.zoom_special(type)

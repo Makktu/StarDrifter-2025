@@ -1,13 +1,11 @@
 extends Node2D
 
+@onready var main_audio_player = $AudioStreamPlayer
 
 var all_music:Array[String]
-
-var current_track = 0
-var maximum_track
-var times_played = 0
-
-@onready var main_audio_player = $AudioStreamPlayer
+var current_track := 0
+var maximum_track := 0
+var times_played := 0
 
 func _ready():
 	for filePath in DirAccess.get_files_at("res://assets/music/bg_music/"):
