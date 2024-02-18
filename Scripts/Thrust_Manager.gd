@@ -18,16 +18,20 @@ func _process(delta):
 	pass
 	
 func thrust_pressed():
+	if thrusting_for == 50:
+		print(thrusting_for)
+		$"../Camera2D".shake_camera(2.2, 2.1)
 	if !player_is_thrusting:	
 		player_is_thrusting = true
 		#thrust_mid.play()
 		%thrust_flames.visible = true
 		$thrust_flames.play()
-		thrusting_for += 1
+	thrusting_for += 1
 	
 
 func thrust_released():
 		thrusting_for = 0
+		$"../Camera2D".thrust_shaking = false
 		player_is_thrusting = false
 		%thrust_sound_start.stop()
 		%thrust_sound_mid.stop()
