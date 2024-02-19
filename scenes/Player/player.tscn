@@ -81,4 +81,13 @@ unique_name_in_owner = true
 stream = ExtResource("10_kvpty")
 volume_db = -25.082
 
+[node name="collision_particles" type="CPUParticles2D" parent="."]
+visible = false
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, 0)
+gravity = Vector2(1, 1)
+angular_velocity_min = 14.12
+angular_velocity_max = 56.47
+
 [connection signal="energy_change" from="." to="hud" method="_on_player_energy_change"]

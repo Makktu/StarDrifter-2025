@@ -3,7 +3,7 @@ extends Node
 @onready var sfx_manager = $sfx_manager
 @onready var bgm_manager = $BGMusicManager
 
-var global_music_on := false
+var global_music_on := true
 
 func _ready():
 	if global_music_on:

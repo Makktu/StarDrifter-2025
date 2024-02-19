@@ -7,7 +7,10 @@ var current_track := 0
 var maximum_track := 0
 var times_played := 0
 
+var special_interrupt := false
+
 func _ready():
+	# load all music in named folder
 	for filePath in DirAccess.get_files_at("res://assets/music/bg_music/"):
 		if filePath.get_extension() != "import":
 			print(filePath)
@@ -20,7 +23,6 @@ func start_bg_music():
 	
 
 func play_next_track():
-	print ('????')
 	main_audio_player.stream = load(all_music[current_track])
 	main_audio_player.play()
 	if current_track < maximum_track:

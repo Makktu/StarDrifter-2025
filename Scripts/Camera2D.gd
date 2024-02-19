@@ -50,6 +50,8 @@ func shake_camera(duration: float, strength: float) -> void:
 	var shake_start_time: float = Time.get_ticks_msec() / 1000.0 # convert to seconds
 	
 	while (Time.get_ticks_msec() / 1000.0) - shake_start_time < duration:
+		if !thrust_shaking:
+			break
 		var x: float = randf_range(-strength, strength)
 		var y: float = randf_range(-strength, strength)
 		global_position = Vector2(x, y) + $"..".global_position

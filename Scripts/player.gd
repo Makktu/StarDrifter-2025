@@ -34,17 +34,16 @@ func _physics_process(delta):
 	
 	$Camera2D.dynamic_zoom(velocity.x, velocity.y)
 	
-	rotation += rotation_direction * rotation_speed * delta		
+	rotation += rotation_direction * rotation_speed * delta	
+		
+	# =================================#
+	# collision check with environment # 
+	# =================================#	
 	var collided := move_and_collide(velocity * delta)
 	if collided and not get_floor_normal():
-		#var slide_direction := get_last_slide_collision().get_normal()
-		velocity = velocity.bounce(collided.get_normal())
-		if rotation_direction == 1:
-			rotation_direction = -1
-		elif rotation_direction == -1:
-			rotation_direction = 1
-		else:
-			rotation_direction = 1
+		handle_collision(collided)
+		
+	# =================================#
 
 	input_vector.x = Input.get_action_strength("Thrust")
 	
@@ -68,14 +67,24 @@ func _physics_process(delta):
 		energy_warning_shown = true
 		$hud.show_warning()
 		
-	for index in get_slide_collision_count():
-		var collision = get_slide_collision(index)
-		var body := collision.get_collider()
-		collided_with = body.name.left(5)
-		if collided_with == 'World':
-			print("GAME OVER")
-		starting_energy -= 1
-		emit_signal("energy_change", starting_energy)
+		
+func handle_collision(collided):
+	velocity = velocity.bounce(collided.get_normal())
+	var collision_rotation_penalty: int = 1
+	if velocity.x + velocity.y > 70 or velocity.x + velocity.y < -70 :
+		collision_rotation_penalty = 2
+		print("HEAVY", velocity.x + velocity.y, " - ", collision_rotation_penalty)
+	else:
+		print("LIGHT", velocity.x + velocity.y, " - ", collision_rotation_penalty)
+		
+	if rotation_direction == 1:
+		rotation_direction = -collision_rotation_penalty
+	elif rotation_direction == -1:
+		rotation_direction = collision_rotation_penalty
+	else:
+		rotation_direction = collision_rotation_penalty
+	
+		
 		
 func camera_special(type):
 	if !type:
