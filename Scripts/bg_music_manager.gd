@@ -7,8 +7,6 @@ var current_track := 0
 var maximum_track := 0
 var times_played := 0
 
-var special_interrupt := false
-
 func _ready():
 	# load all music in named folder
 	for filePath in DirAccess.get_files_at("res://assets/music/bg_music/"):
@@ -49,3 +47,10 @@ func _on_audio_stream_player_finished():
 func _on_bg_music_timer_timeout():
 	play_next_track()
 # +++++++++++++++++++++++++++++++++++++++
+
+func special_interrupt(on_or_off = 'on'):
+	# to be called whenever the player triggers an sfx-level alarm or mood music
+	if on_or_off == 'off':
+		main_audio_player.stop()
+	else:
+		start_bg_music()

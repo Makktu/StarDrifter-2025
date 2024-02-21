@@ -22,6 +22,8 @@ func sound_alarm():
 	if alarm_duration == 0:
 		alarm_duration = 3
 		alarm_in_progress = false
+		$"..".toggle_bgm('on')
+		$"..".alarm_triggered = false		
 		return
 	# stop any background music playing
 	threats.play()

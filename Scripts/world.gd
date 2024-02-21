@@ -12,5 +12,13 @@ func _process(delta):
 	pass
 
 func _on_zoom_out_1_body_entered(body):
+	print(body.name)
+	if body.name != 'Player':
+		return
+	if global.alarm_triggered:
+		return
+	global.alarm_triggered = true
 	player.camera_special('zoomout')
+	global.toggle_bgm('off')
 	global.sound_alarm()
+	

@@ -55,6 +55,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("4_r8xa3")
 
 [node name="space_station" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
-modulate = Color(0.321569, 0.729412, 0.270588, 1)
-position = Vector2(1190, 3450)
+modulate = Color(0.133333, 0.321569, 0.109804, 1)
+position = Vector2(746, 3982)
+scale = Vector2(3, 3)
 texture = ExtResource("4_6gx5r")

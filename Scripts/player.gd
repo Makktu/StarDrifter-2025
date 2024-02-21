@@ -9,6 +9,12 @@ extends CharacterBody2D
 
 signal energy_change
 
+# =============== SHOOTING
+const bullet = preload("res://scenes/bullet.tscn")
+var player_is_shooting := false
+var firing_points := 2
+# ========================
+
 var input_vector : Vector2
 var rotation_direction: int
 
@@ -27,6 +33,13 @@ func _physics_process(delta):
 		rotation_direction += 1
 	if Input.is_action_just_released("Left") or Input.is_action_just_released("Right"):
 		rotation_direction = 0
+		
+	if Input.is_action_pressed("shoot") and !player_is_shooting:
+		player_is_shooting = true
+		shoot_bullets()
+		
+	if Input.is_action_just_released("shoot"):
+		player_is_shooting = false
 		
 	velocity += Vector2(input_vector.x * acceleration * delta, 0).rotated(rotation)
 	velocity.x = clamp(velocity.x, -max_speed, max_speed)
@@ -90,3 +103,16 @@ func camera_special(type):
 	if !type:
 		return
 	$Camera2D.zoom_special(type)
+	
+	
+func shoot_bullets():
+	var fired := 0
+	for n in $firing_points.get_children():
+		if firing_points == 2 and fired == 0:
+			fired += 1
+			continue
+		var bullet_instance = bullet.instantiate()
+		bullet_instance.global_position = n.global_position
+		bullet_instance.global_rotation_degrees = rotation_degrees - 90
+		get_parent().add_child(bullet_instance)
+		fired += 1

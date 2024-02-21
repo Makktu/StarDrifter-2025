@@ -46,6 +46,7 @@ scale = Vector2(0.2, 0.2)
 
 [node name="ZoomOut1" type="Area2D" parent="."]
 position = Vector2(1617, 7659)
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoomOut1"]
 rotation = -0.654716
