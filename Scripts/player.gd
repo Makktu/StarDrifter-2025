@@ -106,13 +106,8 @@ func camera_special(type):
 	
 	
 func shoot_bullets():
-	var fired := 0
 	for n in $firing_points.get_children():
-		if firing_points == 2 and fired == 0:
-			fired += 1
-			continue
 		var bullet_instance = bullet.instantiate()
 		bullet_instance.global_position = n.global_position
-		bullet_instance.global_rotation_degrees = rotation_degrees - 90
+		bullet_instance.rotation_degrees = n.global_rotation_degrees - 90
 		get_parent().add_child(bullet_instance)
-		fired += 1

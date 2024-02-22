@@ -1,14 +1,14 @@
-extends CharacterBody2D
+extends StaticBody2D
 
 @onready var explosion_frames = $explosion
 
 var speed = 250
 var exploded_again := false
 
+var velocity = Vector2(0, speed)
+
 func _ready():
-	velocity = Vector2(0, speed)
 	velocity = velocity.rotated(deg_to_rad(global_rotation_degrees))
-	
 	
 func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)
