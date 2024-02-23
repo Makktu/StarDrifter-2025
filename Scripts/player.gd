@@ -6,13 +6,16 @@ extends CharacterBody2D
 @onready var rotation_speed = 5 #6
 @onready var starting_energy = 100
 @onready var global = $/root/Global
+@onready var colliding_effect = $collision_particles
 
 signal energy_change
+
+
 
 # =============== SHOOTING
 const bullet = preload("res://scenes/bullet.tscn")
 var player_is_shooting := false
-var firing_points := 2
+var firing_points := 3 # start only able to shoot from tip of craft
 # ========================
 
 var input_vector : Vector2
@@ -82,6 +85,7 @@ func _physics_process(delta):
 		
 		
 func handle_collision(collided):
+	show_collision_particles()
 	velocity = velocity.bounce(collided.get_normal())
 	var collision_rotation_penalty: int = 1
 	if velocity.x + velocity.y > 70 or velocity.x + velocity.y < -70 :
@@ -96,9 +100,12 @@ func handle_collision(collided):
 		rotation_direction = collision_rotation_penalty
 	else:
 		rotation_direction = collision_rotation_penalty
+
 	
-		
-		
+func show_collision_particles():
+	colliding_effect.emitting = true
+	$Camera2D.shake_camera(2, 6.1, 'collision')
+			
 func camera_special(type):
 	if !type:
 		return
@@ -106,8 +113,16 @@ func camera_special(type):
 	
 	
 func shoot_bullets():
+	var times_fired = 0
 	for n in $firing_points.get_children():
+		if times_fired == 0 and firing_points == 2: # skip firing from tip if firing points is 2
+			times_fired += 1
+			continue
 		var bullet_instance = bullet.instantiate()
 		bullet_instance.global_position = n.global_position
 		bullet_instance.rotation_degrees = n.global_rotation_degrees - 90
 		get_parent().add_child(bullet_instance)
+		times_fired += 1
+		if (times_fired == firing_points) and firing_points == 1:
+			break
+

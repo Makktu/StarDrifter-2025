@@ -44,13 +44,10 @@ func randomShakeOffset() -> Vector2:
 	return Vector2(shakeRng.randf_range(-shake_strength, shake_strength), shakeRng.randf_range(-shake_strength, shake_strength))
 	
 
-func shake_camera(duration: float, strength: float) -> void:
-	#var original_position: Vector2 = global_position
-	
+func shake_camera(duration: float, strength: float, special_shake: String = '') -> void:
 	var shake_start_time: float = Time.get_ticks_msec() / 1000.0 # convert to seconds
-	
 	while (Time.get_ticks_msec() / 1000.0) - shake_start_time < duration:
-		if !thrust_shaking:
+		if !thrust_shaking and not special_shake:
 			break
 		var x: float = randf_range(-strength, strength)
 		var y: float = randf_range(-strength, strength)
