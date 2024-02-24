@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs10diur0kq34"]
+
+[ext_resource type="Script" path="res://Scripts/enemy1.gd" id="1_nlb7w"]
+[ext_resource type="Texture2D" uid="uid://0ywh2cd0sux1" path="res://assets/graphics/enemy1_mine1.png" id="2_o6l0j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qf45v"]
+size = Vector2(53, 51)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6wb6x"]
+radius = 30.0
+
+[node name="enemy1" type="CharacterBody2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_nlb7w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_o6l0j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_qf45v")
+
+[node name="detect_bullets" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect_bullets"]
+shape = SubResource("CircleShape2D_6wb6x")
+
+[connection signal="body_entered" from="detect_bullets" to="." method="_on_detect_bullets_body_entered"]

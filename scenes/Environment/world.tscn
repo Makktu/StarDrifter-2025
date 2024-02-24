@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cy8am7rjugpas"]
+[gd_scene load_steps=8 format=3 uid="uid://cy8am7rjugpas"]
 
 [ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/Environment/parallax_background.tscn" id="1_me2wf"]
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_vgc64"]
 [ext_resource type="Texture2D" uid="uid://bywmpymmij67o" path="res://assets/graphics/Stage_7_TUES_5.png" id="2_5x27x"]
 [ext_resource type="PackedScene" uid="uid://b2360ojxsegcj" path="res://scenes/Player/player.tscn" id="2_rymwd"]
 [ext_resource type="PackedScene" uid="uid://cb7cr333x0uvh" path="res://scenes/emplacement.tscn" id="4_xd4ik"]
+[ext_resource type="PackedScene" uid="uid://cph3l0chuxd5s" path="res://scenes/enemies/enemy_spawner.tscn" id="6_t677g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7c45v"]
 size = Vector2(43.1699, 89)
@@ -40,7 +41,7 @@ polygon = PackedVector2Array(-2854, -1249.4, -2854, -1245.6, -2866.6, -1241, -28
 
 [node name="Player" parent="." instance=ExtResource("2_rymwd")]
 modulate = Color(0.282353, 1, 0.317647, 1)
-position = Vector2(1770, 8054)
+position = Vector2(1153, 9181)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)
 
@@ -70,5 +71,8 @@ modulate = Color(0.960784, 0.192157, 0.243137, 1)
 position = Vector2(1632, 7765)
 rotation = -2.11378
 scale = Vector2(0.5, 0.5)
+
+[node name="enemy_spawner" parent="." instance=ExtResource("6_t677g")]
+position = Vector2(1870, 9349)
 
 [connection signal="body_entered" from="ZoomOut1" to="." method="_on_zoom_out_1_body_entered"]

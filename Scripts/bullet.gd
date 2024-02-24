@@ -20,8 +20,8 @@ func _physics_process(delta):
 		explosion_frames.scale.y += tweak_scale
 		explosion_frames.play("explode")
 		#velocity = velocity.bounce(collision_info.get_normal())
-		#var collided_with = collision_info
-		#print(collided_with)
+		var collided_with = collision_info
+		print(collided_with)
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

@@ -13,7 +13,7 @@ signal energy_change
 
 
 # =============== SHOOTING
-const bullet = preload("res://scenes/bullet.tscn")
+const bullet = preload("res://scenes/Player/bullet.tscn")
 var player_is_shooting := false
 var firing_points := 3 # start only able to shoot from tip of craft
 # ========================
@@ -88,12 +88,6 @@ func handle_collision(collided):
 	show_collision_particles()
 	velocity = velocity.bounce(collided.get_normal())
 	var collision_rotation_penalty: int = 1
-	if velocity.x + velocity.y > 70 or velocity.x + velocity.y < -70 :
-		collision_rotation_penalty = 2
-		print("HEAVY", velocity.x + velocity.y, " - ", collision_rotation_penalty)
-	else:
-		print("LIGHT", velocity.x + velocity.y, " - ", collision_rotation_penalty)
-		
 	if rotation_direction == 1:
 		rotation_direction = -collision_rotation_penalty
 	elif rotation_direction == -1:

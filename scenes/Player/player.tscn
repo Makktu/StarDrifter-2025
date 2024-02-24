@@ -29,7 +29,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 4
 script = ExtResource("1_2n4p6")
 
@@ -85,7 +85,7 @@ volume_db = -25.082
 [node name="collision_particles" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 80
-lifetime = 8.0
+lifetime = 12.0
 one_shot = true
 speed_scale = 5.39
 explosiveness = 1.0
@@ -99,6 +99,9 @@ initial_velocity_max = 147.06
 angular_velocity_min = 14.12
 angular_velocity_max = 56.47
 scale_amount_max = 2.0
+color = Color(0, 0.866667, 0.0235294, 1)
+hue_variation_min = 0.01
+hue_variation_max = 0.19
 
 [node name="firing_points" type="Node2D" parent="."]
 
