@@ -75,4 +75,13 @@ scale = Vector2(0.5, 0.5)
 [node name="enemy_spawner" parent="." instance=ExtResource("6_t677g")]
 position = Vector2(1870, 9349)
 
+[node name="enemy_spawner2" parent="." instance=ExtResource("6_t677g")]
+position = Vector2(1069, 7228)
+
+[node name="enemy_spawner3" parent="." instance=ExtResource("6_t677g")]
+position = Vector2(2100, 2629)
+
+[node name="enemy_spawner4" parent="." instance=ExtResource("6_t677g")]
+position = Vector2(2893, 7780)
+
 [connection signal="body_entered" from="ZoomOut1" to="." method="_on_zoom_out_1_body_entered"]

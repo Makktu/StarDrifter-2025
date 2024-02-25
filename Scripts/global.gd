@@ -7,6 +7,10 @@ var global_music_on := true
 
 var alarm_triggered := false
 
+# monitor and control how many basic enemies
+# exist in game world – for performance and gameplay
+var enemy_basic_in_world = 0 
+
 func _ready():
 	if global_music_on:
 		bgm_manager.start_bg_music()

@@ -14,7 +14,7 @@ signal energy_change
 
 # =============== SHOOTING
 const bullet = preload("res://scenes/Player/bullet.tscn")
-var player_is_shooting := false
+var player_is_shooting := false # toggle to prevent continuous fire
 var firing_points := 3 # start only able to shoot from tip of craft
 # ========================
 

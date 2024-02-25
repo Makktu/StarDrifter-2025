@@ -11,7 +11,12 @@ func add_new_enemy():
 	var enemy_instance = enemy_basic.instantiate()
 	add_child(enemy_instance)
 	amount_spawned += 1
+	$Timer.start()
 
 func _on_timer_timeout():
-	if amount_spawned < 20:
+	if $"/root/Global".enemy_basic_in_world < 100:
+		$"/root/Global".enemy_basic_in_world += 1
 		add_new_enemy()
+	else:
+		$Timer.start()
+		

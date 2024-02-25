@@ -19,9 +19,6 @@ func _physics_process(delta):
 		explosion_frames.scale.x += tweak_scale
 		explosion_frames.scale.y += tweak_scale
 		explosion_frames.play("explode")
-		#velocity = velocity.bounce(collision_info.get_normal())
-		var collided_with = collision_info
-		print(collided_with)
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
@@ -29,9 +26,10 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 
 func _on_explosion_animation_finished():
+	# randomly have an extra explosion
 	if !exploded_again:
 		if $"/root/Global".random_float_number(1, 5) > 2.5:
 			explosion_frames.play("explode")
-			print('exploded again?')
 			exploded_again = true
+	# finally, remove bullet from world
 	queue_free()
