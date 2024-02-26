@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://b47pdejejhyjn"]
 
-[ext_resource type="Texture2D" uid="uid://ctfroiv5s6ons" path="res://assets/graphics/velocity.png" id="1_ogl4b"]
-[ext_resource type="Script" path="res://scripts/hud.gd" id="1_t4t8u"]
-[ext_resource type="Texture2D" uid="uid://c6vq4r28abfhm" path="res://assets/graphics/Warning.png" id="2_dgchh"]
-[ext_resource type="Texture2D" uid="uid://5heeei0wju4k" path="res://assets/graphics/Energy.png" id="3_u7wf2"]
+[ext_resource type="Script" path="res://scenes/global/hud.gd" id="1_udwwf"]
+[ext_resource type="Texture2D" uid="uid://ctfroiv5s6ons" path="res://scenes/Environment/velocity.png" id="2_n1lnp"]
+[ext_resource type="Texture2D" uid="uid://5heeei0wju4k" path="res://scenes/Environment/Energy.png" id="3_k7rqn"]
+[ext_resource type="Texture2D" uid="uid://c6vq4r28abfhm" path="res://scenes/Environment/Warning.png" id="4_6ca42"]
 
 [sub_resource type="Gradient" id="Gradient_x6rqy"]
 offsets = PackedFloat32Array(0, 0.236567, 1)
@@ -66,12 +66,12 @@ _data = {
 }
 
 [node name="hud" type="CanvasLayer"]
-script = ExtResource("1_t4t8u")
+script = ExtResource("1_udwwf")
 
 [node name="velocity" type="Sprite2D" parent="."]
 position = Vector2(54, 363)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_ogl4b")
+texture = ExtResource("2_n1lnp")
 
 [node name="Label" type="Label" parent="velocity"]
 offset_left = -455.0
@@ -85,7 +85,7 @@ text = "100000
 [node name="energy" type="Sprite2D" parent="."]
 position = Vector2(44, 323)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_u7wf2")
+texture = ExtResource("3_k7rqn")
 
 [node name="Label" type="Label" parent="energy"]
 offset_left = -353.333
@@ -98,7 +98,7 @@ text = "300421"
 [node name="velocity2" type="Sprite2D" parent="."]
 position = Vector2(672, 368)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_ogl4b")
+texture = ExtResource("2_n1lnp")
 
 [node name="Label" type="Label" parent="velocity2"]
 offset_left = -455.0
@@ -113,7 +113,7 @@ horizontal_alignment = 2
 [node name="energy2" type="Sprite2D" parent="."]
 position = Vector2(680, 325)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_u7wf2")
+texture = ExtResource("3_k7rqn")
 
 [node name="Label" type="Label" parent="energy2"]
 offset_left = -353.333
@@ -129,7 +129,7 @@ visible = false
 modulate = Color(1, 0.00784314, 0.00784314, 1)
 position = Vector2(349, 330)
 scale = Vector2(0.199999, 0.119999)
-texture = ExtResource("2_dgchh")
+texture = ExtResource("4_6ca42")
 
 [node name="WarningTimer" type="Timer" parent="."]
 wait_time = 2.0

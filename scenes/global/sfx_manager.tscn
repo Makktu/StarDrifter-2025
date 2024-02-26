@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://crn06a5a2hfrt"]
 
 [ext_resource type="AudioStream" uid="uid://dqxbi8qyxc7le" path="res://assets/sfx/alert1.wav" id="1_6lyu7"]
-[ext_resource type="Script" path="res://scripts/sfx_manager.gd" id="1_vhvf0"]
+[ext_resource type="Script" path="res://scenes/global/sfx_manager.gd" id="1_vhvf0"]
 [ext_resource type="AudioStream" uid="uid://c1045lxnmkssv" path="res://assets/sfx/threat2.ogg" id="3_h1gfo"]
 
 [node name="sfx_manager" type="Node2D"]
