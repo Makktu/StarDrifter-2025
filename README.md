@@ -1,13 +1,26 @@
-# SpaceLander2D
+# SpaceLander2D (2024)
 
-### 19 January 2024
+A 2D game for mobile. Distantly inspired by the 1970s arcade classic LUNAR LANDER.
 
-Ok. This time.
+Fly your spaceship through a hostile environment to the landing pad.
 
-### 25 January 2024
+The spaceship is equipped with limited Energy and will have to constantly resupply en route.
 
-Slowly adding back the things that were in the Godot3 build, without the spaghetti code and organisation.
+Pickups come in the form of enhanced weaponry and other items.
 
-Refined the movement. Added a dynamic camera that zooms out when player is flying at speed and zooms in close when player is flying slowly. Added a first draft of parallax starry backgroud(s). Not happy with the images at this stage.
+# Enemies
 
-Inserted 3x size world by reusing the same image for each section of the world, but rotated 90/180 degrees.
+All enemies emerge from portals at certain locations around the map 
+
+### SPACEMINE
+
+![spacemine_enemy](https://github.com/Makktu/SpaceLander2D-2024-/blob/main/scenes/enemies/enemy_assets/enemy1_mine1.png)
+
+- a slow, floating, rotating mine that homes in on the player
+- rotates progressively faster as it nears the player; will abruptly speed up at the last and explode on contact
+- causes -10 Energy Loss to player caught in its explosion
+- **does not path-find**; will tend to get snagged on environment scenery and then all emerge at once
+- on their own and in small groups can be easily evaded/destroyed, but can accumulate in large groups that can overwhelm a careless player
+- lifespan of 40 seconds off-screen.
+- maximum of 100 active on the map at any one time; as one expires or is destroyed, another spawns somewhere (randomly)
+
