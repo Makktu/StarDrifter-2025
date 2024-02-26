@@ -1,12 +1,33 @@
 # SpaceLander2D (2024)
 
-A 2D game for mobile. Distantly inspired by the 1970s arcade classic LUNAR LANDER.
+A 2D game for mobile. Developed on the Godot 4 engine. Distantly inspired by the 1970s arcade classic LUNAR LANDER.
 
 Fly your spaceship through a hostile environment to the landing pad.
 
 The spaceship is equipped with limited Energy and will have to constantly resupply en route.
 
 Pickups come in the form of enhanced weaponry and other items.
+
+___
+
+# To test the project
+
+In Godot 4, navigate in the project folder to 'project.godot' and open it.
+
+___
+
+# Controls (Desktop only – Mobile touchscreen: TBD)
+
+⬆️  – Thrust
+
+⬅️  – Rotate left
+
+➡️  – Rotate right
+
+SPACEBAR – Fire
+
+
+___
 
 # Enemies
 
