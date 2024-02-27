@@ -4,8 +4,8 @@ extends Node
 @onready var bgm_manager = $BGMusicManager
 
 var global_music_on := true
-
 var alarm_triggered := false
+var smart_bomb_active = false
 
 # monitor and control how many basic enemies
 # exist in game world – for performance and gameplay

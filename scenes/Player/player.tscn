@@ -114,4 +114,8 @@ position = Vector2(-21, -30)
 [node name="firing_point_right" type="Node2D" parent="firing_points"]
 position = Vector2(-22, 30)
 
+[node name="SmartbombTimer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="energy_change" from="." to="hud" method="_on_player_energy_change"]
+[connection signal="timeout" from="SmartbombTimer" to="." method="_on_smartbomb_timer_timeout"]

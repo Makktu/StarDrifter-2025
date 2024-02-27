@@ -1,17 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvl3pvifd1l2h"]
+[gd_scene load_steps=6 format=3 uid="uid://dvl3pvifd1l2h"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy_portal.gd" id="1_hgpp5"]
+
+[sub_resource type="Gradient" id="Gradient_6xry4"]
+colors = PackedColorArray(1, 0.611733, 0.553376, 1, 0.373538, 0.568566, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_23k4r"]
+gradient = SubResource("Gradient_6xry4")
+width = 4
+height = 4
+
+[sub_resource type="Gradient" id="Gradient_j73dw"]
+colors = PackedColorArray(0, 0.917647, 0, 1, 0.912626, 0.943891, 0.997185, 1)
+
+[sub_resource type="Gradient" id="Gradient_y74ob"]
+colors = PackedColorArray(1.49657e-07, 0.104482, 1.14311e-07, 1, 0.0117647, 0.870588, 0.211765, 1)
 
 [node name="enemy_portal" type="Node2D"]
 script = ExtResource("1_hgpp5")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 1200
+amount = 1500
 lifetime = 0.3
 speed_scale = 2.56
+texture = SubResource("GradientTexture2D_23k4r")
 emission_shape = 1
-emission_sphere_radius = 66.37
+emission_sphere_radius = 96.0
+particle_flag_align_y = true
 direction = Vector2(0, 0)
 spread = 0.0
 gravity = Vector2(0, 0)
@@ -19,9 +35,11 @@ radial_accel_min = 47.06
 radial_accel_max = 86.28
 scale_amount_max = 2.0
 color = Color(1, 1, 0.113725, 1)
-hue_variation_min = 0.72
+color_ramp = SubResource("Gradient_j73dw")
+color_initial_ramp = SubResource("Gradient_y74ob")
+hue_variation_min = -0.52
 hue_variation_max = 0.72
-anim_speed_max = 42.38
+anim_speed_max = 45.84
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(13.5, 7.50001)

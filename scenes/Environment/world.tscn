@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cy8am7rjugpas"]
 
 [ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/Environment/parallax_background.tscn" id="1_me2wf"]
-[ext_resource type="Script" path="res://Scripts/world.gd" id="1_vgc64"]
+[ext_resource type="Script" path="res://scenes/Environment/world.gd" id="1_vgc64"]
 [ext_resource type="Texture2D" uid="uid://bywmpymmij67o" path="res://scenes/Environment/env_graphics/Stage_7_TUES_5.png" id="2_5x27x"]
 [ext_resource type="PackedScene" uid="uid://b2360ojxsegcj" path="res://scenes/Player/player.tscn" id="2_rymwd"]
 [ext_resource type="PackedScene" uid="uid://cb7cr333x0uvh" path="res://scenes/Environment/emplacement.tscn" id="4_xd4ik"]

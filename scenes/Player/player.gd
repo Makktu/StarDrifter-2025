@@ -10,12 +10,11 @@ extends CharacterBody2D
 
 signal energy_change
 
-
-
 # =============== SHOOTING
 const bullet = preload("res://scenes/Player/bullet/bullet.tscn")
 var player_is_shooting := false # toggle to prevent continuous fire
-var firing_points := 3 # start only able to shoot from tip of craft
+var firing_points := 1 # start only able to shoot from tip of craft
+var smart_bomb_equipped = true
 # ========================
 
 var input_vector : Vector2
@@ -43,6 +42,13 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_released("shoot"):
 		player_is_shooting = false
+	
+	# smartbomb deployment
+	if Input.is_action_just_pressed("Up") and smart_bomb_equipped:
+		global.smart_bomb_active = true
+		smart_bomb_equipped = false
+		$SmartbombTimer.start()
+		 
 		
 	velocity += Vector2(input_vector.x * acceleration * delta, 0).rotated(rotation)
 	velocity.x = clamp(velocity.x, -max_speed, max_speed)
@@ -120,3 +126,7 @@ func shoot_bullets():
 		if (times_fired == firing_points) and firing_points == 1:
 			break
 
+
+
+func _on_smartbomb_timer_timeout():
+	global.smart_bomb_active = false
