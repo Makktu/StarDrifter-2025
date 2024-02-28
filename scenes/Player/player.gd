@@ -13,8 +13,7 @@ signal energy_change
 # =============== SHOOTING
 const bullet = preload("res://scenes/Player/bullet/bullet.tscn")
 var player_is_shooting := false # toggle to prevent continuous fire
-var firing_points := 1 # start only able to shoot from tip of craft
-var smart_bomb_equipped = true
+var firing_points := 2 # start only able to shoot from tip of craft
 # ========================
 
 var input_vector : Vector2
@@ -44,9 +43,9 @@ func _physics_process(delta):
 		player_is_shooting = false
 	
 	# smartbomb deployment
-	if Input.is_action_just_pressed("Up") and smart_bomb_equipped:
+	if Input.is_action_just_pressed("Up") and global.smart_bomb_equipped:
 		global.smart_bomb_active = true
-		smart_bomb_equipped = false
+		global.smart_bomb_equipped = false
 		$SmartbombTimer.start()
 		 
 		
