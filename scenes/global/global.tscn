@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://crn06a5a2hfrt" path="res://scenes/global/sfx_manager.tscn" id="3_v3e6l"]
 
 [node name="Global" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_7dcjs")
 
 [node name="BGMusicManager" parent="." instance=ExtResource("2_8gu2u")]

@@ -63,3 +63,38 @@ func _on_player_energy_change(energy):
 	if energy > 15 and energy_is_low:
 		energy_is_low = false
 		%LowEnergy.play("RESET")
+
+
+func _on_pause_button_pressed():
+	if $"/root/Global".game_paused == false:
+		$"/root/Global".game_paused = true
+		$developer_pause.visible = true
+		get_tree().paused = true
+	else:
+		$"/root/Global".game_paused = false
+		$developer_pause.visible = false
+		get_tree().paused = false
+
+func _on_resume_pressed():
+	_on_pause_button_pressed()
+
+
+func _on_music_pressed():
+	if $"/root/Global".global_music_on:
+		$"/root/Global".toggle_bgm('off')
+		$"/root/Global".global_music_on = false
+	else:
+		$"/root/Global".toggle_bgm('on')
+		$"/root/Global".global_music_on = true
+
+
+func _on_damage_pressed():
+	pass # Replace with function body.
+
+
+func _on_enemies_pressed():
+	pass # Replace with function body.
+
+
+func _on_bullets_pressed():
+	pass # Replace with function body.

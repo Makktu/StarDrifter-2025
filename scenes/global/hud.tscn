@@ -66,6 +66,7 @@ _data = {
 }
 
 [node name="hud" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_udwwf")
 
 [node name="velocity" type="Sprite2D" parent="."]
@@ -187,9 +188,77 @@ libraries = {
 "": SubResource("AnimationLibrary_5u0p3")
 }
 
+[node name="PauseButton" type="Button" parent="Control"]
+process_mode = 3
+layout_mode = 0
+offset_left = 622.0
+offset_top = 8.0
+offset_right = 681.0
+offset_bottom = 39.0
+scale = Vector2(1.52, 1.16)
+focus_mode = 0
+text = "PAUSE"
+
 [node name="acceleration_animation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_xtnuv")
 }
 
+[node name="developer_pause" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 191.0
+offset_top = 545.0
+offset_right = 231.0
+offset_bottom = 585.0
+
+[node name="Label" type="Label" parent="developer_pause"]
+layout_mode = 0
+offset_top = -27.0
+offset_right = 40.0
+offset_bottom = -4.0
+text = "Tap to toggle"
+
+[node name="Resume" type="Button" parent="developer_pause"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 31.0
+text = "[Resume]"
+
+[node name="Music" type="Button" parent="developer_pause"]
+layout_mode = 0
+offset_top = 36.0
+offset_right = 99.0
+offset_bottom = 67.0
+text = "Music is ON"
+
+[node name="Damage" type="Button" parent="developer_pause"]
+layout_mode = 0
+offset_top = 71.0
+offset_right = 99.0
+offset_bottom = 102.0
+text = "Damage is ON"
+
+[node name="Enemies" type="Button" parent="developer_pause"]
+layout_mode = 0
+offset_top = 107.0
+offset_right = 118.0
+offset_bottom = 138.0
+text = "Enemies are ON"
+
+[node name="Bullets" type="Button" parent="developer_pause"]
+layout_mode = 0
+offset_top = 143.0
+offset_right = 132.0
+offset_bottom = 174.0
+text = "Firing Bullets: 1"
+alignment = 0
+
 [connection signal="timeout" from="WarningTimer" to="." method="_on_warning_timer_timeout"]
+[connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="developer_pause/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="developer_pause/Music" to="." method="_on_music_pressed"]
+[connection signal="pressed" from="developer_pause/Damage" to="." method="_on_damage_pressed"]
+[connection signal="pressed" from="developer_pause/Enemies" to="." method="_on_enemies_pressed"]
+[connection signal="pressed" from="developer_pause/Bullets" to="." method="_on_bullets_pressed"]
