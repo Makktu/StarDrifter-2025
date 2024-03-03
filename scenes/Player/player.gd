@@ -13,7 +13,7 @@ signal energy_change
 # =============== SHOOTING
 const bullet = preload("res://scenes/Player/bullet/bullet.tscn")
 var player_is_shooting := false # toggle to prevent continuous fire
-var firing_points := 2 # start only able to shoot from tip of craft
+@onready var firing_points = global.player_bullets_can_be_fired # start only able to shoot from tip of craft
 # ========================
 
 var input_vector : Vector2
@@ -87,6 +87,9 @@ func _physics_process(delta):
 	if starting_energy < 9500 and !energy_warning_shown:
 		energy_warning_shown = true
 		$hud.show_warning()
+		
+	if firing_points != global.player_bullets_can_be_fired:
+		firing_points = global.player_bullets_can_be_fired
 		
 		
 func handle_collision(collided):

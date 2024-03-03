@@ -83,18 +83,35 @@ func _on_music_pressed():
 	if $"/root/Global".global_music_on:
 		$"/root/Global".toggle_bgm('off')
 		$"/root/Global".global_music_on = false
+		$developer_pause/Music.text = 'Music is OFF'
 	else:
 		$"/root/Global".toggle_bgm('on')
 		$"/root/Global".global_music_on = true
+		$developer_pause/Music.text = 'Music is ON'
 
 
 func _on_damage_pressed():
-	pass # Replace with function body.
+	if $"/root/Global".dev_damage_on:
+		$"/root/Global".dev_damage_on = false
+		$developer_pause/Damage.text = 'Damage is OFF'
+	else:
+		$"/root/Global".dev_damage_on = true
+		$developer_pause/Damage.text = 'Damage is ON'
+		
 
 
 func _on_enemies_pressed():
-	pass # Replace with function body.
+	if $"/root/Global".dev_enemies_on:
+		$"/root/Global".dev_enemies_on = false
+		$developer_pause/Enemies.text = 'Enemies are OFF'
+	else:
+		$"/root/Global".dev_enemies_on = true
+		$developer_pause/Enemies.text = 'Enemies are ON'
 
 
 func _on_bullets_pressed():
-	pass # Replace with function body.
+	if $"/root/Global".player_bullets_can_be_fired < 3:
+		$"/root/Global".player_bullets_can_be_fired += 1
+	else:
+		$"/root/Global".player_bullets_can_be_fired = 1
+	$developer_pause/Bullets.text = 'Firing Bullets: ' + str($"/root/Global".player_bullets_can_be_fired)
