@@ -205,6 +205,7 @@ libraries = {
 }
 
 [node name="developer_pause" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 191.0
@@ -254,6 +255,22 @@ offset_bottom = 174.0
 text = "Firing Bullets: 1"
 alignment = 0
 
+[node name="Screenshake" type="Button" parent="developer_pause"]
+layout_mode = 0
+offset_top = 177.0
+offset_right = 157.0
+offset_bottom = 208.0
+text = "Screen Shake is ON"
+alignment = 0
+
+[node name="Continue" type="Button" parent="developer_pause"]
+layout_mode = 0
+offset_top = 211.0
+offset_right = 157.0
+offset_bottom = 242.0
+text = "Continue with max energy restored"
+alignment = 0
+
 [connection signal="timeout" from="WarningTimer" to="." method="_on_warning_timer_timeout"]
 [connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="developer_pause/Resume" to="." method="_on_resume_pressed"]
@@ -261,3 +278,5 @@ alignment = 0
 [connection signal="pressed" from="developer_pause/Damage" to="." method="_on_damage_pressed"]
 [connection signal="pressed" from="developer_pause/Enemies" to="." method="_on_enemies_pressed"]
 [connection signal="pressed" from="developer_pause/Bullets" to="." method="_on_bullets_pressed"]
+[connection signal="pressed" from="developer_pause/Screenshake" to="." method="_on_screenshake_pressed"]
+[connection signal="pressed" from="developer_pause/Continue" to="." method="_on_continue_pressed"]

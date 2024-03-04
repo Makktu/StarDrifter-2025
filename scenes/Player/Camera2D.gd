@@ -45,6 +45,8 @@ func randomShakeOffset() -> Vector2:
 	
 
 func shake_camera(duration: float, strength: float, special_shake: String = '') -> void:
+	if !$"/root/Global".dev_screenshake_on:
+		return
 	var shake_start_time: float = Time.get_ticks_msec() / 1000.0 # convert to seconds
 	while (Time.get_ticks_msec() / 1000.0) - shake_start_time < duration:
 		if !thrust_shaking and not special_shake:

@@ -65,9 +65,14 @@ func _on_player_energy_change(energy):
 		%LowEnergy.play("RESET")
 
 
-func _on_pause_button_pressed():
+func _on_pause_button_pressed(is_game_over = false):
+	if is_game_over:
+		$"/root/Global".game_paused = false # will cause game to pause at next step
 	if $"/root/Global".game_paused == false:
 		$"/root/Global".game_paused = true
+		# put game over menu in here and link to various
+		if is_game_over:
+			print('GAME OVER')
 		$developer_pause.visible = true
 		get_tree().paused = true
 	else:
@@ -115,3 +120,19 @@ func _on_bullets_pressed():
 	else:
 		$"/root/Global".player_bullets_can_be_fired = 1
 	$developer_pause/Bullets.text = 'Firing Bullets: ' + str($"/root/Global".player_bullets_can_be_fired)
+
+
+func _on_screenshake_pressed():
+	if $"/root/Global".dev_screenshake_on:
+		$"/root/Global".dev_screenshake_on = false
+		$developer_pause/Screenshake.text = 'Screen Shake is OFF'
+	else:
+		$"/root/Global".dev_screenshake_on = true
+		$developer_pause/Screenshake.text = 'Screen Shake is ON'
+
+
+func _on_continue_pressed():
+	$"/root/Global".player_energy = 100
+	$"/root/Global".game_paused = false
+	$developer_pause.visible = false
+	get_tree().paused = false

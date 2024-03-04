@@ -117,5 +117,9 @@ position = Vector2(-22, 30)
 [node name="SmartbombTimer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="EnergyReplenishTimer" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="energy_change" from="." to="hud" method="_on_player_energy_change"]
 [connection signal="timeout" from="SmartbombTimer" to="." method="_on_smartbomb_timer_timeout"]
+[connection signal="timeout" from="EnergyReplenishTimer" to="." method="_on_energy_replenish_timer_timeout"]

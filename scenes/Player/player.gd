@@ -4,7 +4,6 @@ extends CharacterBody2D
 @onready var max_speed = 100
 @onready var gravity = 0 #0 FOR FULL WEIGHTLESSNESS
 @onready var rotation_speed = 5 #6
-@onready var starting_energy = 100
 @onready var global = $/root/Global
 @onready var colliding_effect = $collision_particles
 
@@ -16,6 +15,9 @@ var player_is_shooting := false # toggle to prevent continuous fire
 @onready var firing_points = global.player_bullets_can_be_fired # start only able to shoot from tip of craft
 # ========================
 
+@onready var starting_energy = global.player_energy
+@onready var energy_replenish_amount = global.player_energy_replenish_amount
+
 var input_vector : Vector2
 var rotation_direction: int
 
@@ -26,7 +28,14 @@ var thrusting_for = 0
 
 var collided_with = ""
 
+func _ready():
+	$EnergyReplenishTimer.start()
+
 func _physics_process(delta):
+	
+	if starting_energy <= 0:
+		#starting_energy = 100
+		$hud._on_pause_button_pressed(true)
 	
 	if Input.is_action_pressed("Left") and rotation_direction != -1:
 		rotation_direction -= 1
@@ -43,9 +52,11 @@ func _physics_process(delta):
 		player_is_shooting = false
 	
 	# smartbomb deployment
-	if Input.is_action_just_pressed("Up") and global.smart_bomb_equipped:
+	if Input.is_action_just_pressed("Up") and global.smart_bomb_equipped and starting_energy >= 60:
 		global.smart_bomb_active = true
 		global.smart_bomb_equipped = false
+		starting_energy -= 50
+		emit_signal("energy_change", starting_energy)
 		$SmartbombTimer.start()
 		 
 		
@@ -69,7 +80,7 @@ func _physics_process(delta):
 	input_vector.x = Input.get_action_strength("Thrust")
 	
 	if Input.is_action_pressed("Thrust"):
-		starting_energy -= 0.02
+		starting_energy -= 0.01
 		emit_signal("energy_change", starting_energy)
 		$Thrust_Manager.thrust_pressed()
 		if !player_is_thrusting:
@@ -84,15 +95,17 @@ func _physics_process(delta):
 	
 	$hud.show_velocity(velocity.x, velocity.y, delta)
 		
-	if starting_energy < 9500 and !energy_warning_shown:
-		energy_warning_shown = true
-		$hud.show_warning()
+	#if starting_energy < 9500 and !energy_warning_shown:
+		#energy_warning_shown = true
+		#$hud.show_warning()
 		
 	if firing_points != global.player_bullets_can_be_fired:
 		firing_points = global.player_bullets_can_be_fired
 		
 		
 func handle_collision(collided):
+	starting_energy -= 5
+	emit_signal("energy_change", starting_energy)
 	show_collision_particles()
 	velocity = velocity.bounce(collided.get_normal())
 	var collision_rotation_penalty: int = 1
@@ -129,6 +142,12 @@ func shoot_bullets():
 			break
 
 
-
 func _on_smartbomb_timer_timeout():
 	global.smart_bomb_active = false
+
+
+func _on_energy_replenish_timer_timeout():
+	if starting_energy <= global.player_energy - energy_replenish_amount:
+		starting_energy += energy_replenish_amount
+	emit_signal("energy_change", starting_energy)
+	$EnergyReplenishTimer.start()

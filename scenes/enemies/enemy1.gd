@@ -10,7 +10,8 @@ var this_enemy_killed_at := 3
 var this_enemy_onscreen = false
 var player_in_range = false
 var extinction_triggered = false
-var extinction_timer_value = 3
+var extinction_timer_value = 2
+var distance_from_player
 
 func _physics_process(delta):
 	if $"/root/Global".smart_bomb_active and this_enemy_onscreen:
@@ -29,7 +30,7 @@ func _physics_process(delta):
 		
 	var player_position = the_player.global_position
 	var mine_position = global_transform.origin
-	var distance_from_player = player_position.distance_to(mine_position)
+	distance_from_player = player_position.distance_to(mine_position)
 	if distance_from_player < 300 and !player_in_range:
 		player_in_range = true
 		rotation_speed += 3
@@ -55,6 +56,7 @@ func _on_bullet_area_area_entered(area):
 
 func _on_explosion_animation_finished():
 	$"/root/Global".enemy_basic_in_world -= 1
+	$"/root/Global".damage_player(distance_from_player)
 	queue_free()
 
 
