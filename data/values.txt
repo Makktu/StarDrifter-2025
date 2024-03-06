@@ -1,0 +1,7 @@
+var enemy_damage := {
+	"basic_enemy1": {
+		"collision": 1,
+		"near_hit": 3,
+		"direct_hit": 5
+	}	 
+}

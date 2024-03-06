@@ -271,6 +271,14 @@ offset_bottom = 242.0
 text = "Continue with max energy restored"
 alignment = 0
 
+[node name="SmartBomb" type="Label" parent="."]
+offset_left = 205.0
+offset_top = 102.0
+offset_right = 447.0
+offset_bottom = 146.0
+text = "SMARTBOMB AVAILABLE"
+horizontal_alignment = 1
+
 [connection signal="timeout" from="WarningTimer" to="." method="_on_warning_timer_timeout"]
 [connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="developer_pause/Resume" to="." method="_on_resume_pressed"]

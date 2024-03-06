@@ -1,5 +1,17 @@
 extends Node
 
+var taking_damage = {
+	"enemy1": {
+		"collision_soft": 1,
+		"collision_hard": 3,
+		"explosion_far": 3,
+		"explosion_near": 6,  
+	},
+	"World1": {
+		"collision_soft": 1,
+		"collision_hard": 5,
+	}
+}
 # ========================================================================================
 # ======= DEVELOPER MENU OPTIONS VARIABLES ===============================================
 var game_paused := false
@@ -18,7 +30,7 @@ var alarm_triggered := false
 var smart_bomb_active = false
 var smart_bomb_equipped = true
 
-var player_energy_replenish_amount = 10 # can dynamically change
+var player_energy_replenish_amount = 0.05 # can dynamically change
 # monitor and control how many basic enemies
 # exist in game world – for performance and gameplay
 var enemy_basic_in_world = 0 

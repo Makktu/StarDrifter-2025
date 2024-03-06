@@ -1,12 +1,8 @@
 extends CanvasLayer
 
-#@onready var energy_bar = $Control/EnergyBar
-
 var warning_showing = false
 var warning_times = 0
-
 var basic_damage = 10
-
 var energy_is_low = false
 
 # Called when the node enters the scene tree for the first time.
@@ -136,3 +132,10 @@ func _on_continue_pressed():
 	$"/root/Global".game_paused = false
 	$developer_pause.visible = false
 	get_tree().paused = false
+	
+func smartbomb_message_toggle(on_or_off = false):
+	if on_or_off:
+		$SmartBomb.visible = true
+	else:
+		$SmartBomb.visible = false
+	
