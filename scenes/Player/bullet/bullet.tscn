@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://p2tkqwdu6g5n"]
+[gd_scene load_steps=20 format=3 uid="uid://p2tkqwdu6g5n"]
 
 [ext_resource type="Script" path="res://scenes/Player/bullet/bullet.gd" id="1_i1lal"]
 [ext_resource type="Texture2D" uid="uid://c0sdos6gedhov" path="res://scenes/Player/bullet/Bullet1.png" id="2_1efli"]
@@ -102,6 +102,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_6nate"]
 radius = 20.0
 
+[sub_resource type="Gradient" id="Gradient_wbjhm"]
+colors = PackedColorArray(3.51354e-06, 0.77038, 3.08037e-06, 1, 1, 1, 1, 0)
+
 [node name="bullet" type="StaticBody2D" groups=["bullet"]]
 scale = Vector2(0.05, 0.05)
 collision_layer = 2
@@ -148,6 +151,7 @@ angular_velocity_min = 14.12
 angular_velocity_max = 56.47
 scale_amount_max = 2.0
 color = Color(0, 0.866667, 0.0235294, 1)
+color_ramp = SubResource("Gradient_wbjhm")
 hue_variation_min = 0.01
 hue_variation_max = 0.19
 

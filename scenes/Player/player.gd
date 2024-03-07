@@ -22,14 +22,15 @@ var player_is_thrusting = false
 var thrusting_for = 0
 var collided_with = ""
 
-#func _ready():
-	#$EnergyReplenishTimer.start()
-
 func _physics_process(delta):
 	
 	if starting_energy <= 0:
 		# bring up pause menu with condition true (Game Over)
 		$hud._on_pause_button_pressed(true)
+		
+	if starting_energy <= 50:
+		global.smart_bomb_equipped = false
+		$hud.smartbomb_message_toggle(false)
 	
 	if Input.is_action_pressed("Left") and rotation_direction != -1:
 		rotation_direction -= 1
@@ -48,13 +49,8 @@ func _physics_process(delta):
 	# smartbomb deployment
 	if Input.is_action_just_pressed("Up") and global.smart_bomb_equipped and starting_energy >= 51:
 		global.smart_bomb_active = true
-		global.smart_bomb_equipped = false
 		starting_energy -= 50
-		emit_signal("energy_change", starting_energy)
 		$SmartbombTimer.start()
-		if starting_energy <= 50:
-			$hud.smartbomb_message_toggle(false)
-		 
 		
 	velocity += Vector2(input_vector.x * acceleration * delta, 0).rotated(rotation)
 	velocity.x = clamp(velocity.x, -max_speed, max_speed)
@@ -69,15 +65,14 @@ func _physics_process(delta):
 	# =================================#	
 	var collided := move_and_collide(velocity * delta)
 	if collided and not get_floor_normal():
-		handle_collision(collided, velocity.x + velocity.y)
+		handle_collision(collided, velocity.x, velocity.y)
 		
 	# =================================#
 
 	input_vector.x = Input.get_action_strength("Thrust")
 	
 	if Input.is_action_pressed("Thrust"):
-		starting_energy -= 0.01
-		emit_signal("energy_change", starting_energy)
+		starting_energy -= 0.02
 		$Thrust_Manager.thrust_pressed()
 		if !player_is_thrusting:
 			player_is_thrusting = true
@@ -103,27 +98,22 @@ func _physics_process(delta):
 	
 	
 func energy_replenish():
-	if starting_energy <= global.player_energy - energy_replenish_amount:
+	if starting_energy < global.player_energy:
 		starting_energy += energy_replenish_amount
 	emit_signal("energy_change", starting_energy)
 	if starting_energy >= 51:
 		$hud.smartbomb_message_toggle(true)
 		
 		
-func handle_collision(collided, collision_speed):
-	var collided_with = collided.get_collider()
+func handle_collision(collided, speed_x, speed_y):
+	# collision penalty for all collisions
+	# not just the 'World' environment
 	var collision_strength = 'collision_soft'
-	
-	if collision_speed >= 100:
-		collision_strength = 'collision_hard'	
+	if speed_x >= 50 or speed_y >= 50:
+		collision_strength = 'collision_hard'		
+	starting_energy -= global.taking_damage['World1'][collision_strength]
 		
-	print(collided, collision_speed, collided_with, collision_strength)	
-	
-	#if collided_with is World1:
-		#starting_energy -= global.taking_damage[collided_with][collision_strength]
-		#print(collided_with)
-		
-	#emit_signal("energy_change", starting_energy)
+	emit_signal("energy_change", starting_energy)
 	show_collision_particles()
 	velocity = velocity.bounce(collided.get_normal())
 	var collision_rotation_penalty: int = 1
@@ -162,9 +152,8 @@ func shoot_bullets():
 
 func _on_smartbomb_timer_timeout():
 	global.smart_bomb_active = false
+	global.smart_bomb_equipped = true # will be made false in _physics_process if energy < 51
 
-func _on_energy_replenish_timer_timeout():
-	if starting_energy <= global.player_energy - energy_replenish_amount:
-		starting_energy += energy_replenish_amount
-	emit_signal("energy_change", starting_energy)
-	$EnergyReplenishTimer.start()
+
+func _on_player_enemy_collision_area_entered(area):
+	print(area.name)

@@ -5,7 +5,8 @@ var taking_damage = {
 		"collision_soft": 1,
 		"collision_hard": 3,
 		"explosion_far": 3,
-		"explosion_near": 6,  
+		"explosion_near": 6, 
+		"destroyed_at": 3, 
 	},
 	"World1": {
 		"collision_soft": 1,
@@ -30,7 +31,7 @@ var alarm_triggered := false
 var smart_bomb_active = false
 var smart_bomb_equipped = true
 
-var player_energy_replenish_amount = 0.05 # can dynamically change
+var player_energy_replenish_amount = 0.01 # can dynamically change
 # monitor and control how many basic enemies
 # exist in game world – for performance and gameplay
 var enemy_basic_in_world = 0 
@@ -51,10 +52,8 @@ func sound_alarm():
 func toggle_bgm(on_or_off):
 	# called when local sfx and threat-type stingers are triggered
 	# and background music needs to be stopped if playing
+	# TODO: need to fade it down
 	bgm_manager.special_interrupt(on_or_off)
 
-func damage_player(distance_from_player):
-	pass
-	
-#func game_over():
-	#hud_display._on_pause_button_pressed(true)
+func damage_player(distance_from_player):#
+	print('💥', distance_from_player)

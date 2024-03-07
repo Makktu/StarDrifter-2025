@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b2360ojxsegcj"]
+[gd_scene load_steps=14 format=3 uid="uid://b2360ojxsegcj"]
 
 [ext_resource type="Script" path="res://scenes/Player/player.gd" id="1_2n4p6"]
 [ext_resource type="Texture2D" uid="uid://d6ffqje4owhg" path="res://scenes/Player/Lander_3.png" id="1_58gib"]
@@ -28,6 +28,9 @@ animations = [{
 "name": &"thrusters",
 "speed": 5.0
 }]
+
+[sub_resource type="Gradient" id="Gradient_vwe15"]
+colors = PackedColorArray(6.30513e-06, 0.678847, 9.62615e-07, 1, 1, 1, 1, 0)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 4
@@ -100,6 +103,7 @@ angular_velocity_min = 14.12
 angular_velocity_max = 56.47
 scale_amount_max = 2.0
 color = Color(0, 0.866667, 0.0235294, 1)
+color_ramp = SubResource("Gradient_vwe15")
 hue_variation_min = 0.01
 hue_variation_max = 0.19
 
@@ -117,9 +121,14 @@ position = Vector2(-22, 30)
 [node name="SmartbombTimer" type="Timer" parent="."]
 wait_time = 2.0
 
-[node name="EnergyReplenishTimer" type="Timer" parent="."]
-wait_time = 5.0
+[node name="player_enemy_collision" type="Area2D" parent="."]
+scale = Vector2(1.1, 1.1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player_enemy_collision"]
+position = Vector2(5.55, 0.16)
+rotation = 1.5708
+polygon = PackedVector2Array(4.83993, -19.45, 29.8401, 29.5499, 18.8401, 26.5499, 6.84009, 24.55, -1.15989, 29.55, -9.15991, 25.55, -18.1599, 25.5501, -28.1599, 28.5501, -1.1601, -26.45)
 
 [connection signal="energy_change" from="." to="hud" method="_on_player_energy_change"]
 [connection signal="timeout" from="SmartbombTimer" to="." method="_on_smartbomb_timer_timeout"]
-[connection signal="timeout" from="EnergyReplenishTimer" to="." method="_on_energy_replenish_timer_timeout"]
+[connection signal="area_entered" from="player_enemy_collision" to="." method="_on_player_enemy_collision_area_entered"]

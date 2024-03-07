@@ -13,12 +13,7 @@ func _ready():
 func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
-		#$Sprite2D.visible = false
-		#explosion_frames.visible = true
-		#var tweak_scale = $"/root/Global".random_float_number(-1, 2)
-		#explosion_frames.scale.x += tweak_scale
-		#explosion_frames.scale.y += tweak_scale
-		#explosion_frames.play("explode")
+		$Sprite2D.visible = false
 		$collision_particles.emitting = true
 
 
