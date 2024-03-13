@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cy8am7rjugpas"]
+[gd_scene load_steps=9 format=3 uid="uid://cy8am7rjugpas"]
 
 [ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/Environment/parallax_background.tscn" id="1_me2wf"]
 [ext_resource type="Script" path="res://scenes/Environment/world.gd" id="1_vgc64"]
@@ -7,11 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://cb7cr333x0uvh" path="res://scenes/Environment/emplacement.tscn" id="4_xd4ik"]
 [ext_resource type="PackedScene" uid="uid://cph3l0chuxd5s" path="res://scenes/enemies/enemy_spawner.tscn" id="6_t677g"]
 
+[sub_resource type="Environment" id="Environment_snjjn"]
+volumetric_fog_enabled = true
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7c45v"]
 size = Vector2(43.1699, 89)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_vgc64")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_snjjn")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_me2wf")]
 

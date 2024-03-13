@@ -9,12 +9,14 @@ var velocity = Vector2(0, speed)
 
 func _ready():
 	velocity = velocity.rotated(deg_to_rad(global_rotation_degrees))
+
 	
 func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
 		$Sprite2D.visible = false
 		$collision_particles.emitting = true
+	rotation_degrees += 3
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

@@ -56,7 +56,8 @@ func _on_bullet_area_area_entered(area):
 
 func _on_explosion_animation_finished():
 	$"/root/Global".enemy_basic_in_world -= 1
-	$"/root/Global".damage_player(distance_from_player)
+	if distance_from_player < 12:
+		$"/root/Global".damage_player(distance_from_player)
 	queue_free()
 
 

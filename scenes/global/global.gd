@@ -36,6 +36,9 @@ var player_energy_replenish_amount = 0.01 # can dynamically change
 # exist in game world – for performance and gameplay
 var enemy_basic_in_world = 0 
 
+var player_damage = false
+var player_amount_damaged = 0
+
 func _ready():
 	if global_music_on:
 		bgm_manager.start_bg_music()
@@ -57,3 +60,7 @@ func toggle_bgm(on_or_off):
 
 func damage_player(distance_from_player):#
 	print('💥', distance_from_player)
+	if !dev_damage_on:
+		return
+	player_damage = true
+	player_amount_damaged = distance_from_player / 2

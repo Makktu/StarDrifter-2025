@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://p2tkqwdu6g5n"]
 
 [ext_resource type="Script" path="res://scenes/Player/bullet/bullet.gd" id="1_i1lal"]
-[ext_resource type="Texture2D" uid="uid://c0sdos6gedhov" path="res://scenes/Player/bullet/Bullet1.png" id="2_1efli"]
+[ext_resource type="Texture2D" uid="uid://c83p8ha0wo080" path="res://scenes/Player/bullet/Bullet2.png" id="2_avvkj"]
 [ext_resource type="Texture2D" uid="uid://bfpsn0igyu3g2" path="res://scenes/Player/Explosion.png" id="3_vttoc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8itd4"]
@@ -111,7 +111,8 @@ collision_layer = 2
 script = ExtResource("1_i1lal")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_1efli")
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_avvkj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1.90735e-06)

@@ -24,7 +24,11 @@ var collided_with = ""
 
 func _physics_process(delta):
 	
-	if starting_energy <= 0:
+	if global.player_damage:
+		global.player_damage = false
+		inflict_damage()
+	
+	if starting_energy <= 0 && global.dev_damage_on:
 		# bring up pause menu with condition true (Game Over)
 		$hud._on_pause_button_pressed(true)
 		
@@ -98,6 +102,8 @@ func _physics_process(delta):
 	
 	
 func energy_replenish():
+	if starting_energy < 0:
+		starting_energy = 0
 	if starting_energy < global.player_energy:
 		starting_energy += energy_replenish_amount
 	emit_signal("energy_change", starting_energy)
@@ -137,6 +143,7 @@ func camera_special(type):
 	
 func shoot_bullets():
 	var times_fired = 0
+	var firing_sparkle = $collision_particles
 	for n in $firing_points.get_children():
 		if times_fired == 0 and firing_points == 2: # skip firing from tip if firing points is 2
 			times_fired += 1
@@ -157,3 +164,8 @@ func _on_smartbomb_timer_timeout():
 
 func _on_player_enemy_collision_area_entered(area):
 	print(area.name)
+	
+
+func inflict_damage():
+	starting_energy -= global.player_amount_damaged
+	emit_signal("energy_change", starting_energy)
