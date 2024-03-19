@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy8am7rjugpas"]
+[gd_scene load_steps=10 format=3 uid="uid://cy8am7rjugpas"]
 
 [ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/Environment/parallax_background.tscn" id="1_me2wf"]
 [ext_resource type="Script" path="res://scenes/Environment/world.gd" id="1_vgc64"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b2360ojxsegcj" path="res://scenes/Player/player.tscn" id="2_rymwd"]
 [ext_resource type="PackedScene" uid="uid://cb7cr333x0uvh" path="res://scenes/Environment/emplacement.tscn" id="4_xd4ik"]
 [ext_resource type="PackedScene" uid="uid://cph3l0chuxd5s" path="res://scenes/enemies/enemy_spawner.tscn" id="6_t677g"]
+[ext_resource type="PackedScene" uid="uid://dw1fvv2gc4tsl" path="res://scenes/Environment/energy_tower.tscn" id="7_4hwvu"]
 
 [sub_resource type="Environment" id="Environment_snjjn"]
 volumetric_fog_enabled = true
@@ -89,5 +90,9 @@ position = Vector2(2100, 2629)
 
 [node name="enemy_spawner4" parent="." instance=ExtResource("6_t677g")]
 position = Vector2(2893, 7780)
+
+[node name="energy_tower" parent="." instance=ExtResource("7_4hwvu")]
+position = Vector2(989, 9708)
+scale = Vector2(0.2, 0.2)
 
 [connection signal="body_entered" from="ZoomOut1" to="." method="_on_zoom_out_1_body_entered"]

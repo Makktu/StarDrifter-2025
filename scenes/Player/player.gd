@@ -102,6 +102,8 @@ func _physics_process(delta):
 	
 	
 func energy_replenish():
+	if starting_energy > 100:
+		starting_energy = 100
 	if starting_energy < 0:
 		starting_energy = 0
 	if starting_energy < global.player_energy:
@@ -163,7 +165,16 @@ func _on_smartbomb_timer_timeout():
 
 
 func _on_player_enemy_collision_area_entered(area):
-	print(area.name)
+	if area.name == 'energy_area':
+		$Camera2D.zoom_special('zoomin')
+		energy_replenish_amount = 0.5
+		max_speed = 10
+		
+
+func _on_player_enemy_collision_area_exited(area):
+	if area.name == 'energy_area':
+		energy_replenish_amount = global.player_energy_replenish_amount
+		max_speed = 100
 	
 
 func inflict_damage():

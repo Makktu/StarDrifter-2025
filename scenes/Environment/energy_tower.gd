@@ -14,3 +14,7 @@ func _process(delta):
 	scale.y += scale_scale
 	if scale.x > scale_max or scale.x < scale_min:
 		scale_scale = -scale_scale
+
+
+func _on_area_2d_area_entered(area):
+	pass # Replace with function body.
