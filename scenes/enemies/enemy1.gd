@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var the_player = get_tree().get_nodes_in_group("player")[0]
 
-var enemy_speed = 50
+var enemy_speed = 20
 var target_position
 var rotation_speed = 0.1
 var this_enemy_shot := 0
