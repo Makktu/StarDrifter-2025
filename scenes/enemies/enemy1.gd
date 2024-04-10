@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
+@export var deathBlowUp : PackedScene
 @onready var the_player = get_tree().get_nodes_in_group("player")[0]
 
-var enemy_speed = 20
+var enemy_speed = 10
 var target_position
 var rotation_speed = 0.1
 var this_enemy_shot := 0
@@ -78,9 +79,10 @@ func _on_visible_on_screen_notifier_2d_screen_entered():
 
 func _on_extinction_timer_timeout():
 	rotation_speed = 0
-	$explosion.scale.x += 5
-	$explosion.scale.y += 5
-	$explosion.visible = true
-	$Sprite2D.visible = false
-	$explosion.play('explode')
+	var _explosion = deathBlowUp.instantiate()
+	_explosion.position = global_position
+	_explosion.rotation = global_rotation
+	_explosion.emitting = true
+	get_tree().current_scene.add_child(_explosion)
+	queue_free()
 	
