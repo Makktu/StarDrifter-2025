@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b2360ojxsegcj"]
+[gd_scene load_steps=18 format=3 uid="uid://b2360ojxsegcj"]
 
 [ext_resource type="Script" path="res://scenes/Player/player.gd" id="1_2n4p6"]
 [ext_resource type="Texture2D" uid="uid://d6ffqje4owhg" path="res://scenes/Player/Lander_3.png" id="1_58gib"]
@@ -11,6 +11,9 @@
 [ext_resource type="AudioStream" uid="uid://bbi7wvoqrg21o" path="res://scenes/Player/player_sfx/thrust_begins1.wav" id="8_gdvxp"]
 [ext_resource type="AudioStream" uid="uid://ccmet6w3828ad" path="res://scenes/Player/player_sfx/thrust_mid1.wav" id="9_ohpnd"]
 [ext_resource type="AudioStream" uid="uid://dlsrf2tswwe6g" path="res://scenes/Player/player_sfx/thrust_released1.wav" id="10_kvpty"]
+[ext_resource type="Texture2D" uid="uid://bb6udch0gx5gg" path="res://assets/smartbomb_pulse1.png" id="12_ximyk"]
+[ext_resource type="Texture2D" uid="uid://86672w8q14x4" path="res://assets/smartbomb_pulse2.png" id="13_tskas"]
+[ext_resource type="Texture2D" uid="uid://c88qpbfw2mr3q" path="res://assets/smartbomb_pulse3.png" id="14_pfg0e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xct2y"]
 animations = [{
@@ -31,6 +34,23 @@ animations = [{
 
 [sub_resource type="Gradient" id="Gradient_vwe15"]
 colors = PackedColorArray(6.30513e-06, 0.678847, 9.62615e-07, 1, 1, 1, 1, 0)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2h7xl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_ximyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_tskas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_pfg0e")
+}],
+"loop": true,
+"name": &"smartbomb",
+"speed": 20.0
+}]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 4
@@ -128,6 +148,13 @@ scale = Vector2(1.1, 1.1)
 position = Vector2(5.55, 0.16)
 rotation = 1.5708
 polygon = PackedVector2Array(4.83993, -19.45, 29.8401, 29.5499, 18.8401, 26.5499, 6.84009, 24.55, -1.15989, 29.55, -9.15991, 25.55, -18.1599, 25.5501, -28.1599, 28.5501, -1.1601, -26.45)
+
+[node name="smartbomb_anim" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-1, 1)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_2h7xl")
+animation = &"smartbomb"
 
 [connection signal="energy_change" from="." to="hud" method="_on_player_energy_change"]
 [connection signal="timeout" from="SmartbombTimer" to="." method="_on_smartbomb_timer_timeout"]

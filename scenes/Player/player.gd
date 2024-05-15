@@ -52,6 +52,7 @@ func _physics_process(delta):
 	
 	# smartbomb deployment
 	if Input.is_action_just_pressed("Up") and global.smart_bomb_equipped and starting_energy >= 51:
+		handle_smartpulse()	
 		global.smart_bomb_active = true
 		starting_energy -= 50
 		$SmartbombTimer.start()
@@ -112,6 +113,15 @@ func energy_replenish():
 	if starting_energy >= 51:
 		$hud.smartbomb_message_toggle(true)
 		
+func handle_smartpulse():
+	$smartbomb_anim.visible = true
+	$smartbomb_anim.play("smartbomb")
+	#for n in 21000:
+		#await get_tree().create_timer(100).timeout 
+		#$smartbomb_anim.scale.x += 0.1
+		#$smartbomb_anim.scale.y += 0.1
+			
+
 		
 func handle_collision(collided, speed_x, speed_y):
 	# collision penalty for all collisions

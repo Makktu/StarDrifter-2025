@@ -45,3 +45,11 @@ All enemies emerge from portals at certain locations around the map
 - lifespan of 40 seconds off-screen.
 - maximum of 100 active on the map at any one time; as one expires or is destroyed, another spawns somewhere (randomly)
 
+___
+
+# proposed track listing:
+	
+	White Bat Audio (Karl Casey)
+	
+	1. Elysium
+
