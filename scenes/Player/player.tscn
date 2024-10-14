@@ -11,9 +11,9 @@
 [ext_resource type="AudioStream" uid="uid://bbi7wvoqrg21o" path="res://scenes/Player/player_sfx/thrust_begins1.wav" id="8_gdvxp"]
 [ext_resource type="AudioStream" uid="uid://ccmet6w3828ad" path="res://scenes/Player/player_sfx/thrust_mid1.wav" id="9_ohpnd"]
 [ext_resource type="AudioStream" uid="uid://dlsrf2tswwe6g" path="res://scenes/Player/player_sfx/thrust_released1.wav" id="10_kvpty"]
-[ext_resource type="Texture2D" uid="uid://bb6udch0gx5gg" path="res://assets/smartbomb_pulse1.png" id="12_ximyk"]
-[ext_resource type="Texture2D" uid="uid://86672w8q14x4" path="res://assets/smartbomb_pulse2.png" id="13_tskas"]
-[ext_resource type="Texture2D" uid="uid://c88qpbfw2mr3q" path="res://assets/smartbomb_pulse3.png" id="14_pfg0e"]
+[ext_resource type="Texture2D" uid="uid://bb6udch0gx5gg" path="res://assets/graphics/smartbomb_pulse1.png" id="12_ximyk"]
+[ext_resource type="Texture2D" uid="uid://86672w8q14x4" path="res://assets/graphics/smartbomb_pulse2.png" id="13_tskas"]
+[ext_resource type="Texture2D" uid="uid://c88qpbfw2mr3q" path="res://assets/graphics/smartbomb_pulse3.png" id="14_pfg0e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xct2y"]
 animations = [{

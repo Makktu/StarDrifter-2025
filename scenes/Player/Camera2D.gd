@@ -59,4 +59,3 @@ func shake_camera(duration: float, strength: float, special_shake: String = '') 
 	global_position = $"..".global_position		
 	
 	
-

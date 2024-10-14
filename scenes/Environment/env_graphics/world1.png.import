@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c88qpbfw2mr3q"
-path="res://.godot/imported/smartbomb_pulse3.png-6e164499344fa067417d8d5fec0e43e7.ctex"
+uid="uid://vl7g84jpj3o"
+path="res://.godot/imported/world1.png-20bbde5464fc66df1c5cd57069f3a79e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/smartbomb_pulse3.png"
-dest_files=["res://.godot/imported/smartbomb_pulse3.png-6e164499344fa067417d8d5fec0e43e7.ctex"]
+source_file="res://scenes/Environment/env_graphics/world1.png"
+dest_files=["res://.godot/imported/world1.png-20bbde5464fc66df1c5cd57069f3a79e.ctex"]
 
 [params]
 
