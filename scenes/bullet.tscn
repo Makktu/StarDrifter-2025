@@ -1,0 +1,161 @@
+[gd_scene load_steps=20 format=3 uid="uid://p2tkqwdu6g5n"]
+
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_nqqao"]
+[ext_resource type="Texture2D" uid="uid://c83p8ha0wo080" path="res://assets/graphics/bullet/Bullet2.png" id="2_ii4ec"]
+[ext_resource type="Texture2D" uid="uid://bfpsn0igyu3g2" path="res://assets/graphics/Explosion.png" id="3_xppwl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8itd4"]
+radius = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qgi8"]
+atlas = ExtResource("3_xppwl")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ffkx"]
+atlas = ExtResource("3_xppwl")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koa6m"]
+atlas = ExtResource("3_xppwl")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyn12"]
+atlas = ExtResource("3_xppwl")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45nwn"]
+atlas = ExtResource("3_xppwl")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkiih"]
+atlas = ExtResource("3_xppwl")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30ahv"]
+atlas = ExtResource("3_xppwl")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rcfu"]
+atlas = ExtResource("3_xppwl")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up0i1"]
+atlas = ExtResource("3_xppwl")
+region = Rect2(768, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xe6k"]
+atlas = ExtResource("3_xppwl")
+region = Rect2(864, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkxk0"]
+atlas = ExtResource("3_xppwl")
+region = Rect2(960, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl3yy"]
+atlas = ExtResource("3_xppwl")
+region = Rect2(1056, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_60q2u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qgi8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ffkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koa6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyn12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45nwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkiih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30ahv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rcfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_up0i1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xe6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkxk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dl3yy")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6nate"]
+radius = 20.0
+
+[sub_resource type="Gradient" id="Gradient_wbjhm"]
+colors = PackedColorArray(3.51354e-06, 0.77038, 3.08037e-06, 1, 1, 1, 1, 0)
+
+[node name="bullet" type="StaticBody2D" groups=["bullet"]]
+scale = Vector2(0.05, 0.05)
+collision_layer = 2
+script = ExtResource("1_nqqao")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_ii4ec")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.90735e-06)
+scale = Vector2(1.4, 1.4)
+shape = SubResource("CircleShape2D_8itd4")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1.5, 1.5)
+scale = Vector2(4.45, 4.95)
+
+[node name="explosion" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_60q2u")
+animation = &"explode"
+
+[node name="bullet" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet"]
+shape = SubResource("CircleShape2D_6nate")
+
+[node name="collision_particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+lifetime = 15.0
+one_shot = true
+speed_scale = 14.04
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 14.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 147.06
+angular_velocity_min = 14.12
+angular_velocity_max = 56.47
+scale_amount_max = 2.0
+color = Color(0, 0.866667, 0.0235294, 1)
+color_ramp = SubResource("Gradient_wbjhm")
+hue_variation_min = 0.01
+hue_variation_max = 0.19
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="animation_finished" from="explosion" to="." method="_on_explosion_animation_finished"]
+[connection signal="finished" from="collision_particles" to="." method="_on_collision_particles_finished"]

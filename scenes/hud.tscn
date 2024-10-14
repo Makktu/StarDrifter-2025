@@ -1,0 +1,290 @@
+[gd_scene load_steps=13 format=3 uid="uid://b47pdejejhyjn"]
+
+[ext_resource type="Script" path="res://scripts/global/hud.gd" id="1_udwwf"]
+[ext_resource type="Texture2D" uid="uid://ctfroiv5s6ons" path="res://assets/graphics/velocity.png" id="2_n1lnp"]
+[ext_resource type="Texture2D" uid="uid://5heeei0wju4k" path="res://assets/graphics/Energy.png" id="3_k7rqn"]
+[ext_resource type="Texture2D" uid="uid://c6vq4r28abfhm" path="res://assets/graphics/Warning.png" id="4_6ca42"]
+
+[sub_resource type="Gradient" id="Gradient_x6rqy"]
+offsets = PackedFloat32Array(0, 0.236567, 1)
+colors = PackedColorArray(0.893149, 0.160521, 0.197114, 1, 0.270588, 0.623529, 0.137255, 1, 0.192157, 1, 0.27451, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_30157"]
+gradient = SubResource("Gradient_x6rqy")
+fill_from = Vector2(0.499526, 1)
+fill_to = Vector2(0.518484, 0)
+
+[sub_resource type="Animation" id="Animation_eihor"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_0w6cv"]
+resource_name = "low_energy"
+length = 2.0
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5u0p3"]
+_data = {
+"RESET": SubResource("Animation_eihor"),
+"low_energy": SubResource("Animation_0w6cv")
+}
+
+[sub_resource type="Animation" id="Animation_1aa0v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/VelocityBar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3l5ys"]
+resource_name = "accel_glow"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/VelocityBar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.0509804, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xtnuv"]
+_data = {
+"RESET": SubResource("Animation_1aa0v"),
+"accel_glow": SubResource("Animation_3l5ys")
+}
+
+[node name="hud" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_udwwf")
+
+[node name="velocity" type="Sprite2D" parent="."]
+position = Vector2(54, 363)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_n1lnp")
+
+[node name="Label" type="Label" parent="velocity"]
+offset_left = -455.0
+offset_top = 85.0
+offset_right = -400.0
+offset_bottom = 108.0
+scale = Vector2(9.8, 8.20001)
+text = "100000
+"
+
+[node name="energy" type="Sprite2D" parent="."]
+position = Vector2(44, 323)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_k7rqn")
+
+[node name="Label" type="Label" parent="energy"]
+offset_left = -353.333
+offset_top = 120.0
+offset_right = -298.333
+offset_bottom = 143.0
+scale = Vector2(13, 9)
+text = "300421"
+
+[node name="velocity2" type="Sprite2D" parent="."]
+position = Vector2(672, 368)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_n1lnp")
+
+[node name="Label" type="Label" parent="velocity2"]
+offset_left = -455.0
+offset_top = 85.0
+offset_right = -400.0
+offset_bottom = 108.0
+scale = Vector2(9.8, 8.20001)
+text = "100000
+"
+horizontal_alignment = 2
+
+[node name="energy2" type="Sprite2D" parent="."]
+position = Vector2(680, 325)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_k7rqn")
+
+[node name="Label" type="Label" parent="energy2"]
+offset_left = -353.333
+offset_top = 120.0
+offset_right = -298.333
+offset_bottom = 143.0
+scale = Vector2(13, 9)
+text = "300421"
+horizontal_alignment = 2
+
+[node name="warning" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 0.00784314, 0.00784314, 1)
+position = Vector2(349, 330)
+scale = Vector2(0.199999, 0.119999)
+texture = ExtResource("4_6ca42")
+
+[node name="WarningTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EnergyBar" type="TextureProgressBar" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 12.0
+offset_top = 391.0
+offset_right = 76.0
+offset_bottom = 691.0
+scale = Vector2(0.3, 0.6)
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_30157")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Control/EnergyBar"]
+modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(36.6667, 278.333)
+emitting = false
+amount = 19
+lifetime = 3.0
+speed_scale = 4.2
+explosiveness = 0.04
+emission_shape = 1
+emission_sphere_radius = 23.4
+direction = Vector2(0, 0)
+gravity = Vector2(0, -10)
+angular_velocity_min = 144.0
+angular_velocity_max = 144.0
+color = Color(1, 1, 0.0196078, 1)
+
+[node name="VelocityBar" type="TextureProgressBar" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 44.0
+offset_top = 391.0
+offset_right = 108.0
+offset_bottom = 691.0
+scale = Vector2(0.3, 0.6)
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_30157")
+
+[node name="LowEnergy" type="AnimationPlayer" parent="Control"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_5u0p3")
+}
+
+[node name="PauseButton" type="Button" parent="Control"]
+process_mode = 3
+layout_mode = 0
+offset_left = 622.0
+offset_top = 8.0
+offset_right = 681.0
+offset_bottom = 39.0
+scale = Vector2(1.52, 1.16)
+focus_mode = 0
+text = "PAUSE"
+
+[node name="acceleration_animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xtnuv")
+}
+
+[node name="developer_pause" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 191.0
+offset_top = 545.0
+offset_right = 231.0
+offset_bottom = 585.0
+
+[node name="Label" type="Label" parent="developer_pause"]
+layout_mode = 0
+offset_top = -27.0
+offset_right = 40.0
+offset_bottom = -4.0
+text = "Tap to toggle"
+
+[node name="Resume" type="Button" parent="developer_pause"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 31.0
+text = "[Resume]"
+
+[node name="Music" type="Button" parent="developer_pause"]
+layout_mode = 0
+offset_top = 36.0
+offset_right = 99.0
+offset_bottom = 67.0
+text = "Music is ON"
+
+[node name="Damage" type="Button" parent="developer_pause"]
+layout_mode = 0
+offset_top = 71.0
+offset_right = 99.0
+offset_bottom = 102.0
+text = "Damage is ON"
+
+[node name="Enemies" type="Button" parent="developer_pause"]
+layout_mode = 0
+offset_top = 107.0
+offset_right = 118.0
+offset_bottom = 138.0
+text = "Enemies are ON"
+
+[node name="Bullets" type="Button" parent="developer_pause"]
+layout_mode = 0
+offset_top = 143.0
+offset_right = 132.0
+offset_bottom = 174.0
+text = "Firing Bullets: 1"
+alignment = 0
+
+[node name="Screenshake" type="Button" parent="developer_pause"]
+layout_mode = 0
+offset_top = 177.0
+offset_right = 157.0
+offset_bottom = 208.0
+text = "Screen Shake is ON"
+alignment = 0
+
+[node name="Continue" type="Button" parent="developer_pause"]
+layout_mode = 0
+offset_top = 211.0
+offset_right = 157.0
+offset_bottom = 242.0
+text = "Continue with max energy restored"
+alignment = 0
+
+[node name="SmartBomb" type="Label" parent="."]
+offset_left = 205.0
+offset_top = 102.0
+offset_right = 447.0
+offset_bottom = 146.0
+text = "SMARTBOMB AVAILABLE"
+horizontal_alignment = 1
+
+[connection signal="timeout" from="WarningTimer" to="." method="_on_warning_timer_timeout"]
+[connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="developer_pause/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="developer_pause/Music" to="." method="_on_music_pressed"]
+[connection signal="pressed" from="developer_pause/Damage" to="." method="_on_damage_pressed"]
+[connection signal="pressed" from="developer_pause/Enemies" to="." method="_on_enemies_pressed"]
+[connection signal="pressed" from="developer_pause/Bullets" to="." method="_on_bullets_pressed"]
+[connection signal="pressed" from="developer_pause/Screenshake" to="." method="_on_screenshake_pressed"]
+[connection signal="pressed" from="developer_pause/Continue" to="." method="_on_continue_pressed"]

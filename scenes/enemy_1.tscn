@@ -1,0 +1,145 @@
+[gd_scene load_steps=20 format=3 uid="uid://cs10diur0kq34"]
+
+[ext_resource type="Script" path="res://scripts/enemy1.gd" id="1_yg4mo"]
+[ext_resource type="PackedScene" uid="uid://cfwbhsynm35o" path="res://scenes/enemy_explosion_1.tscn" id="2_e7jgf"]
+[ext_resource type="Texture2D" uid="uid://0ywh2cd0sux1" path="res://assets/graphics/enemy1_mine1.png" id="2_q3xjh"]
+[ext_resource type="Texture2D" uid="uid://bfpsn0igyu3g2" path="res://assets/graphics/Explosion.png" id="3_8kqin"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qf45v"]
+size = Vector2(60, 63.3333)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kla3a"]
+radius = 53.3333
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qgi8"]
+atlas = ExtResource("3_8kqin")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ffkx"]
+atlas = ExtResource("3_8kqin")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koa6m"]
+atlas = ExtResource("3_8kqin")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyn12"]
+atlas = ExtResource("3_8kqin")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45nwn"]
+atlas = ExtResource("3_8kqin")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkiih"]
+atlas = ExtResource("3_8kqin")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30ahv"]
+atlas = ExtResource("3_8kqin")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rcfu"]
+atlas = ExtResource("3_8kqin")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up0i1"]
+atlas = ExtResource("3_8kqin")
+region = Rect2(768, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xe6k"]
+atlas = ExtResource("3_8kqin")
+region = Rect2(864, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkxk0"]
+atlas = ExtResource("3_8kqin")
+region = Rect2(960, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl3yy"]
+atlas = ExtResource("3_8kqin")
+region = Rect2(1056, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8c75y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qgi8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ffkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koa6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyn12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45nwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkiih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30ahv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rcfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_up0i1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xe6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkxk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dl3yy")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 20.0
+}]
+
+[node name="enemy1" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(0.3, 0.3)
+collision_layer = 3
+script = ExtResource("1_yg4mo")
+deathBlowUp = ExtResource("2_e7jgf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_q3xjh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.66667)
+shape = SubResource("RectangleShape2D_qf45v")
+
+[node name="bullet_area" type="Area2D" parent="."]
+metadata/enemy1 = ""
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet_area"]
+shape = SubResource("CircleShape2D_kla3a")
+
+[node name="explosion" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_8c75y")
+animation = &"explode"
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 20.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-176.667, 371.667)
+scale = Vector2(342.333, 446.833)
+
+[node name="ExtinctionTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="bullet_area" to="." method="_on_bullet_area_area_entered"]
+[connection signal="animation_finished" from="explosion" to="." method="_on_explosion_animation_finished"]
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="ExtinctionTimer" to="." method="_on_extinction_timer_timeout"]

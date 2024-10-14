@@ -1,0 +1,162 @@
+[gd_scene load_steps=18 format=3 uid="uid://b2360ojxsegcj"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_2n4p6"]
+[ext_resource type="Texture2D" uid="uid://d6ffqje4owhg" path="res://assets/graphics/Lander_3.png" id="1_58gib"]
+[ext_resource type="Script" path="res://scripts/Camera2D.gd" id="3_7kmc0"]
+[ext_resource type="Texture2D" uid="uid://dh2vu2v8tr85d" path="res://assets/graphics/Sprite-0002.png" id="4_knjd2"]
+[ext_resource type="PackedScene" uid="uid://b47pdejejhyjn" path="res://scenes/hud.tscn" id="4_ok8lk"]
+[ext_resource type="Texture2D" uid="uid://cyu6jckk1nbvj" path="res://assets/graphics/Sprite-0003.png" id="5_x5nsf"]
+[ext_resource type="Script" path="res://scripts/Thrust_Manager.gd" id="5_x14mg"]
+[ext_resource type="Texture2D" uid="uid://cb4dtes4mma8h" path="res://assets/graphics/Sprite-0004.png" id="6_a4c0k"]
+[ext_resource type="AudioStream" uid="uid://bbi7wvoqrg21o" path="res://assets/sfx/player_sfx/thrust_begins1.wav" id="8_gdvxp"]
+[ext_resource type="AudioStream" uid="uid://ccmet6w3828ad" path="res://assets/sfx/player_sfx/thrust_mid1.wav" id="9_ohpnd"]
+[ext_resource type="AudioStream" uid="uid://dlsrf2tswwe6g" path="res://assets/sfx/player_sfx/thrust_released1.wav" id="10_kvpty"]
+[ext_resource type="Texture2D" uid="uid://bb6udch0gx5gg" path="res://assets/graphics/smartbomb_pulse1.png" id="12_ximyk"]
+[ext_resource type="Texture2D" uid="uid://86672w8q14x4" path="res://assets/graphics/smartbomb_pulse2.png" id="13_tskas"]
+[ext_resource type="Texture2D" uid="uid://c88qpbfw2mr3q" path="res://assets/graphics/smartbomb_pulse3.png" id="14_pfg0e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xct2y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_knjd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x5nsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a4c0k")
+}],
+"loop": true,
+"name": &"thrusters",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_vwe15"]
+colors = PackedColorArray(6.30513e-06, 0.678847, 9.62615e-07, 1, 1, 1, 1, 0)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2h7xl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_ximyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_tskas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_pfg0e")
+}],
+"loop": true,
+"name": &"smartbomb",
+"speed": 20.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 4
+script = ExtResource("1_2n4p6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.55, 0.16)
+rotation = 1.5708
+texture = ExtResource("1_58gib")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+script = ExtResource("3_7kmc0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(5.55, 0.16)
+rotation = 1.5708
+polygon = PackedVector2Array(4.83993, -19.45, 29.8401, 29.5499, 18.8401, 26.5499, 6.84009, 24.55, -1.15989, 29.55, -9.15991, 25.55, -18.1599, 25.5501, -28.1599, 28.5501, -1.1601, -26.45)
+
+[node name="hud" parent="." instance=ExtResource("4_ok8lk")]
+
+[node name="Thrust_Manager" type="Node2D" parent="."]
+script = ExtResource("5_x14mg")
+
+[node name="thrust_flames" type="AnimatedSprite2D" parent="Thrust_Manager"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-72, 2.27374e-13)
+rotation = 1.5708
+scale = Vector2(0.5, 3)
+sprite_frames = SubResource("SpriteFrames_xct2y")
+animation = &"thrusters"
+
+[node name="thrust_sound_start" type="AudioStreamPlayer" parent="Thrust_Manager"]
+unique_name_in_owner = true
+stream = ExtResource("8_gdvxp")
+volume_db = -25.082
+
+[node name="thrust_sound_mid" type="AudioStreamPlayer" parent="Thrust_Manager"]
+unique_name_in_owner = true
+stream = ExtResource("9_ohpnd")
+volume_db = -24.471
+
+[node name="thrust_sound_end" type="AudioStreamPlayer" parent="Thrust_Manager"]
+unique_name_in_owner = true
+stream = ExtResource("10_kvpty")
+volume_db = -25.082
+
+[node name="collision_particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 80
+lifetime = 12.0
+one_shot = true
+speed_scale = 5.39
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 14.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 147.06
+angular_velocity_min = 14.12
+angular_velocity_max = 56.47
+scale_amount_max = 2.0
+color = Color(0, 0.866667, 0.0235294, 1)
+color_ramp = SubResource("Gradient_vwe15")
+hue_variation_min = 0.01
+hue_variation_max = 0.19
+
+[node name="firing_points" type="Node2D" parent="."]
+
+[node name="firing_point_top" type="Node2D" parent="firing_points"]
+position = Vector2(38, 0)
+
+[node name="firing_point_left" type="Node2D" parent="firing_points"]
+position = Vector2(-21, -30)
+
+[node name="firing_point_right" type="Node2D" parent="firing_points"]
+position = Vector2(-22, 30)
+
+[node name="SmartbombTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="player_enemy_collision" type="Area2D" parent="."]
+scale = Vector2(1.1, 1.1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player_enemy_collision"]
+position = Vector2(5.55, 0.16)
+rotation = 1.5708
+polygon = PackedVector2Array(4.83993, -19.45, 29.8401, 29.5499, 18.8401, 26.5499, 6.84009, 24.55, -1.15989, 29.55, -9.15991, 25.55, -18.1599, 25.5501, -28.1599, 28.5501, -1.1601, -26.45)
+
+[node name="smartbomb_anim" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-1, 1)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_2h7xl")
+animation = &"smartbomb"
+
+[connection signal="energy_change" from="." to="hud" method="_on_player_energy_change"]
+[connection signal="timeout" from="SmartbombTimer" to="." method="_on_smartbomb_timer_timeout"]
+[connection signal="area_entered" from="player_enemy_collision" to="." method="_on_player_enemy_collision_area_entered"]
+[connection signal="area_exited" from="player_enemy_collision" to="." method="_on_player_enemy_collision_area_exited"]

@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://bigfqmulmemg4"]
+
+[ext_resource type="Texture2D" uid="uid://bmfo8cksdafso" path="res://assets/graphics/env_graphics/Sun3.png" id="3_lu4kk"]
+[ext_resource type="Texture2D" uid="uid://burts31ura6eo" path="res://assets/graphics/parallax_images/nebulawetstars.png" id="3_n1xnf"]
+[ext_resource type="Texture2D" uid="uid://c7by386dxx5m3" path="res://assets/graphics/env_graphics/space_station1_transparent.png" id="4_6gx5r"]
+[ext_resource type="Texture2D" uid="uid://cqserdgs8ipsw" path="res://assets/graphics/env_graphics/SL2D_world1.png" id="4_r8xa3"]
+
+[node name="Parallax" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(720, 1280)
+
+[node name="FarthestSky" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+visible = false
+texture_filter = 1
+texture = ExtResource("3_n1xnf")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(720, 1280)
+
+[node name="MiddleSky" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+modulate = Color(0.12549, 1, 0.356863, 1)
+texture_filter = 1
+texture = ExtResource("3_n1xnf")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 0.8)
+
+[node name="Sun" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+modulate = Color(0.454902, 0.960784, 0.156863, 1)
+texture_filter = 1
+position = Vector2(570, 1494)
+rotation = -0.687821
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_lu4kk")
+centered = false
+
+[node name="RedWorld" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+modulate = Color(0, 0.941176, 0, 1)
+position = Vector2(1354, 2240.57)
+rotation = 1.14961
+texture = ExtResource("4_r8xa3")
+
+[node name="RedWorld2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+modulate = Color(0.00392157, 0.270588, 0.027451, 1)
+position = Vector2(2352, 6829)
+rotation = -2.05725
+scale = Vector2(2, 2)
+texture = ExtResource("4_r8xa3")
+
+[node name="space_station" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+modulate = Color(0.133333, 0.321569, 0.109804, 1)
+position = Vector2(746, 3982)
+scale = Vector2(3, 3)
+texture = ExtResource("4_6gx5r")

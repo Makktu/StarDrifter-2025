@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb7cr333x0uvh"]
+
+[ext_resource type="Texture2D" uid="uid://jk3mhtttjkmr" path="res://assets/graphics/env_graphics/Emplacement_Draft1.png" id="1_l77ht"]
+
+[node name="Emplacement" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_l77ht")
