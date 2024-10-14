@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy8am7rjugpas"]
+[gd_scene load_steps=8 format=3 uid="uid://cy8am7rjugpas"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ybue2"]
 [ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/parallax_background.tscn" id="2_s8res"]
@@ -10,9 +10,6 @@
 [sub_resource type="Environment" id="Environment_snjjn"]
 volumetric_fog_enabled = true
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7c45v"]
-size = Vector2(43.1699, 89)
-
 [node name="World" type="Node2D"]
 script = ExtResource("1_ybue2")
 
@@ -22,6 +19,7 @@ environment = SubResource("Environment_snjjn")
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_s8res")]
 
 [node name="World1" type="StaticBody2D" parent="."]
+scale = Vector2(0.6, 0.6)
 
 [node name="starting_world" type="Sprite2D" parent="World1"]
 unique_name_in_owner = true
@@ -47,32 +45,24 @@ polygon = PackedVector2Array(-2854, -1249.4, -2854, -1245.6, -2866.6, -1241, -28
 
 [node name="Player" parent="." instance=ExtResource("3_pecdv")]
 modulate = Color(0.282353, 1, 0.317647, 1)
-position = Vector2(1153, 9181)
+position = Vector2(1686, 4570)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)
-
-[node name="ZoomOut1" type="Area2D" parent="."]
-position = Vector2(1617, 7659)
-collision_mask = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoomOut1"]
-rotation = -0.654716
-shape = SubResource("RectangleShape2D_7c45v")
-
-[node name="enemy_spawner" parent="." instance=ExtResource("5_1eq67")]
-position = Vector2(1870, 9349)
-
-[node name="enemy_spawner2" parent="." instance=ExtResource("5_1eq67")]
-position = Vector2(1069, 7228)
-
-[node name="enemy_spawner3" parent="." instance=ExtResource("5_1eq67")]
-position = Vector2(2100, 2629)
-
-[node name="enemy_spawner4" parent="." instance=ExtResource("5_1eq67")]
-position = Vector2(2893, 7780)
 
 [node name="energy_tower" parent="." instance=ExtResource("6_ro6xg")]
 position = Vector2(989, 9708)
 scale = Vector2(0.2, 0.2)
 
-[connection signal="body_entered" from="ZoomOut1" to="." method="_on_zoom_out_1_body_entered"]
+[node name="enemy_spawner_things" type="Node2D" parent="."]
+
+[node name="enemy_spawner" parent="enemy_spawner_things" instance=ExtResource("5_1eq67")]
+position = Vector2(3845, 5134)
+
+[node name="enemy_spawner2" parent="enemy_spawner_things" instance=ExtResource("5_1eq67")]
+position = Vector2(557, 2884)
+
+[node name="enemy_spawner3" parent="enemy_spawner_things" instance=ExtResource("5_1eq67")]
+position = Vector2(3069, 2865)
+
+[node name="enemy_spawner4" parent="enemy_spawner_things" instance=ExtResource("5_1eq67")]
+position = Vector2(3467, 3947)

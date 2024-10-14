@@ -123,7 +123,8 @@ func handle_collision(collided, speed_x, speed_y):
 	var collision_strength = 'collision_soft'
 	if speed_x >= 50 or speed_y >= 50:
 		collision_strength = 'collision_hard'		
-	starting_energy -= global.taking_damage['World1'][collision_strength]
+	#starting_energy -= global.taking_damage['World1'][collision_strength]
+	starting_energy -= 1
 		
 	emit_signal("energy_change", starting_energy)
 	show_collision_particles()

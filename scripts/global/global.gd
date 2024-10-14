@@ -57,3 +57,6 @@ func damage_player(distance_from_player):#
 		return
 	player_damage = true
 	player_amount_damaged = distance_from_player / 2
+	
+func taking_damage():
+	return 1
