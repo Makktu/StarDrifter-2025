@@ -1,18 +1,7 @@
 extends Node
 
-var taking_damage = {
-	"enemy1": {
-		"collision_soft": 1,
-		"collision_hard": 3,
-		"explosion_far": 3,
-		"explosion_near": 6, 
-		"destroyed_at": 3, 
-	},
-	"World1": {
-		"collision_soft": 1,
-		"collision_hard": 5,
-	}
-}
+@onready var sfx_manager = $sfx_manager
+@onready var bgm_manager = $BGMusicManager
 # ========================================================================================
 # ======= DEVELOPER MENU OPTIONS VARIABLES ===============================================
 var game_paused := false
@@ -24,12 +13,16 @@ var dev_screenshake_on = true
 # ========================================================================================
 # ========================================================================================
 var player_energy := 100
-@onready var sfx_manager = $sfx_manager
-@onready var bgm_manager = $BGMusicManager
 var global_music_on := true
 var alarm_triggered := false
+
+# smartbomb variables
+var equippables = {
+	"smartbomb":"false",
+}
 var smart_bomb_active = false
-var smart_bomb_equipped = true
+var smart_bomb_equipped = false
+# this will be a pickup; game is pickup-based
 
 var player_energy_replenish_amount = 0.01 # can dynamically change
 # monitor and control how many basic enemies

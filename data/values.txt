@@ -5,3 +5,17 @@ var enemy_damage := {
 		"direct_hit": 5
 	}	 
 }
+
+var taking_damage = {
+	"enemy1": {
+		"collision_soft": 1,
+		"collision_hard": 3,
+		"explosion_far": 3,
+		"explosion_near": 6, 
+		"destroyed_at": 3, 
+	},
+	"World1": {
+		"collision_soft": 1,
+		"collision_hard": 5,
+	}
+}

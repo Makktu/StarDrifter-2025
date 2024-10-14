@@ -1,6 +1,6 @@
 extends Node2D
 
-const enemy_basic = preload("res://scenes/enemies/enemy_1.tscn")
+const enemy_basic = preload("res://scenes/enemy_1.tscn")
 
 var amount_spawned = 0
 

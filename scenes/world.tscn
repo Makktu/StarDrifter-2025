@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ybue2"]
 [ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/parallax_background.tscn" id="2_s8res"]
+[ext_resource type="Texture2D" uid="uid://vl7g84jpj3o" path="res://assets/graphics/env_graphics/world1.png" id="3_4nc0s"]
 [ext_resource type="PackedScene" uid="uid://b2360ojxsegcj" path="res://scenes/player.tscn" id="3_pecdv"]
-[ext_resource type="PackedScene" uid="uid://cb7cr333x0uvh" path="res://scenes/emplacement.tscn" id="4_tcw8g"]
 [ext_resource type="PackedScene" uid="uid://cph3l0chuxd5s" path="res://scenes/enemy_spawner.tscn" id="5_1eq67"]
 [ext_resource type="PackedScene" uid="uid://dw1fvv2gc4tsl" path="res://scenes/energy_tower.tscn" id="6_ro6xg"]
 
@@ -27,6 +27,7 @@ environment = SubResource("Environment_snjjn")
 unique_name_in_owner = true
 modulate = Color(0.345098, 0.701961, 0.294118, 1)
 position = Vector2(4560, 5189)
+texture = ExtResource("3_4nc0s")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World1"]
 position = Vector2(4561, 5189)
@@ -57,25 +58,6 @@ collision_mask = 5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoomOut1"]
 rotation = -0.654716
 shape = SubResource("RectangleShape2D_7c45v")
-
-[node name="Emplacements" type="Node2D" parent="."]
-position = Vector2(-4, -6)
-
-[node name="Emplacement" parent="Emplacements" instance=ExtResource("4_tcw8g")]
-position = Vector2(1500, 7763)
-rotation = 1.91202
-scale = Vector2(0.2, 0.2)
-
-[node name="Emplacement2" parent="Emplacements" instance=ExtResource("4_tcw8g")]
-position = Vector2(1488, 7792)
-rotation = 1.91202
-scale = Vector2(0.2, 0.2)
-
-[node name="Emplacement3" parent="Emplacements" instance=ExtResource("4_tcw8g")]
-modulate = Color(0.960784, 0.192157, 0.243137, 1)
-position = Vector2(1632, 7765)
-rotation = -2.11378
-scale = Vector2(0.5, 0.5)
 
 [node name="enemy_spawner" parent="." instance=ExtResource("5_1eq67")]
 position = Vector2(1870, 9349)

@@ -8,8 +8,9 @@ signal energy_change
 @onready var rotation_speed = 5 #6
 @onready var global = $/root/Global
 @onready var colliding_effect = $collision_particles
+
 # =============== SHOOTING
-const bullet = preload("res://scenes/Player/bullet/bullet.tscn")
+const bullet = preload("res://scenes/bullet.tscn")
 var player_is_shooting := false # toggle to prevent continuous fire
 @onready var firing_points = global.player_bullets_can_be_fired # start only able to shoot from tip of craft
 # ========================
@@ -69,8 +70,7 @@ func _physics_process(delta):
 	# =================================#	
 	var collided := move_and_collide(velocity * delta)
 	if collided and not get_floor_normal():
-		handle_collision(collided, velocity.x, velocity.y)
-		
+		handle_collision(collided, velocity.x, velocity.y)		
 	# =================================#
 
 	input_vector.x = Input.get_action_strength("Thrust")
@@ -81,7 +81,7 @@ func _physics_process(delta):
 		if !player_is_thrusting:
 			player_is_thrusting = true
 			$hud.thrust_pressed()
-		
+					
 	if Input.is_action_just_released("Thrust"):
 		$Thrust_Manager.thrust_released()
 		$hud.thrust_released()
@@ -115,13 +115,8 @@ func energy_replenish():
 func handle_smartpulse():
 	$smartbomb_anim.visible = true
 	$smartbomb_anim.play("smartbomb")
-	#for n in 21000:
-		#await get_tree().create_timer(100).timeout 
-		#$smartbomb_anim.scale.x += 0.1
-		#$smartbomb_anim.scale.y += 0.1
-			
 
-		
+
 func handle_collision(collided, speed_x, speed_y):
 	# collision penalty for all collisions
 	# not just the 'World' environment
