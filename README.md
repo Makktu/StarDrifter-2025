@@ -56,3 +56,15 @@ ___
 # Project revival October 2024
 
 Here we go yet again.
+
+### Tues 15 Oct 2024
+
+Re-organised the project to make it more manageable.
+
+Removed the HUD features (which were mostly cosmetic).
+
+Shrunk the environment down to something more suitable for mobile screens.
+
+Added bullet trail.
+
+Lots of things up in the air and provisional.

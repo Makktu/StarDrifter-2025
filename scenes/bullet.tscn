@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://p2tkqwdu6g5n"]
+[gd_scene load_steps=21 format=3 uid="uid://p2tkqwdu6g5n"]
 
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_nqqao"]
 [ext_resource type="Texture2D" uid="uid://c83p8ha0wo080" path="res://assets/graphics/bullet/Bullet2.png" id="2_ii4ec"]
@@ -105,8 +105,11 @@ radius = 20.0
 [sub_resource type="Gradient" id="Gradient_wbjhm"]
 colors = PackedColorArray(3.51354e-06, 0.77038, 3.08037e-06, 1, 1, 1, 1, 0)
 
+[sub_resource type="Gradient" id="Gradient_o5fts"]
+colors = PackedColorArray(3.51354e-06, 0.77038, 3.08037e-06, 1, 1, 1, 1, 0)
+
 [node name="bullet" type="StaticBody2D" groups=["bullet"]]
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.04, 0.04)
 collision_layer = 2
 script = ExtResource("1_nqqao")
 
@@ -153,6 +156,29 @@ angular_velocity_max = 56.47
 scale_amount_max = 2.0
 color = Color(0, 0.866667, 0.0235294, 1)
 color_ramp = SubResource("Gradient_wbjhm")
+hue_variation_min = 0.01
+hue_variation_max = 0.19
+
+[node name="trail_particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+lifetime = 20.0
+one_shot = true
+speed_scale = 12.18
+explosiveness = 0.43
+emission_shape = 1
+emission_sphere_radius = 14.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 147.06
+angular_velocity_min = 14.12
+angular_velocity_max = 56.47
+scale_amount_min = 0.2
+scale_amount_max = 3.0
+color = Color(0, 0.866667, 0.0235294, 1)
+color_ramp = SubResource("Gradient_o5fts")
 hue_variation_min = 0.01
 hue_variation_max = 0.19
 

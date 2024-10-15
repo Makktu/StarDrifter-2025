@@ -9,6 +9,7 @@ var velocity = Vector2(0, speed)
 
 func _ready():
 	velocity = velocity.rotated(deg_to_rad(global_rotation_degrees))
+	$trail_particles.emitting = true
 
 	
 func _physics_process(delta):
