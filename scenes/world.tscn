@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cy8am7rjugpas"]
+[gd_scene load_steps=9 format=3 uid="uid://cy8am7rjugpas"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ybue2"]
 [ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/parallax_background.tscn" id="2_s8res"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b2360ojxsegcj" path="res://scenes/player.tscn" id="3_pecdv"]
 [ext_resource type="PackedScene" uid="uid://cph3l0chuxd5s" path="res://scenes/enemy_spawner.tscn" id="5_1eq67"]
 [ext_resource type="PackedScene" uid="uid://dw1fvv2gc4tsl" path="res://scenes/energy_tower.tscn" id="6_ro6xg"]
+[ext_resource type="PackedScene" uid="uid://cfbwfa6t0e240" path="res://scenes/phantom.tscn" id="7_n8aou"]
 
 [sub_resource type="Environment" id="Environment_snjjn"]
 volumetric_fog_enabled = true
@@ -45,7 +46,7 @@ polygon = PackedVector2Array(-2854, -1249.4, -2854, -1245.6, -2866.6, -1241, -28
 
 [node name="Player" parent="." instance=ExtResource("3_pecdv")]
 modulate = Color(0.282353, 1, 0.317647, 1)
-position = Vector2(1686, 4570)
+position = Vector2(683, 5613)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)
 
@@ -66,3 +67,6 @@ position = Vector2(3069, 2865)
 
 [node name="enemy_spawner4" parent="enemy_spawner_things" instance=ExtResource("5_1eq67")]
 position = Vector2(3467, 3947)
+
+[node name="Phantom" parent="." instance=ExtResource("7_n8aou")]
+position = Vector2(631, 5497)

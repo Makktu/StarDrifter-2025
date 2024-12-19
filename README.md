@@ -68,3 +68,11 @@ Shrunk the environment down to something more suitable for mobile screens.
 Added bullet trail.
 
 Lots of things up in the air and provisional.
+
+### Thur 19 December 2024
+
+And we're back! Limping progress while my memory returns of some of the most basic elements of Godot. It's only been a couple of months, but that was a fleeting visit even then. Probably a year, in effect, since I was immersed in this project and Godot as a whole.
+
+Currently stuck on adding a new enemy to the game that is meant to phase in and out of visibility.
+
+Working on it.
