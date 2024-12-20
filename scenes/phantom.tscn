@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfbwfa6t0e240"]
+[gd_scene load_steps=7 format=3 uid="uid://cfbwfa6t0e240"]
 
 [ext_resource type="Texture2D" uid="uid://b8sjskpdb6c0i" path="res://assets/graphics/phantom.png" id="1_iyqid"]
 [ext_resource type="Script" path="res://scenes/phantom.gd" id="1_obxnw"]
@@ -39,7 +39,10 @@ _data = {
 "phase_in": SubResource("Animation_u1o3w")
 }
 
-[node name="Phantom" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_xks7q"]
+radius = 24.0
+
+[node name="Phantom" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_obxnw")
 
@@ -47,10 +50,15 @@ script = ExtResource("1_obxnw")
 texture = ExtResource("1_iyqid")
 
 [node name="PhaseTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_hj5ny")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xks7q")
 
 [connection signal="timeout" from="PhaseTimer" to="." method="_on_phase_timer_timeout"]

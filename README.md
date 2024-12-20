@@ -75,4 +75,4 @@ And we're back! Limping progress while my memory returns of some of the most bas
 
 Currently stuck on adding a new enemy to the game that is meant to phase in and out of visibility.
 
-Working on it.
+Working on it. Using Tweens instead of animation player, etc
