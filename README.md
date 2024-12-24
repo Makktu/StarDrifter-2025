@@ -76,3 +76,11 @@ And we're back! Limping progress while my memory returns of some of the most bas
 Currently stuck on adding a new enemy to the game that is meant to phase in and out of visibility.
 
 Working on it. Using Tweens instead of animation player, etc
+
+### Tues 24 December 2024
+
+Fixed the Phantom enemy's laser weapon. The laser was causing the game to crash because I was trying to reuse the same laser instance multiple times. Now creating a new instance each time it fires.
+
+Also sorted out the laser beam length and collision detection. The beam now properly extends to 3000 pixels or until it hits something, and the phantom tracks the player properly when phased in.
+
+Still more to do with this enemy type (e.g. laser appearance, timing, deadliness, and whether the phantom should move around), but the core mechanics are working now.
