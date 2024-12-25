@@ -70,3 +70,6 @@ position = Vector2(3467, 3947)
 
 [node name="Phantom" parent="." instance=ExtResource("7_n8aou")]
 position = Vector2(1145, 5619)
+
+[node name="Phantom2" parent="." instance=ExtResource("7_n8aou")]
+position = Vector2(666, 3127)

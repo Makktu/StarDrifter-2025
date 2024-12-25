@@ -29,6 +29,7 @@ var extinction_triggered = false
 var extinction_timer_value = 2
 var distance_from_player
 var phantom_active = false
+var fired_laser = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -55,6 +56,7 @@ func _physics_process(delta):
 			if rotation_speed <= 4: rotation_speed += 0.2				
 	
 func fade_in():
+	fired_laser = 0
 	# create Tween object
 	var tween = get_tree().create_tween()
 	# Fade in the sprite by tweening the alpha value of its modulate property
@@ -65,8 +67,6 @@ func fade_in():
 		5.0,       # Duration in seconds
 		).set_ease(Tween.EASE_IN_OUT)
 	phased_out = false
-	phase_timer.wait_time = 30
-	phase_timer.start()
 	fire_timer.start()
 	
 func fade_out():
@@ -80,7 +80,7 @@ func fade_out():
 		5.0   # Duration in seconds
 		).set_ease(Tween.EASE_IN_OUT)
 	phased_out = true
-	phase_timer.wait_time = 5
+	phase_timer.wait_time = 8
 	phase_timer.start()
 	fire_timer.stop()
 
@@ -90,20 +90,6 @@ func _on_phase_timer_timeout():
 		fade_in()
 	else:
 		fade_out()
-		
-
-func start_shimmer():
-	# Create a Tween for scaling
-	var scale_tween = get_tree().create_tween()
-	scale_tween.tween_property(sprite, "scale", Vector2(1.1, 1.1), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	scale_tween.tween_property(sprite, "scale", Vector2(1.0, 1.0), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	scale_tween.set_loops()
-	
-	# Create a Tween for modulate property
-	var modulate_tween = get_tree().create_tween()
-	modulate_tween.tween_property(sprite, "modulate", Color(1.2, 1.2, 1.2), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	modulate_tween.tween_property(sprite, "modulate", Color(1.0, 1.0, 1.0), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	modulate_tween.set_loops()
 
 
 func _on_visible_on_screen_enabler_2d_screen_entered():
@@ -114,6 +100,7 @@ func _on_visible_on_screen_enabler_2d_screen_entered():
 func _on_visible_on_screen_enabler_2d_screen_exited():
 	print("PHANTOM INACTIVE")
 	phantom_active = false
+	fade_out()
 
 
 func _on_fire_timer_timeout():
@@ -121,3 +108,6 @@ func _on_fire_timer_timeout():
 		var new_laser = laser_beam.instantiate()
 		add_child(new_laser)
 		fire_timer.start()
+		fired_laser += 1
+		if fired_laser == 8:
+			fade_out()

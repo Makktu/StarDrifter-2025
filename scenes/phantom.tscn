@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cfbwfa6t0e240"]
 
-[ext_resource type="Texture2D" uid="uid://b8sjskpdb6c0i" path="res://assets/graphics/phantom.png" id="1_iyqid"]
 [ext_resource type="Script" path="res://scenes/phantom.gd" id="1_obxnw"]
+[ext_resource type="Texture2D" uid="uid://csw6uuxk862pr" path="res://assets/graphics/phantom_2.png" id="2_hd88t"]
 
 [sub_resource type="Animation" id="Animation_7k8rg"]
 length = 0.001
@@ -39,16 +39,17 @@ _data = {
 "phase_in": SubResource("Animation_u1o3w")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xks7q"]
-radius = 24.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y744p"]
+radius = 84.0
+height = 200.0
 
 [node name="Phantom" type="CharacterBody2D"]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.25, 0.2)
 script = ExtResource("1_obxnw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 3.90992
-texture = ExtResource("1_iyqid")
+rotation = 4.71239
+texture = ExtResource("2_hd88t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -56,18 +57,19 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_xks7q")
+position = Vector2(-16, 5)
+shape = SubResource("CapsuleShape2D_y744p")
 
 [node name="PhaseTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 8.0
 one_shot = true
 
 [node name="FireTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 4.0
 one_shot = true
 
 [node name="LaserSpawn" type="Marker2D" parent="."]
-position = Vector2(30, 0)
+position = Vector2(-80, 5)
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(8.00002, 2.00001)

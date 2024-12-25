@@ -84,3 +84,7 @@ Fixed the Phantom enemy's laser weapon. The laser was causing the game to crash 
 Also sorted out the laser beam length and collision detection. The beam now properly extends to 3000 pixels or until it hits something, and the phantom tracks the player properly when phased in.
 
 Still more to do with this enemy type (e.g. laser appearance, timing, deadliness, and whether the phantom should move around), but the core mechanics are working now.
+
+### Wed 25 December 2024
+
+Adjusted Phantom behaviour. Added new sprite for it.
