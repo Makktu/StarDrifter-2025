@@ -24,6 +24,10 @@ func shoot_laser():
 	# Convert the end point to local coordinates if it's a collision point
 	if ray_cast.is_colliding():
 		end_point = to_local(end_point)
+		var collider = ray_cast.get_collider()
+		print(collider)
+		if collider.is_in_group("player"):
+			print("PLAYER HIT")
 	else:
 		end_point = Vector2(LASER_LENGTH, 0)
 	

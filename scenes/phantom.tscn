@@ -48,6 +48,7 @@ scale = Vector2(0.25, 0.2)
 script = ExtResource("1_obxnw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.00014, -5.49988)
 rotation = 4.71239
 texture = ExtResource("2_hd88t")
 
@@ -57,7 +58,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-16, 5)
+position = Vector2(-14.9999, -0.499878)
 shape = SubResource("CapsuleShape2D_y744p")
 
 [node name="PhaseTimer" type="Timer" parent="."]
@@ -69,13 +70,18 @@ wait_time = 4.0
 one_shot = true
 
 [node name="LaserSpawn" type="Marker2D" parent="."]
-position = Vector2(-80, 5)
+position = Vector2(-120, 0)
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(8.00002, 2.00001)
 scale = Vector2(19.2, 18.6)
 
+[node name="OffScreenTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="timeout" from="PhaseTimer" to="." method="_on_phase_timer_timeout"]
 [connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
+[connection signal="timeout" from="OffScreenTimer" to="." method="_on_off_screen_timer_timeout"]

@@ -2,11 +2,12 @@ extends CharacterBody2D
 
 var laser_beam = preload("res://scenes/phantom_laser.tscn")
 # Enemy notes:
-# dormant when not on screen
-# is triggered by player proximity to start 'phantoming'
-# i.e., phasing in and firing maser cannon at player
-# then phasing out
-# is only vulnerable whilst phasing
+# completely dormant when not on screen
+# triggered by VisibleOnScreenEnabler
+# phases in and fires laser directly ahead every 4 seconds, a total of 8 times, while rotating to face the player
+# phases out for a random length of time to 'recharge'
+# phases out when leaving screen
+# is only vulnerable from rear
 
 
 var phased_out = true
@@ -14,6 +15,7 @@ var time_to_next_phase_in = 4.0 # time in seconds to next appearance on map
 @onready var phase_timer = $PhaseTimer
 @onready var fire_timer = $FireTimer
 @onready var laser_spawn = $LaserSpawn
+@onready var off_screen_timer = $OffScreenTimer
 @onready var animation_player = $AnimationPlayer
 @onready var sprite = $Sprite2D
 @onready var the_player = get_tree().get_nodes_in_group("player")[0]
@@ -80,7 +82,9 @@ func fade_out():
 		5.0   # Duration in seconds
 		).set_ease(Tween.EASE_IN_OUT)
 	phased_out = true
-	phase_timer.wait_time = 8
+	var random_phase_out_time = randi_range(8, 24)
+	phase_timer.wait_time = random_phase_out_time
+	print(">>>", random_phase_out_time)
 	phase_timer.start()
 	fire_timer.stop()
 
@@ -98,9 +102,8 @@ func _on_visible_on_screen_enabler_2d_screen_entered():
 	phase_timer.start()
 
 func _on_visible_on_screen_enabler_2d_screen_exited():
-	print("PHANTOM INACTIVE")
-	phantom_active = false
-	fade_out()
+	# keeping the Phantom alive and shooting for 5s after off-screen
+	off_screen_timer.start()
 
 
 func _on_fire_timer_timeout():
@@ -111,3 +114,9 @@ func _on_fire_timer_timeout():
 		fired_laser += 1
 		if fired_laser == 8:
 			fade_out()
+
+
+func _on_off_screen_timer_timeout():
+	print("PHANTOM INACTIVE")
+	phantom_active = false
+	fade_out()
