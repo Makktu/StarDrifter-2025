@@ -88,3 +88,17 @@ Still more to do with this enemy type (e.g. laser appearance, timing, deadliness
 ### Wed 25 December 2024
 
 Adjusted Phantom behaviour. Added new sprite for it.
+
+### Sun 29 December 2024
+
+Officially changed project name to StarDrifter.
+
+Next up: tidying the project. Pruning all the legacy code and nodes from previous layers of activity.
+
+### Mon 30 December 2024
+
+- Started the tidy-up.
+- Removed some redundant code.
+- Experimenting with faster player speed & bullets.
+- Gone down to one bullet only for the player (remainder in pickup?).
+

@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 signal energy_change
 
-@onready var acceleration = 60 #30
-@onready var max_speed = 100
+@onready var acceleration = 80 #30
+@onready var max_speed = 200
 @onready var gravity = 0 #0 FOR FULL WEIGHTLESSNESS
 @onready var rotation_speed = 5 #6
 @onready var global = $/root/Global
@@ -185,3 +185,6 @@ func _on_player_enemy_collision_area_exited(area):
 func inflict_damage():
 	starting_energy -= global.player_amount_damaged
 	emit_signal("energy_change", starting_energy)
+	
+func take_damage():
+	print("DAMAGE TOOK!")

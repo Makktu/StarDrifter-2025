@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="SpaceLander2D 2024"
+config/name="StarDrifter 2025"
 run/main_scene="res://start.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 

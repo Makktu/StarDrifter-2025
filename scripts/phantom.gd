@@ -19,6 +19,8 @@ var time_to_next_phase_in = 4.0 # time in seconds to next appearance on map
 @onready var animation_player = $AnimationPlayer
 @onready var sprite = $Sprite2D
 @onready var the_player = get_tree().get_nodes_in_group("player")[0]
+@onready var collision_shape = $CollisionShape2D
+
 
 var enemy_speed = 10
 var target_position
@@ -69,6 +71,7 @@ func fade_in():
 		5.0,       # Duration in seconds
 		).set_ease(Tween.EASE_IN_OUT)
 	phased_out = false
+	collision_shape.disabled = false
 	fire_timer.start()
 	
 func fade_out():
@@ -86,6 +89,7 @@ func fade_out():
 	phase_timer.wait_time = random_phase_out_time
 	print(">>>", random_phase_out_time)
 	phase_timer.start()
+	collision_shape.disabled = true
 	fire_timer.stop()
 
 

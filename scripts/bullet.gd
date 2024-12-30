@@ -2,7 +2,7 @@ extends StaticBody2D
 
 @onready var explosion_frames = $explosion
 
-var speed = 250
+var speed = 450
 var exploded_again := false
 
 var velocity = Vector2(0, speed)
