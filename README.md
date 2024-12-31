@@ -102,3 +102,12 @@ Next up: tidying the project. Pruning all the legacy code and nodes from previou
 - Experimenting with faster player speed & bullets.
 - Gone down to one bullet only for the player (remainder in pickup?).
 
+# Tue 31 December 2024
+
+Fixed problem with player bullets detecting collisions with player when fired. (Problem was a shared collision layer.)
+
+Removed dynamic camera zoom for now, possibly for good.
+
+Further tidying up of redundant code.
+
+Smartbomb code only commented out for now in case the feature is kept.

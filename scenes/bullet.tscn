@@ -163,7 +163,7 @@ hue_variation_max = 0.19
 [node name="trail_particles" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 60
-lifetime = 6.7
+lifetime = 15.0
 speed_scale = 12.18
 explosiveness = 0.43
 emission_shape = 1

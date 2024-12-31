@@ -53,7 +53,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 5
+collision_layer = 4
 script = ExtResource("1_2n4p6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -62,7 +62,7 @@ rotation = 1.5708
 texture = ExtResource("1_58gib")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(1.5, 1.5)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.1
@@ -130,13 +130,13 @@ hue_variation_max = 0.19
 [node name="firing_points" type="Node2D" parent="."]
 
 [node name="firing_point_top" type="Node2D" parent="firing_points"]
-position = Vector2(38, 0)
+position = Vector2(41, 0)
 
 [node name="firing_point_left" type="Node2D" parent="firing_points"]
-position = Vector2(-21, -30)
+position = Vector2(-18, -32)
 
 [node name="firing_point_right" type="Node2D" parent="firing_points"]
-position = Vector2(-22, 30)
+position = Vector2(-21, 32)
 
 [node name="SmartbombTimer" type="Timer" parent="."]
 wait_time = 2.0

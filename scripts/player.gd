@@ -32,9 +32,9 @@ func _physics_process(delta):
 		# bring up pause menu with condition true (Game Over)
 		$hud._on_pause_button_pressed(true)
 		
-	if starting_energy <= 50:
-		global.smart_bomb_equipped = false
-		$hud.smartbomb_message_toggle(false)
+	#if starting_energy <= 50: >>>>>SMARTBOMB RELATED
+		#global.smart_bomb_equipped = false
+		#$hud.smartbomb_message_toggle(false)
 	
 	if Input.is_action_pressed("Left") and rotation_direction != -1:
 		rotation_direction -= 1
@@ -51,17 +51,17 @@ func _physics_process(delta):
 		player_is_shooting = false
 	
 	# smartbomb deployment
-	if Input.is_action_just_pressed("Up") and global.smart_bomb_equipped and starting_energy >= 51:
-		handle_smartpulse()	
-		global.smart_bomb_active = true
-		starting_energy -= 50
-		$SmartbombTimer.start()
+	#if Input.is_action_just_pressed("Up") and global.smart_bomb_equipped and starting_energy >= 51:
+		#handle_smartpulse()	
+		#global.smart_bomb_active = true
+		#starting_energy -= 50
+		#$SmartbombTimer.start()
 		
 	velocity += Vector2(input_vector.x * acceleration * delta, 0).rotated(rotation)
 	velocity.x = clamp(velocity.x, -max_speed, max_speed)
 	velocity.y = clamp(velocity.y, -max_speed, max_speed)
 	
-	$Camera2D.dynamic_zoom(velocity.x, velocity.y)
+	#$Camera2D.dynamic_zoom(velocity.x, velocity.y)
 	
 	rotation += rotation_direction * rotation_speed * delta	
 		
@@ -109,12 +109,12 @@ func energy_replenish():
 	if starting_energy < global.player_energy:
 		starting_energy += energy_replenish_amount
 	emit_signal("energy_change", starting_energy)
-	if starting_energy >= 51:
-		$hud.smartbomb_message_toggle(true)
+	#if starting_energy >= 51:
+		#$hud.smartbomb_message_toggle(true)
 		
-func handle_smartpulse():
-	$smartbomb_anim.visible = true
-	$smartbomb_anim.play("smartbomb")
+#func handle_smartpulse():
+	#$smartbomb_anim.visible = true
+	#$smartbomb_anim.play("smartbomb")
 
 
 func handle_collision(collided, speed_x, speed_y):
@@ -142,10 +142,10 @@ func show_collision_particles():
 	colliding_effect.emitting = true
 	$Camera2D.shake_camera(2, 6.1, 'collision')
 			
-func camera_special(type):
-	if !type:
-		return
-	$Camera2D.zoom_special(type)
+#func camera_special(type):
+	#if !type:
+		#return
+	#$Camera2D.zoom_special(type)
 	
 	
 func shoot_bullets():
@@ -164,16 +164,16 @@ func shoot_bullets():
 			break
 
 
-func _on_smartbomb_timer_timeout():
-	global.smart_bomb_active = false
-	global.smart_bomb_equipped = true # will be made false in _physics_process if energy < 51
+#func _on_smartbomb_timer_timeout():
+	#global.smart_bomb_active = false
+	#global.smart_bomb_equipped = true # will be made false in _physics_process if energy < 51
 
 
-func _on_player_enemy_collision_area_entered(area):
-	if area.name == 'energy_area':
-		$Camera2D.zoom_special('zoomin')
-		energy_replenish_amount = 0.5
-		max_speed = 10
+#func _on_player_enemy_collision_area_entered(area):
+	#if area.name == 'energy_area':
+		#$Camera2D.zoom_special('zoomin')
+		#energy_replenish_amount = 0.5
+		#max_speed = 10
 		
 
 func _on_player_enemy_collision_area_exited(area):
