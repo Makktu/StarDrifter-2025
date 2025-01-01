@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy8am7rjugpas"]
+[gd_scene load_steps=12 format=3 uid="uid://cy8am7rjugpas"]
 
+[ext_resource type="Shader" path="res://scenes/world.gdshader" id="1_xqcar"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ybue2"]
 [ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/parallax_background.tscn" id="2_s8res"]
 [ext_resource type="Texture2D" uid="uid://vl7g84jpj3o" path="res://assets/graphics/env_graphics/world1.png" id="3_4nc0s"]
@@ -8,10 +9,19 @@
 [ext_resource type="PackedScene" uid="uid://dw1fvv2gc4tsl" path="res://scenes/energy_tower.tscn" id="6_ro6xg"]
 [ext_resource type="PackedScene" uid="uid://cfbwfa6t0e240" path="res://scenes/phantom.tscn" id="7_n8aou"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ad33l"]
+shader = ExtResource("1_xqcar")
+shader_parameter/brightness = 1.25
+
 [sub_resource type="Environment" id="Environment_snjjn"]
 volumetric_fog_enabled = true
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gdpxk"]
+shader = ExtResource("1_xqcar")
+shader_parameter/brightness = 100.25
+
 [node name="World" type="Node2D"]
+material = SubResource("ShaderMaterial_ad33l")
 script = ExtResource("1_ybue2")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -73,3 +83,13 @@ position = Vector2(1145, 5619)
 
 [node name="Phantom2" parent="." instance=ExtResource("7_n8aou")]
 position = Vector2(666, 3127)
+
+[node name="CRTCanvas" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CRTCanvas"]
+material = SubResource("ShaderMaterial_gdpxk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
