@@ -24,7 +24,7 @@ var alarm_triggered : bool = false
 #var smart_bomb_equipped = false
 # this will be a pickup; game is pickup-based
 
-var player_energy_replenish_amount : float = 0.01 # amount player energy naturally replenishes by per frame - can dynamically change
+var player_energy_replenish_amount : float = 0.1 # amount player energy naturally replenishes by per frame - can dynamically change
 # monitor and control how many basic enemies
 # exist in game world – for performance and gameplay
 var enemy_basic_in_world : int = 0 
@@ -35,6 +35,7 @@ var player_amount_damaged : int = 0
 
 func _ready():
 	# start bgm music if bgm_music ON
+	print("STARTING DAMAGE:", player_energy)
 	if global_music_on:
 		bgm_manager.start_bg_music()
 		
@@ -59,3 +60,13 @@ func damage_player(distance_from_player):#
 	
 func taking_damage(hit = 1):
 	player_energy -= hit
+	print("DAMAGE TAKEN:", hit)
+	print("Player Energy:", player_energy)
+	
+
+func player_energy_replenish():
+	# top up the player's energy by a fixed amount
+	if player_energy >= 100: # no action if energy is full
+		return
+	player_energy += player_energy_replenish_amount
+	print(player_energy)

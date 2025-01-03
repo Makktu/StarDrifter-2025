@@ -122,3 +122,15 @@ Removed shaders for now (need a game first).
 
 Starting work on player damage system for player. This means unpicking the several layers of previous damage systems.
 Will inevitably just re-do it all, but seeing what can be salvaged for now.
+
+### Fri 3 Jan 2025
+
+More damage system work.
+Collisions with environment will have a fixed penalty on the ship's energy value.
+Starting energy: 100.
+0 energy is Game Over.
+The player's energy will replenish by some value - 0.01 - per frame. 
+Pickups will be added to top up energy, or create a shield effect.
+For now, just making basic collisions and background replenish consistent.
+Lots of legacy code to remove. Simplifying everything.
+Work in progress.

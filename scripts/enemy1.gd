@@ -13,10 +13,11 @@ var player_in_range = false
 var extinction_triggered = false
 var extinction_timer_value = 2
 var distance_from_player
+var alerted_distance_from_player: int = 200
 
 func _physics_process(delta):
-	if $"/root/Global".smart_bomb_active and this_enemy_onscreen:
-		_on_extinction_timer_timeout()
+	#if $"/root/Global".smart_bomb_active and this_enemy_onscreen:
+		#_on_extinction_timer_timeout()
 	rotation_degrees += rotation_speed
 	var direction = global_position.direction_to(the_player.global_position)
 	velocity = direction * enemy_speed * delta

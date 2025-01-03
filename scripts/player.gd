@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-signal energy_change
-
 @onready var acceleration = 80 #30
 @onready var max_speed = 200
 @onready var gravity = 0 #0 FOR FULL WEIGHTLESSNESS
@@ -23,16 +21,9 @@ var thrusting_for = 0
 var collided_with = ""
 
 func _physics_process(delta):
-	#if global.player_damage:
-		#global.player_damage = false
-	
+	# if energy depleted bring up pause menu
 	if global.player_energy <= 0 && global.dev_damage_on:
-		# bring up pause menu with condition (true) ( = Game Over)
-		$hud._on_pause_button_pressed(true)
-		
-	#if starting_global.player_energy <= 50: >>>>>SMARTBOMB RELATED
-		#global.smart_bomb_equipped = false
-		#$hud.smartbomb_message_toggle(false)
+		$hud._on_pause_button_pressed(true) # if passing true, means Game Over
 	
 	if Input.is_action_pressed("Left") and rotation_direction != -1:
 		rotation_direction -= 1
@@ -47,20 +38,11 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_released("shoot"):
 		player_is_shooting = false
-	
-	# smartbomb deployment
-	#if Input.is_action_just_pressed("Up") and global.smart_bomb_equipped and starting_global.player_energy >= 51:
-		#handle_smartpulse()	
-		#global.smart_bomb_active = true
-		#starting_global.player_energy -= 50
-		#$SmartbombTimer.start()
 		
 	velocity += Vector2(input_vector.x * acceleration * delta, 0).rotated(rotation)
 	velocity.x = clamp(velocity.x, -max_speed, max_speed)
 	velocity.y = clamp(velocity.y, -max_speed, max_speed)
-	
-	#$Camera2D.dynamic_zoom(velocity.x, velocity.y)
-	
+		
 	rotation += rotation_direction * rotation_speed * delta	
 		
 	# =================================#
@@ -74,7 +56,7 @@ func _physics_process(delta):
 	input_vector.x = Input.get_action_strength("Thrust")
 	
 	if Input.is_action_pressed("Thrust"):
-		global.player_energy -= 0.02
+		#global.player_energy -= 0.001
 		$Thrust_Manager.thrust_pressed()
 		if !player_is_thrusting:
 			player_is_thrusting = true
@@ -95,37 +77,20 @@ func _physics_process(delta):
 	if firing_points != global.player_bullets_can_be_fired:
 		firing_points = global.player_bullets_can_be_fired
 	
-	# background global.player_energy replenishment as a matter of course	
+	# background global.player_energy replenishment	
 	global.player_energy_replenish()
 	
-	
-#func global.player_energ_replenish():
-	#if global.player_energy > 100:
-		#global.player_energy = 100
-	#if global.player_energy < 0:
-		#global.player_energy = 0
-	#if global.player_energy < global.player_global.player_energy:
-		#global.player_energy
- #+= global.player_energy_replenish_amount
-	#emit_signal("global.player_energy_change", global.player_energy)
-	##if starting_global.player_energy >= 51:
-		##$hud.smartbomb_message_toggle(true)
-		#
-##func handle_smartpulse():
-	##$smartbomb_anim.visible = true
-	##$smartbomb_anim.play("smartbomb")
 
 
 func handle_collision(collided, speed_x, speed_y):
-	# collision penalty for all collisions
-	# not just the 'World' environment
+	# ______________________________________________
+	# collision penalty imposed for all collisions -
+	# with everything that can be collided with    - 
+	# not just the 'World' environment             -  
+	# ______________________________________________
 	var collision_strength = 'collision_soft'
 	if speed_x >= 50 or speed_y >= 50:
 		collision_strength = 'collision_hard'		
-	#starting_global.player_energy -= global.taking_damage['World1'][collision_strength]
-	global.energy -= 1
-		
-	emit_signal("energy_change", global.player_energy)
 	show_collision_particles()
 	velocity = velocity.bounce(collided.get_normal())
 	var collision_rotation_penalty: int = 1
@@ -135,6 +100,7 @@ func handle_collision(collided, speed_x, speed_y):
 		rotation_direction = collision_rotation_penalty
 	else:
 		rotation_direction = collision_rotation_penalty
+	global.taking_damage(5)
 
 	
 func show_collision_particles():

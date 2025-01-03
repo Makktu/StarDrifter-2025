@@ -156,7 +156,6 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_2h7xl")
 animation = &"smartbomb"
 
-[connection signal="energy_change" from="." to="hud" method="_on_player_energy_change"]
 [connection signal="timeout" from="SmartbombTimer" to="." method="_on_smartbomb_timer_timeout"]
 [connection signal="area_entered" from="player_enemy_collision" to="." method="_on_player_enemy_collision_area_entered"]
 [connection signal="area_exited" from="player_enemy_collision" to="." method="_on_player_enemy_collision_area_exited"]
