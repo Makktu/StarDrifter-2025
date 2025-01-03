@@ -4,33 +4,33 @@ extends Node
 @onready var bgm_manager = $BGMusicManager
 # ========================================================================================
 # ======= DEVELOPER MENU OPTIONS VARIABLES ===============================================
-var game_paused := false
-var dev_damage_on := true # start each play session with damage to player craft and energy penalties ON
-var dev_enemies_on := true # start with enemies present in world
-var player_bullets_can_be_fired := 1 # start able to fire 1 bullet
-var dev_screenshake_on = true
+var game_paused : bool = false
+var dev_damage_on : bool = true # start each play session with damage to player craft and energy penalties ON
+var dev_enemies_on : bool = true # start with enemies present in world
+var player_bullets_can_be_fired : int = 1 # start able to fire 1 bullet
+var dev_screenshake_on : bool = true
 # all variables controllable from dev pause menu, in hud scene
 # ========================================================================================
 # ========================================================================================
-var player_energy := 100
-var global_music_on := false
-var alarm_triggered := false
+var player_energy : int = 100
+var global_music_on : bool = false # debug setting
+var alarm_triggered : bool = false
 
 # smartbomb variables
-var equippables = {
-	"smartbomb":"false",
-}
-var smart_bomb_active = false
-var smart_bomb_equipped = false
+#var equippables = {
+	#"smartbomb":"false",
+#}
+#var smart_bomb_active = false
+#var smart_bomb_equipped = false
 # this will be a pickup; game is pickup-based
 
-var player_energy_replenish_amount = 0.01 # can dynamically change
+var player_energy_replenish_amount : float = 0.01 # amount player energy naturally replenishes by per frame - can dynamically change
 # monitor and control how many basic enemies
 # exist in game world – for performance and gameplay
-var enemy_basic_in_world = 0 
+var enemy_basic_in_world : int = 0 
 
-var player_damage = false
-var player_amount_damaged = 0
+var player_damage : bool = false
+var player_amount_damaged : int = 0
 
 
 func _ready():
@@ -57,5 +57,5 @@ func damage_player(distance_from_player):#
 	player_damage = true
 	player_amount_damaged = distance_from_player / 2
 	
-func taking_damage():
-	return 1
+func taking_damage(hit = 1):
+	player_energy -= hit

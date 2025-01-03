@@ -7,14 +7,15 @@ var energy_is_low = true
 @onready var warning_sign = $warning
 
 # Called when the node enters the scene tree for the first time.
-#func _ready():
-	#%VelocityBar.value = 0
-	#%EnergyBar.value = 100
-	#show_warning()
+func _ready():
+	show_warning()
 	
 
-func show_warning():
-	var critical_state = 2.5
+func show_warning(critical_state = 2):
+	# A slowly pulsing warning in an alien script when player energy is 20% of max
+	# A faster pulsing warning at 10% of max
+	# A final critical flashing warning at 5% (one more hit from anything is Game Over)
+	critical_state = 0.5 # for debug purposes
 	warning_showing = true
 	var tween = create_tween().set_loops()
 	tween.tween_property(warning_sign, "modulate:a", 0.0, critical_state / 2).set_trans(Tween.TRANS_SINE)
@@ -43,16 +44,6 @@ func thrust_released():
 			
 func show_energy(energy):
 	$energy/Label.text = str(energy)
-
-
-#func _on_player_energy_change(energy):
-	#%EnergyBar.value = energy
-	#if energy <= 15 and !energy_is_low:
-		#energy_is_low = true
-		#%LowEnergy.play("low_energy")
-	#if energy > 15 and energy_is_low:
-		#energy_is_low = false
-		#%LowEnergy.play("RESET")
 
 
 func _on_pause_button_pressed(is_game_over = false):

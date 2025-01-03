@@ -17,7 +17,7 @@ func _ready():
 	shoot_laser()
 	
 	# Queue free after display
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(1.5).timeout
 	queue_free()
 
 func shoot_laser():

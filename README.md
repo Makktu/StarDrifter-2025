@@ -115,3 +115,10 @@ Smartbomb code only commented out for now in case the feature is kept.
 ### Wed 1 Jan 2025
 
 Experimented with a few shaders for a CRT-like effect. Not promising.
+
+### Thu 2 Jan 2025
+
+Removed shaders for now (need a game first).
+
+Starting work on player damage system for player. This means unpicking the several layers of previous damage systems.
+Will inevitably just re-do it all, but seeing what can be salvaged for now.

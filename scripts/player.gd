@@ -14,7 +14,6 @@ const bullet = preload("res://scenes/bullet.tscn")
 var player_is_shooting := false # toggle to prevent continuous fire
 @onready var firing_points = global.player_bullets_can_be_fired # start only able to shoot from tip of craft
 # ========================
-@onready var starting_energy = global.player_energy
 @onready var energy_replenish_amount = global.player_energy_replenish_amount
 var input_vector : Vector2
 var rotation_direction: int
@@ -24,15 +23,14 @@ var thrusting_for = 0
 var collided_with = ""
 
 func _physics_process(delta):
-	if global.player_damage:
-		global.player_damage = false
-		inflict_damage()
+	#if global.player_damage:
+		#global.player_damage = false
 	
-	if starting_energy <= 0 && global.dev_damage_on:
-		# bring up pause menu with condition true (Game Over)
+	if global.player_energy <= 0 && global.dev_damage_on:
+		# bring up pause menu with condition (true) ( = Game Over)
 		$hud._on_pause_button_pressed(true)
 		
-	#if starting_energy <= 50: >>>>>SMARTBOMB RELATED
+	#if starting_global.player_energy <= 50: >>>>>SMARTBOMB RELATED
 		#global.smart_bomb_equipped = false
 		#$hud.smartbomb_message_toggle(false)
 	
@@ -51,10 +49,10 @@ func _physics_process(delta):
 		player_is_shooting = false
 	
 	# smartbomb deployment
-	#if Input.is_action_just_pressed("Up") and global.smart_bomb_equipped and starting_energy >= 51:
+	#if Input.is_action_just_pressed("Up") and global.smart_bomb_equipped and starting_global.player_energy >= 51:
 		#handle_smartpulse()	
 		#global.smart_bomb_active = true
-		#starting_energy -= 50
+		#starting_global.player_energy -= 50
 		#$SmartbombTimer.start()
 		
 	velocity += Vector2(input_vector.x * acceleration * delta, 0).rotated(rotation)
@@ -76,7 +74,7 @@ func _physics_process(delta):
 	input_vector.x = Input.get_action_strength("Thrust")
 	
 	if Input.is_action_pressed("Thrust"):
-		starting_energy -= 0.02
+		global.player_energy -= 0.02
 		$Thrust_Manager.thrust_pressed()
 		if !player_is_thrusting:
 			player_is_thrusting = true
@@ -90,31 +88,32 @@ func _physics_process(delta):
 	
 	$hud.show_velocity(velocity.x, velocity.y, delta)
 		
-	#if starting_energy < 9500 and !energy_warning_shown:
-		#energy_warning_shown = true
+	#if starting_global.player_energy < 9500 and !global.player_energy_warning_shown:
+		#global.player_energy_warning_shown = true
 		#$hud.show_warning()
 		
 	if firing_points != global.player_bullets_can_be_fired:
 		firing_points = global.player_bullets_can_be_fired
 	
-	# background energy replenishment as a matter of course	
-	energy_replenish()
+	# background global.player_energy replenishment as a matter of course	
+	global.player_energy_replenish()
 	
 	
-func energy_replenish():
-	if starting_energy > 100:
-		starting_energy = 100
-	if starting_energy < 0:
-		starting_energy = 0
-	if starting_energy < global.player_energy:
-		starting_energy += energy_replenish_amount
-	emit_signal("energy_change", starting_energy)
-	#if starting_energy >= 51:
-		#$hud.smartbomb_message_toggle(true)
-		
-#func handle_smartpulse():
-	#$smartbomb_anim.visible = true
-	#$smartbomb_anim.play("smartbomb")
+#func global.player_energ_replenish():
+	#if global.player_energy > 100:
+		#global.player_energy = 100
+	#if global.player_energy < 0:
+		#global.player_energy = 0
+	#if global.player_energy < global.player_global.player_energy:
+		#global.player_energy
+ #+= global.player_energy_replenish_amount
+	#emit_signal("global.player_energy_change", global.player_energy)
+	##if starting_global.player_energy >= 51:
+		##$hud.smartbomb_message_toggle(true)
+		#
+##func handle_smartpulse():
+	##$smartbomb_anim.visible = true
+	##$smartbomb_anim.play("smartbomb")
 
 
 func handle_collision(collided, speed_x, speed_y):
@@ -123,10 +122,10 @@ func handle_collision(collided, speed_x, speed_y):
 	var collision_strength = 'collision_soft'
 	if speed_x >= 50 or speed_y >= 50:
 		collision_strength = 'collision_hard'		
-	#starting_energy -= global.taking_damage['World1'][collision_strength]
-	starting_energy -= 1
+	#starting_global.player_energy -= global.taking_damage['World1'][collision_strength]
+	global.energy -= 1
 		
-	emit_signal("energy_change", starting_energy)
+	emit_signal("energy_change", global.player_energy)
 	show_collision_particles()
 	velocity = velocity.bounce(collided.get_normal())
 	var collision_rotation_penalty: int = 1
@@ -164,27 +163,12 @@ func shoot_bullets():
 			break
 
 
-#func _on_smartbomb_timer_timeout():
-	#global.smart_bomb_active = false
-	#global.smart_bomb_equipped = true # will be made false in _physics_process if energy < 51
-
-
-#func _on_player_enemy_collision_area_entered(area):
-	#if area.name == 'energy_area':
-		#$Camera2D.zoom_special('zoomin')
-		#energy_replenish_amount = 0.5
-		#max_speed = 10
-		
-
 func _on_player_enemy_collision_area_exited(area):
 	if area.name == 'energy_area':
 		energy_replenish_amount = global.player_energy_replenish_amount
 		max_speed = 100
 	
 
-func inflict_damage():
-	starting_energy -= global.player_amount_damaged
-	emit_signal("energy_change", starting_energy)
-	
-func take_damage():
-	print("DAMAGE TOOK!")
+#func inflict_damage():
+	#energy -= global.player_amount_damaged
+	#emit_signal("energy_change", starting_energy)
