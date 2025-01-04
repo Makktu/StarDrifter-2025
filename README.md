@@ -134,3 +134,8 @@ Pickups will be added to top up energy, or create a shield effect.
 For now, just making basic collisions and background replenish consistent.
 Lots of legacy code to remove. Simplifying everything.
 Work in progress.
+
+### Sat 4 Jan 2025
+
+Finally pruned all the old code from global and player scripts.
+Basic damage system now working and functions set up.

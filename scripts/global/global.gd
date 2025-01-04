@@ -12,7 +12,7 @@ var dev_screenshake_on : bool = true
 # all variables controllable from dev pause menu, in hud scene
 # ========================================================================================
 # ========================================================================================
-var player_energy : int = 100
+var player_energy : float = 100.0
 var global_music_on : bool = false # debug setting
 var alarm_triggered : bool = false
 
@@ -24,7 +24,7 @@ var alarm_triggered : bool = false
 #var smart_bomb_equipped = false
 # this will be a pickup; game is pickup-based
 
-var player_energy_replenish_amount : float = 0.1 # amount player energy naturally replenishes by per frame - can dynamically change
+var player_energy_replenish_amount : float = 0.005 # amount player energy naturally replenishes by per frame - can dynamically change
 # monitor and control how many basic enemies
 # exist in game world – for performance and gameplay
 var enemy_basic_in_world : int = 0 
@@ -58,15 +58,16 @@ func damage_player(distance_from_player):#
 	player_damage = true
 	player_amount_damaged = distance_from_player / 2
 	
+
 func taking_damage(hit = 1):
 	player_energy -= hit
 	print("DAMAGE TAKEN:", hit)
-	print("Player Energy:", player_energy)
-	
+		
 
-func player_energy_replenish():
+func player_energy_replenish(amount = player_energy_replenish_amount):
 	# top up the player's energy by a fixed amount
-	if player_energy >= 100: # no action if energy is full
-		return
-	player_energy += player_energy_replenish_amount
-	print(player_energy)
+	# default is the global value
+	# function can be passed value for pickups etc
+	if player_energy < 100: # no action if energy is full
+		player_energy += amount
+	#print("GLOBAL PLAYER ENERGY:", player_energy)

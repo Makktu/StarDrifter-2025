@@ -50,13 +50,19 @@ func _physics_process(delta):
 	# =================================#	
 	var collided := move_and_collide(velocity * delta)
 	if collided and not get_floor_normal():
-		handle_collision(collided, velocity.x, velocity.y)		
+		# get the name of the thing collided with
+		var collided_with = collided.get_collider()
+		collided_with = str(collided_with)
+		if ":" in collided_with:
+			collided_with = collided_with.split(":")[0]
+		print("Collided with:", collided_with)
+		handle_collision(collided, velocity.x, velocity.y, collided_with)		
 	# =================================#
 
 	input_vector.x = Input.get_action_strength("Thrust")
 	
 	if Input.is_action_pressed("Thrust"):
-		#global.player_energy -= 0.001
+		global.player_energy -= 0.001 # decide what if any impact thrust has on energy
 		$Thrust_Manager.thrust_pressed()
 		if !player_is_thrusting:
 			player_is_thrusting = true
@@ -69,10 +75,7 @@ func _physics_process(delta):
 		
 	
 	$hud.show_velocity(velocity.x, velocity.y, delta)
-		
-	#if starting_global.player_energy < 9500 and !global.player_energy_warning_shown:
-		#global.player_energy_warning_shown = true
-		#$hud.show_warning()
+	
 		
 	if firing_points != global.player_bullets_can_be_fired:
 		firing_points = global.player_bullets_can_be_fired
@@ -82,13 +85,14 @@ func _physics_process(delta):
 	
 
 
-func handle_collision(collided, speed_x, speed_y):
+func handle_collision(collided, speed_x, speed_y, collided_with):
 	# ______________________________________________
 	# collision penalty imposed for all collisions -
 	# with everything that can be collided with    - 
 	# not just the 'World' environment             -  
 	# ______________________________________________
 	var collision_strength = 'collision_soft'
+	var damage = 0
 	if speed_x >= 50 or speed_y >= 50:
 		collision_strength = 'collision_hard'		
 	show_collision_particles()
@@ -100,17 +104,16 @@ func handle_collision(collided, speed_x, speed_y):
 		rotation_direction = collision_rotation_penalty
 	else:
 		rotation_direction = collision_rotation_penalty
-	global.taking_damage(5)
+	if collided_with == "enemy1":
+		damage = 0.2
+	if collided_with == "World1":
+		damage = 5
+	global.taking_damage(damage)
 
 	
 func show_collision_particles():
 	colliding_effect.emitting = true
 	$Camera2D.shake_camera(2, 6.1, 'collision')
-			
-#func camera_special(type):
-	#if !type:
-		#return
-	#$Camera2D.zoom_special(type)
 	
 	
 func shoot_bullets():
@@ -127,14 +130,3 @@ func shoot_bullets():
 		times_fired += 1
 		if (times_fired == firing_points) and firing_points == 1:
 			break
-
-
-func _on_player_enemy_collision_area_exited(area):
-	if area.name == 'energy_area':
-		energy_replenish_amount = global.player_energy_replenish_amount
-		max_speed = 100
-	
-
-#func inflict_damage():
-	#energy -= global.player_amount_damaged
-	#emit_signal("energy_change", starting_energy)

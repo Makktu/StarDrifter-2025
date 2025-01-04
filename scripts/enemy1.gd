@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var deathBlowUp : PackedScene
 @onready var the_player = get_tree().get_nodes_in_group("player")[0]
+@onready var global = $/root/Global
 
 var enemy_speed = 10
 var target_position
@@ -85,5 +86,8 @@ func _on_extinction_timer_timeout():
 	_explosion.rotation = global_rotation
 	_explosion.emitting = true
 	get_tree().current_scene.add_child(_explosion)
+	if player_in_range:
+		print("Swarmer hit")
+		global.taking_damage(20)
 	queue_free()
 	
