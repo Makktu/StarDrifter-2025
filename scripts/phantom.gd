@@ -1,15 +1,15 @@
 extends CharacterBody2D
 
-var laser_beam = preload("res://scenes/phantom_laser.tscn")
-# Enemy notes:
-# completely dormant when not on screen
-# triggered by VisibleOnScreenEnabler
-# phases in and fires laser directly ahead every 4 seconds, a total of 8 times, while rotating to face the player
-# phases out for a random length of time to 'recharge'
-# phases out when leaving screen
+# Enemy behaviour:
+# dormant & phased out when not on-screen
+# triggered into cycle by VisibleOnScreenEnabler
+# resumes dormant/phased out state when not on-screen
+# always rotates to face the player
+# phases in and fires laser directly ahead for 3 seconds every 6 seconds
+# after taking a certain amount of damage, phases out for 15 seconds to 'recharge'
 # is only vulnerable from rear
 
-
+var laser_beam = preload("res://scenes/phantom_laser.tscn")
 var phased_out = true
 var time_to_next_phase_in = 4.0 # time in seconds to next appearance on map
 @onready var phase_timer = $PhaseTimer
@@ -55,12 +55,11 @@ func _physics_process(delta):
 	
 		var collided := move_and_collide(velocity * delta)
 		if collided:
-			if phased_out:
-				fade_in()
-			if rotation_speed <= 4: rotation_speed += 0.2				
+			var collided_with = collided.get_collider()
+			print(collided_with)
+							
 	
 func fade_in():
-	fired_laser = 0
 	# create Tween object
 	var tween = get_tree().create_tween()
 	# Fade in the sprite by tweening the alpha value of its modulate property
@@ -72,6 +71,7 @@ func fade_in():
 		).set_ease(Tween.EASE_IN_OUT)
 	phased_out = false
 	collision_shape.disabled = false
+	_on_fire_timer_timeout() # start firing as soon as it fades in
 	fire_timer.start()
 	
 func fade_out():
@@ -94,10 +94,7 @@ func fade_out():
 
 
 func _on_phase_timer_timeout():
-	if phased_out:
-		fade_in()
-	else:
-		fade_out()
+	fade_in()
 
 
 func _on_visible_on_screen_enabler_2d_screen_entered():
@@ -114,10 +111,7 @@ func _on_fire_timer_timeout():
 	if !phased_out:
 		var new_laser = laser_beam.instantiate()
 		add_child(new_laser)
-		fire_timer.start()
-		fired_laser += 1
-		if fired_laser == 8:
-			fade_out()
+		fire_timer.start() # keep firing at regular intervals until phased out
 
 
 func _on_off_screen_timer_timeout():

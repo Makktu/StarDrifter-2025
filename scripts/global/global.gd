@@ -62,6 +62,7 @@ func damage_player(distance_from_player):#
 func taking_damage(hit = 1):
 	player_energy -= hit
 	print("DAMAGE TAKEN:", hit)
+	print("ENERGY:", player_energy)
 		
 
 func player_energy_replenish(amount = player_energy_replenish_amount):
@@ -70,4 +71,3 @@ func player_energy_replenish(amount = player_energy_replenish_amount):
 	# function can be passed value for pickups etc
 	if player_energy < 100: # no action if energy is full
 		player_energy += amount
-	#print("GLOBAL PLAYER ENERGY:", player_energy)

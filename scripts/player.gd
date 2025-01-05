@@ -92,7 +92,7 @@ func handle_collision(collided, speed_x, speed_y, collided_with):
 	# not just the 'World' environment             -  
 	# ______________________________________________
 	var collision_strength = 'collision_soft'
-	var damage = 0
+	var damage = 1 # minimum amount of damage from any collision
 	if speed_x >= 50 or speed_y >= 50:
 		collision_strength = 'collision_hard'		
 	show_collision_particles()
@@ -104,10 +104,15 @@ func handle_collision(collided, speed_x, speed_y, collided_with):
 		rotation_direction = collision_rotation_penalty
 	else:
 		rotation_direction = collision_rotation_penalty
+	# define all collision specials
 	if collided_with == "enemy1":
 		damage = 0.2
 	if collided_with == "World1":
 		damage = 5
+	if collided_with == "Phantom":
+		damage = 10
+		velocity.x += velocity.x / 2
+		velocity.y += velocity.y / 2
 	global.taking_damage(damage)
 
 	

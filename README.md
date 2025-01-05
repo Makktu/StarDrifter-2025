@@ -139,3 +139,10 @@ Work in progress.
 
 Finally pruned all the old code from global and player scripts.
 Basic damage system now working and functions set up.
+
+### Sun 5 Jan 2025
+
+Working on Phantom enemy - behaviours and collision logic
+This enemy if collided with will repel the player at 1.5x speed
+It will phase out when damaged, recharge, and phase back in
+Cannot be destroyed except with 3x bullets
