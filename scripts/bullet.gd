@@ -1,13 +1,12 @@
-extends StaticBody2D
+extends CharacterBody2D
 
 @onready var explosion_frames = $explosion
 
 var speed = 450
 var exploded_again := false
 
-var velocity = Vector2(0, speed)
-
 func _ready():
+	velocity = Vector2(0, speed)
 	velocity = velocity.rotated(deg_to_rad(global_rotation_degrees))
 	$trail_particles.emitting = true
 

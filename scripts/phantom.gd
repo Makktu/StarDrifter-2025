@@ -51,12 +51,14 @@ func _physics_process(delta):
 			var target_angle = direction.angle()
 			rotation = lerp_angle(rotation, target_angle, rotation_speed * delta)
 		velocity = direction * enemy_speed * delta
-		move_and_collide(velocity)
+		#move_and_collide(velocity)
 	
 		var collided := move_and_collide(velocity * delta)
 		if collided:
 			var collided_with = collided.get_collider()
-			print(collided_with)
+			if collided_with is CharacterBody2D:
+				var instance_name = str(collided_with).split("<")[0].split(":")[0]
+				print("phantom reporting:", instance_name)
 							
 	
 func fade_in():

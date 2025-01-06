@@ -64,9 +64,9 @@ func _physics_process(delta):
 	if Input.is_action_pressed("Thrust"):
 		global.player_energy -= 0.001 # decide what if any impact thrust has on energy
 		$Thrust_Manager.thrust_pressed()
-		if !player_is_thrusting:
-			player_is_thrusting = true
-			$hud.thrust_pressed()
+		#if !player_is_thrusting:
+			#player_is_thrusting = true
+			#$hud.thrust_pressed()
 					
 	if Input.is_action_just_released("Thrust"):
 		$Thrust_Manager.thrust_released()

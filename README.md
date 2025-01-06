@@ -146,3 +146,7 @@ Working on Phantom enemy - behaviours and collision logic
 This enemy if collided with will repel the player at 1.5x speed
 It will phase out when damaged, recharge, and phase back in
 Cannot be destroyed except with 3x bullets
+
+### Mon 6 Jan 2025
+
+Working on collisions again - a mess. Need closer detailed work.
