@@ -150,3 +150,13 @@ Cannot be destroyed except with 3x bullets
 ### Mon 6 Jan 2025
 
 Working on collisions again - a mess. Need closer detailed work.
+
+### Tue 7 Jan 2025
+
+The whole project is a mess. Collisions will need to be ripped up and started again.
+
+Phantom behaviour also currently wonky.
+
+Worked on both of these enough today and in total until now to see the mess.
+
+A MESS.
