@@ -23,7 +23,7 @@ shape = SubResource("CapsuleShape2D_y744p")
 disabled = true
 
 [node name="PhaseTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 6.0
 one_shot = true
 
 [node name="FireTimer" type="Timer" parent="."]
@@ -34,8 +34,8 @@ one_shot = true
 position = Vector2(-120, 0)
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-position = Vector2(8.00002, 2.00001)
-scale = Vector2(19.2, 18.6)
+position = Vector2(-14, 10)
+scale = Vector2(69.4, 80)
 
 [connection signal="timeout" from="PhaseTimer" to="." method="_on_phase_timer_timeout"]
 [connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]

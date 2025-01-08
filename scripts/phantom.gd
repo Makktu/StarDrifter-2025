@@ -20,6 +20,7 @@ var time_to_next_phase_in = 4.0 # time in seconds to next appearance on map
 var enemy_speed = 10
 var rotation_speed = 2.0  # smoother tracking
 var phantom_active = false
+var phantom_energy = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,7 +44,9 @@ func _physics_process(delta):
 			if collided_with is CharacterBody2D:
 				var instance_name = str(collided_with).split("<")[0].split(":")[0]
 				print("phantom reporting:", instance_name)
-							
+		if phantom_energy < 10:
+			print("PHANTOM INACTIVE DUE TO DAMAGE")
+			fade_out()							
 	
 func fade_in():
 	# create Tween object
@@ -71,35 +74,34 @@ func fade_out():
 		5.0   # Duration in seconds
 		).set_ease(Tween.EASE_IN_OUT)
 	phased_out = true
-	var random_phase_out_time = randi_range(8, 24)
-	phase_timer.wait_time = random_phase_out_time
-	print(">>>", random_phase_out_time)
-	phase_timer.start()
 	collision_shape.disabled = true
-	fire_timer.stop()
 
 
 func _on_phase_timer_timeout():
 	# phases in upon entering screen
 	if !phantom_active:
+		phantom_active = true
+		phased_out = false
 		fade_in()
 	else:
+		phantom_active = false
+		phased_out = true
+		fire_timer.stop() # stop all firing actions
 		fade_out()
 
 
 func _on_visible_on_screen_enabler_2d_screen_entered():
 	print("PHANTOM ACTIVE")
+	phantom_energy = 100
 	phase_timer.start()
 
 
 func _on_visible_on_screen_enabler_2d_screen_exited():
-	print("PHANTOM INACTIVE")
-	phantom_active = false
-	phase_timer.start()
+	print("PHANTOM OFF-SCREEN & GOING INACTIVE")
+	fade_out()
 
 
 func _on_fire_timer_timeout():
-	if !phased_out:
-		var new_laser = laser_beam.instantiate()
-		add_child(new_laser)
-		fire_timer.start() # keep firing at regular intervals until phased out
+	var new_laser = laser_beam.instantiate()
+	add_child(new_laser)
+	fire_timer.start() # keep firing at regular intervals until phased out

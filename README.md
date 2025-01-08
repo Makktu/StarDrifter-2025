@@ -160,3 +160,7 @@ Phantom behaviour also currently wonky.
 Worked on both of these enough today and in total until now to see the mess.
 
 A MESS.
+
+### Wed 8 Jan 2025
+
+Still struggling with Phantom behaviour. This is getting bogged down on ONE enemy type.
