@@ -7,7 +7,7 @@ extends Node
 var game_paused : bool = false
 var dev_damage_on : bool = true # start each play session with damage to player craft and energy penalties ON
 var dev_enemies_on : bool = true # start with enemies present in world
-var player_bullets_can_be_fired : int = 1 # start able to fire 1 bullet
+var player_bullets_can_be_fired : int = 3 # start able to fire 1 bullet
 var dev_screenshake_on : bool = true
 # all variables controllable from dev pause menu, in hud scene
 # ========================================================================================

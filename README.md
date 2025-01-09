@@ -164,3 +164,8 @@ A MESS.
 ### Wed 8 Jan 2025
 
 Still struggling with Phantom behaviour. This is getting bogged down on ONE enemy type.
+
+### Thu 9 Jan 2025
+
+Gave in and used Area2D for collisions. Hack amateur stuff but it works.
+Phantom is now 99% working, just the off-screen dormancy thing to resolve now.

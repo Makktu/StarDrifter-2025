@@ -39,16 +39,18 @@ func _physics_process(delta):
 			rotation = lerp_angle(rotation, target_angle, rotation_speed * delta)
 		velocity = direction * enemy_speed * delta	
 		var collided := move_and_collide(velocity * delta)
-		if collided:
-			var collided_with = collided.get_collider()
-			if collided_with is CharacterBody2D:
-				var instance_name = str(collided_with).split("<")[0].split(":")[0]
-				print("phantom reporting:", instance_name)
 		if phantom_energy < 10:
-			print("PHANTOM INACTIVE DUE TO DAMAGE")
-			fade_out()							
+			print("damage fade out")
+			fire_timer.stop()
+			phantom_active = false
+			phased_out = true
+			fire_timer.stop() # stop all firing actions
+			fade_out()
+			phase_timer.start()
+											
 	
 func fade_in():
+	phantom_energy = 100
 	# create Tween object
 	var tween = get_tree().create_tween()
 	# Fade in the sprite by tweening the alpha value of its modulate property
@@ -58,7 +60,6 @@ func fade_in():
 		1.0,       # Target alpha value
 		5.0,       # Duration in seconds
 		).set_ease(Tween.EASE_IN_OUT)
-	phased_out = false
 	collision_shape.disabled = false
 	fire_timer.start()
 
@@ -74,16 +75,20 @@ func fade_out():
 		5.0   # Duration in seconds
 		).set_ease(Tween.EASE_IN_OUT)
 	phased_out = true
+	phantom_active = false
 	collision_shape.disabled = true
 
 
 func _on_phase_timer_timeout():
 	# phases in upon entering screen
 	if !phantom_active:
+		print("fading in")
 		phantom_active = true
 		phased_out = false
 		fade_in()
 	else:
+		print("fading out")
+		fire_timer.stop()
 		phantom_active = false
 		phased_out = true
 		fire_timer.stop() # stop all firing actions
@@ -92,16 +97,22 @@ func _on_phase_timer_timeout():
 
 func _on_visible_on_screen_enabler_2d_screen_entered():
 	print("PHANTOM ACTIVE")
-	phantom_energy = 100
 	phase_timer.start()
 
 
 func _on_visible_on_screen_enabler_2d_screen_exited():
 	print("PHANTOM OFF-SCREEN & GOING INACTIVE")
-	fade_out()
-
+	phase_timer.start()
+	
 
 func _on_fire_timer_timeout():
 	var new_laser = laser_beam.instantiate()
 	add_child(new_laser)
 	fire_timer.start() # keep firing at regular intervals until phased out
+
+
+func _on_bullet_area_area_entered(area):
+	if area.name == 'bullet':
+		phantom_energy -= 2
+	else:
+		phantom_energy -= 1
