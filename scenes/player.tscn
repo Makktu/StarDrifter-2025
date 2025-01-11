@@ -1,19 +1,19 @@
 [gd_scene load_steps=18 format=3 uid="uid://b2360ojxsegcj"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2n4p6"]
-[ext_resource type="Texture2D" uid="uid://d6ffqje4owhg" path="res://assets/graphics/Lander_3.png" id="1_58gib"]
+[ext_resource type="Texture2D" uid="uid://d6ffqje4owhg" path="res://Assets/graphics/Lander_3.png" id="1_58gib"]
 [ext_resource type="Script" path="res://scripts/Camera2D.gd" id="3_7kmc0"]
-[ext_resource type="Texture2D" uid="uid://dh2vu2v8tr85d" path="res://assets/graphics/Sprite-0002.png" id="4_knjd2"]
+[ext_resource type="Texture2D" uid="uid://dh2vu2v8tr85d" path="res://Assets/graphics/Sprite-0002.png" id="4_knjd2"]
 [ext_resource type="PackedScene" uid="uid://b47pdejejhyjn" path="res://scenes/hud.tscn" id="4_ok8lk"]
-[ext_resource type="Texture2D" uid="uid://cyu6jckk1nbvj" path="res://assets/graphics/Sprite-0003.png" id="5_x5nsf"]
+[ext_resource type="Texture2D" uid="uid://cyu6jckk1nbvj" path="res://Assets/graphics/Sprite-0003.png" id="5_x5nsf"]
 [ext_resource type="Script" path="res://scripts/Thrust_Manager.gd" id="5_x14mg"]
-[ext_resource type="Texture2D" uid="uid://cb4dtes4mma8h" path="res://assets/graphics/Sprite-0004.png" id="6_a4c0k"]
-[ext_resource type="AudioStream" uid="uid://bbi7wvoqrg21o" path="res://assets/sfx/player_sfx/thrust_begins1.wav" id="8_gdvxp"]
-[ext_resource type="AudioStream" uid="uid://ccmet6w3828ad" path="res://assets/sfx/player_sfx/thrust_mid1.wav" id="9_ohpnd"]
-[ext_resource type="AudioStream" uid="uid://dlsrf2tswwe6g" path="res://assets/sfx/player_sfx/thrust_released1.wav" id="10_kvpty"]
-[ext_resource type="Texture2D" uid="uid://bb6udch0gx5gg" path="res://assets/graphics/smartbomb_pulse1.png" id="12_ximyk"]
-[ext_resource type="Texture2D" uid="uid://86672w8q14x4" path="res://assets/graphics/smartbomb_pulse2.png" id="13_tskas"]
-[ext_resource type="Texture2D" uid="uid://c88qpbfw2mr3q" path="res://assets/graphics/smartbomb_pulse3.png" id="14_pfg0e"]
+[ext_resource type="Texture2D" uid="uid://cb4dtes4mma8h" path="res://Assets/graphics/Sprite-0004.png" id="6_a4c0k"]
+[ext_resource type="AudioStream" uid="uid://bbi7wvoqrg21o" path="res://Assets/sfx/player_sfx/thrust_begins1.wav" id="8_gdvxp"]
+[ext_resource type="AudioStream" uid="uid://ccmet6w3828ad" path="res://Assets/sfx/player_sfx/thrust_mid1.wav" id="9_ohpnd"]
+[ext_resource type="AudioStream" uid="uid://dlsrf2tswwe6g" path="res://Assets/sfx/player_sfx/thrust_released1.wav" id="10_kvpty"]
+[ext_resource type="Texture2D" uid="uid://bb6udch0gx5gg" path="res://Assets/graphics/smartbomb_pulse1.png" id="12_ximyk"]
+[ext_resource type="Texture2D" uid="uid://86672w8q14x4" path="res://Assets/graphics/smartbomb_pulse2.png" id="13_tskas"]
+[ext_resource type="Texture2D" uid="uid://c88qpbfw2mr3q" path="res://Assets/graphics/smartbomb_pulse3.png" id="14_pfg0e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xct2y"]
 animations = [{
@@ -53,7 +53,9 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 4
+position = Vector2(1997, 839)
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_2n4p6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -130,13 +132,13 @@ hue_variation_max = 0.19
 [node name="firing_points" type="Node2D" parent="."]
 
 [node name="firing_point_top" type="Node2D" parent="firing_points"]
-position = Vector2(41, 0)
+position = Vector2(36, 0)
 
 [node name="firing_point_left" type="Node2D" parent="firing_points"]
-position = Vector2(-18, -32)
+position = Vector2(-24, -31)
 
 [node name="firing_point_right" type="Node2D" parent="firing_points"]
-position = Vector2(-21, 32)
+position = Vector2(-24, 31)
 
 [node name="SmartbombTimer" type="Timer" parent="."]
 wait_time = 2.0

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cu21rcnol16tr"
-path="res://.godot/imported/acceleration1.wav-b034671255f318d8ad90b29661ada0e6.sample"
+path="res://.godot/imported/acceleration1.wav-6b1883b9224b8131233f5153b06f87ac.sample"
 
 [deps]
 
-source_file="res://assets/sfx/player_sfx/acceleration1.wav"
-dest_files=["res://.godot/imported/acceleration1.wav-b034671255f318d8ad90b29661ada0e6.sample"]
+source_file="res://Assets/sfx/player_sfx/acceleration1.wav"
+dest_files=["res://.godot/imported/acceleration1.wav-6b1883b9224b8131233f5153b06f87ac.sample"]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=21 format=3 uid="uid://p2tkqwdu6g5n"]
 
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_nqqao"]
-[ext_resource type="Texture2D" uid="uid://c83p8ha0wo080" path="res://assets/graphics/bullet/Bullet2.png" id="2_ii4ec"]
-[ext_resource type="Texture2D" uid="uid://bfpsn0igyu3g2" path="res://assets/graphics/Explosion.png" id="3_xppwl"]
+[ext_resource type="Texture2D" uid="uid://c83p8ha0wo080" path="res://Assets/graphics/bullet/Bullet2.png" id="2_ii4ec"]
+[ext_resource type="Texture2D" uid="uid://bfpsn0igyu3g2" path="res://Assets/graphics/Explosion.png" id="3_xppwl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8itd4"]
 radius = 20.0
@@ -111,8 +111,8 @@ colors = PackedColorArray(3.51354e-06, 0.77038, 3.08037e-06, 1, 0.0627451, 0.627
 
 [node name="bullet" type="CharacterBody2D" groups=["bullet"]]
 scale = Vector2(0.04, 0.04)
-collision_layer = 7
-collision_mask = 3
+collision_layer = 8
+collision_mask = 5
 script = ExtResource("1_nqqao")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

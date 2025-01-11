@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3ulm5xacpl6t"
-path="res://.godot/imported/smartbomb_2-anim2.png-3807814fded372bfe15b8f0360fddd84.ctex"
+path="res://.godot/imported/smartbomb_2-anim2.png-a2c1def67076cdbb5dc9d063c6628d72.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/pickups/smartbomb_anim files/smartbomb_2-anim2.png"
-dest_files=["res://.godot/imported/smartbomb_2-anim2.png-3807814fded372bfe15b8f0360fddd84.ctex"]
+source_file="res://Assets/graphics/pickups/smartbomb_anim files/smartbomb_2-anim2.png"
+dest_files=["res://.godot/imported/smartbomb_2-anim2.png-a2c1def67076cdbb5dc9d063c6628d72.ctex"]
 
 [params]
 

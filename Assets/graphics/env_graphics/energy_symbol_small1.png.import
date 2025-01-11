@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b16h2v4hnrh4k"
-path="res://.godot/imported/energy_symbol_small1.png-d730b02191a56f6b8647eb27552f8d92.ctex"
+path="res://.godot/imported/energy_symbol_small1.png-c0ef02cc8d715e1db94dfde809f2e79b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/env_graphics/energy_symbol_small1.png"
-dest_files=["res://.godot/imported/energy_symbol_small1.png-d730b02191a56f6b8647eb27552f8d92.ctex"]
+source_file="res://Assets/graphics/env_graphics/energy_symbol_small1.png"
+dest_files=["res://.godot/imported/energy_symbol_small1.png-c0ef02cc8d715e1db94dfde809f2e79b.ctex"]
 
 [params]
 

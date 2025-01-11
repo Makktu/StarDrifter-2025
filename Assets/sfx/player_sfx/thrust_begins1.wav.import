@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bbi7wvoqrg21o"
-path="res://.godot/imported/thrust_begins1.wav-e8f7bc8bc135899fdd843c0ef527dbcd.sample"
+path="res://.godot/imported/thrust_begins1.wav-455f73380a600ee6dca24cfecccb45ab.sample"
 
 [deps]
 
-source_file="res://assets/sfx/player_sfx/thrust_begins1.wav"
-dest_files=["res://.godot/imported/thrust_begins1.wav-e8f7bc8bc135899fdd843c0ef527dbcd.sample"]
+source_file="res://Assets/sfx/player_sfx/thrust_begins1.wav"
+dest_files=["res://.godot/imported/thrust_begins1.wav-455f73380a600ee6dca24cfecccb45ab.sample"]
 
 [params]
 

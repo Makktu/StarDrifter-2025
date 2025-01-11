@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cfbwfa6t0e240"]
 
 [ext_resource type="Script" path="res://scripts/phantom.gd" id="1_obxnw"]
-[ext_resource type="Texture2D" uid="uid://csw6uuxk862pr" path="res://assets/graphics/phantom_2.png" id="2_hd88t"]
+[ext_resource type="Texture2D" uid="uid://csw6uuxk862pr" path="res://Assets/graphics/phantom_2.png" id="2_hd88t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y744p"]
 radius = 84.0

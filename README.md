@@ -169,3 +169,7 @@ Still struggling with Phantom behaviour. This is getting bogged down on ONE enem
 
 Gave in and used Area2D for collisions. Hack amateur stuff but it works.
 Phantom is now 99% working, just the off-screen dormancy thing to resolve now.
+
+### Fri 10 Jan 2025
+
+Fixed problem with bullet collisions (layer/mask issue)

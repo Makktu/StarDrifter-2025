@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://86672w8q14x4"
-path="res://.godot/imported/smartbomb_pulse2.png-694c334ec8c15caa47771cf44a774282.ctex"
+path="res://.godot/imported/smartbomb_pulse2.png-77e983a9e7e7affd135bb3439a66705a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/smartbomb_pulse2.png"
-dest_files=["res://.godot/imported/smartbomb_pulse2.png-694c334ec8c15caa47771cf44a774282.ctex"]
+source_file="res://Assets/graphics/smartbomb_pulse2.png"
+dest_files=["res://.godot/imported/smartbomb_pulse2.png-77e983a9e7e7affd135bb3439a66705a.ctex"]
 
 [params]
 

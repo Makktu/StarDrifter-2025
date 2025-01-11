@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ft5jr8p43sv2"
-path="res://.godot/imported/EinsamerRaum.wav-a7049f3b93ef86eb262b53ea1b414bdb.sample"
+path="res://.godot/imported/EinsamerRaum.wav-8ca8221176185b793faa410061bd11fa.sample"
 
 [deps]
 
-source_file="res://assets/music/bg_music/EinsamerRaum.wav"
-dest_files=["res://.godot/imported/EinsamerRaum.wav-a7049f3b93ef86eb262b53ea1b414bdb.sample"]
+source_file="res://Assets/music/bg_music/EinsamerRaum.wav"
+dest_files=["res://.godot/imported/EinsamerRaum.wav-8ca8221176185b793faa410061bd11fa.sample"]
 
 [params]
 

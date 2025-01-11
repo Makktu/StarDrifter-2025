@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctwj0ktee3fp2"
-path="res://.godot/imported/Ice003.png-2efb2608b2c5357243270066681fef87.ctex"
+path="res://.godot/imported/Ice003.png-a2b95d14742f8ac22a575b3d3223091c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/Ice003.png"
-dest_files=["res://.godot/imported/Ice003.png-2efb2608b2c5357243270066681fef87.ctex"]
+source_file="res://Assets/graphics/Ice003.png"
+dest_files=["res://.godot/imported/Ice003.png-a2b95d14742f8ac22a575b3d3223091c.ctex"]
 
 [params]
 

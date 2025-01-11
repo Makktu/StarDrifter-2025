@@ -113,6 +113,6 @@ func _on_fire_timer_timeout():
 
 func _on_bullet_area_area_entered(area):
 	if area.name == 'bullet':
-		phantom_energy -= 2
+		phantom_energy -= 2 
 	else:
-		phantom_energy -= 1
+		phantom_energy -= 1 # if anything else collides with enemy, standard damage

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ccmet6w3828ad"
-path="res://.godot/imported/thrust_mid1.wav-442cc56d522f4f54df6f0b923f5a06cd.sample"
+path="res://.godot/imported/thrust_mid1.wav-b986d31cd540ea82af8e88974a00cce3.sample"
 
 [deps]
 
-source_file="res://assets/sfx/player_sfx/thrust_mid1.wav"
-dest_files=["res://.godot/imported/thrust_mid1.wav-442cc56d522f4f54df6f0b923f5a06cd.sample"]
+source_file="res://Assets/sfx/player_sfx/thrust_mid1.wav"
+dest_files=["res://.godot/imported/thrust_mid1.wav-b986d31cd540ea82af8e88974a00cce3.sample"]
 
 [params]
 

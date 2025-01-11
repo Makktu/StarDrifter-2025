@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://dn8xecikgcxah"
-path="res://.godot/imported/Epic Choral Vol 1.ogg-e7a31e227ca1d4fde19ad82ad16f9e33.oggvorbisstr"
+path="res://.godot/imported/Epic Choral Vol 1.ogg-916c4ecfe30e5a269113ace97f99dfb2.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/music/bg_music/Epic Choral Vol 1.ogg"
-dest_files=["res://.godot/imported/Epic Choral Vol 1.ogg-e7a31e227ca1d4fde19ad82ad16f9e33.oggvorbisstr"]
+source_file="res://Assets/music/bg_music/Epic Choral Vol 1.ogg"
+dest_files=["res://.godot/imported/Epic Choral Vol 1.ogg-916c4ecfe30e5a269113ace97f99dfb2.oggvorbisstr"]
 
 [params]
 

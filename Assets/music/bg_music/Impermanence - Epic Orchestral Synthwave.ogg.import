@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://c1sde0np12ogp"
-path="res://.godot/imported/Impermanence - Epic Orchestral Synthwave.ogg-6284e45e666041c94e61af80d901a897.oggvorbisstr"
+path="res://.godot/imported/Impermanence - Epic Orchestral Synthwave.ogg-a94d0ea491c9a9efbfe1b1edd98c3cb5.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/music/bg_music/Impermanence - Epic Orchestral Synthwave.ogg"
-dest_files=["res://.godot/imported/Impermanence - Epic Orchestral Synthwave.ogg-6284e45e666041c94e61af80d901a897.oggvorbisstr"]
+source_file="res://Assets/music/bg_music/Impermanence - Epic Orchestral Synthwave.ogg"
+dest_files=["res://.godot/imported/Impermanence - Epic Orchestral Synthwave.ogg-a94d0ea491c9a9efbfe1b1edd98c3cb5.oggvorbisstr"]
 
 [params]
 
