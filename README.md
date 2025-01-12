@@ -172,4 +172,8 @@ Phantom is now 99% working, just the off-screen dormancy thing to resolve now.
 
 ### Fri 10 Jan 2025
 
-Fixed problem with bullet collisions (layer/mask issue)
+Fixed problem with bullet collisions (layer/mask issue).
+
+### Sat 11 Jan 2025
+
+Started on décor for world environment. RKO/Tesla-style radio towers etc.

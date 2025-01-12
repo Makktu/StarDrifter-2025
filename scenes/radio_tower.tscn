@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://xucx4fy8o8o7"]
+
+[ext_resource type="Texture2D" uid="uid://senvqhbs6jf3" path="res://Assets/graphics/radio_tower.png" id="1_2b4xx"]
+
+[node name="radio_tower" type="Sprite2D"]
+texture = ExtResource("1_2b4xx")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-16, -192)
+amount = 80
+lifetime = 19.18
+explosiveness = 0.59
+emission_shape = 1
+emission_sphere_radius = 28.15
+direction = Vector2(100, 100)
+spread = 65.91
+gravity = Vector2(0, -100)
+scale_amount_min = 0.0
+scale_amount_max = 16.15
+color = Color(0.465859, 0.966395, 0.246216, 1)

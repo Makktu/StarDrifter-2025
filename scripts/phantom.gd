@@ -88,7 +88,6 @@ func _on_phase_timer_timeout():
 		fade_in()
 	else:
 		print("fading out")
-		fire_timer.stop()
 		phantom_active = false
 		phased_out = true
 		fire_timer.stop() # stop all firing actions
