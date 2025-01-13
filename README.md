@@ -177,3 +177,7 @@ Fixed problem with bullet collisions (layer/mask issue).
 ### Sat 11 Jan 2025
 
 Started on décor for world environment. RKO/Tesla-style radio towers etc.
+
+### Mon 13 Jan 2025
+
+Adding effects and purpose for 'Energy Towers' - need to consider gameplay role
