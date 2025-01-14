@@ -4,11 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://dvl3pvifd1l2h" path="res://scenes/enemy_portal.tscn" id="2_lkdip"]
 
 [node name="enemy_spawner" type="Node2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_jbk74")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
 
 [node name="enemy_portal" parent="." instance=ExtResource("2_lkdip")]
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(13.5, 57)
+scale = Vector2(53.95, 79.6)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

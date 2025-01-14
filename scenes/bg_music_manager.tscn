@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://pywg4n2040iu"]
+[gd_scene load_steps=3 format=3 uid="uid://pywg4n2040iu"]
 
 [ext_resource type="Script" path="res://scripts/global/bg_music_manager.gd" id="1_0aadr"]
+[ext_resource type="AudioStream" uid="uid://df4fuhmyvncbe" path="res://Assets/music/bg_music/EinsamerReisenderRemastered.wav" id="2_s1ogq"]
 
 [node name="BGMusicManager" type="Node2D"]
 script = ExtResource("1_0aadr")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_s1ogq")
 
 [node name="bg_music_timer" type="Timer" parent="."]
 wait_time = 3.0

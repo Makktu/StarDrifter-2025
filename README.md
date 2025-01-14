@@ -181,3 +181,10 @@ Started on décor for world environment. RKO/Tesla-style radio towers etc.
 ### Mon 13 Jan 2025
 
 Adding effects and purpose for 'Energy Towers' - need to consider gameplay role
+
+### Tue 14 Jan 2025
+
+Scope of game now has 'Vampire Survivor' vibe.
+I.e. lots of on-screen enemies and a basic upgrade/pickup system.
+Started on this.
+Will need careful balancing.

@@ -3,7 +3,7 @@ extends Node2D
 @onready var main_audio_player = $AudioStreamPlayer
 
 var all_music:Array[String]
-var current_track := 0
+var current_track := 1 # defines starting track
 var maximum_track := 1
 var times_played := 0
 
@@ -17,8 +17,7 @@ func _ready():
 	maximum_track = all_music.size() - 1
 
 func start_bg_music():
-	pass
-	#$bg_music_timer.start()
+	$bg_music_timer.start()
 	
 
 func play_next_track():

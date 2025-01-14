@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var the_player = get_tree().get_nodes_in_group("player")[0]
 @onready var global = $/root/Global
 
-var enemy_speed = 10
+var enemy_speed = 12
 var target_position
 var rotation_speed = 0.1
 var this_enemy_shot := 0
@@ -24,8 +24,8 @@ func _physics_process(delta):
 	velocity = direction * enemy_speed * delta
 	move_and_collide(velocity)
 	
-	if player_in_range and rotation_speed < 4:
-		rotation_speed += 0.1			
+	#if player_in_range and rotation_speed < 4:
+		#rotation_speed += 0.1			
 	
 	var collided := move_and_collide(velocity * delta)
 	if collided and rotation_speed <= 4:
@@ -40,11 +40,12 @@ func _physics_process(delta):
 	if distance_from_player >= 300 and player_in_range:
 		player_in_range = false
 		rotation_speed = 0.1
-	if distance_from_player < 150 and !extinction_triggered:
+	if distance_from_player < 20 and !extinction_triggered:
+		enemy_speed *= 2
 		extinction_triggered = true
 		$ExtinctionTimer.wait_time = extinction_timer_value
 		rotation_speed += 6
-		enemy_speed = 150
+		#enemy_speed = 150
 		$ExtinctionTimer.start()
 
 
