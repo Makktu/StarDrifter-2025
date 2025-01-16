@@ -129,11 +129,11 @@ sprite_frames = SubResource("SpriteFrames_8c75y")
 animation = &"explode"
 
 [node name="LifeTimer" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 10.0
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-176.667, 371.667)
-scale = Vector2(342.333, 446.833)
+position = Vector2(-3.3335, 3.3335)
+scale = Vector2(10.3333, 12)
 
 [node name="ExtinctionTimer" type="Timer" parent="."]
 

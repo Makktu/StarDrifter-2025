@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cy8am7rjugpas"]
+[gd_scene load_steps=11 format=3 uid="uid://cy8am7rjugpas"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ybue2"]
 [ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/parallax_background.tscn" id="2_s8res"]
 [ext_resource type="Texture2D" uid="uid://vl7g84jpj3o" path="res://Assets/graphics/env_graphics/world1.png" id="3_4nc0s"]
 [ext_resource type="PackedScene" uid="uid://b2360ojxsegcj" path="res://scenes/player.tscn" id="3_pecdv"]
 [ext_resource type="PackedScene" uid="uid://cph3l0chuxd5s" path="res://scenes/enemy_spawner.tscn" id="5_1eq67"]
-[ext_resource type="PackedScene" uid="uid://dw1fvv2gc4tsl" path="res://scenes/energy_tower.tscn" id="6_ro6xg"]
 [ext_resource type="PackedScene" uid="uid://cfbwfa6t0e240" path="res://scenes/phantom.tscn" id="7_n8aou"]
 [ext_resource type="PackedScene" uid="uid://xucx4fy8o8o7" path="res://scenes/radio_tower.tscn" id="8_6gao6"]
 
@@ -69,7 +68,6 @@ environment = SubResource("Environment_snjjn")
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_s8res")]
 
 [node name="World1" type="StaticBody2D" parent="."]
-scale = Vector2(0.6, 0.6)
 
 [node name="starting_world" type="Sprite2D" parent="World1"]
 unique_name_in_owner = true
@@ -95,57 +93,117 @@ polygon = PackedVector2Array(-2854, -1249.4, -2854, -1245.6, -2866.6, -1241, -28
 
 [node name="Player" parent="." instance=ExtResource("3_pecdv")]
 modulate = Color(0.282353, 1, 0.317647, 1)
-position = Vector2(683, 5613)
+position = Vector2(1084, 9191)
 rotation = -3.14159
-scale = Vector2(0.2, 0.2)
-
-[node name="energy_tower" parent="." instance=ExtResource("6_ro6xg")]
-position = Vector2(989, 9708)
 scale = Vector2(0.2, 0.2)
 
 [node name="enemy_spawner_things" type="Node2D" parent="."]
 
 [node name="enemy_spawner" parent="enemy_spawner_things" instance=ExtResource("5_1eq67")]
-position = Vector2(1699, 4348)
+position = Vector2(1003, 9691)
 
 [node name="enemy_spawner2" parent="enemy_spawner_things" instance=ExtResource("5_1eq67")]
-position = Vector2(557, 2884)
+position = Vector2(1037, 7747)
 
 [node name="enemy_spawner3" parent="enemy_spawner_things" instance=ExtResource("5_1eq67")]
-position = Vector2(1737, 4972)
+position = Vector2(2426, 5566)
 
 [node name="enemy_spawner4" parent="enemy_spawner_things" instance=ExtResource("5_1eq67")]
-position = Vector2(1445, 3374)
+position = Vector2(2911, 7798)
 
 [node name="enemy_spawner5" parent="enemy_spawner_things" instance=ExtResource("5_1eq67")]
-position = Vector2(1378, 5351)
+position = Vector2(2013, 4000)
 
 [node name="enemy_spawner6" parent="enemy_spawner_things" instance=ExtResource("5_1eq67")]
-position = Vector2(1457, 5553)
+position = Vector2(1061, 6332)
 
 [node name="enemy_spawner7" parent="enemy_spawner_things" instance=ExtResource("5_1eq67")]
-position = Vector2(1182, 5525)
-
-[node name="Phantom" parent="." instance=ExtResource("7_n8aou")]
-position = Vector2(1617, 4664)
-
-[node name="Phantom3" parent="." instance=ExtResource("7_n8aou")]
-position = Vector2(1342, 5473)
-
-[node name="Phantom2" parent="." instance=ExtResource("7_n8aou")]
-position = Vector2(1823, 4661)
+position = Vector2(902, 4682)
 
 [node name="radio_tower" parent="." instance=ExtResource("8_6gao6")]
 show_behind_parent = true
-position = Vector2(545, 5961)
+position = Vector2(1825, 9828)
 scale = Vector2(0.3, 0.3)
 
 [node name="radio_tower2" parent="." instance=ExtResource("8_6gao6")]
 show_behind_parent = true
-position = Vector2(1092, 5863)
+position = Vector2(901, 9975)
 scale = Vector2(0.3, 0.3)
 
 [node name="radio_tower3" parent="." instance=ExtResource("8_6gao6")]
 show_behind_parent = true
-position = Vector2(1690, 5270)
+position = Vector2(1128, 7980)
 scale = Vector2(0.3, 0.3)
+
+[node name="Phantoms" type="Node" parent="."]
+
+[node name="Phantom" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(2123, 9007)
+
+[node name="Phantom3" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(2342, 9296)
+
+[node name="Phantom4" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(1727, 9285)
+
+[node name="Phantom5" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(3232, 7939)
+
+[node name="Phantom6" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(2900, 7346)
+
+[node name="Phantom7" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(3109, 8275)
+
+[node name="Phantom8" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(2504, 7624)
+
+[node name="Phantom9" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(2723, 8284)
+
+[node name="Phantom10" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(3259, 7631)
+
+[node name="Phantom11" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(3193, 8355)
+
+[node name="Phantom12" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(2584, 8023)
+
+[node name="Phantom13" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(2963, 8468)
+
+[node name="Phantom2" parent="Phantoms" instance=ExtResource("7_n8aou")]
+show_behind_parent = true
+position = Vector2(834, 9188)
+
+[node name="Phantom14" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(6480, 6538)
+
+[node name="Phantom15" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(6376, 6038)
+
+[node name="Phantom16" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(6357, 6874)
+
+[node name="Phantom17" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(5752, 6223)
+
+[node name="Phantom18" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(5971, 6883)
+
+[node name="Phantom19" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(6507, 6230)
+
+[node name="Phantom20" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(6441, 6954)
+
+[node name="Phantom21" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(5832, 6622)
+
+[node name="Phantom22" parent="Phantoms" instance=ExtResource("7_n8aou")]
+position = Vector2(6211, 7067)
+
+[node name="Phantom23" parent="Phantoms" instance=ExtResource("7_n8aou")]
+show_behind_parent = true
+position = Vector2(4082, 7787)

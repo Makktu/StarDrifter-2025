@@ -188,3 +188,20 @@ Scope of game now has 'Vampire Survivor' vibe.
 I.e. lots of on-screen enemies and a basic upgrade/pickup system.
 Started on this.
 Will need careful balancing.
+
+### Wed 15 Jan 2025
+
+Expanded world back to 1.0 size, giving the player lots of room to move and drift around in.
+Added enemies to a few locations.
+Very positive feeling from testing.
+
+### Thu 16 Jan 2025
+
+Adding enemies to map.
+Game balance for this will be a long, long haul...
+Need to add collisions for the Phantom laser first. Started on that.
+Laser detects the player.
+Got to decide whether it'll 'only' do damage or if there should be a visible effect too.
+(Need to make this project less work, not more...)
+Aim to have full playable Alpha by Sat 25th Jan 2025.
+We will see.

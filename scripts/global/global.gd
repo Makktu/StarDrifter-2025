@@ -1,5 +1,5 @@
 extends Node
-
+@onready var debug_msg_timer = $debug_msg_timer
 @onready var sfx_manager = $sfx_manager
 @onready var bgm_manager = $BGMusicManager
 # ========================================================================================
@@ -16,15 +16,12 @@ var player_energy : float = 100.0
 var global_music_on : bool = true # debug setting
 var alarm_triggered : bool = false
 
-# smartbomb variables
-#var equippables = {
-	#"smartbomb":"false",
-#}
-#var smart_bomb_active = false
-#var smart_bomb_equipped = false
-# this will be a pickup; game is pickup-based
+# max number of enemies allowed on-screen or in vicinity at one time
+var max_enemies = 300
 
-var player_energy_replenish_amount : float = 0.005 # amount player energy naturally replenishes by per frame - can dynamically change
+# amount player energy naturally replenishes by per frame - can dynamically change
+var player_energy_replenish_amount : float = 0.005
+
 # monitor and control how many basic enemies
 # exist in game world – for performance and gameplay
 var enemy_basic_in_world : int = 0 
@@ -38,6 +35,7 @@ func _ready():
 	print("STARTING DAMAGE:", player_energy)
 	if global_music_on:
 		bgm_manager.start_bg_music()
+	debug_msg_timer.start()
 		
 
 func random_float_number(lower_value = 0, upper_value = 1): # returns random val between these parameters
@@ -71,3 +69,7 @@ func player_energy_replenish(amount = player_energy_replenish_amount):
 	# function can be passed value for pickups etc
 	if player_energy < 100: # no action if energy is full
 		player_energy += amount
+
+
+func _on_debug_msg_timer_timeout():
+	print("Enemies in world:", enemy_basic_in_world)

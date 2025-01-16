@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var deathBlowUp : PackedScene
 @onready var the_player = get_tree().get_nodes_in_group("player")[0]
 @onready var global = $/root/Global
+@onready var life_timer = $LifeTimer
 
 var enemy_speed = 12
 var target_position
@@ -66,18 +67,19 @@ func _on_explosion_animation_finished():
 
 
 func _on_life_timer_timeout():
-	$"/root/Global".enemy_basic_in_world -= 1
-	queue_free()
+	if !this_enemy_onscreen:
+		$"/root/Global".enemy_basic_in_world -= 1
+		queue_free()
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	this_enemy_onscreen = false
-	$LifeTimer.start()
+	life_timer.start()
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	this_enemy_onscreen = true
-	$LifeTimer.stop()
+	life_timer.stop()
 
 
 func _on_extinction_timer_timeout():

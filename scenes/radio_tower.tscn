@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://xucx4fy8o8o7"]
 
 [ext_resource type="Texture2D" uid="uid://senvqhbs6jf3" path="res://Assets/graphics/radio_tower.png" id="1_2b4xx"]
-[ext_resource type="Script" path="res://scenes/radio_tower.gd" id="2_4yfhn"]
+[ext_resource type="Script" path="res://scripts/radio_tower.gd" id="2_4yfhn"]
 
 [node name="radio_tower" type="Sprite2D"]
 texture = ExtResource("1_2b4xx")

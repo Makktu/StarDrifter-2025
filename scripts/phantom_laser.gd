@@ -28,6 +28,8 @@ func shoot_laser():
 		# Update visual laser length to collision point
 		line_2d.points[1] = to_local(collision_point)
 		
+		print(collider)
+		
 		# Handle player collision efficiently
 		if collider.is_in_group("player"):
 			print("PLAYER HIT!")

@@ -23,7 +23,6 @@ texture = ExtResource("2_hd88t")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-14.9999, -0.499878)
 shape = SubResource("CapsuleShape2D_y744p")
-disabled = true
 
 [node name="PhaseTimer" type="Timer" parent="."]
 wait_time = 6.0
@@ -37,8 +36,8 @@ one_shot = true
 position = Vector2(-120, 0)
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-position = Vector2(-14, 10)
-scale = Vector2(69.4, 80)
+position = Vector2(96.0006, -2.49988)
+scale = Vector2(411.6, 612.75)
 
 [node name="bullet_area" type="Area2D" parent="."]
 metadata/enemy1 = ""

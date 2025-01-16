@@ -11,3 +11,8 @@ script = ExtResource("1_7dcjs")
 [node name="BGMusicManager" parent="." instance=ExtResource("2_8gu2u")]
 
 [node name="sfx_manager" parent="." instance=ExtResource("3_v3e6l")]
+
+[node name="debug_msg_timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="debug_msg_timer" to="." method="_on_debug_msg_timer_timeout"]
