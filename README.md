@@ -205,3 +205,12 @@ Got to decide whether it'll 'only' do damage or if there should be a visible eff
 (Need to make this project less work, not more...)
 Aim to have full playable Alpha by Sat 25th Jan 2025.
 We will see.
+
+### Fri 17 Jan 2025
+
+Worked on behaviour of Swarmers.
+The more of them there are in the world, the faster they are.
+This changes the gameplay to something more frenetic, though.
+Might not want that.
+More, much more testing required.
+And I urgently have to get the Phantom lasers colliding reliably with the player.
