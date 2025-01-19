@@ -4,7 +4,13 @@ extends Node2D
 @onready var line_2d = $Line2D
 @onready var global = $/root/Global
 
+@export var impact_particles: PackedScene
+
+
 const LASER_LENGTH = 3000
+var current_particle_effect: Node2D = null
+
+var damage: int = 0.5
 
 func _ready():
 	# Configure raycast for better performance
@@ -19,6 +25,11 @@ func _ready():
 	# Queue free after display
 	await get_tree().create_timer(3.0).timeout
 	queue_free()
+	
+func _process(delta):
+	# update raycast every frame
+	ray_cast.force_raycast_update()
+	shoot_laser()
 
 func shoot_laser():
 	if ray_cast.is_colliding():
@@ -28,10 +39,25 @@ func shoot_laser():
 		# Update visual laser length to collision point
 		line_2d.points[1] = to_local(collision_point)
 		
+		# Handle particle effect at collision point
+		if impact_particles:
+			# Remove old particle effect if it exists
+			if current_particle_effect:
+				current_particle_effect.queue_free()
+			
+			# Create new particle effect
+			current_particle_effect = impact_particles.instantiate()
+			get_tree().root.add_child(current_particle_effect)
+			current_particle_effect.global_position = collision_point
+		
 		# Handle player collision efficiently
-		if collider.is_in_group("player"):
+		if collider.get_parent().is_in_group("player"):
 			print("PLAYER HIT!")
-			#global.player_damage = true
+			global.taking_damage(damage)
 	else:
 		# No collision - extend to full length
 		line_2d.points[1] = Vector2(LASER_LENGTH, 0)
+		# Remove particle effect if no collision
+		if current_particle_effect:
+			current_particle_effect.queue_free()
+			current_particle_effect = null

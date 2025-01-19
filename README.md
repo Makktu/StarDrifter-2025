@@ -214,3 +214,7 @@ This changes the gameplay to something more frenetic, though.
 Might not want that.
 More, much more testing required.
 And I urgently have to get the Phantom lasers colliding reliably with the player.
+
+### Sat 18 Jan 2025
+
+Success with Phantom lasers. Also added particle effect for all.
