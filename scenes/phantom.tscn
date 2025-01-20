@@ -11,7 +11,7 @@ height = 200.0
 radius = 108.116
 
 [node name="Phantom" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.2)
+scale = Vector2(0.3, 0.3)
 collision_layer = 3
 script = ExtResource("1_obxnw")
 
@@ -36,8 +36,8 @@ one_shot = true
 position = Vector2(-120, 0)
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-position = Vector2(96.0006, -2.49988)
-scale = Vector2(411.6, 612.75)
+position = Vector2(-10.0001, -1.66672)
+scale = Vector2(113.667, 155.167)
 
 [node name="bullet_area" type="Area2D" parent="."]
 metadata/enemy1 = ""

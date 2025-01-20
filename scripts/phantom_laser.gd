@@ -49,10 +49,19 @@ func shoot_laser():
 			current_particle_effect = impact_particles.instantiate()
 			get_tree().root.add_child(current_particle_effect)
 			current_particle_effect.global_position = collision_point
+			
+		# Get the actual node (either the collider or its parent)
+		var hit_object = collider.get_parent() if collider.get_parent() else collider
+		
+		# Handle enemy collision
+		if hit_object.is_in_group("enemy"):
+			print("ENEMY BEING HIT!")
+			# You can call a damage function on the enemy here
+			if hit_object.has_method("take_damage"):
+				hit_object.take_damage()
 		
 		# Handle player collision efficiently
 		if collider.get_parent().is_in_group("player"):
-			print("PLAYER HIT!")
 			global.taking_damage(damage)
 	else:
 		# No collision - extend to full length

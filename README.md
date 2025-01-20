@@ -218,3 +218,8 @@ And I urgently have to get the Phantom lasers colliding reliably with the player
 ### Sat 18 Jan 2025
 
 Success with Phantom lasers. Also added particle effect for all.
+
+### Sun 19 Jan 2025
+
+Success adding Phantom laser collisions with Swarmers.
+This will be a strategic choice by the player (or not - might be overpowered).

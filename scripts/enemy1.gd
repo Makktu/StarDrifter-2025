@@ -28,14 +28,17 @@ func _physics_process(delta):
 	rotation_degrees += rotation_speed
 	var direction = global_position.direction_to(the_player.global_position)
 	velocity = direction * enemy_speed * delta
-	move_and_collide(velocity)
-	
-	#if player_in_range and rotation_speed < 4:
-		#rotation_speed += 0.1			
+	move_and_collide(velocity)			
 	
 	var collided := move_and_collide(velocity * delta)
-	if collided and rotation_speed <= 4:
-		rotation_speed += 0.25
+	if collided:
+		var collided_with = collided.get_collider()
+		collided_with = str(collided_with)
+		if ":" in collided_with:
+			collided_with = collided_with.split(":")[0]
+		print("Swarmercollide:", collided_with)
+		if rotation_speed <= 4:
+			rotation_speed += 0.25
 		
 	var player_position = the_player.global_position
 	var mine_position = global_transform.origin
@@ -98,4 +101,7 @@ func _on_extinction_timer_timeout():
 		print("Swarmer hit")
 		global.taking_damage(20)
 	queue_free()
+	
+func take_damage():
+	_on_extinction_timer_timeout()
 	
