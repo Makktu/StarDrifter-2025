@@ -31,22 +31,17 @@ func _physics_process(delta):
 	move_and_collide(velocity)			
 	
 	var collided := move_and_collide(velocity * delta)
-	if collided:
-		var collided_with = collided.get_collider()
-		collided_with = str(collided_with)
-		if ":" in collided_with:
-			collided_with = collided_with.split(":")[0]
-		print("Swarmercollide:", collided_with)
-		if rotation_speed <= 4:
-			rotation_speed += 0.25
+	if collided and rotation_speed <= 4:
+		rotation_speed += 0.25
 		
 	var player_position = the_player.global_position
 	var mine_position = global_transform.origin
 	distance_from_player = player_position.distance_to(mine_position)
-	if distance_from_player < 300 and !player_in_range:
+	if distance_from_player < 100 and !player_in_range:
 		player_in_range = true
 		rotation_speed += 3
-	if distance_from_player >= 300 and player_in_range:
+		enemy_speed *= 10
+	if distance_from_player >= 100 and player_in_range:
 		player_in_range = false
 		rotation_speed = 0.1
 	if distance_from_player < 20 and !extinction_triggered:
@@ -99,7 +94,7 @@ func _on_extinction_timer_timeout():
 	get_tree().current_scene.add_child(_explosion)
 	if player_in_range:
 		print("Swarmer hit")
-		global.taking_damage(20)
+		global.taking_damage(2)
 	queue_free()
 	
 func take_damage():

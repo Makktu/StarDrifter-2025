@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://cfbwfa6t0e240"]
 
 [ext_resource type="Script" path="res://scripts/phantom.gd" id="1_obxnw"]
-[ext_resource type="Texture2D" uid="uid://csw6uuxk862pr" path="res://Assets/graphics/phantom_2.png" id="2_hd88t"]
+[ext_resource type="Texture2D" uid="uid://q2fbdyrae0iv" path="res://Assets/graphics/new_phantom_2.png" id="2_nj8me"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y744p"]
-radius = 84.0
-height = 200.0
+radius = 17.1665
+height = 34.3331
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3xqj"]
-radius = 108.116
+radius = 13.3333
 
 [node name="Phantom" type="CharacterBody2D"]
 scale = Vector2(0.3, 0.3)
@@ -16,12 +16,12 @@ collision_layer = 3
 script = ExtResource("1_obxnw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.00014, -5.49988)
-rotation = 4.71239
-texture = ExtResource("2_hd88t")
+position = Vector2(-1.19209e-07, 0)
+rotation = 1.5708
+texture = ExtResource("2_nj8me")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-14.9999, -0.499878)
+position = Vector2(-3.33333, 2.98023e-08)
 shape = SubResource("CapsuleShape2D_y744p")
 
 [node name="PhaseTimer" type="Timer" parent="."]
@@ -33,7 +33,7 @@ wait_time = 6.0
 one_shot = true
 
 [node name="LaserSpawn" type="Marker2D" parent="."]
-position = Vector2(-120, 0)
+position = Vector2(60, 0)
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(-10.0001, -1.66672)
@@ -43,7 +43,7 @@ scale = Vector2(113.667, 155.167)
 metadata/enemy1 = ""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bullet_area"]
-position = Vector2(-8, 0)
+position = Vector2(-3.33333, 0)
 shape = SubResource("CircleShape2D_s3xqj")
 
 [connection signal="timeout" from="PhaseTimer" to="." method="_on_phase_timer_timeout"]
