@@ -1,14 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfbwfa6t0e240"]
+[gd_scene load_steps=8 format=3 uid="uid://cfbwfa6t0e240"]
 
 [ext_resource type="Script" path="res://scripts/phantom.gd" id="1_obxnw"]
 [ext_resource type="Texture2D" uid="uid://q2fbdyrae0iv" path="res://Assets/graphics/new_phantom_2.png" id="2_nj8me"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y744p"]
-radius = 17.1665
-height = 34.3331
+radius = 43.3333
+height = 86.6667
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3xqj"]
-radius = 13.3333
+radius = 50.0
+
+[sub_resource type="Animation" id="Animation_vcjxy"]
+resource_name = "phantom_hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.52549), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wnu76"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p2n61"]
+_data = {
+"RESET": SubResource("Animation_wnu76"),
+"phantom_hit": SubResource("Animation_vcjxy")
+}
 
 [node name="Phantom" type="CharacterBody2D"]
 scale = Vector2(0.3, 0.3)
@@ -21,7 +57,6 @@ rotation = 1.5708
 texture = ExtResource("2_nj8me")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.33333, 2.98023e-08)
 shape = SubResource("CapsuleShape2D_y744p")
 
 [node name="PhaseTimer" type="Timer" parent="."]
@@ -43,8 +78,12 @@ scale = Vector2(113.667, 155.167)
 metadata/enemy1 = ""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bullet_area"]
-position = Vector2(-3.33333, 0)
 shape = SubResource("CircleShape2D_s3xqj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p2n61")
+}
 
 [connection signal="timeout" from="PhaseTimer" to="." method="_on_phase_timer_timeout"]
 [connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]

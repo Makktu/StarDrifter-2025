@@ -25,6 +25,12 @@ func _physics_process(delta):
 	if global.player_energy <= 0 && global.dev_damage_on:
 		$hud._on_pause_button_pressed(true) # if passing true, means Game Over
 	
+	if global.player_energy <= 20 and !energy_warning_shown:
+		$hud.show_warning(2)
+		
+	if energy_warning_shown and global.player_energy > 20:
+		$hud.show_warning(0)
+	
 	if Input.is_action_pressed("Left") and rotation_direction != -1:
 		rotation_direction -= 1
 	if Input.is_action_pressed("Right") and rotation_direction != 1:

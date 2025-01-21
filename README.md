@@ -228,3 +228,8 @@ This will be a strategic choice by the player (or not - might be overpowered).
 
 Fixed problem with all Swarmer destruction causing player damage.
 New sprite for the Phantom - just a 1st draft, still not right.
+
+### Tue 21 Jan 2025
+
+Fixed damage collisions for Phantom.
+Started on player energy logic, warnings etc.

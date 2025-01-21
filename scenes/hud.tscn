@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://b47pdejejhyjn"]
 
 [ext_resource type="Script" path="res://scripts/global/hud.gd" id="1_udwwf"]
-[ext_resource type="Texture2D" uid="uid://ctfroiv5s6ons" path="res://assets/graphics/velocity.png" id="2_n1lnp"]
-[ext_resource type="Texture2D" uid="uid://5heeei0wju4k" path="res://assets/graphics/Energy.png" id="3_k7rqn"]
-[ext_resource type="Texture2D" uid="uid://c6vq4r28abfhm" path="res://assets/graphics/Warning.png" id="4_6ca42"]
+[ext_resource type="Texture2D" uid="uid://ctfroiv5s6ons" path="res://Assets/graphics/velocity.png" id="2_n1lnp"]
+[ext_resource type="Texture2D" uid="uid://5heeei0wju4k" path="res://Assets/graphics/Energy.png" id="3_k7rqn"]
+[ext_resource type="Texture2D" uid="uid://c6vq4r28abfhm" path="res://Assets/graphics/Warning.png" id="4_6ca42"]
 
 [sub_resource type="Gradient" id="Gradient_x6rqy"]
 offsets = PackedFloat32Array(0, 0.236567, 1)

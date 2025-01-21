@@ -8,6 +8,8 @@ var time_to_next_phase_in = 4.0 # time in seconds to next appearance on map
 @onready var sprite = $Sprite2D
 @onready var the_player = get_tree().get_nodes_in_group("player")[0]
 @onready var collision_shape = $CollisionShape2D
+@onready var animation_player = $AnimationPlayer
+
 var enemy_speed = 10
 var rotation_speed = 2.0  # smoother tracking
 var phantom_active = false
@@ -64,6 +66,7 @@ func _on_fire_timer_timeout():
 
 func _on_bullet_area_area_entered(area):
 	if area.name == 'bullet':
-		phantom_energy -= 2 
+		phantom_energy -= 2
+		animation_player.play("phantom_hit")
 	else:
 		phantom_energy -= 1

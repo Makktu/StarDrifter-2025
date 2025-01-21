@@ -7,15 +7,18 @@ var energy_is_low = true
 @onready var warning_sign = $warning
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	show_warning()
+#func _ready():
+	#show_warning()
 	
 
 func show_warning(critical_state = 2):
 	# A slowly pulsing warning in an alien script when player energy is 20% of max
 	# A faster pulsing warning at 10% of max
 	# A final critical flashing warning at 5% (one more hit from anything is Game Over)
-	critical_state = 0.5 # for debug purposes
+	if critical_state == 0:
+		warning_showing = false
+		warning_sign.visible = false
+		return
 	warning_showing = true
 	var tween = create_tween().set_loops()
 	tween.tween_property(warning_sign, "modulate:a", 0.0, critical_state / 2).set_trans(Tween.TRANS_SINE)
