@@ -24,7 +24,7 @@ var player_energy_replenish_amount : float = 0.005
 
 # monitor and control how many basic enemies
 # exist in game world – for performance and gameplay
-var enemy_basic_in_world : int = 0 
+var swarmers_active : int = 0 
 
 var player_damage : bool = false
 var player_amount_damaged : int = 0
@@ -72,4 +72,4 @@ func player_energy_replenish(amount = player_energy_replenish_amount):
 
 
 func _on_debug_msg_timer_timeout():
-	print("Enemies in world:", enemy_basic_in_world)
+	print("Swarmers Active:", swarmers_active)

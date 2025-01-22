@@ -5,8 +5,9 @@ extends CharacterBody2D
 @onready var global = $/root/Global
 @onready var life_timer = $LifeTimer
 
-var enemy_speed = 12
+var enemy_speed = 16
 var enemy_speed_orig = enemy_speed
+var max_enemy_speed = 64
 var target_position
 var rotation_speed = 0.1
 var this_enemy_shot := 0
@@ -21,8 +22,8 @@ var alerted_distance_from_player: int = 200
 func _physics_process(delta):
 	#if $"/root/Global".smart_bomb_active and this_enemy_onscreen:
 		#_on_extinction_timer_timeout()
-	if global.enemy_basic_in_world > enemy_speed:
-		enemy_speed += global.enemy_basic_in_world - enemy_speed
+	if global.swarmers_active > enemy_speed / 2 and enemy_speed <= max_enemy_speed:
+		enemy_speed += global.swarmers_active / 2
 	else:
 		enemy_speed = enemy_speed_orig
 	rotation_degrees += rotation_speed
@@ -63,26 +64,27 @@ func _on_bullet_area_area_entered(area):
 			$explosion.play('explode')
 
 func _on_explosion_animation_finished():
-	$"/root/Global".enemy_basic_in_world -= 1
+	global.swarmers_active
 	if distance_from_player < 12:
-		$"/root/Global".damage_player(distance_from_player)
+		global.damage_player(distance_from_player)
 	queue_free()
 
 
 func _on_life_timer_timeout():
 	if !this_enemy_onscreen:
-		$"/root/Global".enemy_basic_in_world -= 1
+		global.swarmers_active -= 1
 		queue_free()
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	this_enemy_onscreen = false
-	life_timer.start()
+	life_timer.wait_time = 10
+	life_timer.start() # begins 10s countdown for an off-screen swarmer to be removed from game
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	this_enemy_onscreen = true
-	life_timer.stop()
+	life_timer.stop() # interrupts timer if enemy makes it back on-screen within 10s
 
 
 func _on_extinction_timer_timeout():

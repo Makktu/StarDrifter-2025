@@ -3,9 +3,10 @@ extends Node2D
 @onready var main_audio_player = $AudioStreamPlayer
 
 var all_music:Array[String]
-var current_track := 1 # defines starting track
-var maximum_track := 1
-var times_played := 0
+
+var current_track: int = 1 # defines starting track
+var maximum_track: int = 1 # the number (0-indexed) of the highest possible track
+var times_played: int = 0
 
 func _ready():
 	# load all music in named folder
@@ -15,6 +16,10 @@ func _ready():
 			all_music.append("res://assets/music/bg_music/" + filePath)
 	print(all_music)
 	maximum_track = all_music.size() - 1
+	
+func _process(delta):
+	if Input.is_action_pressed("track"):
+		play_next_track()
 
 func start_bg_music():
 	$bg_music_timer.start()

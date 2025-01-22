@@ -233,3 +233,8 @@ New sprite for the Phantom - just a 1st draft, still not right.
 
 Fixed damage collisions for Phantom.
 Started on player energy logic, warnings etc.
+
+### Wed 22 Jan 2025
+
+Changing Swarmer behaviour - experimenting with frequency of spawn/speed.
+Tentative start on BGM.

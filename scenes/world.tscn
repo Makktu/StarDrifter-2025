@@ -93,32 +93,41 @@ polygon = PackedVector2Array(-2854, -1249.4, -2854, -1245.6, -2866.6, -1241, -28
 
 [node name="Player" parent="." instance=ExtResource("3_pecdv")]
 modulate = Color(0.282353, 1, 0.317647, 1)
-position = Vector2(1533, 2970)
+position = Vector2(1278, 9211)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)
 
-[node name="enemy_spawner_things" type="Node2D" parent="."]
+[node name="enemy_spawners" type="Node2D" parent="."]
 
-[node name="enemy_spawner" parent="enemy_spawner_things" instance=ExtResource("5_1eq67")]
+[node name="enemy_spawner" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
 position = Vector2(1003, 9691)
 
-[node name="enemy_spawner2" parent="enemy_spawner_things" instance=ExtResource("5_1eq67")]
+[node name="enemy_spawner2" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
 position = Vector2(1037, 7747)
 
-[node name="enemy_spawner3" parent="enemy_spawner_things" instance=ExtResource("5_1eq67")]
+[node name="enemy_spawner3" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
 position = Vector2(2426, 5566)
 
-[node name="enemy_spawner4" parent="enemy_spawner_things" instance=ExtResource("5_1eq67")]
+[node name="enemy_spawner4" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
 position = Vector2(2911, 7798)
 
-[node name="enemy_spawner5" parent="enemy_spawner_things" instance=ExtResource("5_1eq67")]
+[node name="enemy_spawner5" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
 position = Vector2(2013, 4000)
 
-[node name="enemy_spawner6" parent="enemy_spawner_things" instance=ExtResource("5_1eq67")]
+[node name="enemy_spawner6" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
 position = Vector2(1061, 6332)
 
-[node name="enemy_spawner7" parent="enemy_spawner_things" instance=ExtResource("5_1eq67")]
-position = Vector2(902, 4682)
+[node name="enemy_spawner7" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(799, 4671)
+
+[node name="enemy_spawner9" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(1436, 3534)
+
+[node name="enemy_spawner10" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(1053, 3643)
+
+[node name="enemy_spawner8" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(1013, 4525)
 
 [node name="radio_tower" parent="." instance=ExtResource("8_6gao6")]
 show_behind_parent = true
