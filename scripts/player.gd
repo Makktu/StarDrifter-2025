@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
-@onready var acceleration = 80 #30
-@onready var max_speed = 200
+@onready var acceleration = 40 #was 80
+@onready var max_speed = 100 # was 200
 @onready var gravity = 0 #0 FOR FULL WEIGHTLESSNESS
 @onready var rotation_speed = 5 #6
 @onready var global = $/root/Global
 @onready var colliding_effect = $collision_particles
+@onready var pickup_timer = $pickup_timer
 
 # =============== SHOOTING
 const bullet = preload("res://scenes/bullet.tscn")
@@ -18,7 +19,8 @@ var rotation_direction: int
 var energy_warning_shown = false
 var player_is_thrusting = false
 var thrusting_for = 0
-var collided_with = ""
+var collided_with : String = ""
+var pickup_type : String = ""
 
 func _physics_process(delta):
 	# if energy depleted bring up pause menu
@@ -141,3 +143,24 @@ func shoot_bullets():
 		times_fired += 1
 		if (times_fired == firing_points) and firing_points == 1:
 			break
+			
+			
+func picked_up(type = "default"):
+	pickup_type = type
+	# copy current values
+	print(pickup_type, " pickup acquired")
+	if type == "speed":
+		acceleration *= 2
+		max_speed *= 2
+	if type == "energy":
+		global.player_energy = 100
+	
+	pickup_timer.start() # start timer for duration of effect
+
+
+func _on_pickup_timer_timeout():
+	print(pickup_type, " pickup effect expired")
+	if pickup_type == "speed":
+		acceleration = acceleration / 2
+		max_speed = max_speed / 2
+	

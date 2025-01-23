@@ -238,3 +238,8 @@ Started on player energy logic, warnings etc.
 
 Changing Swarmer behaviour - experimenting with frequency of spawn/speed.
 Tentative start on BGM.
+
+### Thu 23 Jan 2025
+
+First pickups drafted (speed and energy).
+Implemented, with behaviour and effects on player.

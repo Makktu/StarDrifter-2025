@@ -12,8 +12,9 @@ var dev_screenshake_on : bool = true
 # all variables controllable from dev pause menu, in hud scene
 # ========================================================================================
 # ========================================================================================
+
 var player_energy : float = 100.0
-var global_music_on : bool = true # debug setting
+var global_music_on : bool = false # debug setting
 var alarm_triggered : bool = false
 
 # max number of enemies allowed on-screen or in vicinity at one time
@@ -28,7 +29,6 @@ var swarmers_active : int = 0
 
 var player_damage : bool = false
 var player_amount_damaged : int = 0
-
 
 func _ready():
 	# start bgm music if bgm_music ON

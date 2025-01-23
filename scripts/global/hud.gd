@@ -11,7 +11,7 @@ var energy_is_low = true
 	#show_warning()
 	
 
-func show_warning(critical_state = 2):
+func show_warning(type = "default", critical_state = 1):
 	# A slowly pulsing warning in an alien script when player energy is 20% of max
 	# A faster pulsing warning at 10% of max
 	# A final critical flashing warning at 5% (one more hit from anything is Game Over)
