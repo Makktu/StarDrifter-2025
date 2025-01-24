@@ -251,4 +251,7 @@ Working on decor ('radio towers') - replaced placeholder sprite for these.
 
 ### Sat 25 Jan 2025
 
-(TODO) - Add pickups strategically, start thinking about game balance
+(TODO)
+Add pickups strategically
+start thinking about game balance
+prune folders of redundant files (tidy up)
