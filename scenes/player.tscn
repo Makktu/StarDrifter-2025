@@ -159,7 +159,8 @@ sprite_frames = SubResource("SpriteFrames_2h7xl")
 animation = &"smartbomb"
 
 [node name="pickup_timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 50.0
+one_shot = true
 
 [connection signal="timeout" from="SmartbombTimer" to="." method="_on_smartbomb_timer_timeout"]
 [connection signal="area_entered" from="player_enemy_collision" to="." method="_on_player_enemy_collision_area_entered"]

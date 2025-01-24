@@ -1,14 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://xucx4fy8o8o7"]
 
-[ext_resource type="Texture2D" uid="uid://senvqhbs6jf3" path="res://Assets/graphics/radio_tower.png" id="1_2b4xx"]
+[ext_resource type="Texture2D" uid="uid://uu0huctsljiq" path="res://Assets/graphics/energy_tower.png" id="1_ffg76"]
 [ext_resource type="Script" path="res://scripts/radio_tower.gd" id="2_4yfhn"]
 
 [node name="radio_tower" type="Sprite2D"]
-texture = ExtResource("1_2b4xx")
+scale = Vector2(2, 2)
+texture = ExtResource("1_ffg76")
 script = ExtResource("2_4yfhn")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(-16, -220)
+position = Vector2(2, -107)
 amount = 40
 lifetime = 4.0
 preprocess = 2.0

@@ -94,7 +94,7 @@ polygon = PackedVector2Array(-2854, -1249.4, -2854, -1245.6, -2866.6, -1241, -28
 
 [node name="Player" parent="." instance=ExtResource("3_pecdv")]
 modulate = Color(0.282353, 1, 0.317647, 1)
-position = Vector2(1337, 9663)
+position = Vector2(972, 9810)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)
 
@@ -132,17 +132,17 @@ position = Vector2(1013, 4525)
 
 [node name="radio_tower" parent="." instance=ExtResource("8_6gao6")]
 show_behind_parent = true
-position = Vector2(1825, 9828)
-scale = Vector2(0.3, 0.3)
+position = Vector2(1821, 9805)
+scale = Vector2(0.75, 0.75)
 
 [node name="radio_tower2" parent="." instance=ExtResource("8_6gao6")]
 show_behind_parent = true
-position = Vector2(901, 9975)
-scale = Vector2(0.3, 0.3)
+position = Vector2(902, 9917)
+scale = Vector2(1, 1)
 
 [node name="radio_tower3" parent="." instance=ExtResource("8_6gao6")]
 show_behind_parent = true
-position = Vector2(1128, 7980)
+position = Vector2(1126, 7992)
 scale = Vector2(0.3, 0.3)
 
 [node name="Phantoms" type="Node" parent="."]
@@ -225,3 +225,24 @@ position = Vector2(4082, 7787)
 
 [node name="pickup_speed_boost" parent="pickups" instance=ExtResource("8_a1nmu")]
 position = Vector2(1341, 9769)
+
+[node name="pickup_speed_boost2" parent="pickups" instance=ExtResource("8_a1nmu")]
+position = Vector2(2165, 9722)
+
+[node name="pickup_speed_boost3" parent="pickups" instance=ExtResource("8_a1nmu")]
+position = Vector2(2813, 8867)
+
+[node name="pickup_speed_boost4" parent="pickups" instance=ExtResource("8_a1nmu")]
+position = Vector2(1841, 7686)
+
+[node name="pickup_speed_boost5" parent="pickups" instance=ExtResource("8_a1nmu")]
+position = Vector2(2982, 6916)
+
+[node name="pickup_speed_boost6" parent="pickups" instance=ExtResource("8_a1nmu")]
+position = Vector2(3372, 7304)
+
+[node name="pickup_speed_boost7" parent="pickups" instance=ExtResource("8_a1nmu")]
+position = Vector2(1208, 6651)
+
+[node name="pickup_speed_boost8" parent="pickups" instance=ExtResource("8_a1nmu")]
+position = Vector2(1375, 3750)

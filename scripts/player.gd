@@ -63,7 +63,6 @@ func _physics_process(delta):
 		collided_with = str(collided_with)
 		if ":" in collided_with:
 			collided_with = collided_with.split(":")[0]
-		print("Collided with:", collided_with)
 		handle_collision(collided, velocity.x, velocity.y, collided_with)		
 	# =================================#
 
@@ -148,19 +147,24 @@ func shoot_bullets():
 func picked_up(type = "default"):
 	pickup_type = type
 	# copy current values
-	print(pickup_type, " pickup acquired")
+	print(pickup_type, " pickup acquired <<<<<<<<<")
 	if type == "speed":
-		acceleration *= 2
-		max_speed *= 2
+		if !global.speed_pickup_active:
+			acceleration *= 2
+			max_speed *= 2
+			global.speed_pickup_active = true
+		elif global.speed_pickup_active:
+			pickup_timer.stop()
+			pickup_timer.wait_time = 50
+		pickup_timer.start() # player always gets a fresh 50 seconds
 	if type == "energy":
 		global.player_energy = 100
+		print("ENERGY NOW", global.player_energy)
 	
-	pickup_timer.start() # start timer for duration of effect
 
-
-func _on_pickup_timer_timeout():
-	print(pickup_type, " pickup effect expired")
+func _on_pickup_timer_timeout(): # design of func open for other types of pickup, e.g. shields
+	print(pickup_type, " pickup effect EXPIRED >>>>>>>>>")
 	if pickup_type == "speed":
 		acceleration = acceleration / 2
 		max_speed = max_speed / 2
-	
+		global.speed_pickup_active = false

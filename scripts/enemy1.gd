@@ -95,7 +95,6 @@ func _on_extinction_timer_timeout():
 	_explosion.emitting = true
 	get_tree().current_scene.add_child(_explosion)
 	if player_in_range:
-		print("Swarmer hit")
 		global.taking_damage(2)
 	queue_free()
 	

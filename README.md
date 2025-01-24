@@ -243,3 +243,12 @@ Tentative start on BGM.
 
 First pickups drafted (speed and energy).
 Implemented, with behaviour and effects on player.
+
+### Fri 24 Jan 2025
+
+Refined pickups. Added energy pickups.
+Working on decor ('radio towers') - replaced placeholder sprite for these.
+
+### Sat 25 Jan 2025
+
+(TODO) - Add pickups strategically, start thinking about game balance

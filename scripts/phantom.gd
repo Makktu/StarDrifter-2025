@@ -24,7 +24,6 @@ func _physics_process(delta):
 		velocity = direction * enemy_speed * delta	
 		var collided := move_and_collide(velocity * delta)
 		if phantom_energy <= 0:
-			print("damage fade out")
 			fire_timer.stop()
 			phantom_active = false
 			fire_timer.stop() # stop all firing actions
@@ -47,13 +46,11 @@ func fade_out():
 
 
 func _on_visible_on_screen_enabler_2d_screen_entered():
-	print("PHANTOM ACTIVE")
 	phantom_active = true
 	fire_timer.start()
 
 
 func _on_visible_on_screen_enabler_2d_screen_exited():
-	print("PHANTOM OFF-SCREEN & GOING INACTIVE")
 	phantom_active = false	
 	fire_timer.stop()
 

@@ -1,5 +1,6 @@
 extends Node
-@onready var debug_msg_timer = $debug_msg_timer
+
+#@onready var debug_msg_timer = $debug_msg_timer
 @onready var sfx_manager = $sfx_manager
 @onready var bgm_manager = $BGMusicManager
 # ========================================================================================
@@ -14,8 +15,10 @@ var dev_screenshake_on : bool = true
 # ========================================================================================
 
 var player_energy : float = 100.0
-var global_music_on : bool = false # debug setting
+var global_music_on : bool = true # debug setting
 var alarm_triggered : bool = false
+
+var speed_pickup_active: bool = false
 
 # max number of enemies allowed on-screen or in vicinity at one time
 var max_enemies = 300
@@ -32,10 +35,9 @@ var player_amount_damaged : int = 0
 
 func _ready():
 	# start bgm music if bgm_music ON
-	print("STARTING DAMAGE:", player_energy)
 	if global_music_on:
 		bgm_manager.start_bg_music()
-	debug_msg_timer.start()
+	#debug_msg_timer.start()
 		
 
 func random_float_number(lower_value = 0, upper_value = 1): # returns random val between these parameters
@@ -50,7 +52,6 @@ func sound_alarm():
 	
 
 func damage_player(distance_from_player):#
-	print('💥', distance_from_player)
 	if !dev_damage_on:
 		return
 	player_damage = true
@@ -59,8 +60,6 @@ func damage_player(distance_from_player):#
 
 func taking_damage(hit = 1):
 	player_energy -= hit
-	print("DAMAGE TAKEN:", hit)
-	print("ENERGY:", player_energy)
 		
 
 func player_energy_replenish(amount = player_energy_replenish_amount):
@@ -69,7 +68,3 @@ func player_energy_replenish(amount = player_energy_replenish_amount):
 	# function can be passed value for pickups etc
 	if player_energy < 100: # no action if energy is full
 		player_energy += amount
-
-
-func _on_debug_msg_timer_timeout():
-	print("Swarmers Active:", swarmers_active)

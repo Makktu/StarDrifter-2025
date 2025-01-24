@@ -1,27 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5qids6clluwc"]
+[gd_scene load_steps=8 format=3 uid="uid://cwvmlhusj2ck5"]
 
-[ext_resource type="Texture2D" uid="uid://c28xr2h7hxp73" path="res://Assets/graphics/pickup_speed_boost.png" id="2_26rqj"]
-
-[sub_resource type="GDScript" id="GDScript_io7l5"]
-script/source = "extends Node2D
-
-@onready var the_player = get_tree().get_nodes_in_group(\"player\")[0]
-@onready var animation_player = $AnimationPlayer
-
-func _on_area_2d_body_entered(body):
-	if body.name == \"Player\":		
-		the_player.picked_up(\"speed\") # initiate all changes in player node
-		animation_player.play(\"fade_away\")
-		await get_tree().create_timer(1.5).timeout
-		queue_free()
-
-func _on_visible_on_screen_enabler_2d_screen_entered():
-	animation_player.play(\"waiting\")
-
-
-func _on_visible_on_screen_enabler_2d_screen_exited():
-	animation_player.stop()
-"
+[ext_resource type="Script" path="res://scripts/pickup_speed_boost.gd" id="1_i0yeh"]
+[ext_resource type="Texture2D" uid="uid://cswr56udg3jmx" path="res://Assets/graphics/pickup_energy.png" id="2_f8uuj"]
 
 [sub_resource type="Animation" id="Animation_j71ow"]
 length = 0.001
@@ -118,11 +98,11 @@ _data = {
 radius = 7.0
 height = 52.0
 
-[node name="pickup_speed_boost" type="Node2D"]
-script = SubResource("GDScript_io7l5")
+[node name="pickup_energy" type="Node2D"]
+script = ExtResource("1_i0yeh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_26rqj")
+texture = ExtResource("2_f8uuj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
