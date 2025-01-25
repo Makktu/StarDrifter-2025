@@ -15,7 +15,7 @@ var dev_screenshake_on : bool = true
 # ========================================================================================
 
 var player_energy : float = 100.0
-var global_music_on : bool = true # debug setting
+var global_music_on : bool = false # debug setting
 var alarm_triggered : bool = false
 
 var speed_pickup_active: bool = false

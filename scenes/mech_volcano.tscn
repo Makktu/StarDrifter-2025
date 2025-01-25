@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg2b6jfuw3ev5"]
+
+[ext_resource type="Texture2D" uid="uid://bgmq8ckqmxeoo" path="res://Assets/graphics/volcano.png" id="1_ui7p4"]
+[ext_resource type="Script" path="res://scripts/mech_volcano.gd" id="2_gxmev"]
+
+[node name="mech_volcano" type="Sprite2D"]
+texture = ExtResource("1_ui7p4")
+script = ExtResource("2_gxmev")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(2, -107)
+emitting = false
+amount = 100
+lifetime = 12.0
+preprocess = 2.0
+speed_scale = 3.8
+explosiveness = 0.66
+randomness = 0.03
+lifetime_randomness = 0.05
+emission_shape = 2
+emission_sphere_radius = 28.15
+direction = Vector2(0, -10)
+gravity = Vector2(0, 0)
+initial_velocity_min = 3.22
+initial_velocity_max = 51.45
+angular_velocity_min = 388.94
+angular_velocity_max = 388.94
+scale_amount_min = 0.0
+scale_amount_max = 6.5
+color = Color(0.99725, 0.331737, 0.657168, 1)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(5.49997, -183)
+scale = Vector2(74.45, 53.5)
+
+[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

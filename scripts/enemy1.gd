@@ -23,7 +23,7 @@ func _physics_process(delta):
 	#if $"/root/Global".smart_bomb_active and this_enemy_onscreen:
 		#_on_extinction_timer_timeout()
 	if global.swarmers_active > enemy_speed / 2 and enemy_speed <= max_enemy_speed:
-		enemy_speed += global.swarmers_active / 2
+		enemy_speed += global.swarmers_active
 	else:
 		enemy_speed = enemy_speed_orig
 	rotation_degrees += rotation_speed
@@ -71,9 +71,8 @@ func _on_explosion_animation_finished():
 
 
 func _on_life_timer_timeout():
-	if !this_enemy_onscreen:
-		global.swarmers_active -= 1
-		queue_free()
+	global.swarmers_active -= 1
+	queue_free()
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

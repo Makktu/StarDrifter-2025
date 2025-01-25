@@ -119,6 +119,7 @@ radius = 7.0
 height = 52.0
 
 [node name="pickup_speed_boost" type="Node2D"]
+scale = Vector2(0.6, 0.6)
 script = SubResource("GDScript_io7l5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

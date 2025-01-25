@@ -94,11 +94,11 @@ _data = {
 "waiting": SubResource("Animation_5mwxi")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xt0ow"]
-radius = 7.0
-height = 52.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xa64u"]
+size = Vector2(34, 23)
 
 [node name="pickup_energy" type="Node2D"]
+scale = Vector2(0.6, 0.6)
 script = ExtResource("1_i0yeh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -114,13 +114,15 @@ collision_layer = 2
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CapsuleShape2D_xt0ow")
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_xa64u")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(-1.90735e-06, 0)
 scale = Vector2(4.7, 5.5)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
 amount = 30
 lifetime = 0.75
 speed_scale = 1.41

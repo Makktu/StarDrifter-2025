@@ -251,6 +251,12 @@ Working on decor ('radio towers') - replaced placeholder sprite for these.
 
 ### Sat 25 Jan 2025
 
+Spruced up radio towers
+Drafted a 'mech volcano'
+Some balancing tweaks to swarmers
+
+### Sun 26 Jan 2025
+
 (TODO)
 Add pickups strategically
 start thinking about game balance

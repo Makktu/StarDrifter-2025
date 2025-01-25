@@ -4,11 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://dvl3pvifd1l2h" path="res://scenes/enemy_portal.tscn" id="2_lkdip"]
 
 [node name="enemy_spawner" type="Node2D"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.2, 0.2)
 script = ExtResource("1_jbk74")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 1.25
+one_shot = true
 
 [node name="enemy_portal" parent="." instance=ExtResource("2_lkdip")]
 

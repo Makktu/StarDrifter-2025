@@ -1,14 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://xucx4fy8o8o7"]
+[gd_scene load_steps=4 format=3 uid="uid://xucx4fy8o8o7"]
 
 [ext_resource type="Texture2D" uid="uid://uu0huctsljiq" path="res://Assets/graphics/energy_tower.png" id="1_ffg76"]
 [ext_resource type="Script" path="res://scripts/radio_tower.gd" id="2_4yfhn"]
 
-[node name="radio_tower" type="Sprite2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yglt6"]
+size = Vector2(16, 115)
+
+[node name="collision_area" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 7)
 scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_yglt6")
+
+[node name="radio_tower" type="Sprite2D" parent="."]
 texture = ExtResource("1_ffg76")
 script = ExtResource("2_4yfhn")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="radio_tower"]
 position = Vector2(2, -107)
 amount = 40
 lifetime = 4.0
@@ -29,10 +38,10 @@ scale_amount_min = 0.0
 scale_amount_max = 6.5
 color = Color(0.465859, 0.966395, 0.246216, 1)
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="radio_tower"]
 show_behind_parent = true
 position = Vector2(1, 12.5)
 scale = Vector2(36.5, 43.35)
 
-[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_entered" from="radio_tower/VisibleOnScreenNotifier2D" to="radio_tower" method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="radio_tower/VisibleOnScreenNotifier2D" to="radio_tower" method="_on_visible_on_screen_notifier_2d_screen_exited"]

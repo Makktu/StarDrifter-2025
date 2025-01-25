@@ -11,6 +11,8 @@ func add_new_enemy():
 	if spawner_active and amount_spawned < max_can_spawn:
 		if $"/root/Global".dev_enemies_on:
 			var enemy_instance = enemy_basic.instantiate()
+			enemy_instance.scale.x = 0.75
+			enemy_instance.scale.y = 0.75
 			add_child(enemy_instance)
 			amount_spawned += 1
 		$Timer.start()
