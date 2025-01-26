@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cy8am7rjugpas"]
+[gd_scene load_steps=14 format=3 uid="uid://cy8am7rjugpas"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ybue2"]
 [ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/parallax_background.tscn" id="2_s8res"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://xucx4fy8o8o7" path="res://scenes/radio_tower.tscn" id="8_6gao6"]
 [ext_resource type="PackedScene" uid="uid://c5qids6clluwc" path="res://scenes/pickup_speed_boost.tscn" id="8_a1nmu"]
 [ext_resource type="PackedScene" uid="uid://cwvmlhusj2ck5" path="res://scenes/pickup_energy.tscn" id="9_uctqp"]
+[ext_resource type="PackedScene" uid="uid://df3rux5jmmsgy" path="res://scenes/pickup_shield.tscn" id="10_tywrx"]
 
 [sub_resource type="Shader" id="Shader_dnnc4"]
 code = "shader_type canvas_item;
@@ -311,3 +312,6 @@ position = Vector2(1084, 8437)
 
 [node name="pickup_energy2" parent="." instance=ExtResource("9_uctqp")]
 position = Vector2(1037, 9937)
+
+[node name="pickup_shield" parent="." instance=ExtResource("10_tywrx")]
+position = Vector2(1098, 9880)

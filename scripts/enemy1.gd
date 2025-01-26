@@ -5,25 +5,25 @@ extends CharacterBody2D
 @onready var global = $/root/Global
 @onready var life_timer = $LifeTimer
 
-var enemy_speed = 16
-var enemy_speed_orig = enemy_speed
-var max_enemy_speed = 64
+var enemy_speed : int = 16
+var enemy_speed_orig : int = enemy_speed
+var max_enemy_speed : int = 64
 var target_position
-var rotation_speed = 0.1
-var this_enemy_shot := 0
-var this_enemy_killed_at := 3
-var this_enemy_onscreen = false
-var player_in_range = false
-var extinction_triggered = false
-var extinction_timer_value = 2
-var distance_from_player
+var rotation_speed : float = 0.1
+var this_enemy_shot : int = 0
+var this_enemy_killed_at : int = 3
+var this_enemy_onscreen : bool = false
+var player_in_range : bool = false
+var extinction_triggered : bool = false
+var extinction_timer_value : int = 2
+var distance_from_player : float
 var alerted_distance_from_player: int = 200
 
 func _physics_process(delta):
 	#if $"/root/Global".smart_bomb_active and this_enemy_onscreen:
 		#_on_extinction_timer_timeout()
 	if global.swarmers_active > enemy_speed / 2 and enemy_speed <= max_enemy_speed:
-		enemy_speed += global.swarmers_active
+		enemy_speed += global.swarmers_active * 3
 	else:
 		enemy_speed = enemy_speed_orig
 	rotation_degrees += rotation_speed

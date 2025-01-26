@@ -33,6 +33,8 @@ var swarmers_active : int = 0
 var player_damage : bool = false
 var player_amount_damaged : int = 0
 
+var shield_active : bool = false
+
 func _ready():
 	# start bgm music if bgm_music ON
 	if global_music_on:
@@ -52,14 +54,15 @@ func sound_alarm():
 	
 
 func damage_player(distance_from_player):#
-	if !dev_damage_on:
+	if !dev_damage_on or shield_active:
 		return
 	player_damage = true
 	player_amount_damaged = distance_from_player / 2
 	
 
 func taking_damage(hit = 1):
-	player_energy -= hit
+	if !shield_active:
+		player_energy -= hit
 		
 
 func player_energy_replenish(amount = player_energy_replenish_amount):

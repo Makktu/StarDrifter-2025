@@ -1,19 +1,20 @@
-[gd_scene load_steps=18 format=3 uid="uid://b2360ojxsegcj"]
+[gd_scene load_steps=19 format=3 uid="uid://b2360ojxsegcj"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2n4p6"]
 [ext_resource type="Texture2D" uid="uid://d6ffqje4owhg" path="res://Assets/graphics/Lander_3.png" id="1_58gib"]
 [ext_resource type="Script" path="res://scripts/Camera2D.gd" id="3_7kmc0"]
 [ext_resource type="Texture2D" uid="uid://dh2vu2v8tr85d" path="res://Assets/graphics/Sprite-0002.png" id="4_knjd2"]
 [ext_resource type="PackedScene" uid="uid://b47pdejejhyjn" path="res://scenes/hud.tscn" id="4_ok8lk"]
+[ext_resource type="Texture2D" uid="uid://cjrk7a34v7ig" path="res://Assets/graphics/shield_barriers.png" id="4_okpng"]
 [ext_resource type="Texture2D" uid="uid://cyu6jckk1nbvj" path="res://Assets/graphics/Sprite-0003.png" id="5_x5nsf"]
 [ext_resource type="Script" path="res://scripts/Thrust_Manager.gd" id="5_x14mg"]
 [ext_resource type="Texture2D" uid="uid://cb4dtes4mma8h" path="res://Assets/graphics/Sprite-0004.png" id="6_a4c0k"]
 [ext_resource type="AudioStream" uid="uid://bbi7wvoqrg21o" path="res://Assets/sfx/player_sfx/thrust_begins1.wav" id="8_gdvxp"]
 [ext_resource type="AudioStream" uid="uid://ccmet6w3828ad" path="res://Assets/sfx/player_sfx/thrust_mid1.wav" id="9_ohpnd"]
 [ext_resource type="AudioStream" uid="uid://dlsrf2tswwe6g" path="res://Assets/sfx/player_sfx/thrust_released1.wav" id="10_kvpty"]
-[ext_resource type="Texture2D" uid="uid://bb6udch0gx5gg" path="res://Assets/graphics/smartbomb_pulse1.png" id="12_ximyk"]
-[ext_resource type="Texture2D" uid="uid://86672w8q14x4" path="res://Assets/graphics/smartbomb_pulse2.png" id="13_tskas"]
-[ext_resource type="Texture2D" uid="uid://c88qpbfw2mr3q" path="res://Assets/graphics/smartbomb_pulse3.png" id="14_pfg0e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_acn5y"]
+radius = 144.031
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xct2y"]
 animations = [{
@@ -35,22 +36,67 @@ animations = [{
 [sub_resource type="Gradient" id="Gradient_vwe15"]
 colors = PackedColorArray(6.30513e-06, 0.678847, 9.62615e-07, 1, 1, 1, 1, 0)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2h7xl"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("12_ximyk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_tskas")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_pfg0e")
-}],
-"loop": true,
-"name": &"smartbomb",
-"speed": 20.0
-}]
+[sub_resource type="Animation" id="Animation_gjqaa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shield_gfx:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shield_gfx:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vmwmv"]
+resource_name = "shields_up"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shield_gfx:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shield_gfx:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.333333), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p7o0u"]
+_data = {
+"RESET": SubResource("Animation_gjqaa"),
+"shields_up": SubResource("Animation_vmwmv")
+}
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(1997, 839)
@@ -77,6 +123,15 @@ script = ExtResource("3_7kmc0")
 position = Vector2(5.55, 0.16)
 rotation = 1.5708
 polygon = PackedVector2Array(4.83993, -19.45, 29.8401, 29.5499, 18.8401, 26.5499, 6.84009, 24.55, -1.15989, 29.55, -9.15991, 25.55, -18.1599, 25.5501, -28.1599, 28.5501, -1.1601, -26.45)
+
+[node name="shield_collision_shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_acn5y")
+
+[node name="shield_gfx" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-3.43323e-05, -9.05991e-06)
+scale = Vector2(1.85156, 1.82812)
+texture = ExtResource("4_okpng")
 
 [node name="hud" parent="." instance=ExtResource("4_ok8lk")]
 
@@ -140,9 +195,6 @@ position = Vector2(-24, -31)
 [node name="firing_point_right" type="Node2D" parent="firing_points"]
 position = Vector2(-24, 31)
 
-[node name="SmartbombTimer" type="Timer" parent="."]
-wait_time = 2.0
-
 [node name="player_enemy_collision" type="Area2D" parent="."]
 scale = Vector2(1.1, 1.1)
 
@@ -151,18 +203,15 @@ position = Vector2(5.55, 0.16)
 rotation = 1.5708
 polygon = PackedVector2Array(4.83993, -19.45, 29.8401, 29.5499, 18.8401, 26.5499, 6.84009, 24.55, -1.15989, 29.55, -9.15991, 25.55, -18.1599, 25.5501, -28.1599, 28.5501, -1.1601, -26.45)
 
-[node name="smartbomb_anim" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(-1, 1)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_2h7xl")
-animation = &"smartbomb"
-
 [node name="pickup_timer" type="Timer" parent="."]
 wait_time = 50.0
 one_shot = true
 
-[connection signal="timeout" from="SmartbombTimer" to="." method="_on_smartbomb_timer_timeout"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p7o0u")
+}
+
 [connection signal="area_entered" from="player_enemy_collision" to="." method="_on_player_enemy_collision_area_entered"]
 [connection signal="area_exited" from="player_enemy_collision" to="." method="_on_player_enemy_collision_area_exited"]
 [connection signal="timeout" from="pickup_timer" to="." method="_on_pickup_timer_timeout"]

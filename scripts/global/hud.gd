@@ -20,9 +20,9 @@ func show_warning(type = "default", critical_state = 1):
 		warning_sign.visible = false
 		return
 	warning_showing = true
-	var tween = create_tween().set_loops()
-	tween.tween_property(warning_sign, "modulate:a", 0.0, critical_state / 2).set_trans(Tween.TRANS_SINE)
-	tween.tween_property(warning_sign, "modulate:a", 1.0, critical_state / 2).set_trans(Tween.TRANS_SINE)
+	#var tween = create_tween().set_loops()
+	#tween.tween_property(warning_sign, "modulate:a", 0.0, critical_state / 2).set_trans(Tween.TRANS_SINE)
+	#tween.tween_property(warning_sign, "modulate:a", 1.0, critical_state / 2).set_trans(Tween.TRANS_SINE)
 	warning_sign.visible = true
 	
 		

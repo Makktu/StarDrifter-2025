@@ -7,6 +7,9 @@ extends CharacterBody2D
 @onready var global = $/root/Global
 @onready var colliding_effect = $collision_particles
 @onready var pickup_timer = $pickup_timer
+@onready var shield_collision_shape = $shield_collision_shape
+@onready var shield_gfx = $shield_gfx
+@onready var animation_player = $AnimationPlayer
 
 # =============== SHOOTING
 const bullet = preload("res://scenes/bullet.tscn")
@@ -59,11 +62,11 @@ func _physics_process(delta):
 	var collided := move_and_collide(velocity * delta)
 	if collided and not get_floor_normal():
 		# get the name of the thing collided with
-		var collided_with = collided.get_collider()
-		collided_with = str(collided_with)
-		if ":" in collided_with:
-			collided_with = collided_with.split(":")[0]
-		handle_collision(collided, velocity.x, velocity.y, collided_with)		
+		var this_collided_with = collided.get_collider()
+		this_collided_with = str(this_collided_with)
+		if ":" in this_collided_with:
+			this_collided_with = this_collided_with.split(":")[0]
+		handle_collision(collided, velocity.x, velocity.y, this_collided_with)		
 	# =================================#
 
 	input_vector.x = Input.get_action_strength("Thrust")
@@ -92,7 +95,7 @@ func _physics_process(delta):
 	
 
 
-func handle_collision(collided, speed_x, speed_y, collided_with):
+func handle_collision(collided, speed_x, speed_y, this_collided_with):
 	# ______________________________________________
 	# collision penalty imposed for all collisions -
 	# with everything that can be collided with    - 
@@ -112,11 +115,11 @@ func handle_collision(collided, speed_x, speed_y, collided_with):
 	else:
 		rotation_direction = collision_rotation_penalty
 	# define all collision specials
-	if collided_with == "enemy1":
+	if this_collided_with == "enemy1":
 		damage = 0.2
-	if collided_with == "World1":
+	if this_collided_with == "World1":
 		damage = 5
-	if collided_with == "Phantom":
+	if this_collided_with == "Phantom":
 		damage = 10
 		velocity.x += velocity.x / 2
 		velocity.y += velocity.y / 2
@@ -160,6 +163,17 @@ func picked_up(type = "default"):
 	if type == "energy":
 		global.player_energy = 100
 		print("ENERGY NOW", global.player_energy)
+	if type == "shield":
+		print("SHIELD COLLECTED")
+		# see bug report for this
+		shield_collision_shape.disabled = false
+		shield_gfx.visible = true
+		animation_player.play("shields_up")
+		if !global.shield_active:
+			global.shield_active = true
+			pickup_timer.stop()
+			pickup_timer.wait_time = 25
+		pickup_timer.start() # player always gets a fresh 25 seconds
 	
 
 func _on_pickup_timer_timeout(): # design of func open for other types of pickup, e.g. shields
@@ -168,3 +182,8 @@ func _on_pickup_timer_timeout(): # design of func open for other types of pickup
 		acceleration = acceleration / 2
 		max_speed = max_speed / 2
 		global.speed_pickup_active = false
+	if pickup_type == "shield":
+		shield_gfx.visible = false
+		animation_player.stop()
+		shield_collision_shape.disabled = true
+		global.shield_active = false

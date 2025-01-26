@@ -257,6 +257,12 @@ Some balancing tweaks to swarmers
 
 ### Sun 26 Jan 2025
 
+Shield pickup done.
+Shield graphic added to player node.
+1st draft of it in operation - work remains...
+
+### Mon 27 Jan 2025
+
 (TODO)
 Add pickups strategically
 start thinking about game balance

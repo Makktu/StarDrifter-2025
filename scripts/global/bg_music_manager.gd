@@ -17,7 +17,7 @@ func _ready():
 	print(all_music)
 	maximum_track = all_music.size() - 1
 	
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed("track"):
 		play_next_track()
 
