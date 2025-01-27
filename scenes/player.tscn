@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://d6ffqje4owhg" path="res://Assets/graphics/Lander_3.png" id="1_58gib"]
 [ext_resource type="Script" path="res://scripts/Camera2D.gd" id="3_7kmc0"]
 [ext_resource type="Texture2D" uid="uid://dh2vu2v8tr85d" path="res://Assets/graphics/Sprite-0002.png" id="4_knjd2"]
+[ext_resource type="Texture2D" uid="uid://blbbowode8v7e" path="res://Assets/graphics/pickup_shield.png" id="4_lswx7"]
 [ext_resource type="PackedScene" uid="uid://b47pdejejhyjn" path="res://scenes/hud.tscn" id="4_ok8lk"]
-[ext_resource type="Texture2D" uid="uid://cjrk7a34v7ig" path="res://Assets/graphics/shield_barriers.png" id="4_okpng"]
 [ext_resource type="Texture2D" uid="uid://cyu6jckk1nbvj" path="res://Assets/graphics/Sprite-0003.png" id="5_x5nsf"]
 [ext_resource type="Script" path="res://scripts/Thrust_Manager.gd" id="5_x14mg"]
 [ext_resource type="Texture2D" uid="uid://cb4dtes4mma8h" path="res://Assets/graphics/Sprite-0004.png" id="6_a4c0k"]
@@ -41,22 +41,10 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("shield_gfx:rotation")
+tracks/0/path = NodePath("shield_gfx:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("shield_gfx:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -65,28 +53,15 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_vmwmv"]
 resource_name = "shields_up"
-length = 3.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("shield_gfx:rotation")
+tracks/0/path = NodePath("shield_gfx:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 3.14159, 6.28319]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("shield_gfx:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
+"times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.333333), Color(1, 1, 1, 1)]
@@ -126,12 +101,13 @@ polygon = PackedVector2Array(4.83993, -19.45, 29.8401, 29.5499, 18.8401, 26.5499
 
 [node name="shield_collision_shape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_acn5y")
+disabled = true
 
 [node name="shield_gfx" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(-3.43323e-05, -9.05991e-06)
-scale = Vector2(1.85156, 1.82812)
-texture = ExtResource("4_okpng")
+scale = Vector2(2, 2)
+texture = ExtResource("4_lswx7")
 
 [node name="hud" parent="." instance=ExtResource("4_ok8lk")]
 
@@ -204,7 +180,7 @@ rotation = 1.5708
 polygon = PackedVector2Array(4.83993, -19.45, 29.8401, 29.5499, 18.8401, 26.5499, 6.84009, 24.55, -1.15989, 29.55, -9.15991, 25.55, -18.1599, 25.5501, -28.1599, 28.5501, -1.1601, -26.45)
 
 [node name="pickup_timer" type="Timer" parent="."]
-wait_time = 50.0
+wait_time = 25.0
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

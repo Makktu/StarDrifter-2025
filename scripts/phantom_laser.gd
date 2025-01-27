@@ -15,7 +15,7 @@ var damage: int = 0.5
 func _ready():
 	# Configure raycast for better performance
 	ray_cast.target_position = Vector2(LASER_LENGTH, 0)
-	ray_cast.collision_mask = 5  # Updated to match player's collision layer
+	ray_cast.collision_mask = 7  # Updated to match player's collision layer
 	line_2d.points[1] = Vector2(LASER_LENGTH, 0)
 	
 	# Update and shoot immediately

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://df3rux5jmmsgy"]
 
 [ext_resource type="Script" path="res://scripts/pickup_shield.gd" id="1_hkv0m"]
-[ext_resource type="Texture2D" uid="uid://blbbowode8v7e" path="res://Assets/graphics/pickup_shield.png" id="2_n568v"]
+[ext_resource type="Texture2D" uid="uid://42vrkiibpnax" path="res://Assets/graphics/shield.png" id="2_5prfc"]
 
 [sub_resource type="Animation" id="Animation_j71ow"]
 length = 0.001
@@ -98,11 +98,11 @@ _data = {
 size = Vector2(34, 23)
 
 [node name="pickup_shield" type="Node2D"]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.175, 0.175)
 script = ExtResource("1_hkv0m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_n568v")
+texture = ExtResource("2_5prfc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

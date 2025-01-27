@@ -263,7 +263,14 @@ Shield graphic added to player node.
 
 ### Mon 27 Jan 2025
 
-(TODO)
-Add pickups strategically
-start thinking about game balance
-prune folders of redundant files (tidy up)
+Tweaked shield behaviour & graphics
+Tweaked Swarmer speed
+Misc-other tweaks
+
+### Tue 28 Jan 2025
+(first thing Tuesday)
+Add pickups strategically around the map and finally
+start thinking about game balance in general
+and what actual game is here (or not).
+And prune folders of redundant files (tidy up)
+And: make player shield destroy swarmers as additional benefit.

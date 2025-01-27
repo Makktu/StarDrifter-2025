@@ -165,14 +165,13 @@ func picked_up(type = "default"):
 		print("ENERGY NOW", global.player_energy)
 	if type == "shield":
 		print("SHIELD COLLECTED")
-		# see bug report for this
-		shield_collision_shape.disabled = false
-		shield_gfx.visible = true
-		animation_player.play("shields_up")
-		if !global.shield_active:
-			global.shield_active = true
+		if global.shield_active:
 			pickup_timer.stop()
-			pickup_timer.wait_time = 25
+		global.shield_active = true
+		shield_gfx.visible = true
+		shield_collision_shape.set_deferred("disabled", false)
+		animation_player.play("shields_up")
+		pickup_timer.wait_time = 25
 		pickup_timer.start() # player always gets a fresh 25 seconds
 	
 
@@ -185,5 +184,5 @@ func _on_pickup_timer_timeout(): # design of func open for other types of pickup
 	if pickup_type == "shield":
 		shield_gfx.visible = false
 		animation_player.stop()
-		shield_collision_shape.disabled = true
+		shield_collision_shape.set_deferred("disabled", true)
 		global.shield_active = false

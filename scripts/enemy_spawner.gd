@@ -15,6 +15,7 @@ func add_new_enemy():
 			enemy_instance.scale.y = 0.75
 			add_child(enemy_instance)
 			amount_spawned += 1
+			global.swarmers_active += 1
 		$Timer.start()
 
 

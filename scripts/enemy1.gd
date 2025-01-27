@@ -23,9 +23,7 @@ func _physics_process(delta):
 	#if $"/root/Global".smart_bomb_active and this_enemy_onscreen:
 		#_on_extinction_timer_timeout()
 	if global.swarmers_active > enemy_speed / 2 and enemy_speed <= max_enemy_speed:
-		enemy_speed += global.swarmers_active * 3
-	else:
-		enemy_speed = enemy_speed_orig
+		enemy_speed += 1
 	rotation_degrees += rotation_speed
 	var direction = global_position.direction_to(the_player.global_position)
 	velocity = direction * enemy_speed * delta
@@ -45,12 +43,12 @@ func _physics_process(delta):
 	if distance_from_player >= 100 and player_in_range:
 		player_in_range = false
 		rotation_speed = 0.1
+		enemy_speed = max_enemy_speed
 	if distance_from_player < 20 and !extinction_triggered:
-		enemy_speed *= 2
+		enemy_speed *= 20
 		extinction_triggered = true
 		$ExtinctionTimer.wait_time = extinction_timer_value
 		rotation_speed += 6
-		#enemy_speed = 150
 		$ExtinctionTimer.start()
 
 
@@ -72,12 +70,12 @@ func _on_explosion_animation_finished():
 
 func _on_life_timer_timeout():
 	global.swarmers_active -= 1
+	print("off-screen SWARMER gone - now: ", global.swarmers_active)
 	queue_free()
-
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	this_enemy_onscreen = false
-	life_timer.wait_time = 10
+	life_timer.wait_time = 3
 	life_timer.start() # begins 10s countdown for an off-screen swarmer to be removed from game
 
 
