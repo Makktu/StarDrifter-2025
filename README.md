@@ -268,6 +268,12 @@ Tweaked Swarmer speed
 Misc-other tweaks
 
 ### Tue 28 Jan 2025
+
+Added Start screen placeholder gfx & music
+Failed attempt to implement pre-boss battle zoomout and in
+
+### Wed 29 Jan 2025
+
 (first thing Tuesday)
 Add pickups strategically around the map and finally
 start thinking about game balance in general

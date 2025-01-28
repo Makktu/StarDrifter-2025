@@ -57,5 +57,3 @@ func shake_camera(duration: float, strength: float, special_shake: String = '') 
 		await get_tree().process_frame
 	
 	global_position = $"..".global_position		
-	
-	

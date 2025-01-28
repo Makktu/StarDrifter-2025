@@ -39,13 +39,13 @@ func _physics_process(delta):
 	if distance_from_player < 100 and !player_in_range:
 		player_in_range = true
 		rotation_speed += 3
-		enemy_speed *= 10
+		enemy_speed *= 2
 	if distance_from_player >= 100 and player_in_range:
 		player_in_range = false
 		rotation_speed = 0.1
 		enemy_speed = max_enemy_speed
 	if distance_from_player < 20 and !extinction_triggered:
-		enemy_speed *= 20
+		enemy_speed = enemy_speed_orig
 		extinction_triggered = true
 		$ExtinctionTimer.wait_time = extinction_timer_value
 		rotation_speed += 6

@@ -55,3 +55,14 @@ func setup_crt_effect():
 	print("ColorRect size: ", color_rect.size)
 	print("ColorRect material: ", color_rect.material)
 	print("Shader assigned: ", color_rect.material.shader if color_rect.material else "No shader")
+
+
+func _on_first_boss_body_entered(body):
+	print(body.name)
+	if body.name == "player":
+		print("The gates are closed...")
+		player.camera_letterbox_effect()
+
+
+func _on_first_boss_area_entered(area):
+	player.camera_letterbox_effect()

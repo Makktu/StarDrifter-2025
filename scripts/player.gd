@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var shield_collision_shape = $shield_collision_shape
 @onready var shield_gfx = $shield_gfx
 @onready var animation_player = $AnimationPlayer
+@onready var camera_2d = $Camera2D
 
 # =============== SHOOTING
 const bullet = preload("res://scenes/bullet.tscn")
@@ -186,3 +187,7 @@ func _on_pickup_timer_timeout(): # design of func open for other types of pickup
 		animation_player.stop()
 		shield_collision_shape.set_deferred("disabled", true)
 		global.shield_active = false
+		
+func camera_letterbox_effect():
+	camera_2d.letter_box()
+	
