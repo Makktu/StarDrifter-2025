@@ -9,11 +9,13 @@ var time_to_next_phase_in = 4.0 # time in seconds to next appearance on map
 @onready var the_player = get_tree().get_nodes_in_group("player")[0]
 @onready var collision_shape = $CollisionShape2D
 @onready var animation_player = $AnimationPlayer
+@onready var blow_up_anim = $AnimatedSprite2D
+@onready var collision_particles = $collision_particles
 
 var enemy_speed = 10
 var rotation_speed = 2.0  # smoother tracking
 var phantom_active = false
-var phantom_energy = 100
+var phantom_energy = 1
 
 
 func _physics_process(delta):
@@ -28,8 +30,9 @@ func _physics_process(delta):
 			phantom_active = false
 			fire_timer.stop() # stop all firing actions
 			fade_out()
-			phase_timer.start()
-			
+			blow_up_anim.visible = true
+			collision_particles.emitting = true
+			blow_up_anim.play("blowup")			
 	
 func fade_out():
 	# create Tween object
@@ -67,3 +70,12 @@ func _on_bullet_area_area_entered(area):
 		animation_player.play("phantom_hit")
 	else:
 		phantom_energy -= 1
+
+
+func _on_animated_sprite_2d_animation_finished():
+	queue_free()
+
+
+func _on_animated_sprite_2d_animation_looped():
+	print("It was the looper")
+	queue_free()

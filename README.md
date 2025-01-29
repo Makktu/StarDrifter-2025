@@ -274,8 +274,13 @@ Failed attempt to implement pre-boss battle zoomout and in
 
 ### Wed 29 Jan 2025
 
-(first thing Tuesday)
-Add pickups strategically around the map and finally
+New Phantom graphic and explosion
+1st draft of bullets pickup
+
+### Thu 30 Jan 2025
+
+TBD: full functionality of bullets pickups
+Then Add pickups strategically around the map and finally
 start thinking about game balance in general
 and what actual game is here (or not).
 And prune folders of redundant files (tidy up)

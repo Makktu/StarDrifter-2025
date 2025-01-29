@@ -174,6 +174,9 @@ func picked_up(type = "default"):
 		animation_player.play("shields_up")
 		pickup_timer.wait_time = 25
 		pickup_timer.start() # player always gets a fresh 25 seconds
+	if type == "two_bullets":
+		firing_points = 2
+		
 	
 
 func _on_pickup_timer_timeout(): # design of func open for other types of pickup, e.g. shields
@@ -189,5 +192,5 @@ func _on_pickup_timer_timeout(): # design of func open for other types of pickup
 		global.shield_active = false
 		
 func camera_letterbox_effect():
-	camera_2d.letter_box()
+	print("CAMERA EFFECT TBD lol")
 	
