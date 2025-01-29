@@ -285,3 +285,4 @@ start thinking about game balance in general
 and what actual game is here (or not).
 And prune folders of redundant files (tidy up)
 And: make player shield destroy swarmers as additional benefit.
+AND: camera zoom for big areas where player needs to see scope of challenge
