@@ -15,7 +15,7 @@ extends CharacterBody2D
 # =============== SHOOTING
 const bullet = preload("res://scenes/bullet.tscn")
 var player_is_shooting := false # toggle to prevent continuous fire
-@onready var firing_points = global.player_bullets_can_be_fired # start only able to shoot from tip of craft
+@onready var firing_points = 1 # start only able to shoot from tip of craft
 # ========================
 @onready var energy_replenish_amount = global.player_energy_replenish_amount
 var input_vector : Vector2
@@ -86,10 +86,6 @@ func _physics_process(delta):
 		
 	
 	$hud.show_velocity(velocity.x, velocity.y, delta)
-	
-		
-	if firing_points != global.player_bullets_can_be_fired:
-		firing_points = global.player_bullets_can_be_fired
 	
 	# background global.player_energy replenishment	
 	global.player_energy_replenish()
@@ -176,6 +172,12 @@ func picked_up(type = "default"):
 		pickup_timer.start() # player always gets a fresh 25 seconds
 	if type == "two_bullets":
 		firing_points = 2
+		pickup_timer.wait_time = 25
+		pickup_timer.start() # player always gets a fresh 25 seconds
+	if type == "three_bullets":
+		firing_points = 3
+		pickup_timer.wait_time = 25
+		pickup_timer.start() # player always gets a fresh 25 seconds
 		
 	
 
@@ -190,6 +192,8 @@ func _on_pickup_timer_timeout(): # design of func open for other types of pickup
 		animation_player.stop()
 		shield_collision_shape.set_deferred("disabled", true)
 		global.shield_active = false
+	if pickup_type == "two_bullets" or pickup_type == "three_bullets":
+		firing_points = 1
 		
 func camera_letterbox_effect():
 	print("CAMERA EFFECT TBD lol")

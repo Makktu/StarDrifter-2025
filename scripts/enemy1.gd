@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var global = $/root/Global
 @onready var life_timer = $LifeTimer
 
-var enemy_speed : int = 16
+var enemy_speed : float = 8.0
 var enemy_speed_orig : int = enemy_speed
 var max_enemy_speed : int = 64
 var target_position
@@ -23,7 +23,7 @@ func _physics_process(delta):
 	#if $"/root/Global".smart_bomb_active and this_enemy_onscreen:
 		#_on_extinction_timer_timeout()
 	if global.swarmers_active > enemy_speed / 2 and enemy_speed <= max_enemy_speed:
-		enemy_speed += 1
+		enemy_speed += 0.05
 	rotation_degrees += rotation_speed
 	var direction = global_position.direction_to(the_player.global_position)
 	velocity = direction * enemy_speed * delta

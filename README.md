@@ -279,10 +279,14 @@ New Phantom graphic and explosion
 
 ### Thu 30 Jan 2025
 
-TBD: full functionality of bullets pickups
-Then Add pickups strategically around the map and finally
-start thinking about game balance in general
-and what actual game is here (or not).
+Full functionality of 2 or bullets pickups added (game balancing effects TBD)
+Started adding pickups strategically around the map (from Start area to bottom of 1st section)
+Game is much too hard right now. Not really a game yet at all.
+
+### Fri 31 Jan 2025
+
+Game balance considerations
+hat actual game is here (or not).
 And prune folders of redundant files (tidy up)
 And: make player shield destroy swarmers as additional benefit.
 AND: camera zoom for big areas where player needs to see scope of challenge
