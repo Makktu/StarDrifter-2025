@@ -4,7 +4,7 @@ extends Node2D
 
 var all_music:Array[String]
 
-var current_track: int = 1 # defines starting track
+var current_track: int = 0 # defines starting track
 var maximum_track: int = 1 # the number (0-indexed) of the highest possible track
 var times_played: int = 0
 

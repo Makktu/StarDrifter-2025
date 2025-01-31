@@ -29,7 +29,7 @@ func _physics_process(delta):
 	velocity = direction * enemy_speed * delta
 	move_and_collide(velocity)			
 	
-	var collided := move_and_collide(velocity * delta)
+	var collided := move_and_collide(velocity * delta)			
 	if collided and rotation_speed <= 4:
 		rotation_speed += 0.25
 		
@@ -44,6 +44,8 @@ func _physics_process(delta):
 		player_in_range = false
 		rotation_speed = 0.1
 		enemy_speed = max_enemy_speed
+	if distance_from_player < 35 and the_player.shield_collision_shape.disabled == false:
+		_on_extinction_timer_timeout()
 	if distance_from_player < 20 and !extinction_triggered:
 		enemy_speed = enemy_speed_orig
 		extinction_triggered = true
@@ -57,9 +59,17 @@ func _on_bullet_area_area_entered(area):
 		this_enemy_shot += 1
 		if this_enemy_shot >= this_enemy_killed_at:
 			rotation_speed = 0
-			$explosion.visible = true
-			$Sprite2D.visible = false
-			$explosion.play('explode')
+			_trigger_explosion()
+	elif area.get_parent().is_in_group("player"):
+		var player = area.get_parent()
+		if !player.shield_collision_shape.disabled:  # If shield is active
+			_trigger_explosion()
+			
+func _trigger_explosion():
+	rotation_speed = 0
+	$explosion.visible = true
+	$Sprite2D.visible = false
+	$explosion.play('explode')
 
 func _on_explosion_animation_finished():
 	global.swarmers_active
@@ -97,4 +107,3 @@ func _on_extinction_timer_timeout():
 	
 func take_damage():
 	_on_extinction_timer_timeout()
-	

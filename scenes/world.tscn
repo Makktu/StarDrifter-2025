@@ -107,7 +107,7 @@ polygon = PackedVector2Array(-2854, -1249.4, -2854, -1245.6, -2866.6, -1241, -28
 
 [node name="Player" parent="." instance=ExtResource("3_pecdv")]
 modulate = Color(0.282353, 1, 0.317647, 1)
-position = Vector2(1539, 3127)
+position = Vector2(1538, 3090)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)
 
@@ -283,6 +283,9 @@ position = Vector2(1037, 9937)
 
 [node name="pickup_shield" parent="pickups/shield" instance=ExtResource("10_tywrx")]
 position = Vector2(1098, 9880)
+
+[node name="pickup_shield2" parent="pickups/shield" instance=ExtResource("10_tywrx")]
+position = Vector2(1537, 3217)
 
 [node name="two_bullets" type="Node" parent="pickups"]
 

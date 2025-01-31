@@ -285,8 +285,23 @@ Game is much too hard right now. Not really a game yet at all.
 
 ### Fri 31 Jan 2025
 
+Swarmer is destroyed upon collision with player shield
+(subject to change for game balancing AND technically,
+because the current solution is a distance-from calculation
+rather than a collision detection).
+
+Swarmer spawning frequency change implemented as the
+current opening few minutes of the game
+is just too difficult otherwise.
+
+### Sat 1 Feb 2025
+*Game to be in start-to-finish playable beta by 14 Feb*
+
+- urgent: Swarmer spawn
+- urgent: fix pickups (currently not reliably expiring on time, or at all)
+
 Game balance considerations
-hat actual game is here (or not).
+What actual game is here (or not).
 And prune folders of redundant files (tidy up)
 And: make player shield destroy swarmers as additional benefit.
 AND: camera zoom for big areas where player needs to see scope of challenge

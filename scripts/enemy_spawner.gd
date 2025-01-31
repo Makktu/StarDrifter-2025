@@ -20,6 +20,8 @@ func add_new_enemy():
 
 
 func _on_timer_timeout():
+	if amount_spawned > 3 and $Timer.wait_time != 3:
+		$Timer.wait_time = 3
 	add_new_enemy()
 
 

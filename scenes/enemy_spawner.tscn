@@ -8,7 +8,7 @@ scale = Vector2(0.2, 0.2)
 script = ExtResource("1_jbk74")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.25
+wait_time = 5.0
 one_shot = true
 
 [node name="enemy_portal" parent="." instance=ExtResource("2_lkdip")]
