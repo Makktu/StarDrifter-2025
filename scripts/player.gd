@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-@onready var acceleration = 40 #was 80
-@onready var max_speed = 100 # was 200
+@onready var acceleration = 20 #was 40
+@onready var max_speed = 40 # was 100
 @onready var gravity = 0 #0 FOR FULL WEIGHTLESSNESS
-@onready var rotation_speed = 5 #6
+@onready var rotation_speed = 3 #5
 @onready var global = $/root/Global
 @onready var colliding_effect = $collision_particles
 @onready var pickup_timer = $pickup_timer
@@ -25,6 +25,7 @@ var player_is_thrusting = false
 var thrusting_for = 0
 var collided_with : String = ""
 var pickup_type : String = ""
+var pickup_active = false
 
 func _physics_process(delta):
 	# if energy depleted bring up pause menu
@@ -145,9 +146,15 @@ func shoot_bullets():
 			
 			
 func picked_up(type = "default"):
-	pickup_type = type
+	# player can only have one powerup at any one time!
+	# if player picks up a new powerup it cancels the effect of the previous
+	# if new pickup is same type as old it starts the timer again
+	if pickup_active: # cancel current pickup if one already active
+		_on_pickup_timer_timeout(true) # call pickup cancel func with true condition for current pickup
 	# copy current values
+	pickup_type = type
 	print(pickup_type, " pickup acquired <<<<<<<<<")
+	pickup_active = true
 	if type == "speed":
 		if !global.speed_pickup_active:
 			acceleration *= 2
@@ -181,8 +188,11 @@ func picked_up(type = "default"):
 		
 	
 
-func _on_pickup_timer_timeout(): # design of func open for other types of pickup, e.g. shields
-	print(pickup_type, " pickup effect EXPIRED >>>>>>>>>")
+func _on_pickup_timer_timeout(cancelling_current_pickup : bool = false): # design of func open for other types of pickup, e.g. shields
+	if !cancelling_current_pickup:
+		pickup_active = false
+	else:
+		print("PREVIOUS PICKUP CANCELLED BY ", pickup_type)
 	if pickup_type == "speed":
 		acceleration = acceleration / 2
 		max_speed = max_speed / 2

@@ -295,13 +295,14 @@ current opening few minutes of the game
 is just too difficult otherwise.
 
 ### Sat 1 Feb 2025
-*Game to be in start-to-finish playable beta by 14 Feb*
+*Game must reach **start-to-finish playable beta** by 14 Feb*
+pickups: player can only have one active pickup at a time (by game design)
 
-- urgent: Swarmer spawn
-- urgent: fix pickups (currently not reliably expiring on time, or at all)
-
+### Sun 2 Feb 2025
+Happy Groundhog Day
+Swarmer spawn rates (game balance consideration)
+(Decide what the game is - fast & reaction-based or slower & more thoughtful?)
 Game balance considerations
 What actual game is here (or not).
 And prune folders of redundant files (tidy up)
-And: make player shield destroy swarmers as additional benefit.
 AND: camera zoom for big areas where player needs to see scope of challenge
