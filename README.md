@@ -300,6 +300,12 @@ pickups: player can only have one active pickup at a time (by game design)
 
 ### Sun 2 Feb 2025
 Happy Groundhog Day
+Created a single unified pickup spawner that randomly spawns the 5x types
+Worked on game logic related to this i.e. how soon (or if) another pickup
+appears after one is picked up - this still needs a lot of work
+and a lot of balancing with the rest of the game.
+
+### Mon 3 Feb 2024
 Swarmer spawn rates (game balance consideration)
 (Decide what the game is - fast & reaction-based or slower & more thoughtful?)
 Game balance considerations

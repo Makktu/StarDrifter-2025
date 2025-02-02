@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://by41fj2hprgq4"]
+
+[ext_resource type="Script" path="res://scripts/pickup_spawnpoint.gd" id="1_mpgwa"]
+[ext_resource type="Texture2D" uid="uid://c28xr2h7hxp73" path="res://Assets/graphics/pickup_speed_boost.png" id="2_2qga0"]
+[ext_resource type="Texture2D" uid="uid://42vrkiibpnax" path="res://Assets/graphics/shield.png" id="3_34ika"]
+[ext_resource type="Texture2D" uid="uid://cswr56udg3jmx" path="res://Assets/graphics/pickup_energy.png" id="4_mvyi5"]
+[ext_resource type="Texture2D" uid="uid://2jwfjgkvdxp6" path="res://Assets/graphics/two_bullets_pickup.png" id="5_hmdrd"]
+[ext_resource type="Texture2D" uid="uid://lkd015yixble" path="res://Assets/graphics/three_bullets_pickup.png" id="6_4rt13"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4kll"]
+size = Vector2(55, 61)
+
+[node name="pickup_spawnpoint" type="Node2D"]
+scale = Vector2(0.35, 0.35)
+script = ExtResource("1_mpgwa")
+
+[node name="pickup_node" type="Node2D" parent="."]
+
+[node name="speed" type="Sprite2D" parent="pickup_node"]
+visible = false
+texture = ExtResource("2_2qga0")
+
+[node name="shield" type="Sprite2D" parent="pickup_node"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_34ika")
+
+[node name="energy" type="Sprite2D" parent="pickup_node"]
+visible = false
+texture = ExtResource("4_mvyi5")
+
+[node name="two_bullets" type="Sprite2D" parent="pickup_node"]
+visible = false
+position = Vector2(16, -9)
+texture = ExtResource("5_hmdrd")
+
+[node name="three_bullets" type="Sprite2D" parent="pickup_node"]
+visible = false
+position = Vector2(-1, -9)
+texture = ExtResource("6_4rt13")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 30
+lifetime = 0.75
+speed_scale = 1.41
+randomness = 0.09
+emission_shape = 1
+emission_sphere_radius = 15.41
+gravity = Vector2(0, -30)
+angular_velocity_max = 245.41
+orbit_velocity_min = -1.0
+orbit_velocity_max = 1.0
+scale_amount_min = 0.5
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-1.90735e-06, 0)
+scale = Vector2(4.7, 5.5)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_q4kll")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="spawn_timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[node name="appearance_timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="appearance_timer" to="." method="_on_appearance_timer_timeout"]

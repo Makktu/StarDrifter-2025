@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cy8am7rjugpas"]
+[gd_scene load_steps=14 format=3 uid="uid://cy8am7rjugpas"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ybue2"]
 [ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/parallax_background.tscn" id="2_s8res"]
@@ -7,11 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cph3l0chuxd5s" path="res://scenes/enemy_spawner.tscn" id="5_1eq67"]
 [ext_resource type="PackedScene" uid="uid://cfbwfa6t0e240" path="res://scenes/phantom.tscn" id="7_n8aou"]
 [ext_resource type="PackedScene" uid="uid://xucx4fy8o8o7" path="res://scenes/radio_tower.tscn" id="8_6gao6"]
-[ext_resource type="PackedScene" uid="uid://c5qids6clluwc" path="res://scenes/pickup_speed_boost.tscn" id="8_a1nmu"]
-[ext_resource type="PackedScene" uid="uid://cwvmlhusj2ck5" path="res://scenes/pickup_energy.tscn" id="9_uctqp"]
-[ext_resource type="PackedScene" uid="uid://df3rux5jmmsgy" path="res://scenes/pickup_shield.tscn" id="10_tywrx"]
-[ext_resource type="PackedScene" uid="uid://4ansf3f7p8n6" path="res://scenes/pickup_two_bullets.tscn" id="11_dbx41"]
-[ext_resource type="PackedScene" uid="uid://ngx3kugk24dl" path="res://scenes/pickup_three_bullets.tscn" id="12_xnwyk"]
+[ext_resource type="PackedScene" uid="uid://dg2b6jfuw3ev5" path="res://scenes/mech_volcano.tscn" id="8_6ob4i"]
+[ext_resource type="PackedScene" uid="uid://by41fj2hprgq4" path="res://scenes/pickup_spawnpoint.tscn" id="13_rgwox"]
 
 [sub_resource type="Shader" id="Shader_dnnc4"]
 code = "shader_type canvas_item;
@@ -245,69 +242,23 @@ position = Vector2(4082, 7787)
 
 [node name="pickups" type="Node2D" parent="."]
 
-[node name="speed" type="Node" parent="pickups"]
+[node name="pickup_spawnpoint" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(1375, 3733)
 
-[node name="pickup_speed_boost" parent="pickups/speed" instance=ExtResource("8_a1nmu")]
-position = Vector2(1341, 9769)
+[node name="pickup_spawnpoint2" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(1237, 3464)
 
-[node name="pickup_speed_boost2" parent="pickups/speed" instance=ExtResource("8_a1nmu")]
-position = Vector2(2165, 9722)
+[node name="pickup_spawnpoint3" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(960, 4083)
 
-[node name="pickup_speed_boost3" parent="pickups/speed" instance=ExtResource("8_a1nmu")]
-position = Vector2(2813, 8867)
+[node name="pickup_spawnpoint4" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(1164, 4735)
 
-[node name="pickup_speed_boost4" parent="pickups/speed" instance=ExtResource("8_a1nmu")]
-position = Vector2(1841, 7686)
-
-[node name="pickup_speed_boost5" parent="pickups/speed" instance=ExtResource("8_a1nmu")]
-position = Vector2(2982, 6916)
-
-[node name="pickup_speed_boost6" parent="pickups/speed" instance=ExtResource("8_a1nmu")]
-position = Vector2(3372, 7304)
-
-[node name="pickup_speed_boost7" parent="pickups/speed" instance=ExtResource("8_a1nmu")]
-position = Vector2(1208, 6651)
-
-[node name="pickup_speed_boost8" parent="pickups/speed" instance=ExtResource("8_a1nmu")]
-position = Vector2(1375, 3750)
-
-[node name="energy" type="Node" parent="pickups"]
-
-[node name="pickup_energy" parent="pickups/energy" instance=ExtResource("9_uctqp")]
-position = Vector2(1084, 8437)
-
-[node name="pickup_energy2" parent="pickups/energy" instance=ExtResource("9_uctqp")]
-position = Vector2(1037, 9937)
-
-[node name="shield" type="Node" parent="pickups"]
-
-[node name="pickup_shield" parent="pickups/shield" instance=ExtResource("10_tywrx")]
-position = Vector2(1098, 9880)
-
-[node name="pickup_shield2" parent="pickups/shield" instance=ExtResource("10_tywrx")]
-position = Vector2(1537, 3217)
-
-[node name="two_bullets" type="Node" parent="pickups"]
-
-[node name="pickup_two_bullets" parent="pickups/two_bullets" instance=ExtResource("11_dbx41")]
-position = Vector2(1279, 9617)
-
-[node name="pickup_two_bullets2" parent="pickups/two_bullets" instance=ExtResource("11_dbx41")]
-position = Vector2(1233, 3473)
-
-[node name="pickup_two_bullets3" parent="pickups/two_bullets" instance=ExtResource("11_dbx41")]
-position = Vector2(955, 4090)
-
-[node name="pickup_two_bullets4" parent="pickups/two_bullets" instance=ExtResource("11_dbx41")]
-position = Vector2(1249, 5263)
-
-[node name="three_bullets" type="Node" parent="pickups"]
-
-[node name="pickup_three_bullets" parent="pickups/three_bullets" instance=ExtResource("12_xnwyk")]
-position = Vector2(1288, 9378)
-
-[node name="pickup_three_bullets2" parent="pickups/three_bullets" instance=ExtResource("12_xnwyk")]
-position = Vector2(1110, 8595)
+[node name="mech_volcano" parent="pickups" instance=ExtResource("8_6ob4i")]
+show_behind_parent = true
+position = Vector2(712, 3947)
+rotation = 1.57571
+scale = Vector2(0.289062, 0.294922)
 
 [node name="radio_towers" type="Node" parent="."]
 
