@@ -306,9 +306,23 @@ appears after one is picked up - this still needs a lot of work
 and a lot of balancing with the rest of the game.
 
 ### Mon 3 Feb 2024
+Need to start work on any HUD/indicator elements for player
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+TO BE DONE NEXT/SOON
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Swarmer spawn rates (game balance consideration)
 (Decide what the game is - fast & reaction-based or slower & more thoughtful?)
 Game balance considerations
 What actual game is here (or not).
 And prune folders of redundant files (tidy up)
 AND: camera zoom for big areas where player needs to see scope of challenge
+- Indicators for various things: pickup effect timings (at least needs to show
+when it's about to wear off); energy status - these need consideration for
+how they will affect the so-far blank HUD. Right now there is a very basic
+'alien language' warning when energy is at 10%.
+Also: cosmetics of this alien world. Needs to be 'nice' to look at, also
+mysterious, interesting, ambiguous, etc.
