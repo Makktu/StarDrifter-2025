@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cy8am7rjugpas"]
+[gd_scene load_steps=13 format=3 uid="uid://cy8am7rjugpas"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ybue2"]
 [ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/parallax_background.tscn" id="2_s8res"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cph3l0chuxd5s" path="res://scenes/enemy_spawner.tscn" id="5_1eq67"]
 [ext_resource type="PackedScene" uid="uid://cfbwfa6t0e240" path="res://scenes/phantom.tscn" id="7_n8aou"]
 [ext_resource type="PackedScene" uid="uid://xucx4fy8o8o7" path="res://scenes/radio_tower.tscn" id="8_6gao6"]
-[ext_resource type="PackedScene" uid="uid://dg2b6jfuw3ev5" path="res://scenes/mech_volcano.tscn" id="8_6ob4i"]
 [ext_resource type="PackedScene" uid="uid://by41fj2hprgq4" path="res://scenes/pickup_spawnpoint.tscn" id="13_rgwox"]
 
 [sub_resource type="Shader" id="Shader_dnnc4"]
@@ -253,12 +252,6 @@ position = Vector2(960, 4083)
 
 [node name="pickup_spawnpoint4" parent="pickups" instance=ExtResource("13_rgwox")]
 position = Vector2(1164, 4735)
-
-[node name="mech_volcano" parent="pickups" instance=ExtResource("8_6ob4i")]
-show_behind_parent = true
-position = Vector2(712, 3947)
-rotation = 1.57571
-scale = Vector2(0.289062, 0.294922)
 
 [node name="radio_towers" type="Node" parent="."]
 

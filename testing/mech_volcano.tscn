@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://dg2b6jfuw3ev5"]
 
-[ext_resource type="Texture2D" uid="uid://bgmq8ckqmxeoo" path="res://Assets/graphics/volcano.png" id="1_ui7p4"]
-[ext_resource type="Script" path="res://scripts/mech_volcano.gd" id="2_gxmev"]
+[ext_resource type="Texture2D" uid="uid://bgmq8ckqmxeoo" path="res://Assets/graphics/volcano.png" id="1_iibbv"]
+[ext_resource type="Script" path="res://scripts/mech_volcano.gd" id="2_t24in"]
 
 [node name="mech_volcano" type="Sprite2D"]
 modulate = Color(0.292113, 0.793753, 7.70092e-07, 1)
-texture = ExtResource("1_ui7p4")
-script = ExtResource("2_gxmev")
+texture = ExtResource("1_iibbv")
+script = ExtResource("2_t24in")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(2, -107)

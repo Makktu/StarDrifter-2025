@@ -306,8 +306,13 @@ appears after one is picked up - this still needs a lot of work
 and a lot of balancing with the rest of the game.
 
 ### Mon 3 Feb 2024
-Need to start work on any HUD/indicator elements for player
+1st draft of 'ship throb' animation to indicate low shield & critical shield
+However it's not obvious enough - need to refine
+Also need to separate shield animations and the low/critical energy animations
+Also need to work on logic for all the above as it's eccentric right now
+Decision: no visible 'HUD' indicators for anything on-screen. Other than a faint Pause button.
 
+### Tue 4 Feb 2025
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

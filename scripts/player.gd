@@ -27,8 +27,19 @@ var collided_with : String = ""
 var pickup_type : String = ""
 var pickup_active = false
 
+var light_damage_taken : int = 90 # for testing purposes; will be 20 or 25 in final
+var heavy_damage_taken : int = 70
+var damage_light_animation_playing : bool = false
+var damage_heavy_animation_playing : bool = false
+
+
 func _physics_process(delta):
 	# if energy depleted bring up pause menu
+	if global.player_energy <= light_damage_taken: # always check on status of damage animations if energy < light damage
+		check_damage()
+	if global.player_energy > light_damage_taken and (damage_light_animation_playing or damage_heavy_animation_playing):
+		animation_player.speed_scale = 1
+		animation_player.stop()
 	if global.player_energy <= 0 && global.dev_damage_on:
 		$hud._on_pause_button_pressed(true) # if passing true, means Game Over
 	
@@ -207,4 +218,15 @@ func _on_pickup_timer_timeout(cancelling_current_pickup : bool = false): # desig
 		
 func camera_letterbox_effect():
 	print("CAMERA EFFECT TBD lol")
+	
+func check_damage():
+	if global.player_energy > heavy_damage_taken and !damage_light_animation_playing:
+		animation_player.play("damage_light")
+		damage_heavy_animation_playing = false
+		damage_light_animation_playing = true
+	if global.player_energy <= heavy_damage_taken and !damage_heavy_animation_playing:
+		animation_player.speed_scale = 3
+		animation_player.play("damage_light")
+		damage_light_animation_playing = false
+		damage_heavy_animation_playing = true
 	

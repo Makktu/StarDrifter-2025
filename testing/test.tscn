@@ -1,12 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://xmxcv4g4r04e"]
+[gd_scene load_steps=3 format=3 uid="uid://dnmbwmpyfw00x"]
 
-[ext_resource type="Script" path="res://testing/test.gd" id="1_si05h"]
+[sub_resource type="GDScript" id="GDScript_mdchr"]
+script/source = "extends Area2D
+
+
+func _on_body_entered(body):
+	print(\"how??????????\", body.name)
+
+
+func _on_area_entered(area):
+	print('and now?')
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hwalk"]
 size = Vector2(339, 99)
 
 [node name="test" type="Area2D"]
-script = ExtResource("1_si05h")
+script = SubResource("GDScript_mdchr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(159.5, 39.5)

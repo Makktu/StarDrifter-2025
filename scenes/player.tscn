@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b2360ojxsegcj"]
+[gd_scene load_steps=20 format=3 uid="uid://b2360ojxsegcj"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2n4p6"]
 [ext_resource type="Texture2D" uid="uid://d6ffqje4owhg" path="res://Assets/graphics/Lander_3.png" id="1_58gib"]
@@ -50,6 +50,35 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vqsqh"]
+resource_name = "damage_light"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.423651, 0.423651, 0.423651, 1), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_vmwmv"]
 resource_name = "shields_up"
@@ -70,6 +99,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p7o0u"]
 _data = {
 "RESET": SubResource("Animation_gjqaa"),
+"damage_light": SubResource("Animation_vqsqh"),
 "shields_up": SubResource("Animation_vmwmv")
 }
 
@@ -95,11 +125,13 @@ drag_bottom_margin = 0.1
 script = ExtResource("3_7kmc0")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(5.55, 0.16)
 rotation = 1.5708
 polygon = PackedVector2Array(4.83993, -19.45, 29.8401, 29.5499, 18.8401, 26.5499, 6.84009, 24.55, -1.15989, 29.55, -9.15991, 25.55, -18.1599, 25.5501, -28.1599, 28.5501, -1.1601, -26.45)
 
 [node name="shield_collision_shape" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_acn5y")
 disabled = true
 
@@ -172,6 +204,7 @@ position = Vector2(-24, -31)
 position = Vector2(-24, 31)
 
 [node name="player_enemy_collision" type="Area2D" parent="."]
+visible = false
 scale = Vector2(1.1, 1.1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player_enemy_collision"]
