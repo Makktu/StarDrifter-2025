@@ -103,7 +103,7 @@ polygon = PackedVector2Array(-2854, -1249.4, -2854, -1245.6, -2866.6, -1241, -28
 
 [node name="Player" parent="." instance=ExtResource("3_pecdv")]
 modulate = Color(0.282353, 1, 0.317647, 1)
-position = Vector2(1538, 3090)
+position = Vector2(833, 3856)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)
 
@@ -252,6 +252,60 @@ position = Vector2(960, 4083)
 
 [node name="pickup_spawnpoint4" parent="pickups" instance=ExtResource("13_rgwox")]
 position = Vector2(1164, 4735)
+
+[node name="pickup_spawnpoint5" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(1258, 5266)
+
+[node name="pickup_spawnpoint6" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(1101, 5365)
+
+[node name="pickup_spawnpoint7" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(800, 6067)
+
+[node name="pickup_spawnpoint8" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(1349, 6439)
+
+[node name="pickup_spawnpoint9" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(1202, 6650)
+
+[node name="pickup_spawnpoint10" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(1092, 8427)
+
+[node name="pickup_spawnpoint11" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(1451, 9141)
+
+[node name="pickup_spawnpoint12" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(1339, 9757)
+
+[node name="pickup_spawnpoint13" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(2034, 9768)
+
+[node name="pickup_spawnpoint14" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(1838, 8712)
+
+[node name="pickup_spawnpoint15" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(2749, 8931)
+
+[node name="pickup_spawnpoint16" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(1974, 8428)
+
+[node name="pickup_spawnpoint17" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(1831, 7689)
+
+[node name="pickup_spawnpoint18" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(3379, 7287)
+
+[node name="pickup_spawnpoint19" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(2804, 8824)
+
+[node name="pickup_spawnpoint20" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(2671, 8576)
+
+[node name="pickup_spawnpoint21" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(2547, 6980)
+
+[node name="pickup_spawnpoint22" parent="pickups" instance=ExtResource("13_rgwox")]
+position = Vector2(2964, 6867)
 
 [node name="radio_towers" type="Node" parent="."]
 

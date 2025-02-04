@@ -85,10 +85,8 @@ text = "100000
 "
 
 [node name="energy" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(44, 323)
+position = Vector2(45.0001, -4)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_k7rqn")
 
 [node name="Label" type="Label" parent="energy"]
 offset_left = -353.333

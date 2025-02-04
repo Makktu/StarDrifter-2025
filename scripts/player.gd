@@ -34,12 +34,28 @@ var damage_heavy_animation_playing : bool = false
 
 
 func _physics_process(delta):
-	# if energy depleted bring up pause menu
-	if global.player_energy <= light_damage_taken: # always check on status of damage animations if energy < light damage
+	$hud.show_energy(global.player_energy)
+	# always check on status of damage animations if energy < light damage
+	if global.player_energy <= light_damage_taken:
 		check_damage()
-	if global.player_energy > light_damage_taken and (damage_light_animation_playing or damage_heavy_animation_playing):
-		animation_player.speed_scale = 1
-		animation_player.stop()
+		
+	# if one of the damage animations is playing, check that the player energy is still
+	if damage_light_animation_playing or damage_heavy_animation_playing:
+		# first check the light animation
+		if damage_light_animation_playing:
+			# stop the animation if not in range
+			if global.player_energy > light_damage_taken or global.player_energy <= heavy_damage_taken:
+				animation_player.speed_scale = 1
+				animation_player.stop()
+				damage_light_animation_playing = false
+		if damage_heavy_animation_playing:
+			# stop the animation if not in range
+			if global.player_energy > heavy_damage_taken:
+				animation_player.speed_scale = 1
+				animation_player.stop()
+				damage_heavy_animation_playing = false
+		
+	# if energy depleted bring up pause menu
 	if global.player_energy <= 0 && global.dev_damage_on:
 		$hud._on_pause_button_pressed(true) # if passing true, means Game Over
 	

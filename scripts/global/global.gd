@@ -34,6 +34,8 @@ var player_amount_damaged : int = 0
 
 var shield_active : bool = false
 
+var base_damage : float = 1.0 # the basis for calculating damage inflicted by all events
+
 func _ready():
 	# start bgm music if bgm_music ON
 	if global_music_on:
@@ -62,6 +64,7 @@ func damage_player(distance_from_player):#
 func taking_damage(hit = 1):
 	if !shield_active:
 		player_energy -= hit
+	print(player_energy)
 		
 
 func player_energy_replenish(amount = player_energy_replenish_amount):

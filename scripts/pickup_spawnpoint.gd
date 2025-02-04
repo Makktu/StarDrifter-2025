@@ -30,6 +30,7 @@ func _ready():
 
 func pick_pickup_type():
 	current_pickup = pickup_types[randi_range(0, (len(pickup_types) - 1))]
+	current_pickup = "shield" # for testing purposes
 	hide_or_show_pickups("show")
 
 

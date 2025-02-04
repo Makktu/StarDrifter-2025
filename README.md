@@ -313,6 +313,12 @@ Also need to work on logic for all the above as it's eccentric right now
 Decision: no visible 'HUD' indicators for anything on-screen. Other than a faint Pause button.
 
 ### Tue 4 Feb 2025
+Worked on shield logic and animations - will pulse while active,
+rapidly pulse when about to expire.
+(Currently all pickups are shields as still have to fine-tune the above.)
+Changed damage from Phantom laser to ~15 energy per sustained hit (0.1 per frame).
+Added pickups to all of first section.
+Added a debug energy readout to screen.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -322,7 +328,7 @@ TO BE DONE NEXT/SOON
 Swarmer spawn rates (game balance consideration)
 (Decide what the game is - fast & reaction-based or slower & more thoughtful?)
 Game balance considerations
-What actual game is here (or not).
+What actual game is here (or not)?
 And prune folders of redundant files (tidy up)
 AND: camera zoom for big areas where player needs to see scope of challenge
 - Indicators for various things: pickup effect timings (at least needs to show

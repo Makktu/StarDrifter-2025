@@ -10,8 +10,6 @@ extends Node2D
 const LASER_LENGTH = 3000
 var current_particle_effect: Node2D = null
 
-var damage: int = 0.5
-
 func _ready():
 	# Configure raycast for better performance
 	ray_cast.target_position = Vector2(LASER_LENGTH, 0)
@@ -55,14 +53,12 @@ func shoot_laser():
 		
 		# Handle enemy collision
 		if hit_object.is_in_group("enemy"):
-			print("ENEMY BEING HIT!")
-			# You can call a damage function on the enemy here
 			if hit_object.has_method("take_damage"):
 				hit_object.take_damage()
 		
 		# Handle player collision efficiently
 		if collider.get_parent().is_in_group("player"):
-			global.taking_damage(damage)
+			global.taking_damage(global.base_damage / 10)
 	else:
 		# No collision - extend to full length
 		line_2d.points[1] = Vector2(LASER_LENGTH, 0)
