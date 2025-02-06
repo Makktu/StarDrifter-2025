@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://f2nn5ymotsrs"]
+
+[ext_resource type="Script" path="res://scripts/fog_controller.gd" id="1_un01m"]
+[ext_resource type="Texture2D" uid="uid://byccgxsk8nkrs" path="res://Assets/graphics/fog01.png" id="2_lobax"]
+
+[node name="fog_controller" type="Node2D"]
+script = ExtResource("1_un01m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.396078, 0.709804, 0.466667, 0.25098)
+position = Vector2(4436, 4463)
+scale = Vector2(8.6175, 17.5038)
+texture = ExtResource("2_lobax")
+
+[node name="FadeTimer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
+[connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]

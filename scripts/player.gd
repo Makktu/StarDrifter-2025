@@ -11,6 +11,7 @@ extends CharacterBody2D
 @onready var shield_gfx = $shield_gfx
 @onready var animation_player = $AnimationPlayer
 @onready var camera_2d = $Camera2D
+@onready var pewpewpew = $pewpewpew
 
 # =============== SHOOTING
 const bullet = preload("res://scenes/bullet.tscn")
@@ -157,6 +158,7 @@ func show_collision_particles():
 	
 	
 func shoot_bullets():
+	pewpewpew.play()
 	var times_fired = 0
 	var firing_sparkle = $collision_particles
 	for n in $firing_points.get_children():

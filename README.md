@@ -320,6 +320,11 @@ Changed damage from Phantom laser to ~15 energy per sustained hit (0.1 per frame
 Added pickups to all of first section.
 Added a debug energy readout to screen.
 
+### Thu 6 Feb 2025
+(Skipped a day's work - the first since this new phase began.)
+Added 1st draft of fog for world. Not satisfying to look at at the moment.
+Added pew-pew-pew sound effect for player shooting. Also not great right now.
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON
