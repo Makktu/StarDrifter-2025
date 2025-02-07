@@ -8,12 +8,13 @@ script = ExtResource("1_un01m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.396078, 0.709804, 0.466667, 0.25098)
-position = Vector2(4436, 4463)
 scale = Vector2(8.6175, 17.5038)
 texture = ExtResource("2_lobax")
 
 [node name="FadeTimer" type="Timer" parent="."]
 wait_time = 20.0
 one_shot = true
+
+[node name="ReturnTimer" type="Timer" parent="."]
 
 [connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]
