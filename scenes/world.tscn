@@ -360,6 +360,8 @@ rotation = 0.403343
 shape = SubResource("RectangleShape2D_0efts")
 
 [node name="fog_controller" parent="." instance=ExtResource("9_cojfy")]
+position = Vector2(4739, 5271)
+scale = Vector2(13.489, 36.7828)
 
 [connection signal="area_entered" from="special_areas/first_boss" to="." method="_on_first_boss_area_entered"]
 [connection signal="body_entered" from="special_areas/first_boss" to="." method="_on_first_boss_body_entered"]

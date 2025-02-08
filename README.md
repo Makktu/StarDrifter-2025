@@ -328,6 +328,12 @@ Added pew-pew-pew sound effect for player shooting. Also not great right now.
 ### Fri 7 Feb 2025
 Fog is broken right now - trying to implement dynamic fade in and out,
 not working.
+Got the distribution and movement of fog working right.
+While increasing player speed to test, gameplay feels more satisfying.
+Speed pickups need to be more plentiful and longer-lasting than currently.
+
+### Sat 8 Feb 2025
+Need to start adding energy barriers between sections of the map.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

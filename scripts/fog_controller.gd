@@ -21,9 +21,9 @@ var move_fog_speed_change_increment : float = 0.15
 func _process(delta):
 	position.x += move_fog_x
 	position.y += move_fog_y
-	if position.x >= 4240 or position.x <= -3220:
+	if position.x >= 6800 or position.x <= 2040:
 		move_fog_x = -move_fog_x
-	if position.y >= 2070 or position.y <= -3100:
+	if position.y >= 8400 or position.y <= 1800:
 		move_fog_y = -move_fog_y
 	# randomly change speed/direction of fog
 	if random_number(1,100) > 50 and move_fog_x < 1.25 and move_fog_y < 1.25:

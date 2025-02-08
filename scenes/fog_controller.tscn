@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://byccgxsk8nkrs" path="res://Assets/graphics/fog01.png" id="2_lobax"]
 
 [node name="fog_controller" type="Node2D"]
+scale = Vector2(8, 16)
 script = ExtResource("1_un01m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.396078, 0.709804, 0.466667, 0.25098)
-scale = Vector2(8.6175, 17.5038)
 texture = ExtResource("2_lobax")
 
 [node name="FadeTimer" type="Timer" parent="."]
