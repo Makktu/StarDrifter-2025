@@ -333,7 +333,10 @@ While increasing player speed to test, gameplay feels more satisfying.
 Speed pickups need to be more plentiful and longer-lasting than currently.
 
 ### Sat 8 Feb 2025
-Need to start adding energy barriers between sections of the map.
+Very early draft of energy barriers between sections created & added
+
+### Sun 9 Feb 2025
+Cont. with energy barriers cosmetics & behaviour (esp. collisions)
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

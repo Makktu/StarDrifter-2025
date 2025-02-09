@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cpih4mn1vrtr5" path="res://scenes/impact_particles.tscn" id="2_y7li3"]
 
 [sub_resource type="Gradient" id="Gradient_j3ywx"]
-offsets = PackedFloat32Array(0, 0.8)
-colors = PackedColorArray(0, 1, 0, 1, 0, 1, 0, 0)
+offsets = PackedFloat32Array(0, 0.806667)
+colors = PackedColorArray(0.0941176, 0.964706, 0.117647, 1, 0, 0.945098, 0.92549, 0.117647)
 
 [node name="PhantomLaser" type="Node2D"]
 script = ExtResource("1_0u8k2")

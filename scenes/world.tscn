@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cy8am7rjugpas"]
+[gd_scene load_steps=15 format=3 uid="uid://cy8am7rjugpas"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ybue2"]
 [ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/parallax_background.tscn" id="2_s8res"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cfbwfa6t0e240" path="res://scenes/phantom.tscn" id="7_n8aou"]
 [ext_resource type="PackedScene" uid="uid://xucx4fy8o8o7" path="res://scenes/radio_tower.tscn" id="8_6gao6"]
 [ext_resource type="PackedScene" uid="uid://f2nn5ymotsrs" path="res://scenes/fog_controller.tscn" id="9_cojfy"]
+[ext_resource type="PackedScene" uid="uid://urikvarb8x7l" path="res://scenes/barrier.tscn" id="10_ugmrm"]
 [ext_resource type="PackedScene" uid="uid://by41fj2hprgq4" path="res://scenes/pickup_spawnpoint.tscn" id="13_rgwox"]
 
 [sub_resource type="Shader" id="Shader_dnnc4"]
@@ -104,7 +105,7 @@ polygon = PackedVector2Array(-2854, -1249.4, -2854, -1245.6, -2866.6, -1241, -28
 
 [node name="Player" parent="." instance=ExtResource("3_pecdv")]
 modulate = Color(0.282353, 1, 0.317647, 1)
-position = Vector2(833, 3856)
+position = Vector2(1557, 3051)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)
 
@@ -362,6 +363,12 @@ shape = SubResource("RectangleShape2D_0efts")
 [node name="fog_controller" parent="." instance=ExtResource("9_cojfy")]
 position = Vector2(4739, 5271)
 scale = Vector2(13.489, 36.7828)
+
+[node name="energy_barriers" type="Node" parent="."]
+
+[node name="barrier" parent="energy_barriers" instance=ExtResource("10_ugmrm")]
+position = Vector2(1491, 3399)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="area_entered" from="special_areas/first_boss" to="." method="_on_first_boss_area_entered"]
 [connection signal="body_entered" from="special_areas/first_boss" to="." method="_on_first_boss_body_entered"]
