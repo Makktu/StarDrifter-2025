@@ -336,7 +336,12 @@ Speed pickups need to be more plentiful and longer-lasting than currently.
 Very early draft of energy barriers between sections created & added
 
 ### Sun 9 Feb 2025
-Cont. with energy barriers cosmetics & behaviour (esp. collisions)
+2nd draft of energy barrier also not-good - graphical rethink needed.
+Successful tweak of collisions, now working.
+
+### Mon 10 Feb 2025
+Need a big day on this. Energy barriers and more.
+
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
