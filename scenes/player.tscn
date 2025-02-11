@@ -157,11 +157,11 @@ rotation = 1.5708
 polygon = PackedVector2Array(4.83993, -19.45, 29.8401, 29.5499, 18.8401, 26.5499, 6.84009, 24.55, -1.15989, 29.55, -9.15991, 25.55, -18.1599, 25.5501, -28.1599, 28.5501, -1.1601, -26.45)
 
 [node name="shield_collision_shape" type="CollisionShape2D" parent="."]
+scale = Vector2(0.8, 0.8)
 shape = SubResource("CircleShape2D_acn5y")
 disabled = true
 
 [node name="shield_gfx" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(-3.43323e-05, -9.05991e-06)
 scale = Vector2(2, 2)
 texture = ExtResource("4_lswx7")
@@ -248,7 +248,8 @@ libraries = {
 
 [node name="pewpewpew" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_udktx")
-pitch_scale = 2.0
+volume_db = -13.206
+pitch_scale = 1.78
 
 [connection signal="area_entered" from="player_enemy_collision" to="." method="_on_player_enemy_collision_area_entered"]
 [connection signal="area_exited" from="player_enemy_collision" to="." method="_on_player_enemy_collision_area_exited"]

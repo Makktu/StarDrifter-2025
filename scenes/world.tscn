@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cy8am7rjugpas"]
+[gd_scene load_steps=15 format=3 uid="uid://cy8am7rjugpas"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ybue2"]
 [ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/parallax_background.tscn" id="2_s8res"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cfbwfa6t0e240" path="res://scenes/phantom.tscn" id="7_n8aou"]
 [ext_resource type="PackedScene" uid="uid://xucx4fy8o8o7" path="res://scenes/radio_tower.tscn" id="8_6gao6"]
 [ext_resource type="PackedScene" uid="uid://f2nn5ymotsrs" path="res://scenes/fog_controller.tscn" id="9_cojfy"]
+[ext_resource type="PackedScene" uid="uid://urikvarb8x7l" path="res://scenes/barrier.tscn" id="10_uw7u5"]
 [ext_resource type="PackedScene" uid="uid://by41fj2hprgq4" path="res://scenes/pickup_spawnpoint.tscn" id="13_rgwox"]
 
 [sub_resource type="Shader" id="Shader_dnnc4"]
@@ -109,6 +110,7 @@ rotation = -3.14159
 scale = Vector2(0.2, 0.2)
 
 [node name="enemy_spawners" type="Node2D" parent="."]
+show_behind_parent = true
 
 [node name="enemy_spawner" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
 position = Vector2(1003, 9691)
@@ -156,10 +158,14 @@ position = Vector2(1061, 6332)
 position = Vector2(799, 4671)
 
 [node name="enemy_spawner9" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(1436, 3534)
+show_behind_parent = true
+position = Vector2(1547, 3569)
 
 [node name="enemy_spawner10" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(1053, 3643)
+position = Vector2(1084, 3662)
+
+[node name="enemy_spawner19" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(750, 3811)
 
 [node name="enemy_spawner8" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
 position = Vector2(1013, 4525)
@@ -308,7 +314,8 @@ position = Vector2(2547, 6980)
 [node name="pickup_spawnpoint22" parent="pickups" instance=ExtResource("13_rgwox")]
 position = Vector2(2964, 6867)
 
-[node name="radio_towers" type="Node" parent="."]
+[node name="radio_towers" type="Node2D" parent="."]
+show_behind_parent = true
 
 [node name="radio_tower" parent="radio_towers" instance=ExtResource("8_6gao6")]
 show_behind_parent = true
@@ -364,6 +371,11 @@ position = Vector2(4739, 5271)
 scale = Vector2(13.489, 36.7828)
 
 [node name="energy_barriers" type="Node" parent="."]
+
+[node name="barrier" parent="energy_barriers" instance=ExtResource("10_uw7u5")]
+position = Vector2(858, 4005)
+rotation = -0.313555
+scale = Vector2(0.169586, 0.231388)
 
 [connection signal="area_entered" from="special_areas/first_boss" to="." method="_on_first_boss_area_entered"]
 [connection signal="body_entered" from="special_areas/first_boss" to="." method="_on_first_boss_body_entered"]

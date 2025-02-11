@@ -340,7 +340,13 @@ Very early draft of energy barriers between sections created & added
 Successful tweak of collisions, now working.
 
 ### Mon 10 Feb 2025
-Need a big day on this. Energy barriers and more.
+A few drafts of energy barriers, none good.
+Switched Swarmer spawnpoint graphic from particle effect to the 'radio towers',
+with each Swarmer being 'techno-pollen' from the antennae. Like it so far.
+
+### Tue 11 Feb 2025
+Hit on a decent draft of the energy barrier - now got to integrate it into the game.
+(And make an actual game from these and any further parts.)
 
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
