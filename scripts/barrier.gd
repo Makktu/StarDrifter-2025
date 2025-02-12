@@ -5,13 +5,11 @@ extends StaticBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	animated_sprite.play()
-	animation_player.play("throb")
+	animation_player.play("activated")
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	animated_sprite.stop()
-
+	animation_player.stop()
 #
-#func _on_body_entered(body: Node2D) -> void:
-	#print(body.name)
+func _on_body_entered(body: Node2D) -> void:
+	print(body.name)

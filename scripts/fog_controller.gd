@@ -11,7 +11,8 @@ var move_fog_x : float = 0.5
 var move_fog_y : float = 0.25
 var move_fog_speed_change_increment : float = 0.15
 
-#func _ready():
+func _ready():
+	print("fog ready")
 	#fade_out_time = random_number(5, 10)
 	#fade_timer.wait_time = fade_out_time
 	#fade_timer.start()

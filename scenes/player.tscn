@@ -162,6 +162,7 @@ shape = SubResource("CircleShape2D_acn5y")
 disabled = true
 
 [node name="shield_gfx" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-3.43323e-05, -9.05991e-06)
 scale = Vector2(2, 2)
 texture = ExtResource("4_lswx7")

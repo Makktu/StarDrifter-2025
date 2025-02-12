@@ -348,6 +348,11 @@ with each Swarmer being 'techno-pollen' from the antennae. Like it so far.
 Hit on a decent draft of the energy barrier - now got to integrate it into the game.
 (And make an actual game from these and any further parts.)
 
+### Wed 12 Feb 2025
+And another poor draft of the energy barrier. None yet have been right.
+
+### Thu 13 Feb 2025
+
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
