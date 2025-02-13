@@ -352,6 +352,13 @@ Hit on a decent draft of the energy barrier - now got to integrate it into the g
 And another poor draft of the energy barrier. None yet have been right.
 
 ### Thu 13 Feb 2025
+Finally a decent energy barrier. Will go with it.
+Need to make collisions the same for all entities. At the moment
+they're slightly different for all - some use Area2D (cheap and nasty way),
+some use the proper physics-engine way. Harmonise all.
+
+### Fri 14 Feb 2025
+
 
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -2,14 +2,32 @@ extends StaticBody2D
 
 @onready var the_player = get_tree().get_nodes_in_group("player")[0]
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var shield_barriers = $ShieldBarriers
+@onready var shield_barriers_2 = $ShieldBarriers2
+
+var barrier_visible = false
+var barrier_active = true
+
+var barrier_hp = 100
+
+func _process(delta):
+	if barrier_visible and barrier_active:
+		shield_barriers.rotation += 0.1
+		shield_barriers_2.rotation -= 0.1
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	animation_player.play("activated")
+	animated_sprite.play()
+	barrier_visible = true
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	animation_player.stop()
+	animated_sprite.stop()
+	barrier_visible = false
 #
-func _on_body_entered(body: Node2D) -> void:
+
+func _on_area_2d_body_entered(body):
 	print(body.name)
+
+
+func _on_area_2d_area_entered(area):
+	print(area.name)

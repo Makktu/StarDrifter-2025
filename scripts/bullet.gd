@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var explosion_frames = $explosion
+@onready var the_bullet = $Sprite2D
 
 var speed = 450
 var exploded_again := false
@@ -14,12 +15,14 @@ func _ready():
 func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
-		$Sprite2D.visible = false
+		the_bullet.visible = false
+		print("bullet????")
 		$collision_particles.emitting = true
 	rotation_degrees += 3
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
+	# if bullet goes off-screen, delete it from game
 	queue_free()
 
 
