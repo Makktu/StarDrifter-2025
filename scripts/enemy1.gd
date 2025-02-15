@@ -55,6 +55,7 @@ func _physics_process(delta):
 
 
 func _on_bullet_area_area_entered(area):
+	print(area.name)
 	if area.name == 'bullet':
 		this_enemy_shot += 1
 		if this_enemy_shot >= this_enemy_killed_at:
@@ -64,6 +65,9 @@ func _on_bullet_area_area_entered(area):
 		var player = area.get_parent()
 		if !player.shield_collision_shape.disabled:  # If shield is active
 			_trigger_explosion()
+	elif area.name == 'barrier_area':
+		_on_extinction_timer_timeout()
+		
 			
 func _trigger_explosion():
 	rotation_speed = 0

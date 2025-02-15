@@ -353,12 +353,10 @@ And another poor draft of the energy barrier. None yet have been right.
 
 ### Thu 13 Feb 2025
 Finally a decent energy barrier. Will go with it.
-Need to make collisions the same for all entities. At the moment
-they're slightly different for all - some use Area2D (cheap and nasty way),
-some use the proper physics-engine way. Harmonise all.
+
 
 ### Fri 14 Feb 2025
-
+Added basic behaviour to energy barriers. Restoration currently bugged.
 
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -366,9 +364,13 @@ some use the proper physics-engine way. Harmonise all.
 TO BE DONE NEXT/SOON
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Swarmer spawn rates (game balance consideration)
-(Decide what the game is - fast & reaction-based or slower & more thoughtful?)
-Game balance considerations
+- Need to make collisions the same for all entities. At the moment
+they're slightly different for all - some use Area2D (cheap and nasty way),
+some use the proper physics-engine way. Harmonise all.
+- Swarmer spawn rates (game balance consideration)
+- (Decide what the game is - fast & reaction-based or slower & more thoughtful?)
+- Game balance considerations
+
 What actual game is here (or not)?
 And prune folders of redundant files (tidy up)
 AND: camera zoom for big areas where player needs to see scope of challenge

@@ -16,7 +16,6 @@ func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
 		the_bullet.visible = false
-		print("bullet????")
 		$collision_particles.emitting = true
 	rotation_degrees += 3
 

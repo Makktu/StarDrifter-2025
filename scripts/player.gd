@@ -147,6 +147,11 @@ func handle_collision(collided, speed_x, speed_y, this_collided_with):
 		damage = 5
 	if this_collided_with == "Phantom":
 		damage = 10
+	if this_collided_with == "barrier":
+		damage = 25
+		if global.player_energy <= 70:
+			damage += (100 - global.player_energy)
+	print(this_collided_with)
 	velocity.x -= velocity.x / 10
 	velocity.y -= velocity.y / 10
 	global.taking_damage(damage)

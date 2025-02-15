@@ -4,6 +4,9 @@ extends StaticBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var shield_barriers = $ShieldBarriers
 @onready var shield_barriers_2 = $ShieldBarriers2
+@onready var collision_shape_main = $CollisionShape_main
+@onready var barrier_area = $barrier_area
+@onready var timer = $Timer
 
 var barrier_visible = false
 var barrier_active = true
@@ -11,9 +14,17 @@ var barrier_active = true
 var barrier_hp = 100
 
 func _process(delta):
-	if barrier_visible and barrier_active:
-		shield_barriers.rotation += 0.1
-		shield_barriers_2.rotation -= 0.1
+	if barrier_hp > 0:
+		if barrier_visible and barrier_active:
+			shield_barriers.rotation += 0.1
+			shield_barriers_2.rotation -= 0.1
+	else:
+		animated_sprite.visible = false
+		collision_shape_main.disabled = true
+		barrier_area.monitoring = false
+		barrier_area.monitorable = false
+		#timer.start()
+		$Timer.start()
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	animated_sprite.play()
@@ -23,11 +34,18 @@ func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	animated_sprite.stop()
 	barrier_visible = false
-#
-
-func _on_area_2d_body_entered(body):
-	print(body.name)
 
 
 func _on_area_2d_area_entered(area):
 	print(area.name)
+	print("Barrier Hit!")
+	barrier_hp -= 10
+
+
+func _on_timer_timeout():
+	barrier_hp = 100
+	print("Barrier down timer timeout and - ?")
+	animated_sprite.visible = true
+	collision_shape_main.disabled = false
+	barrier_area.monitoring = true
+	barrier_area.monitorable = true

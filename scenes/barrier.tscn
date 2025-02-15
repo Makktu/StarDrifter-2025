@@ -98,13 +98,18 @@ texture = ExtResource("3_uhxx3")
 position = Vector2(354, -1)
 texture = ExtResource("3_uhxx3")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="barrier_area" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="barrier_area"]
 position = Vector2(-1.5, 0.5)
 shape = SubResource("RectangleShape2D_go8bu")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="barrier_area" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="barrier_area" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
