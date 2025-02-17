@@ -7,24 +7,25 @@ extends StaticBody2D
 @onready var collision_shape_main = $CollisionShape_main
 @onready var barrier_area = $barrier_area
 @onready var timer = $Timer
+@onready var animation_player = $AnimationPlayer
 
 var barrier_visible = false
 var barrier_active = true
-
+var rotation_speed = 0.1
 var barrier_hp = 100
 
 func _process(delta):
-	if barrier_hp > 0:
-		if barrier_visible and barrier_active:
-			shield_barriers.rotation += 0.1
-			shield_barriers_2.rotation -= 0.1
-	else:
+	if barrier_hp > 0 and barrier_visible:
+		shield_barriers.rotation += rotation_speed
+		shield_barriers_2.rotation -= rotation_speed
+	if barrier_hp <= 0 and barrier_active:
+		barrier_active = false		
 		animated_sprite.visible = false
 		collision_shape_main.disabled = true
 		barrier_area.monitoring = false
 		barrier_area.monitorable = false
-		#timer.start()
-		$Timer.start()
+		animation_player.play("recharge")
+		timer.start()
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	animated_sprite.play()
@@ -44,8 +45,10 @@ func _on_area_2d_area_entered(area):
 
 func _on_timer_timeout():
 	barrier_hp = 100
+	animation_player.stop()
 	print("Barrier down timer timeout and - ?")
 	animated_sprite.visible = true
 	collision_shape_main.disabled = false
 	barrier_area.monitoring = true
 	barrier_area.monitorable = true
+	barrier_active = true

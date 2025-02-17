@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0tahn7jhrkef"]
+
+[ext_resource type="Script" path="res://scripts/barrier_powerline.gd" id="1_l3vit"]
+
+[node name="barrier_powerline" type="Node2D"]
+script = ExtResource("1_l3vit")

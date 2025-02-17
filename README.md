@@ -354,10 +354,17 @@ And another poor draft of the energy barrier. None yet have been right.
 ### Thu 13 Feb 2025
 Finally a decent energy barrier. Will go with it.
 
-
 ### Fri 14 Feb 2025
 Added basic behaviour to energy barriers. Restoration currently bugged.
 
+### Sat 15 Feb 2025
+Fixed barrier restoration after downtime. Now need to work out how player
+disables the barriers.
+
+### Sun 16 Feb 2025
+Tweaked spawner behaviour.
+Added global difficulty.
+BIG balancing job ahead, and the game features are only ~40% done.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
