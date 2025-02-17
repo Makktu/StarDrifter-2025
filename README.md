@@ -366,6 +366,13 @@ Tweaked spawner behaviour.
 Added global difficulty.
 BIG balancing job ahead, and the game features are only ~40% done.
 
+### Mon 17 Feb 2025
+Fixed bug in fog effect. The bug was my faulty understanding of
+how things work with Godot alpha values for sprites. Values range from
+0.0 to 1.0. I had thought it was 0 to 255, with hilarious results.
+Got a good early version of the fade in/fade out script work,
+with predictable intervals and transparencies for now.
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON
