@@ -373,6 +373,10 @@ how things work with Godot alpha values for sprites. Values range from
 Got a good early version of the fade in/fade out script work,
 with predictable intervals and transparencies for now.
 
+### Tue 18 Feb 2025
+1st draft of energy barrier 'nodes' that the player shoots to disable the barriers
+temporarily. Will all need linking up still. And graphical boosts.
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON

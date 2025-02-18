@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cy8am7rjugpas"]
+[gd_scene load_steps=16 format=3 uid="uid://cy8am7rjugpas"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ybue2"]
 [ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/parallax_background.tscn" id="2_s8res"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://xucx4fy8o8o7" path="res://scenes/radio_tower.tscn" id="8_6gao6"]
 [ext_resource type="PackedScene" uid="uid://f2nn5ymotsrs" path="res://scenes/fog_controller.tscn" id="9_cojfy"]
 [ext_resource type="PackedScene" uid="uid://urikvarb8x7l" path="res://scenes/barrier.tscn" id="10_uw7u5"]
+[ext_resource type="PackedScene" uid="uid://di2g4i2gclvga" path="res://scenes/barrier_power_node.tscn" id="11_crtno"]
 [ext_resource type="PackedScene" uid="uid://by41fj2hprgq4" path="res://scenes/pickup_spawnpoint.tscn" id="13_rgwox"]
 
 [sub_resource type="Shader" id="Shader_dnnc4"]
@@ -391,9 +392,15 @@ shape = SubResource("RectangleShape2D_0efts")
 [node name="energy_barriers" type="Node" parent="."]
 
 [node name="barrier" parent="energy_barriers" instance=ExtResource("10_uw7u5")]
-position = Vector2(1492, 3380)
+position = Vector2(857, 4262)
 rotation = -0.0209832
 scale = Vector2(0.23, 0.313)
+
+[node name="barrier_power_node" parent="." instance=ExtResource("11_crtno")]
+position = Vector2(804, 4164)
+
+[node name="barrier_power_node2" parent="." instance=ExtResource("11_crtno")]
+position = Vector2(949, 4165)
 
 [connection signal="area_entered" from="special_areas/first_boss" to="." method="_on_first_boss_area_entered"]
 [connection signal="body_entered" from="special_areas/first_boss" to="." method="_on_first_boss_body_entered"]

@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 @onready var the_player = get_tree().get_nodes_in_group("player")[0]
+@onready var global = $/root/Global
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var shield_barriers = $ShieldBarriers
 @onready var shield_barriers_2 = $ShieldBarriers2
@@ -15,10 +16,10 @@ var rotation_speed = 0.1
 var barrier_hp = 100
 
 func _process(delta):
-	if barrier_hp > 0 and barrier_visible:
+	if global.barrier_energy > 0 and barrier_visible:
 		shield_barriers.rotation += rotation_speed
 		shield_barriers_2.rotation -= rotation_speed
-	if barrier_hp <= 0 and barrier_active:
+	if global.barrier_energy == 0 and barrier_active:
 		barrier_active = false		
 		animated_sprite.visible = false
 		collision_shape_main.disabled = true
@@ -38,15 +39,12 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 func _on_area_2d_area_entered(area):
-	print(area.name)
-	print("Barrier Hit!")
 	barrier_hp -= 10
 
 
 func _on_timer_timeout():
 	barrier_hp = 100
 	animation_player.stop()
-	print("Barrier down timer timeout and - ?")
 	animated_sprite.visible = true
 	collision_shape_main.disabled = false
 	barrier_area.monitoring = true

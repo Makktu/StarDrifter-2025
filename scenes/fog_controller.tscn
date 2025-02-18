@@ -17,11 +17,7 @@ rotation = 3.14159
 texture = ExtResource("2_lobax")
 
 [node name="FadeTimer" type="Timer" parent="."]
-wait_time = 11.0
+wait_time = 30.0
 one_shot = true
 
-[node name="ReturnTimer" type="Timer" parent="."]
-wait_time = 10.0
-
 [connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]
-[connection signal="timeout" from="ReturnTimer" to="." method="_on_return_timer_timeout"]

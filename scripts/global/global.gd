@@ -38,6 +38,8 @@ var base_damage : float = 1.0 # the basis for calculating damage inflicted by al
 
 var global_difficulty : int = 1 # if global difficulty needs a number... (nowhere near implemented)
 
+var barrier_energy : int = 2
+
 func _ready():
 	# start bgm music if bgm_music ON
 	if global_music_on:

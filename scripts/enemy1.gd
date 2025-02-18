@@ -63,7 +63,6 @@ func _physics_process(delta):
 
 
 func _on_bullet_area_area_entered(area):
-	print(area.name)
 	if area.name == 'bullet':
 		this_enemy_shot += 1
 		if this_enemy_shot >= this_enemy_killed_at:
@@ -92,7 +91,6 @@ func _on_explosion_animation_finished():
 
 func _on_life_timer_timeout():
 	global.swarmers_active -= 1
-	print("Global swarmers now: ", global.swarmers_active)
 	queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

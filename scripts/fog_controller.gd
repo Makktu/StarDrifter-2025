@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var global = $/root/Global
 @onready var fade_timer = $FadeTimer
-@onready var return_timer = $ReturnTimer
 @onready var fog = $Sprite2D
 
 var fade_out_time : int
@@ -41,12 +40,14 @@ func _on_fade_timer_timeout():
 		fog, 
 		"modulate:a", 
 		target_alpha,  # Target alpha
-		10.0   # Duration in seconds
+		20.0   # Duration in seconds
 		).set_ease(Tween.EASE_IN_OUT)
+	fade_timer.wait_time = random_number(22, 32)
 	fade_timer.start()
 
 
-# lots of random numbers required for future management of fog effects
-#func random_number(low = 1, high = 10):
-	#var random_number = randi_range(low, high)
-	#return random_number
+#lots of random numbers required for future management of fog effects
+func random_number(low = 20, high = 40):
+	var random_number = randi_range(low, high)
+	print("random number:", random_number)
+	return random_number

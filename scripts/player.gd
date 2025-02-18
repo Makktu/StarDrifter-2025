@@ -151,7 +151,6 @@ func handle_collision(collided, speed_x, speed_y, this_collided_with):
 		damage = 25
 		if global.player_energy <= 70:
 			damage += (100 - global.player_energy)
-	print(this_collided_with)
 	velocity.x -= velocity.x / 10
 	velocity.y -= velocity.y / 10
 	global.taking_damage(damage)
@@ -187,7 +186,6 @@ func picked_up(type = "default"):
 		_on_pickup_timer_timeout(true) # call pickup cancel func with true condition for current pickup
 	# copy current values
 	pickup_type = type
-	print(pickup_type, " pickup acquired <<<<<<<<<")
 	pickup_active = true
 	if type == "speed":
 		if !global.speed_pickup_active:
@@ -200,9 +198,7 @@ func picked_up(type = "default"):
 		pickup_timer.start() # player always gets a fresh 50 seconds
 	if type == "energy":
 		global.player_energy = 100
-		print("ENERGY NOW", global.player_energy)
 	if type == "shield":
-		print("SHIELD COLLECTED")
 		if global.shield_active:
 			pickup_timer.stop()
 		global.shield_active = true
