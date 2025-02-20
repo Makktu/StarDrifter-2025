@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cy8am7rjugpas"]
+[gd_scene load_steps=15 format=3 uid="uid://cy8am7rjugpas"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ybue2"]
 [ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/parallax_background.tscn" id="2_s8res"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://b2360ojxsegcj" path="res://scenes/player.tscn" id="3_pecdv"]
 [ext_resource type="PackedScene" uid="uid://cph3l0chuxd5s" path="res://scenes/enemy_spawner.tscn" id="5_1eq67"]
 [ext_resource type="PackedScene" uid="uid://cfbwfa6t0e240" path="res://scenes/phantom.tscn" id="7_n8aou"]
-[ext_resource type="PackedScene" uid="uid://xucx4fy8o8o7" path="res://scenes/radio_tower.tscn" id="8_6gao6"]
 [ext_resource type="PackedScene" uid="uid://f2nn5ymotsrs" path="res://scenes/fog_controller.tscn" id="9_cojfy"]
 [ext_resource type="PackedScene" uid="uid://urikvarb8x7l" path="res://scenes/barrier.tscn" id="10_uw7u5"]
 [ext_resource type="PackedScene" uid="uid://di2g4i2gclvga" path="res://scenes/barrier_power_node.tscn" id="11_crtno"]
@@ -106,7 +105,7 @@ polygon = PackedVector2Array(-2854, -1249.4, -2854, -1245.6, -2866.6, -1241, -28
 
 [node name="Player" parent="." instance=ExtResource("3_pecdv")]
 modulate = Color(0.282353, 1, 0.317647, 1)
-position = Vector2(894, 4158)
+position = Vector2(809, 8437)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)
 
@@ -118,16 +117,37 @@ scale = Vector2(13.489, 36.7828)
 show_behind_parent = true
 
 [node name="enemy_spawner" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(1003, 9691)
+position = Vector2(1115, 9841)
+
+[node name="enemy_spawner24" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(1041, 9882)
+
+[node name="enemy_spawner25" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(961, 9917)
+
+[node name="enemy_spawner26" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(895, 9949)
 
 [node name="enemy_spawner11" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(924, 9567)
+position = Vector2(1400, 9667)
 
 [node name="enemy_spawner12" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(1131, 9497)
+position = Vector2(1275, 9673)
+
+[node name="enemy_spawner27" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(1585, 9710)
+
+[node name="enemy_spawner28" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(1497, 9674)
+
+[node name="enemy_spawner29" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(1750, 9778)
+
+[node name="enemy_spawner30" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(1662, 9742)
 
 [node name="enemy_spawner2" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(1037, 7747)
+position = Vector2(1027, 7968)
 
 [node name="enemy_spawner3" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
 position = Vector2(2426, 5566)
@@ -238,6 +258,14 @@ position = Vector2(2963, 8468)
 show_behind_parent = true
 position = Vector2(834, 9188)
 
+[node name="Phantom25" parent="Phantoms" instance=ExtResource("7_n8aou")]
+show_behind_parent = true
+position = Vector2(1381, 9027)
+
+[node name="Phantom26" parent="Phantoms" instance=ExtResource("7_n8aou")]
+show_behind_parent = true
+position = Vector2(1252, 9433)
+
 [node name="Phantom14" parent="Phantoms" instance=ExtResource("7_n8aou")]
 position = Vector2(6480, 6538)
 
@@ -337,48 +365,6 @@ position = Vector2(2547, 6980)
 [node name="pickup_spawnpoint22" parent="pickups" instance=ExtResource("13_rgwox")]
 position = Vector2(2964, 6867)
 
-[node name="radio_towers" type="Node2D" parent="."]
-show_behind_parent = true
-
-[node name="radio_tower" parent="radio_towers" instance=ExtResource("8_6gao6")]
-show_behind_parent = true
-position = Vector2(1631, 9769)
-scale = Vector2(0.4, 0.4)
-
-[node name="radio_tower4" parent="radio_towers" instance=ExtResource("8_6gao6")]
-show_behind_parent = true
-position = Vector2(1685, 9790)
-scale = Vector2(0.4, 0.4)
-
-[node name="radio_tower5" parent="radio_towers" instance=ExtResource("8_6gao6")]
-show_behind_parent = true
-position = Vector2(1737, 9813)
-scale = Vector2(0.4, 0.4)
-
-[node name="radio_tower6" parent="radio_towers" instance=ExtResource("8_6gao6")]
-show_behind_parent = true
-position = Vector2(2299, 9571)
-scale = Vector2(0.4, 0.4)
-
-[node name="radio_tower7" parent="radio_towers" instance=ExtResource("8_6gao6")]
-show_behind_parent = true
-position = Vector2(2354, 9504)
-scale = Vector2(0.4, 0.4)
-
-[node name="radio_tower8" parent="radio_towers" instance=ExtResource("8_6gao6")]
-show_behind_parent = true
-position = Vector2(2409, 9440)
-scale = Vector2(0.4, 0.4)
-
-[node name="radio_tower2" parent="radio_towers" instance=ExtResource("8_6gao6")]
-show_behind_parent = true
-position = Vector2(902, 9917)
-
-[node name="radio_tower3" parent="radio_towers" instance=ExtResource("8_6gao6")]
-show_behind_parent = true
-position = Vector2(1126, 7992)
-scale = Vector2(0.3, 0.3)
-
 [node name="special_areas" type="Node" parent="."]
 
 [node name="first_boss" type="Area2D" parent="special_areas"]
@@ -389,18 +375,33 @@ collision_layer = 2
 rotation = 0.403343
 shape = SubResource("RectangleShape2D_0efts")
 
-[node name="energy_barriers" type="Node" parent="."]
+[node name="energy_barriers_and_nodes" type="Node" parent="."]
 
-[node name="barrier" parent="energy_barriers" instance=ExtResource("10_uw7u5")]
+[node name="barrier_1" type="Node" parent="energy_barriers_and_nodes"]
+
+[node name="barrier" parent="energy_barriers_and_nodes/barrier_1" instance=ExtResource("10_uw7u5")]
 position = Vector2(857, 4262)
 rotation = -0.0209832
 scale = Vector2(0.23, 0.313)
 
-[node name="barrier_power_node" parent="." instance=ExtResource("11_crtno")]
+[node name="barrier_power_node" parent="energy_barriers_and_nodes/barrier_1" instance=ExtResource("11_crtno")]
 position = Vector2(804, 4164)
 
-[node name="barrier_power_node2" parent="." instance=ExtResource("11_crtno")]
+[node name="barrier_power_node2" parent="energy_barriers_and_nodes/barrier_1" instance=ExtResource("11_crtno")]
 position = Vector2(949, 4165)
+
+[node name="barrier_2" type="Node2D" parent="energy_barriers_and_nodes"]
+
+[node name="barrier2" parent="energy_barriers_and_nodes/barrier_2" instance=ExtResource("10_uw7u5")]
+position = Vector2(935, 8199)
+rotation = -0.0209832
+scale = Vector2(0.23, 0.313)
+
+[node name="barrier_power_node" parent="energy_barriers_and_nodes/barrier_2" instance=ExtResource("11_crtno")]
+position = Vector2(834, 7950)
+
+[node name="barrier_power_node2" parent="energy_barriers_and_nodes/barrier_2" instance=ExtResource("11_crtno")]
+position = Vector2(1066, 8011)
 
 [connection signal="area_entered" from="special_areas/first_boss" to="." method="_on_first_boss_area_entered"]
 [connection signal="body_entered" from="special_areas/first_boss" to="." method="_on_first_boss_body_entered"]

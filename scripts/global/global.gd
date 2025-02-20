@@ -6,8 +6,8 @@ extends Node
 # ========================================================================================
 # ======= DEVELOPER MENU OPTIONS VARIABLES ===============================================
 var game_paused : bool = false
-var dev_damage_on : bool = false # start each play session with damage to player craft and energy penalties ON
-var dev_enemies_on : bool = false # start with enemies present in world
+var dev_damage_on : bool = true # start each play session with damage to player craft and energy penalties ON
+var dev_enemies_on : bool = true # start with enemies present in world
 var dev_screenshake_on : bool = true
 # all variables controllable from dev pause menu, in hud scene
 # ========================================================================================

@@ -385,6 +385,10 @@ being disabled can interrupt the barrier. Current setup isn't intuitive
 enough for the player.
 
 ### Thu 20 Feb 2025
+Re-org of node structure in World scene tree. All entities in their own nodes.
+1st draft of powerline structure leading from generators to barriers. Not good,
+and deleted. The barrier is a key gameplay element and can't be skimped on.
+May use CPU particle effect.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
