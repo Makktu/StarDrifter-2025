@@ -19,7 +19,7 @@ func _process(delta):
 	if global.barrier_energy > 0 and barrier_visible:
 		shield_barriers.rotation += rotation_speed
 		shield_barriers_2.rotation -= rotation_speed
-	if global.barrier_energy == 0 and barrier_active:
+	if global.barrier_energy <= 0 and barrier_active:
 		barrier_active = false		
 		animated_sprite.visible = false
 		collision_shape_main.disabled = true

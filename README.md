@@ -377,6 +377,15 @@ with predictable intervals and transparencies for now.
 1st draft of energy barrier 'nodes' that the player shoots to disable the barriers
 temporarily. Will all need linking up still. And graphical boosts.
 
+### Wed 19 Feb 2025
+Interrupted workday - managed to get energy barrier node logic running. 
+Currently game is in no-enemies, no-damage mode while I fine-tune.
+Got to decide whether one or both power supply nodes
+being disabled can interrupt the barrier. Current setup isn't intuitive
+enough for the player.
+
+### Thu 20 Feb 2025
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON
