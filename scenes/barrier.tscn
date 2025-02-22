@@ -200,11 +200,11 @@ frame_progress = 0.721925
 position = Vector2(0.500031, -9.00002)
 scale = Vector2(53.15, 29)
 
-[node name="ShieldBarriers" type="Sprite2D" parent="."]
+[node name="ShieldBarriers" type="Sprite2D" parent="." groups=["barrier_generators"]]
 position = Vector2(-353, -5)
 texture = ExtResource("3_uhxx3")
 
-[node name="ShieldBarriers2" type="Sprite2D" parent="."]
+[node name="ShieldBarriers2" type="Sprite2D" parent="." groups=["barrier_generators"]]
 position = Vector2(354, -1)
 texture = ExtResource("3_uhxx3")
 

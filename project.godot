@@ -24,6 +24,10 @@ window/size/viewport_width=720
 window/size/viewport_height=1280
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+barrier_generators=""
+
 [input]
 
 Up={

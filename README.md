@@ -390,6 +390,9 @@ Re-org of node structure in World scene tree. All entities in their own nodes.
 and deleted. The barrier is a key gameplay element and can't be skimped on.
 May use CPU particle effect.
 
+### Fri 21 Feb 2025
+Trying particles effect for barrier powerline. Not working currently. It will.
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON
