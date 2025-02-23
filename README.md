@@ -393,6 +393,11 @@ May use CPU particle effect.
 ### Fri 21 Feb 2025
 Trying particles effect for barrier powerline. Not working currently. It will.
 
+### Sat 22 Feb 2025
+Abandoned the particles effect for the powerline thing. Not working. Will have
+to be either graphical lines overlaid onto the map or nothing.
+Tweaking spawner and swarmer behaviours.
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON

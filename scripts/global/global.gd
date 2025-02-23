@@ -14,7 +14,7 @@ var dev_screenshake_on : bool = true
 # ========================================================================================
 
 var player_energy : float = 100.0
-var global_music_on : bool = false # debug setting
+var global_music_on : bool = true # debug setting
 var alarm_triggered : bool = false
 
 var speed_pickup_active: bool = false
@@ -37,6 +37,7 @@ var shield_active : bool = false
 var base_damage : float = 1.0 # the basis for calculating damage inflicted by all events
 
 var global_difficulty : int = 1 # if global difficulty needs a number... (nowhere near implemented)
+# potentials for this: 1 - regular 2 - hard 3 - extreme
 
 var barrier_energy : int = 2
 

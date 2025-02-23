@@ -21,13 +21,13 @@ func add_new_enemy():
 
 func _on_timer_timeout():
 	if amount_spawned > 3 and $Timer.wait_time != 3:
-		$Timer.wait_time = 3
+		$Timer.wait_time = (3 - global.global_difficulty)
 	add_new_enemy()
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	spawner_active = true
-	$Timer.start()
+	add_new_enemy()
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

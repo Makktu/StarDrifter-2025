@@ -26,23 +26,6 @@ one_shot = true
 position = Vector2(0, 1.90735e-06)
 scale = Vector2(6.28571, 6)
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-emitting = false
-amount = 32
-lifetime = 1.5
-speed_scale = 5.53
-explosiveness = 0.08
-randomness = 0.09
-spread = 37.0
-gravity = Vector2(0, -1111)
-initial_velocity_min = 100.0
-initial_velocity_max = 150.0
-orbit_velocity_min = 10.0
-orbit_velocity_max = 20.0
-scale_amount_min = 2.0
-scale_amount_max = 3.0
-color = Color(0.917806, 0.908755, 0.402628, 1)
-
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="recharge_timer" to="." method="_on_recharge_timer_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]

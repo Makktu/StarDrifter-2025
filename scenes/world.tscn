@@ -105,7 +105,7 @@ polygon = PackedVector2Array(-2854, -1249.4, -2854, -1245.6, -2866.6, -1241, -28
 
 [node name="Player" parent="." instance=ExtResource("3_pecdv")]
 modulate = Color(0.282353, 1, 0.317647, 1)
-position = Vector2(809, 8437)
+position = Vector2(2073, 7337)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)
 
@@ -156,7 +156,7 @@ position = Vector2(2426, 5566)
 position = Vector2(3293, 8280)
 
 [node name="enemy_spawner13" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(2957, 7720)
+position = Vector2(2291, 7614)
 
 [node name="enemy_spawner14" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
 position = Vector2(2587, 8311)
@@ -165,13 +165,13 @@ position = Vector2(2587, 8311)
 position = Vector2(2410, 7994)
 
 [node name="enemy_spawner16" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(3018, 8029)
+position = Vector2(2922, 8688)
 
 [node name="enemy_spawner17" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(3079, 7802)
+position = Vector2(3089, 8604)
 
 [node name="enemy_spawner18" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(2800, 8111)
+position = Vector2(3011, 8646)
 
 [node name="enemy_spawner5" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
 position = Vector2(2000, 4117)
