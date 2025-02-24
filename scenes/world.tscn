@@ -105,7 +105,7 @@ polygon = PackedVector2Array(-2854, -1249.4, -2854, -1245.6, -2866.6, -1241, -28
 
 [node name="Player" parent="." instance=ExtResource("3_pecdv")]
 modulate = Color(0.282353, 1, 0.317647, 1)
-position = Vector2(2073, 7337)
+position = Vector2(871, 4026)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)
 
@@ -387,9 +387,6 @@ scale = Vector2(0.23, 0.313)
 [node name="barrier_power_node" parent="energy_barriers_and_nodes/barrier_1" instance=ExtResource("11_crtno")]
 position = Vector2(831, 4095)
 
-[node name="barrier_power_node2" parent="energy_barriers_and_nodes/barrier_1" instance=ExtResource("11_crtno")]
-position = Vector2(943, 4169)
-
 [node name="barrier_2" type="Node2D" parent="energy_barriers_and_nodes"]
 
 [node name="barrier2" parent="energy_barriers_and_nodes/barrier_2" instance=ExtResource("10_uw7u5")]
@@ -399,9 +396,6 @@ scale = Vector2(0.23, 0.313)
 
 [node name="barrier_power_node" parent="energy_barriers_and_nodes/barrier_2" instance=ExtResource("11_crtno")]
 position = Vector2(834, 7950)
-
-[node name="barrier_power_node2" parent="energy_barriers_and_nodes/barrier_2" instance=ExtResource("11_crtno")]
-position = Vector2(1066, 8011)
 
 [connection signal="area_entered" from="special_areas/first_boss" to="." method="_on_first_boss_area_entered"]
 [connection signal="body_entered" from="special_areas/first_boss" to="." method="_on_first_boss_body_entered"]

@@ -398,6 +398,10 @@ Abandoned the particles effect for the powerline thing. Not working. Will have
 to be either graphical lines overlaid onto the map or nothing.
 Tweaking spawner and swarmer behaviours.
 
+### Sun 23 Feb 2025
+Changed power node emitters to one unit only - simplifies the
+big game balancing challenge coming soon. Implemented the logic. Is working
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON

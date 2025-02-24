@@ -12,20 +12,18 @@ func _process(delta):
 		rotation += rotation_speed
 	if hp <= 0 and node_enabled:
 		node_enabled = false
-		global.barrier_energy -= 1
+		global.barrier_energy = false
 		print(global.barrier_energy)
 		recharge_timer.start()
 
 		
 func _on_area_entered(area):
 	if area.name == "bullet":
-		rotation_speed += -0.2
-		hp -= 10 # for test & debug only
+		rotation_speed += 0.1
+		hp -= 20 # large chunk for test & debug only
 
 func _on_recharge_timer_timeout():
-	if global.barrier_energy < 2:
-		global.barrier_energy += 1
-	print(global.barrier_energy)
+	global.barrier_energy = true
 	node_enabled = true
 	rotation_speed = 0.2
 	hp = 100

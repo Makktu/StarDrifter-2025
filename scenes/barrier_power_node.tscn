@@ -8,7 +8,7 @@ radius = 36.1248
 
 [node name="barrier_power_node" type="Area2D"]
 modulate = Color(0.200752, 0.644016, 0.386774, 1)
-scale = Vector2(0.35, 0.35)
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_fx2ie")
 
 [node name="image" type="Sprite2D" parent="."]
@@ -25,6 +25,14 @@ one_shot = true
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(0, 1.90735e-06)
 scale = Vector2(6.28571, 6)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 64
+lifetime = 0.2
+emission_shape = 1
+emission_sphere_radius = 40.0
+gravity = Vector2(0, 0)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="recharge_timer" to="." method="_on_recharge_timer_timeout"]
