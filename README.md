@@ -400,7 +400,10 @@ Tweaking spawner and swarmer behaviours.
 
 ### Sun 23 Feb 2025
 Changed power node emitters to one unit only - simplifies the
-big game balancing challenge coming soon. Implemented the logic. Is working
+big game balancing challenge coming soon. Implemented the logic. Is working.
+
+### Mon 24 Feb 2025
+Advance made on power node logic, 1st draft implemented. Timing bug presently.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

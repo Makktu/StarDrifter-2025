@@ -19,7 +19,7 @@ texture = ExtResource("1_svm0t")
 shape = SubResource("CircleShape2D_fk2pq")
 
 [node name="recharge_timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 8.0
 one_shot = true
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
@@ -29,10 +29,11 @@ scale = Vector2(6.28571, 6)
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 64
-lifetime = 0.2
+lifetime = 0.05
 emission_shape = 1
-emission_sphere_radius = 40.0
+emission_sphere_radius = 50.0
 gravity = Vector2(0, 0)
+color = Color(0.623529, 0.956863, 0.603922, 1)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="recharge_timer" to="." method="_on_recharge_timer_timeout"]
