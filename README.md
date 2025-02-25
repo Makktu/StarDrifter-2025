@@ -405,6 +405,10 @@ big game balancing challenge coming soon. Implemented the logic. Is working.
 ### Mon 24 Feb 2025
 Advance made on power node logic, 1st draft implemented. Timing bug presently.
 
+### Tue 25 Feb 2025
+Fixed timing bug on power nodes. 1st proper implementation.
+Next step: spawning enemies
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON

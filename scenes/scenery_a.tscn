@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6lsiucbew72"]
+
+[ext_resource type="Script" path="res://scripts/scenery_a.gd" id="1_etk8j"]
+[ext_resource type="Texture2D" uid="uid://cviid7igougtl" path="res://Assets/graphics/tile-background.png" id="2_0yj3d"]
+
+[sub_resource type="Animation" id="Animation_ghfuq"]
+resource_name = "pulse"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0qktl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ummhs"]
+_data = {
+"RESET": SubResource("Animation_0qktl"),
+"pulse": SubResource("Animation_ghfuq")
+}
+
+[node name="scenery_a" type="Node2D"]
+script = ExtResource("1_etk8j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.356823, 0.732238, 0.942277, 1)
+texture = ExtResource("2_0yj3d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ummhs")
+}

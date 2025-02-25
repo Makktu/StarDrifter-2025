@@ -9,6 +9,9 @@ extends StaticBody2D
 @onready var barrier_area = $barrier_area
 @onready var timer = $Timer
 @onready var animation_player = $AnimationPlayer
+@onready var particles_l = $CPUParticles2D
+@onready var particles_r = $CPUParticles2D2
+@onready var weapon_collisions = $barrier_area/CollisionShape2D
 
 var barrier_visible = false
 var barrier_active = true
@@ -17,9 +20,17 @@ var barrier_hp = 100
 
 func _process(delta):
 	if global.barrier_energy and barrier_visible:
+		if !barrier_active:
+			barrier_active = true
+			particles_l.emitting = true
+			particles_r.emitting = true
+			weapon_collisions.disabled = false
 		shield_barriers.rotation += rotation_speed
 		shield_barriers_2.rotation -= rotation_speed
 	if !global.barrier_energy and barrier_active:
+		particles_l.emitting = false
+		particles_r.emitting = false
+		weapon_collisions.disabled = true
 		barrier_active = false		
 		animated_sprite.visible = false
 		collision_shape_main.disabled = true
@@ -30,6 +41,8 @@ func _process(delta):
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	animated_sprite.play()
+	particles_l.emitting = true
+	particles_r.emitting = true
 	barrier_visible = true
 
 

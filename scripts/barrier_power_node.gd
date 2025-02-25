@@ -11,7 +11,7 @@ var rotation_speed = 0.2 # rotation speed when hp at 100
 func _process(delta):
 	if node_enabled:
 		rotation += rotation_speed
-		if hp <= 0 and node_enabled:
+		if hp <= 0 and global.barrier_energy:
 			rotation_speed = -0.05
 			global.barrier_energy = false
 			particles.emitting = false
@@ -30,6 +30,7 @@ func _on_recharge_timer_timeout():
 	rotation_speed = 0.2
 	hp = 100
 	global.barrier_energy = true
+	node_enabled = true
 	recharge_timer.wait_time = 8.0
 
 

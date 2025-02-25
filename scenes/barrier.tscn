@@ -223,6 +223,26 @@ libraries = {
 "": SubResource("AnimationLibrary_i1rbe")
 }
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-352, -4)
+emitting = false
+amount = 64
+lifetime = 0.05
+emission_shape = 1
+emission_sphere_radius = 80.0
+gravity = Vector2(0, 0)
+color = Color(0.623529, 0.956863, 0.603922, 1)
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(354, 0)
+emitting = false
+amount = 64
+lifetime = 0.05
+emission_shape = 1
+emission_sphere_radius = 80.0
+gravity = Vector2(0, 0)
+color = Color(0.623529, 0.956863, 0.603922, 1)
+
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="area_entered" from="barrier_area" to="." method="_on_area_2d_area_entered"]

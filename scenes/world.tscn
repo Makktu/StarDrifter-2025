@@ -177,7 +177,7 @@ position = Vector2(3011, 8646)
 position = Vector2(2000, 4117)
 
 [node name="enemy_spawner6" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(1061, 6332)
+position = Vector2(1123, 6581)
 
 [node name="enemy_spawner7" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
 position = Vector2(760, 4696)
