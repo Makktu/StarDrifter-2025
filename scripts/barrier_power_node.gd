@@ -31,7 +31,6 @@ func _on_recharge_timer_timeout():
 	hp = 100
 	global.barrier_energy = true
 	node_enabled = true
-	recharge_timer.wait_time = 8.0
 
 
 func _on_visible_on_screen_enabler_2d_screen_entered():

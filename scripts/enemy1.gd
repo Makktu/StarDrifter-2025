@@ -5,9 +5,9 @@ extends CharacterBody2D
 @onready var global = $/root/Global
 @onready var life_timer = $LifeTimer
 
-var enemy_speed : float = 8.0
+var enemy_speed : float = 3.0
 var enemy_speed_orig : int = enemy_speed
-var max_enemy_speed : int = 64
+var max_enemy_speed : int = 32
 var target_position
 var rotation_speed : float = 0.1
 var this_enemy_shot : int = 0

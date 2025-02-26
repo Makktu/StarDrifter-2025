@@ -409,6 +409,12 @@ Advance made on power node logic, 1st draft implemented. Timing bug presently.
 Fixed timing bug on power nodes. 1st proper implementation.
 Next step: spawning enemies
 
+### Wed 26 Feb 2025
+New bug apparent in testing barrier nodes and barriers.
+Starting the laying out of barriers.
+None of this feels right currently.
+New enemies need to be added. Currently only 2. Need 8 or so.
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON

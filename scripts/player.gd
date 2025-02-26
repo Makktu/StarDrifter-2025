@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-@onready var acceleration = 50 # was 40 or 20
-@onready var max_speed = 90 # was 100 or 40
+@onready var acceleration = 30 # was 40 or 20
+@onready var max_speed = 50 # was 100 or 40
 @onready var gravity = 0 # 0 = FULL WEIGHTLESSNESS
-@onready var rotation_speed = 6 # 5 or 3
+@onready var rotation_speed = 3 # 5 or 3
 @onready var global = $/root/Global
 @onready var colliding_effect = $collision_particles
 @onready var pickup_timer = $pickup_timer
