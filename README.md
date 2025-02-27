@@ -415,6 +415,17 @@ Starting the laying out of barriers.
 None of this feels right currently.
 New enemies need to be added. Currently only 2. Need 8 or so.
 
+### Thu 27 Feb 2025
+Laying out energy barriers across the map.
+Operation still slightly bugged. Works, but not predictably enough
+for gamer satisfaction. The duration of them being disabled
+must always be the same - 10 seconds.
+
+### Fri 28 Feb 2025
+
+### Sat 1 Mar 2025
+
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON
