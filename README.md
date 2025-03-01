@@ -422,6 +422,7 @@ for gamer satisfaction. The duration of them being disabled
 must always be the same - 10 seconds.
 
 ### Fri 28 Feb 2025
+Tried another version of the barrier. Again not satisfactory.
 
 ### Sat 1 Mar 2025
 
