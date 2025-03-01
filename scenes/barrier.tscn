@@ -69,7 +69,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 20.0
+"speed": 1.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_go8bu"]
@@ -153,26 +153,20 @@ libraries = {
 }
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(-352, -4)
+position = Vector2(1, -1)
 emitting = false
-amount = 64
-lifetime = 0.05
-emission_shape = 1
-emission_sphere_radius = 80.0
+amount = 20
+lifetime = 0.01
+speed_scale = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(350, 40)
 gravity = Vector2(0, 0)
-color = Color(0.623529, 0.956863, 0.603922, 1)
-
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
-position = Vector2(354, 0)
-emitting = false
-amount = 64
-lifetime = 0.05
-emission_shape = 1
-emission_sphere_radius = 80.0
-gravity = Vector2(0, 0)
+scale_amount_min = 2.0
+scale_amount_max = 4.0
 color = Color(0.623529, 0.956863, 0.603922, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.315535, 0.642268, 0.247088, 1)
 show_behind_parent = true
 position = Vector2(5.72205e-06, 0)
 scale = Vector2(0.88, 1)

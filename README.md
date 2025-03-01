@@ -425,7 +425,10 @@ must always be the same - 10 seconds.
 Tried another version of the barrier. Again not satisfactory.
 
 ### Sat 1 Mar 2025
-
+still working on the energy barrier. Particle effect when active across
+its width and height makes it look much better, but the overall
+'barrierness' is still not right. Need a new concept for it or to improve
+either of the two existing beyond current levels.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

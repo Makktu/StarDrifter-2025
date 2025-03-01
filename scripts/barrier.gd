@@ -9,8 +9,7 @@ extends StaticBody2D
 @onready var barrier_area = $barrier_area
 @onready var timer = $Timer
 @onready var animation_player = $AnimationPlayer
-@onready var particles_l = $CPUParticles2D
-@onready var particles_r = $CPUParticles2D2
+@onready var on_particles = $CPUParticles2D
 @onready var weapon_collisions = $barrier_area/CollisionShape2D
 @onready var barrier_plain = $Sprite2D
 
@@ -23,33 +22,29 @@ func _process(delta):
 	if global.barrier_energy and barrier_visible:
 		if !barrier_active:
 			barrier_active = true
-			particles_l.emitting = true
-			particles_r.emitting = true
+			on_particles.emitting = true
 			weapon_collisions.disabled = false
 		shield_barriers.rotation += rotation_speed
 		shield_barriers_2.rotation -= rotation_speed
 	if !global.barrier_energy and barrier_active:
-		particles_l.emitting = false
-		particles_r.emitting = false
+		on_particles.emitting = false
 		weapon_collisions.disabled = true
 		barrier_active = false		
 		animated_sprite.visible = false
 		collision_shape_main.disabled = true
 		barrier_area.monitoring = false
 		barrier_area.monitorable = false
-		animation_player.play("recharge")
 		timer.start()
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	#animated_sprite.play()
 	animation_player.play("active_barrier")
-	particles_l.emitting = true
-	particles_r.emitting = true
+	animated_sprite.play()
+	on_particles.emitting = true
 	barrier_visible = true
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	#animated_sprite.stop()
+	animated_sprite.stop()
 	animation_player.stop()
 	barrier_visible = false
 
