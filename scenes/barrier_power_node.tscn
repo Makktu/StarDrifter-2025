@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://di2g4i2gclvga"]
 
-[ext_resource type="Script" path="res://scripts/barrier_power_node.gd" id="1_fx2ie"]
+[ext_resource type="Script" uid="uid://brwmqcugkbv61" path="res://scripts/barrier_power_node.gd" id="1_fx2ie"]
 [ext_resource type="Texture2D" uid="uid://b16h2v4hnrh4k" path="res://Assets/graphics/env_graphics/energy_symbol_small1.png" id="1_svm0t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fk2pq"]

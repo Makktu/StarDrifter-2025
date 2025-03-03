@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cph3l0chuxd5s"]
 
-[ext_resource type="Script" path="res://scripts/enemy_spawner.gd" id="1_jbk74"]
+[ext_resource type="Script" uid="uid://n6db2r6775ef" path="res://scripts/enemy_spawner.gd" id="1_jbk74"]
 [ext_resource type="PackedScene" uid="uid://dvl3pvifd1l2h" path="res://scenes/enemy_portal.tscn" id="2_lkdip"]
 [ext_resource type="PackedScene" uid="uid://xucx4fy8o8o7" path="res://scenes/radio_tower.tscn" id="3_muf01"]
 

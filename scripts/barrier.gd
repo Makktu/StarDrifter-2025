@@ -17,8 +17,11 @@ var barrier_visible = false
 var barrier_active = true
 var rotation_speed = 0.1
 var barrier_hp = 100
+var player_taking_area_damage = false
 
 func _process(delta):
+	if player_taking_area_damage:
+		global.player_energy -= 0.05
 	if global.barrier_energy and barrier_visible:
 		if !barrier_active:
 			barrier_active = true
@@ -61,3 +64,15 @@ func _on_timer_timeout():
 	barrier_area.monitoring = true
 	barrier_area.monitorable = true
 	barrier_active = true
+
+
+func _on_wider_collision_area_area_entered(area: Area2D) -> void:
+	if area.name == "player_enemy_collision":
+		print("Player entered barrier area")
+		player_taking_area_damage = true
+
+
+func _on_wider_collision_area_area_exited(area: Area2D) -> void:
+	if area.name == "player_enemy_collision":
+		print("Player left barrier area")
+		player_taking_area_damage = false

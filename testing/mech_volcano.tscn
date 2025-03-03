@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dg2b6jfuw3ev5"]
 
 [ext_resource type="Texture2D" uid="uid://bgmq8ckqmxeoo" path="res://Assets/graphics/volcano.png" id="1_iibbv"]
-[ext_resource type="Script" path="res://scripts/mech_volcano.gd" id="2_t24in"]
+[ext_resource type="Script" uid="uid://cc4nurmhtnuih" path="res://scripts/mech_volcano.gd" id="2_t24in"]
 
 [node name="mech_volcano" type="Sprite2D"]
 modulate = Color(0.292113, 0.793753, 7.70092e-07, 1)

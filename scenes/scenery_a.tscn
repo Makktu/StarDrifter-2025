@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b6lsiucbew72"]
 
-[ext_resource type="Script" path="res://scripts/scenery_a.gd" id="1_etk8j"]
+[ext_resource type="Script" uid="uid://b1k7hjxsmehc5" path="res://scripts/scenery_a.gd" id="1_etk8j"]
 [ext_resource type="Texture2D" uid="uid://cviid7igougtl" path="res://Assets/graphics/tile-background.png" id="2_0yj3d"]
 
 [sub_resource type="Animation" id="Animation_0qktl"]
@@ -37,8 +37,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ummhs"]
 _data = {
-"RESET": SubResource("Animation_0qktl"),
-"pulse": SubResource("Animation_ghfuq")
+&"RESET": SubResource("Animation_0qktl"),
+&"pulse": SubResource("Animation_ghfuq")
 }
 
 [node name="scenery_a" type="Node2D"]

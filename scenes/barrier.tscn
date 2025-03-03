@@ -1,6 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://urikvarb8x7l"]
+[gd_scene load_steps=20 format=3 uid="uid://urikvarb8x7l"]
 
-[ext_resource type="Script" path="res://scripts/barrier.gd" id="1_hmq70"]
+[ext_resource type="Script" uid="uid://ck7aio83dlt0j" path="res://scripts/barrier.gd" id="1_hmq70"]
 [ext_resource type="Texture2D" uid="uid://cscgxadgvdsdu" path="res://Assets/graphics/another_barrier_draft.png" id="3_iq42w"]
 [ext_resource type="Texture2D" uid="uid://cjrk7a34v7ig" path="res://Assets/graphics/shield_barriers.png" id="3_uhxx3"]
 [ext_resource type="Texture2D" uid="uid://c60hx04ukcycb" path="res://Assets/graphics/barrier_plain.png" id="4_37vrj"]
@@ -109,9 +109,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i1rbe"]
 _data = {
-"RESET": SubResource("Animation_qpm3r"),
-"active_barrier": SubResource("Animation_hp3kr")
+&"RESET": SubResource("Animation_qpm3r"),
+&"active_barrier": SubResource("Animation_hp3kr")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1iay1"]
+radius = 315.56
 
 [node name="barrier" type="StaticBody2D"]
 modulate = Color(0.290055, 0.723581, 0.500269, 1)
@@ -122,6 +125,7 @@ position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_di4dj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_ycsxx")
 frame_progress = 0.721925
 
@@ -149,18 +153,22 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_i1rbe")
+&"": SubResource("AnimationLibrary_i1rbe")
 }
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(1, -1)
-emitting = false
-amount = 20
-lifetime = 0.01
-speed_scale = 2.0
+amount = 100
+lifetime = 0.5
+explosiveness = 0.3
+randomness = 0.04
+lifetime_randomness = 0.12
 emission_shape = 3
-emission_rect_extents = Vector2(350, 40)
+emission_rect_extents = Vector2(330, 20)
+direction = Vector2(0, 0)
 gravity = Vector2(0, 0)
+orbit_velocity_min = -1.0
+orbit_velocity_max = 1.0
 scale_amount_min = 2.0
 scale_amount_max = 4.0
 color = Color(0.623529, 0.956863, 0.603922, 1)
@@ -172,8 +180,15 @@ position = Vector2(5.72205e-06, 0)
 scale = Vector2(0.88, 1)
 texture = ExtResource("4_37vrj")
 
+[node name="wider_collision_area" type="Area2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wider_collision_area"]
+shape = SubResource("CircleShape2D_1iay1")
+
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
-[connection signal="area_entered" from="barrier_area" to="." method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="barrier_area" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="wider_collision_area" to="." method="_on_wider_collision_area_area_entered"]
+[connection signal="area_exited" from="wider_collision_area" to="." method="_on_wider_collision_area_area_exited"]
+[connection signal="body_entered" from="wider_collision_area" to="." method="_on_wider_collision_area_body_entered"]

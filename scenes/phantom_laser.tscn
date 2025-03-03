@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bn53ruir3jnpo"]
 
-[ext_resource type="Script" path="res://scripts/phantom_laser.gd" id="1_0u8k2"]
+[ext_resource type="Script" uid="uid://duu8qjbyn4s4a" path="res://scripts/phantom_laser.gd" id="1_0u8k2"]
 [ext_resource type="PackedScene" uid="uid://cpih4mn1vrtr5" path="res://scenes/impact_particles.tscn" id="2_y7li3"]
 
 [sub_resource type="Gradient" id="Gradient_j3ywx"]

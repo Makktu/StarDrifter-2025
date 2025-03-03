@@ -430,6 +430,11 @@ its width and height makes it look much better, but the overall
 'barrierness' is still not right. Need a new concept for it or to improve
 either of the two existing beyond current levels.
 
+### Mon 3 Mar 2025
+Another day off yesterday - only the 2nd since this new phase began.
+Today: work on the energy barrier. Switching away from imported sprite-based
+graphics to a particles node. Much more promising. 
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON

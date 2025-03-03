@@ -1,13 +1,13 @@
 [gd_scene load_steps=21 format=3 uid="uid://b2360ojxsegcj"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_2n4p6"]
+[ext_resource type="Script" uid="uid://iyl3i8mrhfje" path="res://scripts/player.gd" id="1_2n4p6"]
 [ext_resource type="Texture2D" uid="uid://d6ffqje4owhg" path="res://Assets/graphics/Lander_3.png" id="1_58gib"]
-[ext_resource type="Script" path="res://scripts/Camera2D.gd" id="3_7kmc0"]
+[ext_resource type="Script" uid="uid://npg0b1akgjyc" path="res://scripts/Camera2D.gd" id="3_7kmc0"]
 [ext_resource type="Texture2D" uid="uid://dh2vu2v8tr85d" path="res://Assets/graphics/Sprite-0002.png" id="4_knjd2"]
 [ext_resource type="Texture2D" uid="uid://blbbowode8v7e" path="res://Assets/graphics/pickup_shield.png" id="4_lswx7"]
 [ext_resource type="PackedScene" uid="uid://b47pdejejhyjn" path="res://scenes/hud.tscn" id="4_ok8lk"]
 [ext_resource type="Texture2D" uid="uid://cyu6jckk1nbvj" path="res://Assets/graphics/Sprite-0003.png" id="5_x5nsf"]
-[ext_resource type="Script" path="res://scripts/Thrust_Manager.gd" id="5_x14mg"]
+[ext_resource type="Script" uid="uid://dmkpaymoc6i7i" path="res://scripts/Thrust_Manager.gd" id="5_x14mg"]
 [ext_resource type="Texture2D" uid="uid://cb4dtes4mma8h" path="res://Assets/graphics/Sprite-0004.png" id="6_a4c0k"]
 [ext_resource type="AudioStream" uid="uid://bbi7wvoqrg21o" path="res://Assets/sfx/player_sfx/thrust_begins1.wav" id="8_gdvxp"]
 [ext_resource type="AudioStream" uid="uid://ccmet6w3828ad" path="res://Assets/sfx/player_sfx/thrust_mid1.wav" id="9_ohpnd"]
@@ -124,9 +124,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p7o0u"]
 _data = {
-"RESET": SubResource("Animation_gjqaa"),
-"damage_light": SubResource("Animation_vqsqh"),
-"shields_up": SubResource("Animation_vmwmv")
+&"RESET": SubResource("Animation_gjqaa"),
+&"damage_light": SubResource("Animation_vqsqh"),
+&"shields_up": SubResource("Animation_vmwmv")
 }
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
@@ -151,7 +151,6 @@ drag_bottom_margin = 0.1
 script = ExtResource("3_7kmc0")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
 position = Vector2(5.55, 0.16)
 rotation = 1.5708
 polygon = PackedVector2Array(4.83993, -19.45, 29.8401, 29.5499, 18.8401, 26.5499, 6.84009, 24.55, -1.15989, 29.55, -9.15991, 25.55, -18.1599, 25.5501, -28.1599, 28.5501, -1.1601, -26.45)
@@ -244,7 +243,7 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_p7o0u")
+&"": SubResource("AnimationLibrary_p7o0u")
 }
 
 [node name="pewpewpew" type="AudioStreamPlayer" parent="."]

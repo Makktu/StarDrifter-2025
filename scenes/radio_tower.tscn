@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://xucx4fy8o8o7"]
 
 [ext_resource type="Texture2D" uid="uid://uu0huctsljiq" path="res://Assets/graphics/energy_tower.png" id="1_ffg76"]
-[ext_resource type="Script" path="res://scripts/radio_tower.gd" id="2_4yfhn"]
+[ext_resource type="Script" uid="uid://bxalhbeyadyiy" path="res://scripts/radio_tower.gd" id="2_4yfhn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yglt6"]
 size = Vector2(16, 115)

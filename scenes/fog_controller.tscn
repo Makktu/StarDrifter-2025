@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://f2nn5ymotsrs"]
 
-[ext_resource type="Script" path="res://scripts/fog_controller.gd" id="1_un01m"]
+[ext_resource type="Script" uid="uid://my7dnkmwb36x" path="res://scripts/fog_controller.gd" id="1_un01m"]
 [ext_resource type="Texture2D" uid="uid://byccgxsk8nkrs" path="res://Assets/graphics/fog01.png" id="2_lobax"]
 
 [node name="fog_controller" type="Node2D"]

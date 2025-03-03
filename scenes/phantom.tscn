@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://cfbwfa6t0e240"]
 
-[ext_resource type="Script" path="res://scripts/phantom.gd" id="1_obxnw"]
+[ext_resource type="Script" uid="uid://c64y7xp73kudn" path="res://scripts/phantom.gd" id="1_obxnw"]
 [ext_resource type="Texture2D" uid="uid://dmc8qaa0t62jn" path="res://Assets/graphics/phantom4.png" id="2_io1nb"]
 [ext_resource type="Texture2D" uid="uid://djmmfcjybfgtb" path="res://Assets/graphics/phantom_explosion_spritesheet/phantom_explosion_sheet.png" id="3_jdki4"]
 
@@ -44,8 +44,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p2n61"]
 _data = {
-"RESET": SubResource("Animation_wnu76"),
-"phantom_hit": SubResource("Animation_vcjxy")
+&"RESET": SubResource("Animation_wnu76"),
+&"phantom_hit": SubResource("Animation_vcjxy")
 }
 
 [sub_resource type="Gradient" id="Gradient_bd50q"]
