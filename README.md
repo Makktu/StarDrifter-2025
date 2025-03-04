@@ -435,6 +435,12 @@ Another day off yesterday - only the 2nd since this new phase began.
 Today: work on the energy barrier. Switching away from imported sprite-based
 graphics to a particles node. Much more promising. 
 
+### Tue 4 Mar 2025
+Still problem with updated Godot not showing laser particle effects.
+Worked on appearance of barrier - still poor logic to behaviour though.
+
+### Wed 5 Mar 2025
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON
