@@ -32,6 +32,7 @@ func _process(delta):
 func shoot_laser():
 	if ray_cast.is_colliding():
 		var collision_point = ray_cast.get_collision_point()
+		print(collision_point)
 		var collider = ray_cast.get_collider()
 		
 		# Update visual laser length to collision point
@@ -45,8 +46,13 @@ func shoot_laser():
 			
 			# Create new particle effect
 			current_particle_effect = impact_particles.instantiate()
-			get_tree().root.add_child(current_particle_effect)
+			get_tree().get_root().add_child(current_particle_effect)
 			current_particle_effect.global_position = collision_point
+			# Ensure particles are emitting (in case auto-emission was changed in 4.4)
+			if current_particle_effect.has_node("collision_particles"):
+				current_particle_effect.get_node("collision_particles").scale.x = 0.1
+				current_particle_effect.get_node("collision_particles").scale.y = 0.1				
+				current_particle_effect.get_node("collision_particles").emitting = true
 			
 		# Get the actual node (either the collider or its parent)
 		var hit_object = collider.get_parent() if collider.get_parent() else collider

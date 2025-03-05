@@ -440,6 +440,9 @@ Still problem with updated Godot not showing laser particle effects.
 Worked on appearance of barrier - still poor logic to behaviour though.
 
 ### Wed 5 Mar 2025
+Found the phantom laser particle effect bug (simple z-index thing...).
+
+### Thu 6 Mar 2025
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
