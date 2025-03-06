@@ -11,15 +11,17 @@ var time_to_next_phase_in = 4.0 # time in seconds to next appearance on map
 @onready var animation_player = $AnimationPlayer
 @onready var blow_up_anim = $AnimatedSprite2D
 @onready var collision_particles = $collision_particles
+@onready var bullet_area = $bullet_area
+@onready var second_collision_shape = $bullet_area/CollisionShape2D
 
 var enemy_speed = 10
 var rotation_speed = 2.0  # smoother tracking
 var phantom_active = false
-var phantom_energy = 1
+var phantom_energy = 4
 
 
 func _physics_process(delta):
-	if phantom_active: # if phantom is not on-screen, phantom is inert	
+	if phantom_active: # if phantom is not on-screen or faded out, phantom is inert	
 		var direction = global_position.direction_to(the_player.global_position)
 		var target_angle = direction.angle()
 		rotation = lerp_angle(rotation, target_angle, rotation_speed * delta)
@@ -28,11 +30,10 @@ func _physics_process(delta):
 		if phantom_energy <= 0:
 			fire_timer.stop()
 			phantom_active = false
-			fire_timer.stop() # stop all firing actions
 			fade_out()
-			blow_up_anim.visible = true
-			collision_particles.emitting = true
-			blow_up_anim.play("blowup")			
+			#blow_up_anim.visible = true
+			#collision_particles.emitting = true
+			#blow_up_anim.play("blowup")			
 	
 func fade_out():
 	# create Tween object
@@ -42,10 +43,31 @@ func fade_out():
 		sprite, 
 		"modulate:a", 
 		0.0,  # Target alpha
-		5.0   # Duration in seconds
+		2.0   # Duration in seconds
 		).set_ease(Tween.EASE_IN_OUT)
 	phantom_active = false
 	collision_shape.disabled = true
+	second_collision_shape.disabled = true
+	bullet_area.monitoring = false
+	bullet_area.monitorable = false
+	phase_timer.start()
+	
+func fade_in():
+	# create Tween object
+	var tween = get_tree().create_tween()
+	# Tween the alpha value back to 0
+	tween.tween_property(
+		sprite, 
+		"modulate:a", 
+		1.0,  # Target alpha
+		2.0   # Duration in seconds
+		).set_ease(Tween.EASE_IN_OUT)
+	phantom_active = true
+	collision_shape.disabled = false
+	second_collision_shape.disabled = false
+	bullet_area.monitoring = true
+	bullet_area.monitorable = true
+	fire_timer.start()
 
 
 func _on_visible_on_screen_enabler_2d_screen_entered():
@@ -72,10 +94,7 @@ func _on_bullet_area_area_entered(area):
 		phantom_energy -= 1
 
 
-func _on_animated_sprite_2d_animation_finished():
-	queue_free()
-
-
-func _on_animated_sprite_2d_animation_looped():
-	print("It was the looper")
-	queue_free()
+func _on_phase_timer_timeout():
+	phantom_energy = 4
+	phantom_active = true
+	fade_in()

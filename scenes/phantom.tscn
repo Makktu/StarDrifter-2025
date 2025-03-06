@@ -132,7 +132,7 @@ rotation = 1.56192
 shape = SubResource("CapsuleShape2D_d1hfl")
 
 [node name="PhaseTimer" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 10.0
 one_shot = true
 
 [node name="FireTimer" type="Timer" parent="."]
@@ -156,7 +156,7 @@ shape = SubResource("CapsuleShape2D_orsas")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_p2n61")
+&"": SubResource("AnimationLibrary_p2n61")
 }
 
 [node name="collision_particles" type="CPUParticles2D" parent="."]

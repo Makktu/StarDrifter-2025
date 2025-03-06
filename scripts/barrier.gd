@@ -14,7 +14,7 @@ extends StaticBody2D
 
 var barrier_visible = false
 var barrier_active = true
-var rotation_speed = 0.1
+var rotation_speed = 0.05
 var player_taking_area_damage = false
 
 func _process(delta):
@@ -27,8 +27,8 @@ func _process(delta):
 			barrier_active = true
 			on_particles.emitting = true
 			weapon_collisions.disabled = false
-		shield_barriers.rotation += rotation_speed
-		shield_barriers_2.rotation -= rotation_speed
+		#shield_barriers.scale.x += rotation_speed
+		#shield_barriers_2.rotation -= rotation_speed
 	if !global.barrier_energy and barrier_active:
 		on_particles.emitting = false
 		weapon_collisions.disabled = true

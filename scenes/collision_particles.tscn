@@ -4,7 +4,7 @@
 colors = PackedColorArray(3.51354e-06, 0.77038, 3.08037e-06, 1, 1, 1, 1, 0)
 
 [node name="collision_particles" type="Node2D"]
-z_index = 10
+z_index = -1
 
 [node name="collision_particles" type="CPUParticles2D" parent="."]
 emitting = false

@@ -6,9 +6,11 @@
 colors = PackedColorArray(6.30513e-06, 0.678847, 9.62615e-07, 1, 1, 1, 1, 0)
 
 [node name="impact_particles" type="Node2D"]
+z_index = 10
 script = ExtResource("1_c0ium")
 
 [node name="collision_particles" type="CPUParticles2D" parent="."]
+z_index = 10
 emitting = false
 amount = 40
 lifetime = 3.0
