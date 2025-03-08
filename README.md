@@ -446,7 +446,7 @@ Found the phantom laser particle effect bug (simple z-index thing...).
 Back to making the Phantoms fade in and out - working on logic, game balance etc.
 
 ### Fri 7 March 2025
-
+Changed barrier generator gfx and worked on behaviour.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

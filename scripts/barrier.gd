@@ -11,6 +11,8 @@ extends StaticBody2D
 @onready var on_particles = $CPUParticles2D
 @onready var weapon_collisions = $barrier_area/CollisionShape2D
 @onready var wider_collision_area = $wider_collision_area
+@onready var barrier_particles_1 = $ShieldBarriers/CPUParticles2D
+@onready var barrier_particles_2 = $ShieldBarriers2/CPUParticles2D
 
 var barrier_visible = false
 var barrier_active = true
@@ -26,11 +28,15 @@ func _process(delta):
 		if !barrier_active:
 			barrier_active = true
 			on_particles.emitting = true
+			barrier_particles_1.emitting = true
+			barrier_particles_2.emitting = true
 			weapon_collisions.disabled = false
 		#shield_barriers.scale.x += rotation_speed
 		#shield_barriers_2.rotation -= rotation_speed
 	if !global.barrier_energy and barrier_active:
 		on_particles.emitting = false
+		barrier_particles_1.emitting = false
+		barrier_particles_2.emitting = false
 		weapon_collisions.disabled = true
 		wider_collision_area.monitoring = false
 		barrier_active = false		
@@ -41,11 +47,15 @@ func _process(delta):
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	on_particles.emitting = true
+	barrier_particles_1.emitting = true
+	barrier_particles_2.emitting = true
 	barrier_visible = true
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	on_particles.emitting = false
+	barrier_particles_1.emitting = false
+	barrier_particles_2.emitting = false
 	barrier_visible = false
 
 func _on_timer_timeout():

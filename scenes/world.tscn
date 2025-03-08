@@ -388,14 +388,13 @@ scale = Vector2(0.423, 0.575)
 position = Vector2(831, 4095)
 
 [node name="barrier_2" type="Node2D" parent="energy_barriers_and_nodes"]
+position = Vector2(7153, -3508)
 
 [node name="barrier2" parent="energy_barriers_and_nodes/barrier_2" instance=ExtResource("10_uw7u5")]
-position = Vector2(934, 8217)
-rotation = -0.724525
-scale = Vector2(0.5, 0.575)
+position = Vector2(935, 7779)
 
 [node name="barrier_power_node" parent="energy_barriers_and_nodes/barrier_2" instance=ExtResource("11_crtno")]
-position = Vector2(834, 7950)
+position = Vector2(255, 7111)
 
 [node name="barrier_3" type="Node2D" parent="energy_barriers_and_nodes"]
 position = Vector2(966, 5442)
