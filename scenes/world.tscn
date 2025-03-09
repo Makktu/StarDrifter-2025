@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cy8am7rjugpas"]
+[gd_scene load_steps=14 format=3 uid="uid://cy8am7rjugpas"]
 
 [ext_resource type="Script" uid="uid://bb01lkjsefxhy" path="res://scripts/world.gd" id="1_ybue2"]
 [ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/parallax_background.tscn" id="2_s8res"]
@@ -66,9 +66,6 @@ glow_normalized = true
 glow_intensity = 2.73
 glow_strength = 1.27
 fog_enabled = true
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0efts"]
-size = Vector2(20, 273.101)
 
 [node name="World" type="Node2D"]
 material = SubResource("ShaderMaterial_ad33l")
@@ -365,16 +362,6 @@ position = Vector2(2547, 6980)
 [node name="pickup_spawnpoint22" parent="pickups" instance=ExtResource("13_rgwox")]
 position = Vector2(2964, 6867)
 
-[node name="special_areas" type="Node" parent="."]
-
-[node name="first_boss" type="Area2D" parent="special_areas"]
-position = Vector2(2229, 7298)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="special_areas/first_boss"]
-rotation = 0.403343
-shape = SubResource("RectangleShape2D_0efts")
-
 [node name="energy_barriers_and_nodes" type="Node" parent="."]
 
 [node name="barrier_1" type="Node2D" parent="energy_barriers_and_nodes"]
@@ -424,7 +411,4 @@ position = Vector2(-23, -37)
 scale = Vector2(0.55, 0.575)
 
 [node name="barrier_power_node" parent="energy_barriers_and_nodes/barrier_5" instance=ExtResource("11_crtno")]
-position = Vector2(47, 1882)
-
-[connection signal="area_entered" from="special_areas/first_boss" to="." method="_on_first_boss_area_entered"]
-[connection signal="body_entered" from="special_areas/first_boss" to="." method="_on_first_boss_body_entered"]
+position = Vector2(-344, 817)

@@ -5,12 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://djmmfcjybfgtb" path="res://Assets/graphics/phantom_explosion_spritesheet/phantom_explosion_sheet.png" id="3_jdki4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d1hfl"]
-radius = 23.3324
-height = 79.9968
+radius = 38.9511
+height = 156.66
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_orsas"]
-radius = 26.6096
-height = 86.6628
+radius = 224.871
+height = 874.487
 
 [sub_resource type="Animation" id="Animation_wnu76"]
 length = 0.001
@@ -116,19 +116,19 @@ animations = [{
 }]
 
 [node name="Phantom" type="CharacterBody2D"]
-scale = Vector2(0.4, 0.4)
 collision_layer = 3
 script = ExtResource("1_obxnw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.19209e-07, 0)
 rotation = 1.5708
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_io1nb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6.66667, 5.58793e-09)
+position = Vector2(-5, 0)
 rotation = 1.56192
+scale = Vector2(0.2, 0.2)
 shape = SubResource("CapsuleShape2D_d1hfl")
 
 [node name="PhaseTimer" type="Timer" parent="."]
@@ -140,18 +140,20 @@ wait_time = 6.0
 one_shot = true
 
 [node name="LaserSpawn" type="Marker2D" parent="."]
-position = Vector2(60, 0)
+position = Vector2(31, 0)
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(-10.0001, -1.66672)
 scale = Vector2(113.667, 155.167)
 
 [node name="bullet_area" type="Area2D" parent="."]
+scale = Vector2(0.2, 0.2)
 metadata/enemy1 = ""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bullet_area"]
-position = Vector2(-6.66667, -3.10441e-09)
+position = Vector2(-22.5, 1.19209e-07)
 rotation = 1.56132
+scale = Vector2(0.2, 0.2)
 shape = SubResource("CapsuleShape2D_orsas")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

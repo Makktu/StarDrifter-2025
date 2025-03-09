@@ -448,6 +448,9 @@ Back to making the Phantoms fade in and out - working on logic, game balance etc
 ### Fri 7 March 2025
 Changed barrier generator gfx and worked on behaviour.
 
+### Sat 8 March 2025
+Phantom scene needed work to resolve transform area.
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON
