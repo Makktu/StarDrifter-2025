@@ -1,19 +1,22 @@
 extends Node2D
 
+@onready var cpu_particles_2d = $CPUParticles2D
 @onready var global = $/root/Global
+
 const enemy_basic = preload("res://scenes/enemy_1.tscn")
+
 var amount_spawned = 0
 var max_can_spawn = 100
 var spawner_active = false	
-var hp : int = 100
+var pre_spawn_particles : bool = false
 
 
-func add_new_enemy():
+func add_new_enemy():	
 	if spawner_active and amount_spawned < max_can_spawn:
 		if $"/root/Global".dev_enemies_on:
 			var enemy_instance = enemy_basic.instantiate()
-			enemy_instance.scale.x = 0.75
-			enemy_instance.scale.y = 0.75
+			enemy_instance.scale.x = 0.2
+			enemy_instance.scale.y = 0.2
 			add_child(enemy_instance)
 			amount_spawned += 1
 			global.swarmers_active += 1

@@ -51,7 +51,7 @@ script = ExtResource("2_o8yb3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_p6auc")
+&"": SubResource("AnimationLibrary_p6auc")
 }
 
 [node name="energy_area" type="Area2D" parent="."]

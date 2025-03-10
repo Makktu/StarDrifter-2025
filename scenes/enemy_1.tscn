@@ -110,6 +110,7 @@ script = ExtResource("1_yg4mo")
 deathBlowUp = ExtResource("2_e7jgf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 texture = ExtResource("2_q3xjh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

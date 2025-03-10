@@ -454,6 +454,11 @@ Phantom scene needed work to resolve transform area.
 ### Sun 9 March 2025
 Major rethink of swarmer spawner begun.
 
+### Mon 10 March 2025
+Rethink of swarmer spawner complete.
+Change to barrier graphics.
+(Consider wormhole passage after beating enemies?)
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON

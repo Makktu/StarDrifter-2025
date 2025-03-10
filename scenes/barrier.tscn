@@ -40,7 +40,7 @@ scale = Vector2(53.15, 29)
 
 [node name="ShieldBarriers" type="Sprite2D" parent="." groups=["barrier_generators"]]
 position = Vector2(-353, -5)
-scale = Vector2(2, 2)
+scale = Vector2(2.75, 2.75)
 texture = ExtResource("3_uhxx3")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="ShieldBarriers"]
@@ -55,7 +55,7 @@ gravity = Vector2(0, 0)
 
 [node name="ShieldBarriers2" type="Sprite2D" parent="." groups=["barrier_generators"]]
 position = Vector2(354, -1)
-scale = Vector2(2, 2)
+scale = Vector2(2.75, 2.75)
 texture = ExtResource("3_uhxx3")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="ShieldBarriers2"]

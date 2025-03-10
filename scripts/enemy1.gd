@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var the_player = get_tree().get_nodes_in_group("player")[0]
 @onready var global = $/root/Global
 @onready var life_timer = $LifeTimer
+@onready var sprite = $Sprite2D
 
 var enemy_speed : float = 3.0
 var enemy_speed_orig : int = enemy_speed
@@ -20,16 +21,27 @@ var distance_from_player : float
 var alerted_distance_from_player: int = 200
 
 func _ready():
-	if global.random_float_number(1, 10) > (10 - global.global_difficulty):
+	# fade in!
+	if global.random_float_number(1, 11) > (10 - global.global_difficulty):
 		# each spawner has random chance of being double speed
 		# will always multiple base speed by global difficulty
 		# (default = 1, so this will be 1 + 1 = 2, doubling it)
-		enemy_speed *= (global.global_difficulty + 1)
+		enemy_speed *= (global.global_difficulty + 1) * 1.5
 		enemy_speed_orig = enemy_speed
+	fade_in()
+		
+func fade_in():
+	# create Tween object
+	var tween = get_tree().create_tween()
+	# Tween the alpha value back to 0
+	tween.tween_property(
+		sprite, 
+		"modulate:a", 
+		1.0,  # Target alpha
+		0.35   # Duration in seconds
+		).set_ease(Tween.EASE_IN_OUT)
 
 func _physics_process(delta):
-	#if $"/root/Global".smart_bomb_active and this_enemy_onscreen:
-		#_on_extinction_timer_timeout()
 	if global.swarmers_active > enemy_speed / 2 and enemy_speed <= max_enemy_speed:
 		enemy_speed += 0.05
 	rotation_degrees += rotation_speed
