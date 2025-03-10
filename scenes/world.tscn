@@ -192,7 +192,12 @@ position = Vector2(1552, 3500)
 position = Vector2(1084, 3662)
 
 [node name="enemy_spawner19" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(750, 3811)
+position = Vector2(847, 3982)
+rotation = 0.501188
+
+[node name="enemy_spawner31" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(791, 3823)
+rotation = 0.501188
 
 [node name="enemy_spawner8" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
 position = Vector2(1026, 4575)

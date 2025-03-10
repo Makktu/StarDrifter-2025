@@ -451,6 +451,9 @@ Changed barrier generator gfx and worked on behaviour.
 ### Sat 8 March 2025
 Phantom scene needed work to resolve transform area.
 
+### Sun 9 March 2025
+Major rethink of swarmer spawner begun.
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON

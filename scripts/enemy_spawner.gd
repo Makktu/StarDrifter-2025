@@ -5,6 +5,7 @@ const enemy_basic = preload("res://scenes/enemy_1.tscn")
 var amount_spawned = 0
 var max_can_spawn = 100
 var spawner_active = false	
+var hp : int = 100
 
 
 func add_new_enemy():

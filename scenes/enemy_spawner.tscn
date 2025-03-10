@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cph3l0chuxd5s"]
+[gd_scene load_steps=2 format=3 uid="uid://cph3l0chuxd5s"]
 
 [ext_resource type="Script" uid="uid://n6db2r6775ef" path="res://scripts/enemy_spawner.gd" id="1_jbk74"]
-[ext_resource type="PackedScene" uid="uid://dvl3pvifd1l2h" path="res://scenes/enemy_portal.tscn" id="2_lkdip"]
-[ext_resource type="PackedScene" uid="uid://xucx4fy8o8o7" path="res://scenes/radio_tower.tscn" id="3_muf01"]
 
 [node name="enemy_spawner" type="Node2D"]
 scale = Vector2(0.2, 0.2)
@@ -12,16 +10,9 @@ script = ExtResource("1_jbk74")
 wait_time = 5.0
 one_shot = true
 
-[node name="enemy_portal" parent="." instance=ExtResource("2_lkdip")]
-visible = false
-
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(13.5, 57)
 scale = Vector2(53.95, 79.6)
-
-[node name="collision_area" parent="." instance=ExtResource("3_muf01")]
-position = Vector2(5, 230)
-scale = Vector2(2, 2)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

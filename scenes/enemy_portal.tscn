@@ -22,9 +22,9 @@ script = ExtResource("1_hgpp5")
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 1500
+texture = SubResource("GradientTexture2D_23k4r")
 lifetime = 0.3
 speed_scale = 2.56
-texture = SubResource("GradientTexture2D_23k4r")
 emission_shape = 1
 emission_sphere_radius = 96.0
 particle_flag_align_y = true
