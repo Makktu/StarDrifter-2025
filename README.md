@@ -459,6 +459,12 @@ Rethink of swarmer spawner complete.
 Change to barrier graphics.
 (Consider wormhole passage after beating enemies?)
 
+### Tue 11 March 2025
+Urgently needs Swarmer refinement.
+And barrier refinement.
+Tried a couple of things ('wormholing' past barriers, and Swarmers
+exploding on any collision) that didn't quite work. Yet?
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON

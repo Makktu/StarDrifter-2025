@@ -50,8 +50,10 @@ func _physics_process(delta):
 	move_and_collide(velocity)			
 	
 	var collided := move_and_collide(velocity * delta)			
-	if collided and rotation_speed <= 4:
-		rotation_speed += 0.25
+	#if collided and rotation_speed <= 4:
+		#rotation_speed += 0.25
+	if collided:
+		_trigger_explosion()
 		
 	var player_position = the_player.global_position
 	var mine_position = global_transform.origin

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dvl3pvifd1l2h"]
 
-[ext_resource type="Script" uid="uid://b8vq4xw8yfuc6" path="res://scripts/enemy_portal.gd" id="1_hgpp5"]
+[ext_resource type="Script" uid="uid://b8vq4xw8yfuc6" path="res://scripts/enemy_portal.gd" id="1_6p3r6"]
 
 [sub_resource type="Gradient" id="Gradient_6xry4"]
 colors = PackedColorArray(1, 0.611733, 0.553376, 1, 0.373538, 0.568566, 1, 1)
@@ -16,8 +16,8 @@ colors = PackedColorArray(0, 0.917647, 0, 1, 0.912626, 0.943891, 0.997185, 1)
 [sub_resource type="Gradient" id="Gradient_y74ob"]
 colors = PackedColorArray(1.49657e-07, 0.104482, 1.14311e-07, 1, 0.0117647, 0.870588, 0.211765, 1)
 
-[node name="enemy_portal" type="Node2D"]
-script = ExtResource("1_hgpp5")
+[node name="warp_node" type="Node2D"]
+script = ExtResource("1_6p3r6")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false

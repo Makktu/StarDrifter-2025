@@ -102,7 +102,7 @@ polygon = PackedVector2Array(-2854, -1249.4, -2854, -1245.6, -2866.6, -1241, -28
 
 [node name="Player" parent="." instance=ExtResource("3_pecdv")]
 modulate = Color(0.282353, 1, 0.317647, 1)
-position = Vector2(2051, 9209)
+position = Vector2(853, 3727)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)
 
@@ -374,10 +374,10 @@ position = Vector2(2964, 6867)
 [node name="barrier" parent="energy_barriers_and_nodes/barrier_1" instance=ExtResource("10_uw7u5")]
 position = Vector2(846, 4319)
 rotation = -0.0209832
-scale = Vector2(0.423, 0.575)
+scale = Vector2(0.75, 0.75)
 
 [node name="barrier_power_node" parent="energy_barriers_and_nodes/barrier_1" instance=ExtResource("11_crtno")]
-position = Vector2(831, 4095)
+position = Vector2(902, 3839)
 
 [node name="barrier_2" type="Node2D" parent="energy_barriers_and_nodes"]
 position = Vector2(7153, -3508)
