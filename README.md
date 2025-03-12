@@ -465,6 +465,15 @@ And barrier refinement.
 Tried a couple of things ('wormholing' past barriers, and Swarmers
 exploding on any collision) that didn't quite work. Yet?
 
+### Wed 12 March 2025
+Everything needs a rethink:
+	- bring back the radio tower spawner spawn concept
+	- add another 2x enemies (maybe 3x or 4x?)
+	- increase the speed and manoeuverability of the player craft
+	- make 'fog' affect speed (why? because!)
+	- make the barrier power nodes (if the concept stays) part of the barrier scene
+	- get a ruined planet/space station in there - decor for the environment too
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON

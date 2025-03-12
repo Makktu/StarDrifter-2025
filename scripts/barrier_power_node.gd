@@ -23,16 +23,12 @@ func _on_area_entered(area):
 		hp -= 20 # large chunk for test & debug only
 
 func _on_recharge_timer_timeout():
-	if !particles.emitting: # this will be the state if timer expires after node 'just shot'
-		particles.emitting = true
-		recharge_timer.wait_time = 2.0
-		recharge_timer.start()
+	particles.emitting = true
 	global.barrier_energy = true
 	rotation_speed = 0.2
 	hp = 100
 	global.barrier_energy = true
 	node_enabled = true
-	recharge_timer.wait_time = 8.0
 
 
 func _on_visible_on_screen_enabler_2d_screen_entered():
