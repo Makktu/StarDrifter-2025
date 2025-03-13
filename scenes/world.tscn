@@ -189,14 +189,14 @@ show_behind_parent = true
 position = Vector2(1552, 3500)
 
 [node name="enemy_spawner10" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(1084, 3662)
+position = Vector2(1085, 3730)
 
 [node name="enemy_spawner19" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(847, 3982)
+position = Vector2(887, 3584)
 rotation = 0.501188
 
 [node name="enemy_spawner31" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(791, 3823)
+position = Vector2(700, 3656)
 rotation = 0.501188
 
 [node name="enemy_spawner8" parent="enemy_spawners" instance=ExtResource("5_1eq67")]

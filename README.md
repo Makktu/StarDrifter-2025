@@ -473,6 +473,9 @@ Everything needs a rethink:
 	- make 'fog' affect speed (why? because!)
 	- make the barrier power nodes (if the concept stays) part of the barrier scene
 	- get a ruined planet/space station in there - decor for the environment too
+	
+### Thu 13 March 2025
+Started on fog-speed effect - focus on that tomorrow
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

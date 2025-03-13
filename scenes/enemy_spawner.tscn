@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cph3l0chuxd5s"]
+[gd_scene load_steps=10 format=3 uid="uid://cph3l0chuxd5s"]
 
 [ext_resource type="Script" uid="uid://n6db2r6775ef" path="res://scripts/enemy_spawner.gd" id="1_jbk74"]
+[ext_resource type="Texture2D" uid="uid://btpit2n5rmgyi" path="res://Assets/graphics/swarmer_spawner.png" id="2_devoi"]
 
 [sub_resource type="Gradient" id="Gradient_6xry4"]
 colors = PackedColorArray(1, 0.611733, 0.553376, 1, 0.373538, 0.568566, 1, 1)
@@ -15,6 +16,44 @@ colors = PackedColorArray(0, 0.917647, 0, 1, 0.912626, 0.943891, 0.997185, 1)
 
 [sub_resource type="Gradient" id="Gradient_xl0gr"]
 colors = PackedColorArray(1.49657e-07, 0.104482, 1.14311e-07, 1, 0.0117647, 0.870588, 0.211765, 1)
+
+[sub_resource type="Animation" id="Animation_xl0gr"]
+resource_name = "rotate"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.01, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_ih16b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_31irv"]
+_data = {
+&"RESET": SubResource("Animation_ih16b"),
+&"rotate": SubResource("Animation_xl0gr")
+}
 
 [node name="enemy_spawner" type="Node2D"]
 script = ExtResource("1_jbk74")
@@ -48,6 +87,15 @@ color_initial_ramp = SubResource("Gradient_xl0gr")
 hue_variation_min = -0.52
 hue_variation_max = 0.72
 anim_speed_max = 45.84
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_devoi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_31irv")
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

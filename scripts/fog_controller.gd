@@ -8,10 +8,9 @@ var fade_out_time : int
 var fade_status : String = "out" # should be next desired fade, opposite of starting state (fog is in)
 var move_fog_x : float = 0.15
 var move_fog_y : float = 0.15
-var move_fog_counter = 0
+var move_fog_counter : int = 0
 
 func _ready():
-	print("fog ready")
 	fade_timer.start()
 
 
@@ -30,9 +29,11 @@ func _on_fade_timer_timeout():
 	var target_alpha : float
 	var tween = get_tree().create_tween()
 	if fade_status == "out":
+		global.fog_on = false
 		target_alpha = 0.0
 		fade_status = "in" # always switch to next desired state
 	else:
+		global.fog_on = true
 		target_alpha = 1.0
 		fade_status = "out"
 	# Tween the alpha value to 0 or 256

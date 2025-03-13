@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var cpu_particles_2d = $CPUParticles2D
 @onready var global = $/root/Global
+@onready var animation_player = $AnimationPlayer
 
 const enemy_basic = preload("res://scenes/enemy_1.tscn")
 
@@ -9,7 +10,6 @@ var amount_spawned = 0
 var max_can_spawn = 100
 var spawner_active = false	
 var pre_spawn_particles : bool = false
-
 
 func add_new_enemy():	
 	if spawner_active and amount_spawned < max_can_spawn:
@@ -31,8 +31,10 @@ func _on_timer_timeout():
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	spawner_active = true
+	animation_player.play("rotate")
 	add_new_enemy()
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	spawner_active = false
+	animation_player.stop()
