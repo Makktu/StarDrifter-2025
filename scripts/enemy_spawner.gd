@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var cpu_particles_2d = $CPUParticles2D
 @onready var global = $/root/Global
-@onready var animation_player = $AnimationPlayer
 
 const enemy_basic = preload("res://scenes/enemy_1.tscn")
 
@@ -31,10 +30,8 @@ func _on_timer_timeout():
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	spawner_active = true
-	animation_player.play("rotate")
 	add_new_enemy()
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	spawner_active = false
-	animation_player.stop()

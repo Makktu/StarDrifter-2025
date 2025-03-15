@@ -84,6 +84,7 @@ libraries = {
 }
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
 amount = 200
 lifetime = 0.3
 explosiveness = 0.3

@@ -475,7 +475,11 @@ Everything needs a rethink:
 	- get a ruined planet/space station in there - decor for the environment too
 	
 ### Thu 13 March 2025
-Started on fog-speed effect - focus on that tomorrow
+Started on fog-speed effect - focus on that tomorrow.
+
+### Fri 14 March 2025
+Fog speed effect not good.
+Changed spawner swarmer again.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
