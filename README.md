@@ -481,6 +481,11 @@ Started on fog-speed effect - focus on that tomorrow.
 Fog speed effect not good.
 Changed spawner swarmer again.
 
+### Sat 15 March 2025
+New direction for the energy towers -
+and a new conception of the game world overall.
+"The automated ruins of a civilization."
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON

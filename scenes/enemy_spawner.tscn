@@ -1,21 +1,57 @@
-[gd_scene load_steps=7 format=3 uid="uid://cph3l0chuxd5s"]
+[gd_scene load_steps=10 format=3 uid="uid://cph3l0chuxd5s"]
 
 [ext_resource type="Script" uid="uid://n6db2r6775ef" path="res://scripts/enemy_spawner.gd" id="1_jbk74"]
-[ext_resource type="Texture2D" uid="uid://uu0huctsljiq" path="res://Assets/graphics/energy_tower.png" id="2_devoi"]
+[ext_resource type="Texture2D" uid="uid://77uodcj247ey" path="res://Assets/graphics/energy_tower-sheet_2.png" id="2_devoi"]
 
-[sub_resource type="Gradient" id="Gradient_6xry4"]
-colors = PackedColorArray(1, 0.611733, 0.553376, 1, 0.373538, 0.568566, 1, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xl0gr"]
+atlas = ExtResource("2_devoi")
+region = Rect2(0, 0, 96, 312)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ks1gq"]
-gradient = SubResource("Gradient_6xry4")
-width = 4
-height = 4
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih16b"]
+atlas = ExtResource("2_devoi")
+region = Rect2(96, 0, 96, 312)
 
-[sub_resource type="Gradient" id="Gradient_devoi"]
-colors = PackedColorArray(0, 0.917647, 0, 1, 0.912626, 0.943891, 0.997185, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_31irv"]
+atlas = ExtResource("2_devoi")
+region = Rect2(192, 0, 96, 312)
 
-[sub_resource type="Gradient" id="Gradient_xl0gr"]
-colors = PackedColorArray(1.49657e-07, 0.104482, 1.14311e-07, 1, 0.0117647, 0.870588, 0.211765, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_txvhj"]
+atlas = ExtResource("2_devoi")
+region = Rect2(288, 0, 96, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sukom"]
+atlas = ExtResource("2_devoi")
+region = Rect2(384, 0, 96, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tovkt"]
+atlas = ExtResource("2_devoi")
+region = Rect2(480, 0, 96, 312)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tovkt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xl0gr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih16b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31irv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txvhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sukom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tovkt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="enemy_spawner" type="Node2D"]
 script = ExtResource("1_jbk74")
@@ -28,34 +64,11 @@ one_shot = true
 position = Vector2(-7.62939e-06, 6.99995)
 scale = Vector2(32.7, 58.3)
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(1, 2)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 26)
 scale = Vector2(0.3, 0.3)
-amount = 40
-texture = SubResource("GradientTexture2D_ks1gq")
-lifetime = 0.3
-speed_scale = 2.56
-emission_shape = 1
-emission_sphere_radius = 128.0
-particle_flag_align_y = true
-direction = Vector2(0, 0)
-spread = 0.0
-gravity = Vector2(0, 0)
-radial_accel_min = 47.06
-radial_accel_max = 86.28
-scale_amount_min = 0.0
-scale_amount_max = 0.75
-color = Color(1, 1, 0.113725, 1)
-color_ramp = SubResource("Gradient_devoi")
-color_initial_ramp = SubResource("Gradient_xl0gr")
-hue_variation_min = -0.52
-hue_variation_max = 0.72
-anim_speed_max = 45.84
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, 56)
-scale = Vector2(0.3, 0.5)
-texture = ExtResource("2_devoi")
+sprite_frames = SubResource("SpriteFrames_tovkt")
+frame_progress = 0.741557
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
