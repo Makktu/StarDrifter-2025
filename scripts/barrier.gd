@@ -6,8 +6,6 @@ extends StaticBody2D
 @onready var shield_barriers_2 = $ShieldBarriers2
 @onready var collision_shape_main = $CollisionShape_main
 @onready var barrier_area = $barrier_area
-@onready var timer = $Timer
-@onready var animation_player = $AnimationPlayer
 @onready var on_particles = $CPUParticles2D
 @onready var weapon_collisions = $barrier_area/CollisionShape2D
 @onready var wider_collision_area = $wider_collision_area
@@ -20,6 +18,18 @@ var rotation_speed = 0.05
 var player_taking_area_damage = false
 
 func _process(delta):
+	if !global.barrier_energy:
+		if !barrier_active:
+			return
+		barrier_active = false		
+		on_particles.emitting = false
+		barrier_particles_1.emitting = false
+		barrier_particles_2.emitting = false
+		weapon_collisions.disabled = true
+		wider_collision_area.monitoring = false
+		collision_shape_main.disabled = true
+		barrier_area.monitoring = false
+		barrier_area.monitorable = false
 	if player_taking_area_damage:
 		global.player_energy -= 0.05
 	if global.barrier_energy and barrier_visible:
@@ -31,19 +41,7 @@ func _process(delta):
 			barrier_particles_1.emitting = true
 			barrier_particles_2.emitting = true
 			weapon_collisions.disabled = false
-		#shield_barriers.scale.x += rotation_speed
-		#shield_barriers_2.rotation -= rotation_speed
-	if !global.barrier_energy and barrier_active:
-		on_particles.emitting = false
-		barrier_particles_1.emitting = false
-		barrier_particles_2.emitting = false
-		weapon_collisions.disabled = true
-		wider_collision_area.monitoring = false
-		barrier_active = false		
-		collision_shape_main.disabled = true
-		barrier_area.monitoring = false
-		barrier_area.monitorable = false
-		timer.start()
+
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	on_particles.emitting = true
@@ -59,12 +57,17 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	barrier_visible = false
 
 func _on_timer_timeout():
-	animation_player.stop()
+	global.barrier_energy = true
 	collision_shape_main.disabled = false
+	wider_collision_area.monitoring = true
+	weapon_collisions.disabled = false
 	barrier_area.monitoring = true
 	barrier_area.monitorable = true
 	barrier_active = true
-
+	on_particles.emitting = true
+	barrier_particles_1.emitting = true
+	barrier_particles_2.emitting = true
+	
 
 func _on_wider_collision_area_area_entered(area: Area2D) -> void:
 	if area.name == "player_enemy_collision":

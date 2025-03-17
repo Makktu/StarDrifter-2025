@@ -1,6 +1,5 @@
 extends Area2D
 
-@onready var recharge_timer = $recharge_timer
 @onready var global = $/root/Global
 @onready var particles = $CPUParticles2D
 
@@ -15,12 +14,13 @@ func _process(delta):
 			rotation_speed = -0.05
 			global.barrier_energy = false
 			particles.emitting = false
-			recharge_timer.start()
-
+		if hp <= 0 and !global.barrier_energy:
+			rotation_speed = 0.2
+			particles.emitting = true
 		
 func _on_area_entered(area):
 	if area.name == "bullet":
-		hp -= 20 # large chunk for test & debug only
+		hp -= 100 # for test & debug only
 
 func _on_recharge_timer_timeout():
 	particles.emitting = true
@@ -37,6 +37,5 @@ func _on_visible_on_screen_enabler_2d_screen_entered():
 
 
 func _on_visible_on_screen_enabler_2d_screen_exited():
-	hp = 100
 	node_enabled = false
 	particles.emitting = false

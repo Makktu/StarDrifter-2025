@@ -4,27 +4,23 @@
 [ext_resource type="Texture2D" uid="uid://b16h2v4hnrh4k" path="res://Assets/graphics/env_graphics/energy_symbol_small1.png" id="1_svm0t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fk2pq"]
-radius = 36.1248
+radius = 18.0278
 
 [node name="barrier_power_node" type="Area2D"]
 modulate = Color(0.200752, 0.644016, 0.386774, 1)
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_fx2ie")
 
 [node name="image" type="Sprite2D" parent="."]
 position = Vector2(-1, 0)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_svm0t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fk2pq")
 
-[node name="recharge_timer" type="Timer" parent="."]
-wait_time = 20.0
-one_shot = true
-
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-position = Vector2(0, 1.90735e-06)
-scale = Vector2(6.28571, 6)
+position = Vector2(-1, 1)
+scale = Vector2(2.4, 2.7)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
@@ -36,6 +32,5 @@ gravity = Vector2(0, 0)
 color = Color(0.623529, 0.956863, 0.603922, 1)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="timeout" from="recharge_timer" to="." method="_on_recharge_timer_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

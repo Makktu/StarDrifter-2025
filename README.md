@@ -486,6 +486,9 @@ New direction for the energy towers -
 and a new conception of the game world overall.
 "The automated ruins of a civilization."
 
+### Mon 17 March 2025
+Working on barrier logic, is broken again.
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON
