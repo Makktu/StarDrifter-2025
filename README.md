@@ -489,6 +489,9 @@ and a new conception of the game world overall.
 ### Mon 17 March 2025
 Working on barrier logic, is broken again.
 
+### Tue 18 March 2025
+Got barriers working properly.
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON
