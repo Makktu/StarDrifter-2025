@@ -29,8 +29,6 @@ var player_energy_replenish_amount : float = 0.005
 # exist in game world – for performance and gameplay
 var swarmers_active : int = 0 
 
-var fog_on : bool = false
-
 var player_damage : bool = false
 var player_amount_damaged : int = 0
 

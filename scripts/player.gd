@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-@onready var acceleration = 30 # was 40 or 20
-@onready var max_speed = 50 # was 100 or 40
+@onready var acceleration = 40 # was 40 or 20
+@onready var max_speed = 80 # was 100 or 40
 @onready var gravity = 0 # 0 = FULL WEIGHTLESSNESS
-@onready var rotation_speed = 3 # 5 or 3
+@onready var rotation_speed = 4 # 5 or 3
 @onready var global = $/root/Global
 @onready var colliding_effect = $collision_particles
 @onready var pickup_timer = $pickup_timer
@@ -35,16 +35,6 @@ var damage_heavy_animation_playing : bool = false
 
 
 func _physics_process(delta):
-	if global.fog_on and max_speed == 100:
-		max_speed = 50
-		acceleration = 30
-		rotation_speed = 3
-		
-	if !global.fog_on and max_speed == 50:
-		max_speed = 100
-		acceleration = 60
-		rotation_speed = 5
-		
 	$hud.show_energy(global.player_energy)
 	# always check on status of damage animations if energy < light damage
 	if global.player_energy <= light_damage_taken:
@@ -231,8 +221,6 @@ func picked_up(type = "default"):
 func _on_pickup_timer_timeout(cancelling_current_pickup : bool = false): # design of func open for other types of pickup, e.g. shields
 	if !cancelling_current_pickup:
 		pickup_active = false
-	else:
-		print("PREVIOUS PICKUP CANCELLED BY ", pickup_type)
 	if pickup_type == "speed":
 		acceleration = acceleration / 2
 		max_speed = max_speed / 2

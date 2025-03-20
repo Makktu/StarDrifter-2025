@@ -492,6 +492,9 @@ Working on barrier logic, is broken again.
 ### Tue 18 March 2025
 Got barriers working properly.
 
+### Wed 19 March 2025
+Barriers bugged again.
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON

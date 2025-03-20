@@ -20,10 +20,10 @@ var rotation_speed : int = 0.05
 var player_taking_area_damage : bool = false
 
 func _process(delta):
-	if !Global.barrier_energy:
-		if !barrier_active:
-			return
+	# stop the barrier if energy disabled
+	if !Global.barrier_energy and barrier_active:
 		barrier_active = false		
+		player_taking_area_damage = false
 		on_particles.emitting = false
 		barrier_particles_1.emitting = false
 		barrier_particles_2.emitting = false
@@ -62,6 +62,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	barrier_visible = false
 
 func _on_timer_timeout():
+	print("BARRIER TIMER TIMEOUT ENDED")
 	Global.barrier_energy = true
 	collision_shape_main.disabled = false
 	wider_collision_area.monitoring = true
@@ -76,11 +77,9 @@ func _on_timer_timeout():
 
 func _on_wider_collision_area_area_entered(area: Area2D) -> void:
 	if area.name == "player_enemy_collision":
-		print("Player entered barrier area")
 		player_taking_area_damage = true
 
 
 func _on_wider_collision_area_area_exited(area: Area2D) -> void:
 	if area.name == "player_enemy_collision":
-		print("Player left barrier area")
 		player_taking_area_damage = false

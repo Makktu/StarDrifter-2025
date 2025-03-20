@@ -17,14 +17,13 @@ func _process(delta):
 		
 func _on_area_entered(area):
 	if area.name == "bullet":
-		hp -= 100 # for test & debug only
-		
+		hp -= 100 # for test & debug only		
 		# check if node power reduced and barrier interrupted
 		if hp <= 0 and Global.barrier_energy: # only activates once
+			Global.barrier_energy = false
 			node_interruption_active = true
 			rotation_speed = 0.05
 			particles.emitting = false
-			Global.barrier_energy = false
 
 
 func _on_visible_on_screen_enabler_2d_screen_entered():

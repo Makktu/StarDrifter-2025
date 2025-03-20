@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var global = $/root/Global
 @onready var fade_timer = $FadeTimer
 @onready var fog = $Sprite2D
 
@@ -29,11 +28,9 @@ func _on_fade_timer_timeout():
 	var target_alpha : float
 	var tween = get_tree().create_tween()
 	if fade_status == "out":
-		global.fog_on = false
 		target_alpha = 0.0
 		fade_status = "in" # always switch to next desired state
 	else:
-		global.fog_on = true
 		target_alpha = 1.0
 		fade_status = "out"
 	# Tween the alpha value to 0 or 256
