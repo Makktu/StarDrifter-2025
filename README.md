@@ -495,6 +495,11 @@ Got barriers working properly.
 ### Wed 19 March 2025
 Barriers bugged again.
 
+### Thu 20 March 2025
+Worked on barrier logic. Problem of managing global timeout for power
+and keeping all animations consistent. Some are not starting/restarting
+logically.
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON

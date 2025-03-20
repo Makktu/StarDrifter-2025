@@ -3,6 +3,8 @@ extends Node
 #@onready var debug_msg_timer = $debug_msg_timer
 @onready var sfx_manager = $sfx_manager
 @onready var bgm_manager = $BGMusicManager
+@onready var barrier_timer = $barrier_timer
+
 # ========================================================================================
 # ======= DEVELOPER MENU OPTIONS VARIABLES ===============================================
 var game_paused : bool = false
@@ -12,33 +14,23 @@ var dev_screenshake_on : bool = true
 # all variables controllable from dev pause menu, in hud scene
 # ========================================================================================
 # ========================================================================================
-
 var player_energy : float = 100.0
 var global_music_on : bool = false # debug setting
 var alarm_triggered : bool = false
-
 var speed_pickup_active: bool = false
-
 # max number of enemies allowed on-screen or in vicinity at one time
 var max_enemies = 300
-
 # amount player energy naturally replenishes by per frame - can dynamically change
 var player_energy_replenish_amount : float = 0.005
-
 # monitor and control how many basic enemies
 # exist in game world – for performance and gameplay
 var swarmers_active : int = 0 
-
 var player_damage : bool = false
 var player_amount_damaged : int = 0
-
 var shield_active : bool = false
-
 var base_damage : float = 1.0 # the basis for calculating damage inflicted by all events
-
 var global_difficulty : int = 1 # if global difficulty needs a number... (nowhere near implemented)
 # potentials for this: 1 - regular 2 - hard 3 - extreme
-
 var barrier_energy : bool = true
 
 func _ready():
@@ -77,3 +69,8 @@ func player_energy_replenish(amount = player_energy_replenish_amount):
 	# function can be passed value for pickups etc
 	if player_energy < 100: # no action if energy is full
 		player_energy += amount
+
+
+func _on_barrier_timer_timeout():
+	# restore barrier after interruption timeout
+	barrier_energy = true

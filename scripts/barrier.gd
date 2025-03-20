@@ -2,7 +2,6 @@ extends StaticBody2D
 
 @onready var the_player = get_tree().get_nodes_in_group("player")[0]
 
-@onready var timer : Timer = $Timer
 @onready var shield_barriers = $ShieldBarriers
 @onready var shield_barriers_2 = $ShieldBarriers2
 @onready var collision_shape_main = $CollisionShape_main
@@ -12,17 +11,22 @@ extends StaticBody2D
 @onready var on_particles = $CPUParticles2D
 @onready var barrier_particles_1 = $ShieldBarriers/CPUParticles2D
 @onready var barrier_particles_2 = $ShieldBarriers2/CPUParticles2D
-@onready var audio_effect = $AudioStreamPlayer
 
 var barrier_visible : bool = false
-var barrier_active : bool = true
 var rotation_speed : int = 0.05
 var player_taking_area_damage : bool = false
+var barrier_active : bool = false
+
 
 func _process(delta):
 	# stop the barrier if energy disabled
+	if Input.is_key_pressed(KEY_BACKSPACE):
+		print(barrier_active, barrier_visible)
+	if Global.barrier_energy and barrier_visible:
+		shield_barriers.rotation += rotation_speed
+		shield_barriers_2.rotation += rotation_speed
 	if !Global.barrier_energy and barrier_active:
-		barrier_active = false		
+		barrier_active = false
 		player_taking_area_damage = false
 		on_particles.emitting = false
 		barrier_particles_1.emitting = false
@@ -32,44 +36,39 @@ func _process(delta):
 		collision_shape_main.disabled = true
 		barrier_area.monitoring = false
 		barrier_area.monitorable = false
-		timer.start()
+		return
+	if Global.barrier_energy and !barrier_active:
+		restore_barrier()
 	if player_taking_area_damage:
 		Global.player_energy -= 0.05
-	if Global.barrier_energy and barrier_visible:
-		shield_barriers.rotation += rotation_speed
-		shield_barriers_2.rotation += rotation_speed
-		if !barrier_active:
-			barrier_active = true
-			on_particles.emitting = true
-			barrier_particles_1.emitting = true
-			barrier_particles_2.emitting = true
-			weapon_collisions.disabled = false
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	on_particles.emitting = true
 	barrier_particles_1.emitting = true
 	barrier_particles_2.emitting = true
-	#audio_effect.play()
 	barrier_visible = true
+	barrier_active = true
+	print("BARRIER ENTERED")
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	on_particles.emitting = false
 	barrier_particles_1.emitting = false
 	barrier_particles_2.emitting = false
-	#audio_effect.stop()
 	barrier_visible = false
+	barrier_active = false
+	print("BARRIER EXITED")
 
-func _on_timer_timeout():
-	print("BARRIER TIMER TIMEOUT ENDED")
-	Global.barrier_energy = true
+
+func restore_barrier():
+	barrier_visible = true
+	barrier_active = true
 	collision_shape_main.disabled = false
 	wider_collision_area.monitoring = true
 	weapon_collisions.disabled = false
 	barrier_area.monitoring = true
 	barrier_area.monitorable = true
-	barrier_active = true
 	on_particles.emitting = true
 	barrier_particles_1.emitting = true
 	barrier_particles_2.emitting = true
