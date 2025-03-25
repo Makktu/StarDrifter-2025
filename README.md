@@ -47,17 +47,8 @@ All enemies emerge from portals at certain locations around the map
 
 ___
 
-# proposed track listing:
-	
-	White Bat Audio (Karl Casey)
-	
-	1. Elysium
-
-# Project revival October 2024
-
-Here we go yet again.
-
 ### Tues 15 Oct 2024
+Project restarted after long hiatus.
 
 Re-organised the project to make it more manageable.
 
@@ -500,6 +491,11 @@ Worked on barrier logic. Problem of managing global timeout for power
 and keeping all animations consistent. Some are not starting/restarting
 logically.
 
+### Tues 25 March 2025
+Project having a 'week off' for 'creative refreshment'.
+Need to get a lot of things actually done.
+And decided, gameplay and atmosphere-wise.
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON
@@ -521,3 +517,4 @@ how they will affect the so-far blank HUD. Right now there is a very basic
 'alien language' warning when energy is at 10%.
 Also: cosmetics of this alien world. Needs to be 'nice' to look at, also
 mysterious, interesting, ambiguous, etc.
+
