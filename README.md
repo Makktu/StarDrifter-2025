@@ -492,9 +492,15 @@ and keeping all animations consistent. Some are not starting/restarting
 logically.
 
 ### Tues 25 March 2025
-Project having a 'week off' for 'creative refreshment'.
+Project had a 'week off' for 'creative refreshment'.
 Need to get a lot of things actually done.
 And decided, gameplay and atmosphere-wise.
+
+### Wed 26 March 2025
+To be done:
+	Barriers (STILL not right - how long has this been dragging on now?)
+	New enemies (at least 2 needed, possibly more)
+
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -517,4 +523,3 @@ how they will affect the so-far blank HUD. Right now there is a very basic
 'alien language' warning when energy is at 10%.
 Also: cosmetics of this alien world. Needs to be 'nice' to look at, also
 mysterious, interesting, ambiguous, etc.
-

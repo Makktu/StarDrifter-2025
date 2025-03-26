@@ -20,11 +20,13 @@ var barrier_active : bool = false
 
 func _process(delta):
 	# stop the barrier if energy disabled
+	shield_barriers.rotation += rotation_speed
+	shield_barriers_2.rotation += rotation_speed
 	if Input.is_key_pressed(KEY_BACKSPACE):
 		print(barrier_active, barrier_visible)
-	if Global.barrier_energy and barrier_visible:
-		shield_barriers.rotation += rotation_speed
-		shield_barriers_2.rotation += rotation_speed
+	#if Global.barrier_energy:
+		#shield_barriers.rotation += rotation_speed
+		#shield_barriers_2.rotation += rotation_speed
 	if !Global.barrier_energy and barrier_active:
 		barrier_active = false
 		player_taking_area_damage = false
@@ -49,6 +51,7 @@ func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	barrier_particles_2.emitting = true
 	barrier_visible = true
 	barrier_active = true
+	Global.barrier_energy = true
 	print("BARRIER ENTERED")
 
 
@@ -58,6 +61,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	barrier_particles_2.emitting = false
 	barrier_visible = false
 	barrier_active = false
+	Global.barrier_energy = false
 	print("BARRIER EXITED")
 
 
