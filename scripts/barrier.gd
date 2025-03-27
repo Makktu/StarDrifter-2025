@@ -13,26 +13,18 @@ extends StaticBody2D
 @onready var barrier_particles_2 = $ShieldBarriers2/CPUParticles2D
 
 var barrier_visible : bool = false
-var rotation_speed : int = 0.05
+var rotation_speed : int = 1.1
 var player_taking_area_damage : bool = false
 var barrier_active : bool = false
 
 
 func _process(delta):
-	# stop the barrier if energy disabled
-	shield_barriers.rotation += rotation_speed
-	shield_barriers_2.rotation += rotation_speed
-	if Input.is_key_pressed(KEY_BACKSPACE):
-		print(barrier_active, barrier_visible)
-	#if Global.barrier_energy:
-		#shield_barriers.rotation += rotation_speed
-		#shield_barriers_2.rotation += rotation_speed
 	if !Global.barrier_energy and barrier_active:
 		barrier_active = false
 		player_taking_area_damage = false
 		on_particles.emitting = false
-		barrier_particles_1.emitting = false
-		barrier_particles_2.emitting = false
+		#barrier_particles_1.emitting = false
+		#barrier_particles_2.emitting = false
 		weapon_collisions.disabled = true
 		wider_collision_area.monitoring = false
 		collision_shape_main.disabled = true
@@ -41,9 +33,12 @@ func _process(delta):
 		return
 	if Global.barrier_energy and !barrier_active:
 		restore_barrier()
+	
 	if player_taking_area_damage:
 		Global.player_energy -= 0.05
 
+	#shield_barriers.rotation += rotation_speed
+	#shield_barriers_2.rotation += rotation_speed
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	on_particles.emitting = true
@@ -74,8 +69,8 @@ func restore_barrier():
 	barrier_area.monitoring = true
 	barrier_area.monitorable = true
 	on_particles.emitting = true
-	barrier_particles_1.emitting = true
-	barrier_particles_2.emitting = true
+	#barrier_particles_1.emitting = true
+	#barrier_particles_2.emitting = true
 	
 
 func _on_wider_collision_area_area_entered(area: Area2D) -> void:

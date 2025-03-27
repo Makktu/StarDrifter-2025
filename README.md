@@ -500,6 +500,14 @@ And decided, gameplay and atmosphere-wise.
 To be done:
 	Barriers (STILL not right - how long has this been dragging on now?)
 	New enemies (at least 2 needed, possibly more)
+	
+### Thu 27 March 2025
+I'm tired of these ************ barriers in this ************ game!
+They're being completely redone now.
+Thought I had them working again, but no, the spaghetti is too tangled.
+Complete re-do of the code, no more fixing.
+Will need to use Animation Player node,
+rather than doing rotation in the _process function. 🔫
 
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

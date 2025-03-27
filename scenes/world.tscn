@@ -373,6 +373,7 @@ position = Vector2(2964, 6867)
 position = Vector2(904, 4501)
 
 [node name="barrier" parent="energy_barriers_and_nodes/barrier_1" instance=ExtResource("10_uw7u5")]
+position = Vector2(8, 45)
 
 [node name="barrier_power_node" parent="energy_barriers_and_nodes/barrier_1" instance=ExtResource("11_crtno")]
 position = Vector2(-76, -407)
