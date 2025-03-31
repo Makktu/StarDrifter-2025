@@ -8,6 +8,8 @@ var rotation_speed : float = 0.2 # rotation speed when hp at 100
 
 func _process(delta):
 	if node_enabled:
+		if rotation_speed < 0.2:
+			rotation_speed = 0.2
 		rotation += rotation_speed			
 		
 func _on_area_entered(area):

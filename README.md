@@ -509,6 +509,9 @@ Complete re-do of the code, no more fixing.
 Will need to use Animation Player node,
 rather than doing rotation in the _process function. 🔫
 
+### Mon 31 March 2025
+Added animation player to barrier rotation. Logic still not reliable.
+
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
