@@ -512,6 +512,10 @@ rather than doing rotation in the _process function. 🔫
 ### Mon 31 March 2025
 Added animation player to barrier rotation. Logic still not reliable.
 
+### Wed 2 April 2025
+Barriers seem OK to work with for now.
+Tweaked animations on spawner towers.
+
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
