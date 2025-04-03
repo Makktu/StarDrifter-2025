@@ -1,7 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cph3l0chuxd5s"]
+[gd_scene load_steps=14 format=3 uid="uid://cph3l0chuxd5s"]
 
 [ext_resource type="Script" uid="uid://n6db2r6775ef" path="res://scripts/enemy_spawner.gd" id="1_jbk74"]
 [ext_resource type="Texture2D" uid="uid://77uodcj247ey" path="res://Assets/graphics/energy_tower-sheet_2.png" id="2_devoi"]
+[ext_resource type="Texture2D" uid="uid://dh2vu2v8tr85d" path="res://Assets/graphics/Sprite-0002.png" id="3_31irv"]
+[ext_resource type="Texture2D" uid="uid://cyu6jckk1nbvj" path="res://Assets/graphics/Sprite-0003.png" id="4_txvhj"]
+[ext_resource type="Texture2D" uid="uid://cb4dtes4mma8h" path="res://Assets/graphics/Sprite-0004.png" id="5_sukom"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xl0gr"]
 atlas = ExtResource("2_devoi")
@@ -53,11 +56,28 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_e1hw7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_31irv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_txvhj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sukom")
+}],
+"loop": true,
+"name": &"thrusters",
+"speed": 5.0
+}]
+
 [node name="enemy_spawner" type="Node2D"]
 script = ExtResource("1_jbk74")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 7.5
 one_shot = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
@@ -69,6 +89,13 @@ position = Vector2(1, 26)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_tovkt")
 frame_progress = 0.741557
+
+[node name="thrust_flames" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1, 77)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_e1hw7")
+animation = &"thrusters"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

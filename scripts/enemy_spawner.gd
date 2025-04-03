@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var global = $/root/Global
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var thrust_flames = %thrust_flames
 
 const enemy_basic = preload("res://scenes/enemy_1.tscn")
 
@@ -9,6 +10,10 @@ var amount_spawned = 0
 var max_can_spawn = 100
 var spawner_active = false	
 var pre_spawn_particles : bool = false
+
+func _process(_delta):
+	if spawner_active:
+		position.y -= 0.025
 
 func add_new_enemy():	
 	if spawner_active and amount_spawned < max_can_spawn:
@@ -23,8 +28,6 @@ func add_new_enemy():
 
 
 func _on_timer_timeout():
-	if amount_spawned > 3 and $Timer.wait_time != 3:
-		$Timer.wait_time = (3 - global.global_difficulty)
 	add_new_enemy()
 
 
@@ -32,9 +35,11 @@ func _on_visible_on_screen_notifier_2d_screen_entered():
 	animated_sprite.speed_scale = 0.8
 	spawner_active = true
 	animated_sprite.play("default")
+	thrust_flames.play("thrusters")
 	add_new_enemy()
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	animated_sprite.stop()
+	thrust_flames.stop()
 	spawner_active = false

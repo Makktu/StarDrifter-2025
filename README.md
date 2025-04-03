@@ -516,6 +516,11 @@ Added animation player to barrier rotation. Logic still not reliable.
 Barriers seem OK to work with for now.
 Tweaked animations on spawner towers.
 
+### Thu 3 April 2025
+Working on swarmer spawners.
+Making the tower move vertically up - just an experiment for now.
+Changed swarmers to be one-shot destroyed.
+
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

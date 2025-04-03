@@ -12,7 +12,7 @@ var max_enemy_speed : int = 32
 var target_position
 var rotation_speed : float = 0.1
 var this_enemy_shot : int = 0
-var this_enemy_killed_at : int = 3
+var this_enemy_killed_at : int = 1
 var this_enemy_onscreen : bool = false
 var player_in_range : bool = false
 var extinction_triggered : bool = false
