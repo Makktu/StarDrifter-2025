@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://hnllpl4aqljy"]
+
+[ext_resource type="Texture2D" uid="uid://c60hx04ukcycb" path="res://Assets/graphics/barrier_plain.png" id="1_gc4k7"]
+
+[node name="enemy_missile" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.3, 0.15)
+texture = ExtResource("1_gc4k7")

@@ -102,7 +102,7 @@ polygon = PackedVector2Array(-2854, -1249.4, -2854, -1245.6, -2866.6, -1241, -28
 
 [node name="Player" parent="." instance=ExtResource("3_pecdv")]
 modulate = Color(0.282353, 1, 0.317647, 1)
-position = Vector2(790, 3861)
+position = Vector2(931, 7950)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)
 
@@ -114,34 +114,34 @@ scale = Vector2(13.489, 36.7828)
 show_behind_parent = true
 
 [node name="enemy_spawner" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(1115, 9841)
+position = Vector2(1040, 9919)
 
 [node name="enemy_spawner24" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(1041, 9882)
+position = Vector2(996, 9942)
 
 [node name="enemy_spawner25" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(961, 9917)
+position = Vector2(948, 9968)
 
 [node name="enemy_spawner26" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(895, 9949)
+position = Vector2(899, 9991)
 
 [node name="enemy_spawner11" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(1400, 9667)
+position = Vector2(1395, 9710)
 
 [node name="enemy_spawner12" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(1275, 9673)
+position = Vector2(1260, 9693)
 
 [node name="enemy_spawner27" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(1585, 9710)
+position = Vector2(1541, 9731)
 
 [node name="enemy_spawner28" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(1497, 9674)
+position = Vector2(1475, 9703)
 
 [node name="enemy_spawner29" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(1750, 9778)
+position = Vector2(1673, 9786)
 
 [node name="enemy_spawner30" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
-position = Vector2(1662, 9742)
+position = Vector2(1612, 9761)
 
 [node name="enemy_spawner2" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
 position = Vector2(1027, 7968)

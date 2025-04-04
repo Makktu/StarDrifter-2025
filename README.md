@@ -521,6 +521,10 @@ Working on swarmer spawners.
 Making the tower move vertically up - just an experiment for now.
 Changed swarmers to be one-shot destroyed.
 
+### Fri 4 April 2025
+Rolled back on the new swarmer spawners.
+Taken the mechanic - tower launching - and started on new enemy.
+
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
