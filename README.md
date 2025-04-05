@@ -525,6 +525,10 @@ Changed swarmers to be one-shot destroyed.
 Rolled back on the new swarmer spawners.
 Taken the mechanic - tower launching - and started on new enemy.
 
+### Sat 5 April 2025
+New enemy missile has several behaviours that could spin off into new enemies.
+Will consider.
+
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cy8am7rjugpas"]
+[gd_scene load_steps=15 format=3 uid="uid://cy8am7rjugpas"]
 
 [ext_resource type="Script" uid="uid://bb01lkjsefxhy" path="res://scripts/world.gd" id="1_ybue2"]
 [ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/parallax_background.tscn" id="2_s8res"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://f2nn5ymotsrs" path="res://scenes/fog_controller.tscn" id="9_cojfy"]
 [ext_resource type="PackedScene" uid="uid://urikvarb8x7l" path="res://scenes/barrier.tscn" id="10_uw7u5"]
 [ext_resource type="PackedScene" uid="uid://di2g4i2gclvga" path="res://scenes/barrier_power_node.tscn" id="11_crtno"]
+[ext_resource type="PackedScene" uid="uid://hnllpl4aqljy" path="res://scenes/enemy_missile.tscn" id="11_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://by41fj2hprgq4" path="res://scenes/pickup_spawnpoint.tscn" id="13_rgwox"]
 
 [sub_resource type="Shader" id="Shader_dnnc4"]
@@ -102,7 +103,7 @@ polygon = PackedVector2Array(-2854, -1249.4, -2854, -1245.6, -2866.6, -1241, -28
 
 [node name="Player" parent="." instance=ExtResource("3_pecdv")]
 modulate = Color(0.282353, 1, 0.317647, 1)
-position = Vector2(931, 7950)
+position = Vector2(996, 6002)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)
 
@@ -381,3 +382,27 @@ position = Vector2(1076, 7128)
 
 [node name="barrier_power_node" parent="energy_barriers_and_nodes/barrier2" instance=ExtResource("11_crtno")]
 position = Vector2(246, -801)
+
+[node name="enemy_missile" parent="." instance=ExtResource("11_e3hyu")]
+position = Vector2(770, 6301)
+rotation = 1.5708
+
+[node name="enemy_missile2" parent="." instance=ExtResource("11_e3hyu")]
+position = Vector2(742, 6221)
+rotation = 1.5708
+
+[node name="enemy_missile3" parent="." instance=ExtResource("11_e3hyu")]
+position = Vector2(791, 6391)
+rotation = 1.5708
+
+[node name="enemy_missile4" parent="." instance=ExtResource("11_e3hyu")]
+position = Vector2(750, 6770)
+rotation = 1.5708
+
+[node name="enemy_missile5" parent="." instance=ExtResource("11_e3hyu")]
+position = Vector2(773, 6688)
+rotation = 1.5708
+
+[node name="enemy_missile6" parent="." instance=ExtResource("11_e3hyu")]
+position = Vector2(730, 6858)
+rotation = 1.5708
