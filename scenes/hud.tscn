@@ -185,7 +185,7 @@ texture_progress = SubResource("GradientTexture2D_30157")
 [node name="LowEnergy" type="AnimationPlayer" parent="Control"]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_5u0p3")
+&"": SubResource("AnimationLibrary_5u0p3")
 }
 
 [node name="PauseButton" type="Button" parent="Control"]
@@ -201,7 +201,7 @@ text = "PAUSE"
 
 [node name="acceleration_animation" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_xtnuv")
+&"": SubResource("AnimationLibrary_xtnuv")
 }
 
 [node name="developer_pause" type="Control" parent="."]

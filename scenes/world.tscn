@@ -383,26 +383,28 @@ position = Vector2(1076, 7128)
 [node name="barrier_power_node" parent="energy_barriers_and_nodes/barrier2" instance=ExtResource("11_crtno")]
 position = Vector2(246, -801)
 
-[node name="enemy_missile" parent="." instance=ExtResource("11_e3hyu")]
+[node name="enemy_missiles" type="Node2D" parent="."]
+
+[node name="enemy_missile" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
 position = Vector2(770, 6301)
 rotation = 1.5708
 
-[node name="enemy_missile2" parent="." instance=ExtResource("11_e3hyu")]
+[node name="enemy_missile2" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
 position = Vector2(742, 6221)
 rotation = 1.5708
 
-[node name="enemy_missile3" parent="." instance=ExtResource("11_e3hyu")]
+[node name="enemy_missile3" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
 position = Vector2(791, 6391)
 rotation = 1.5708
 
-[node name="enemy_missile4" parent="." instance=ExtResource("11_e3hyu")]
+[node name="enemy_missile4" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
 position = Vector2(750, 6770)
 rotation = 1.5708
 
-[node name="enemy_missile5" parent="." instance=ExtResource("11_e3hyu")]
+[node name="enemy_missile5" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
 position = Vector2(773, 6688)
 rotation = 1.5708
 
-[node name="enemy_missile6" parent="." instance=ExtResource("11_e3hyu")]
+[node name="enemy_missile6" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
 position = Vector2(730, 6858)
 rotation = 1.5708

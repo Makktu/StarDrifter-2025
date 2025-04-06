@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var global = $/root/Global
 @onready var player = $Player
 
 #func _ready():
@@ -10,12 +9,12 @@ func _on_zoom_out_1_body_entered(body):
 	print(body.name)
 	if body.name != 'Player':
 		return
-	if global.alarm_triggered:
+	if Global.alarm_triggered:
 		return
-	global.alarm_triggered = true
+	Global.alarm_triggered = true
 	player.camera_special('zoomout')
-	global.toggle_bgm('off')
-	global.sound_alarm()
+	Global.toggle_bgm('off')
+	Global.sound_alarm()
 	
 
 func setup_crt_effect():

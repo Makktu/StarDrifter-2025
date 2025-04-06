@@ -529,25 +529,19 @@ Taken the mechanic - tower launching - and started on new enemy.
 New enemy missile has several behaviours that could spin off into new enemies.
 Will consider.
 
+### Sun 6 April 2025
+Work on enemy missile - is a one-shot thing, pretty easy to avoid, but
+instant game over if struck. Couple of animations. Missile is a simple
+graphic that probably is OK as-is, in keeping with game aesthetic.
+
+
+
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TO BE DONE NEXT/SOON
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-- Need to make collisions the same for all entities. At the moment
-they're slightly different for all - some use Area2D (cheap and nasty way),
-some use the proper physics-engine way. Harmonise all.
-- Swarmer spawn rates (game balance consideration)
-- (Decide what the game is - fast & reaction-based or slower & more thoughtful?)
-- Game balance considerations
-
-What actual game is here (or not)?
-And prune folders of redundant files (tidy up)
-AND: camera zoom for big areas where player needs to see scope of challenge
-- Indicators for various things: pickup effect timings (at least needs to show
-when it's about to wear off); energy status - these need consideration for
-how they will affect the so-far blank HUD. Right now there is a very basic
-'alien language' warning when energy is at 10%.
-Also: cosmetics of this alien world. Needs to be 'nice' to look at, also
-mysterious, interesting, ambiguous, etc.
+- particle effect for missile
+- world to go monochrome when Game Over
+- the Start Screen

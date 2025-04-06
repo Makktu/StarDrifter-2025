@@ -56,6 +56,7 @@ func _on_pause_button_pressed(is_game_over = false):
 		$"/root/Global".game_paused = true
 		# put game over menu in here and link to various
 		if is_game_over:
+			print("World to go monochrome here!")
 			print('GAME OVER')
 		$developer_pause.visible = true
 		get_tree().paused = true

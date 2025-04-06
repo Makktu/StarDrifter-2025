@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://hnllpl4aqljy"]
+[gd_scene load_steps=8 format=3 uid="uid://hnllpl4aqljy"]
 
 [ext_resource type="Texture2D" uid="uid://c60hx04ukcycb" path="res://Assets/graphics/barrier_plain.png" id="1_gc4k7"]
 [ext_resource type="Script" uid="uid://cvj8k0ixlvtq5" path="res://scripts/enemy_missile.gd" id="1_qcque"]
@@ -6,12 +6,77 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x04xp"]
 size = Vector2(4, 117)
 
+[sub_resource type="Animation" id="Animation_qcque"]
+resource_name = "pre_launch"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.349066, -0.349066, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_x04xp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_m8w0v"]
+resource_name = "expand"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m8w0v"]
+_data = {
+&"RESET": SubResource("Animation_x04xp"),
+&"expand": SubResource("Animation_m8w0v"),
+&"pre_launch": SubResource("Animation_qcque")
+}
+
 [node name="enemy_missile" type="CharacterBody2D"]
 script = ExtResource("1_qcque")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_x04xp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -27,6 +92,15 @@ scale = Vector2(1, 6.9)
 wait_time = 2.0
 one_shot = true
 
+[node name="Timer2" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_m8w0v")
+}
+speed_scale = 2.0
+
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

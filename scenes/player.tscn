@@ -229,7 +229,6 @@ position = Vector2(-24, -31)
 position = Vector2(-24, 31)
 
 [node name="player_enemy_collision" type="Area2D" parent="."]
-visible = false
 scale = Vector2(1.1, 1.1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player_enemy_collision"]
