@@ -534,6 +534,9 @@ Work on enemy missile - is a one-shot thing, pretty easy to avoid, but
 instant game over if struck. Couple of animations. Missile is a simple
 graphic that probably is OK as-is, in keeping with game aesthetic.
 
+### Mon 14 April 2025
+Small work on missiles - not satisfactory at all. Movement logic bad.
+
 
 
 
