@@ -535,7 +535,15 @@ instant game over if struck. Couple of animations. Missile is a simple
 graphic that probably is OK as-is, in keeping with game aesthetic.
 
 ### Mon 14 April 2025
-Small work on missiles - not satisfactory at all. Movement logic bad.
+Small work on missiles - not satisfactory at all.
+Movement logic bad.
+
+### Tue 15 April 2025
+Missiles re-thought: will rotate to present flat edge to player and then
+zoom at high speed. Looks and feels interesting. Logic trouble as ever.
+Need to set strict lifespan timer then queue_free()
+(instead of on-screen notifier queue_free()) as it currently
+means some missiles never fire.
 
 
 

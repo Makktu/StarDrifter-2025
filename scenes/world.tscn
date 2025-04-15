@@ -398,13 +398,13 @@ position = Vector2(791, 6391)
 rotation = 1.5708
 
 [node name="enemy_missile4" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
-position = Vector2(750, 6770)
+position = Vector2(1432, 6471)
 rotation = 1.5708
 
 [node name="enemy_missile5" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
-position = Vector2(773, 6688)
+position = Vector2(1455, 6389)
 rotation = 1.5708
 
 [node name="enemy_missile6" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
-position = Vector2(730, 6858)
+position = Vector2(1412, 6559)
 rotation = 1.5708
