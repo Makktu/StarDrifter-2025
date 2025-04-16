@@ -12,37 +12,39 @@ var speed : int = 40
 var acceleration : float = 1.5
 var missile_active : bool = false
 var direction_of_movement = Vector2(0, -1).rotated(rotation)
-var random_activation_time = Global.random_float_number(3.0, 9.0)
+var random_activation_time = Global.random_float_number(4.0, 10.0)
+var pusher_active : bool = false
 
 func _process(delta):
+	if pusher_active and not launched:
+		target_position = player.global_position
+		look_at(target_position)
+		if not cpu_particles_2d.emitting:
+			cpu_particles_2d.emitting = true
 	if launched:
 		position += transform.x * speed * delta 
 		speed += acceleration
-	if speed > 200:
+	if speed > 300:
 		queue_free()
+	
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	player = get_tree().get_first_node_in_group("player")
-	timer_2.wait_time = random_activation_time - 1.75
+	timer_2.wait_time = random_activation_time + 1.75
 	timer.wait_time = random_activation_time
-	cpu_particles_2d.emitting = true
 	timer.start()
 	timer_2.start()
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
+	pusher_active = false
 	if launched:
-		print("Missile gone ")
 		queue_free()
 
 
 func _on_timer_timeout():
-	if player:
-		target_position = player.global_position
-		look_at(target_position)
+	pusher_active = true
 	animation_player.play("expand")
-	cpu_particles_2d.speed_scale = 2.0
-	cpu_particles_2d.amount = 500
 	
 
 func _on_timer_2_timeout():

@@ -545,6 +545,13 @@ Need to set strict lifespan timer then queue_free()
 (instead of on-screen notifier queue_free()) as it currently
 means some missiles never fire.
 
+### Wed 16 April 2025
+Worked on the Pusher - can beef these up as they work great.
+Might switch to player activation through proximity rather
+than on-screen notification activation, as this latter is
+working patchily right now (unwanted behaviours when player
+flies off-screen in other direction etc.).
+
 
 
 

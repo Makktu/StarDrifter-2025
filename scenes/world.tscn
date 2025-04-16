@@ -386,25 +386,49 @@ position = Vector2(246, -801)
 [node name="enemy_missiles" type="Node2D" parent="."]
 
 [node name="enemy_missile" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
-position = Vector2(770, 6301)
+position = Vector2(840, 6301)
 rotation = 1.5708
 
 [node name="enemy_missile2" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
-position = Vector2(742, 6221)
+position = Vector2(812, 6221)
 rotation = 1.5708
 
 [node name="enemy_missile3" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
-position = Vector2(791, 6391)
+position = Vector2(861, 6391)
 rotation = 1.5708
 
 [node name="enemy_missile4" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
-position = Vector2(1432, 6471)
+position = Vector2(867, 6488)
 rotation = 1.5708
 
 [node name="enemy_missile5" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
-position = Vector2(1455, 6389)
+position = Vector2(1270, 6629)
 rotation = 1.5708
 
 [node name="enemy_missile6" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
-position = Vector2(1412, 6559)
+position = Vector2(1088, 6761)
+rotation = 1.5708
+
+[node name="enemy_missile7" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
+position = Vector2(785, 5530)
+rotation = 1.5708
+
+[node name="enemy_missile8" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
+position = Vector2(757, 5450)
+rotation = 1.5708
+
+[node name="enemy_missile9" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
+position = Vector2(806, 5620)
+rotation = 1.5708
+
+[node name="enemy_missile10" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
+position = Vector2(1235, 5342)
+rotation = 1.5708
+
+[node name="enemy_missile11" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
+position = Vector2(1141, 5394)
+rotation = 1.5708
+
+[node name="enemy_missile12" parent="enemy_missiles" instance=ExtResource("11_e3hyu")]
+position = Vector2(1176, 5524)
 rotation = 1.5708
