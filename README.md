@@ -552,6 +552,10 @@ than on-screen notification activation, as this latter is
 working patchily right now (unwanted behaviours when player
 flies off-screen in other direction etc.).
 
+### Thu 17 April 2025
+Pusher now added to Swarmer spawnpoint. Will need to adjust to be one or 
+the other, or handle the which-one logic better.
+
 
 
 
