@@ -15,7 +15,7 @@ scale = Vector2(32.7, 58.3)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 80
+amount = 2
 lifetime = 0.25
 emission_shape = 1
 emission_sphere_radius = 10.0

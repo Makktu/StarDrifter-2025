@@ -11,8 +11,9 @@ var max_can_spawn = 100
 var spawner_active = false	
 var particles_on : bool = false
 
+# notes: need proper differentiation between enemy types for effect_particles
+
 func add_new_enemy():
-	effect_particles.emitting = !particles_on	
 	if spawner_active and amount_spawned < max_can_spawn:
 		var which_enemy = Global.random_float_number(1.0, 10.0)
 		if $"/root/Global".dev_enemies_on:
@@ -28,12 +29,24 @@ func add_new_enemy():
 				var enemy_instance = enemy_pusher.instantiate()
 				add_child(enemy_instance)
 				amount_spawned += 1		
-				$Timer.wait_time = 12.0	
+				$Timer.wait_time = 12.0
+		effect_particles.emitting = false
+		particles_on = false	
 		$Timer.start()
 
 
 func _on_timer_timeout():
-	add_new_enemy()
+	if particles_on:
+		add_new_enemy()
+	else:
+		effect_particles.amount = 2
+		effect_particles.emitting = true
+		particles_on = true
+		$Timer.wait_time = 3.0
+		$Timer.start()
+		for n in 3000:
+			if effect_particles.amount < 81:
+				effect_particles.amount += 1
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
@@ -43,3 +56,4 @@ func _on_visible_on_screen_notifier_2d_screen_entered():
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	spawner_active = false
+	effect_particles.emitting = false
