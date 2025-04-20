@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://hnllpl4aqljy"]
+[gd_scene load_steps=9 format=3 uid="uid://hnllpl4aqljy"]
 
 [ext_resource type="Texture2D" uid="uid://c60hx04ukcycb" path="res://Assets/graphics/barrier_plain.png" id="1_gc4k7"]
 [ext_resource type="Script" uid="uid://cvj8k0ixlvtq5" path="res://scripts/enemy_missile.gd" id="1_qcque"]
@@ -72,6 +72,9 @@ _data = {
 &"pre_launch": SubResource("Animation_qcque")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcque"]
+size = Vector2(6, 40)
+
 [node name="enemy_missile" type="CharacterBody2D"]
 script = ExtResource("1_qcque")
 
@@ -111,7 +114,13 @@ gravity = Vector2(0, 0)
 scale_amount_min = 0.25
 scale_amount_max = 0.45
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qcque")
+
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

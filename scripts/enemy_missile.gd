@@ -50,3 +50,14 @@ func _on_timer_timeout():
 func _on_timer_2_timeout():
 	animation_player.play("pre_launch")
 	launched = true
+
+
+func _on_area_2d_body_entered(body):
+	print("BODY", body.name)
+
+
+func _on_area_2d_area_entered(area):
+	if area.name == "bullet":
+		speed = -speed
+			
+		

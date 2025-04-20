@@ -30,6 +30,10 @@ func add_new_enemy():
 				add_child(enemy_instance)
 				amount_spawned += 1		
 				$Timer.wait_time = 12.0
+		for n in 8000:
+			if n % 100 == 0:
+				if effect_particles.amount > 0:
+					effect_particles.amount -= 1
 		effect_particles.emitting = false
 		particles_on = false	
 		$Timer.start()
@@ -44,9 +48,10 @@ func _on_timer_timeout():
 		particles_on = true
 		$Timer.wait_time = 3.0
 		$Timer.start()
-		for n in 3000:
-			if effect_particles.amount < 81:
-				effect_particles.amount += 1
+		for n in 8000:
+			if n % 100 == 0:
+				if effect_particles.amount < 80:
+					effect_particles.amount += 1
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
