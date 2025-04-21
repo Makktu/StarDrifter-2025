@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bigfqmulmemg4"]
+[gd_scene load_steps=6 format=3 uid="uid://bigfqmulmemg4"]
 
 [ext_resource type="Texture2D" uid="uid://bmfo8cksdafso" path="res://Assets/graphics/env_graphics/Sun3.png" id="3_lu4kk"]
 [ext_resource type="Texture2D" uid="uid://burts31ura6eo" path="res://Assets/graphics/parallax_images/nebulawetstars.png" id="3_n1xnf"]
 [ext_resource type="Texture2D" uid="uid://c7by386dxx5m3" path="res://Assets/graphics/env_graphics/space_station1_transparent.png" id="4_6gx5r"]
 [ext_resource type="Texture2D" uid="uid://cqserdgs8ipsw" path="res://Assets/graphics/env_graphics/SL2D_world1.png" id="4_r8xa3"]
+[ext_resource type="Texture2D" uid="uid://cu8egki7dya7m" path="res://Assets/graphics/env_graphics/test_decor.png" id="5_bpahb"]
 
 [node name="Parallax" type="Node2D"]
 
@@ -60,3 +61,7 @@ modulate = Color(0.133333, 0.321569, 0.109804, 1)
 position = Vector2(746, 3982)
 scale = Vector2(3, 3)
 texture = ExtResource("4_6gx5r")
+
+[node name="test_decor1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(1153, 2942)
+texture = ExtResource("5_bpahb")

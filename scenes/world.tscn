@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cy8am7rjugpas"]
+[gd_scene load_steps=15 format=3 uid="uid://cy8am7rjugpas"]
 
 [ext_resource type="Script" uid="uid://bb01lkjsefxhy" path="res://scripts/world.gd" id="1_ybue2"]
 [ext_resource type="PackedScene" uid="uid://bigfqmulmemg4" path="res://scenes/parallax_background.tscn" id="2_s8res"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://f2nn5ymotsrs" path="res://scenes/fog_controller.tscn" id="9_cojfy"]
 [ext_resource type="PackedScene" uid="uid://urikvarb8x7l" path="res://scenes/barrier.tscn" id="10_uw7u5"]
 [ext_resource type="PackedScene" uid="uid://di2g4i2gclvga" path="res://scenes/barrier_power_node.tscn" id="11_crtno"]
+[ext_resource type="PackedScene" uid="uid://cfkv4mepwhnxm" path="res://scenes/enemy_hunter.tscn" id="11_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://by41fj2hprgq4" path="res://scenes/pickup_spawnpoint.tscn" id="13_rgwox"]
 
 [sub_resource type="Shader" id="Shader_dnnc4"]
@@ -381,3 +382,6 @@ position = Vector2(1076, 7128)
 
 [node name="barrier_power_node" parent="energy_barriers_and_nodes/barrier2" instance=ExtResource("11_crtno")]
 position = Vector2(246, -801)
+
+[node name="enemy_hunter" parent="." instance=ExtResource("11_e3hyu")]
+position = Vector2(1339, 3190)

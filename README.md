@@ -565,6 +565,10 @@ Improved Pusher behaviour.
 ### Sun 20 April 2025
 The bumps.
 
+### Mon 21 April 2025
+Added some test décor and 1st draft of new enemy type: Hunter.
+Just concepts for now.
+
 
 
 
