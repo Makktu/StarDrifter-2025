@@ -19,9 +19,7 @@ func _process(delta):
 	if pusher_active and not launched:
 		target_position = player.global_position
 		look_at(target_position)
-		if not cpu_particles_2d.emitting:
-			cpu_particles_2d.emitting = true
-	if launched:
+	if launched:			
 		position += transform.x * speed * delta 
 		speed += acceleration
 	if speed > 300:
@@ -31,7 +29,6 @@ func _process(delta):
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	player = get_tree().get_first_node_in_group("player")
 	timer_2.wait_time = random_activation_time + 1.75
-	timer.wait_time = random_activation_time
 	timer.start()
 	timer_2.start()
 
@@ -49,6 +46,7 @@ func _on_timer_timeout():
 
 func _on_timer_2_timeout():
 	animation_player.play("pre_launch")
+	cpu_particles_2d.emitting = true
 	launched = true
 
 

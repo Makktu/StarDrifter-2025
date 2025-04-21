@@ -562,6 +562,9 @@ Worked on enemy spawner behaviour, particles etc.
 ### Sat 19 April 2025
 Improved Pusher behaviour.
 
+### Sun 20 April 2025
+The bumps.
+
 
 
 

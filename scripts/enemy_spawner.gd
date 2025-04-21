@@ -17,7 +17,7 @@ func add_new_enemy():
 	if spawner_active and amount_spawned < max_can_spawn:
 		var which_enemy = Global.random_float_number(1.0, 10.0)
 		if $"/root/Global".dev_enemies_on:
-			if which_enemy < 5.1:
+			if which_enemy < 6.1:
 				var enemy_instance = enemy_basic.instantiate()
 				enemy_instance.scale.x = 0.2
 				enemy_instance.scale.y = 0.2
@@ -32,7 +32,7 @@ func add_new_enemy():
 				$Timer.wait_time = 12.0
 		for n in 8000:
 			if n % 100 == 0:
-				if effect_particles.amount > 0:
+				if effect_particles.amount >= 2:
 					effect_particles.amount -= 1
 		effect_particles.emitting = false
 		particles_on = false	
