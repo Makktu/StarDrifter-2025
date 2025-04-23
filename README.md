@@ -569,6 +569,13 @@ The bumps.
 Added some test décor and 1st draft of new enemy type: Hunter.
 Just concepts for now.
 
+### Tue 22 April 2025
+Testing ideas for the Hunter enemy -
+proximity increases rotation, ignores environment etc. Early days.
+
+### Wed 23 April 2023
+Very promising Hunter developments. Behaviour and scope.
+
 
 
 

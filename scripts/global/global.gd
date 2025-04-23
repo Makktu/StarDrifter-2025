@@ -33,6 +33,8 @@ var global_difficulty : int = 1 # if global difficulty needs a number... (nowher
 # potentials for this: 1 - regular 2 - hard 3 - extreme
 var barrier_energy : bool = true
 
+var hunters_active : int = 0
+
 func _ready():
 	# start bgm music if bgm_music ON
 	if global_music_on:
