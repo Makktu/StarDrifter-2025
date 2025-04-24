@@ -576,6 +576,11 @@ proximity increases rotation, ignores environment etc. Early days.
 ### Wed 23 April 2023
 Very promising Hunter developments. Behaviour and scope.
 
+### Thu 24 April 2025
+Not-so-promising attempt to add particle effect to Hunter.
+Problem is the current sprite is a placeholder and it's not worth
+working on further unless it's the final sprite, or near to final.
+
 
 
 

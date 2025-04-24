@@ -1,14 +1,17 @@
 extends CharacterBody2D
 
 @onready var the_player = get_tree().get_nodes_in_group("player")[0]
+@onready var timer = $Timer
+#@onready var particles_1 = $CPUParticles2D
+#@onready var particles_2 = $CPUParticles2D2
 
 var hunter_active : bool = false
+#var particles_active : bool = false
 var speed = 30
 var proximity = 0.005
 var player_position
 var hunter_position
 var distance_from_player
-@onready var timer = $Timer
 
 func _physics_process(delta):
 	if hunter_active:
@@ -20,10 +23,14 @@ func _physics_process(delta):
 		player_position = the_player.global_position
 		distance_from_player = player_position.distance_to(hunter_position)
 		if distance_from_player <= 230:
+			#if not particles_active:
+				#toggle_particles(true)
 			if proximity >= 0.005:
 				if proximity < 0.05:
 					proximity += 0.0025
 		if distance_from_player > 230 and proximity > 0.005:
+			#if particles_active:
+				#toggle_particles(false)
 			proximity -= 0.0025
 			if proximity < 0.005:
 				proximity = 0.005
@@ -47,3 +54,7 @@ func _on_timer_timeout():
 		speed += 1
 	timer.start()
 	
+#func toggle_particles(is_on : bool = false):
+	#particles_active = is_on
+	#particles_1.emitting = is_on
+	#particles_2.emitting = is_on
