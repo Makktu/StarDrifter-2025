@@ -581,6 +581,11 @@ Not-so-promising attempt to add particle effect to Hunter.
 Problem is the current sprite is a placeholder and it's not worth
 working on further unless it's the final sprite, or near to final.
 
+### Fri 25 April 2025
+Experimenting with different looks for the Hunter.
+Settled on a kind of mobile crosshair that will be animated when
+in proximity to player - sparks, ideally. 
+
 
 
 
