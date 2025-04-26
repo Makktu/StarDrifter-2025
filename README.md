@@ -586,6 +586,9 @@ Experimenting with different looks for the Hunter.
 Settled on a kind of mobile crosshair that will be animated when
 in proximity to player - sparks, ideally. 
 
+### Sat 26 April 2025
+Near-final concept for Hunter. Graphics still dubious.
+
 
 
 

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var timer = $Timer
 #@onready var particles_1 = $CPUParticles2D
 #@onready var particles_2 = $CPUParticles2D2
+@onready var animated_sprite = $AnimatedSprite2D
 
 var hunter_active : bool = false
 #var particles_active : bool = false
@@ -23,12 +24,20 @@ func _physics_process(delta):
 		player_position = the_player.global_position
 		distance_from_player = player_position.distance_to(hunter_position)
 		if distance_from_player <= 230:
+			if not animated_sprite.visible:
+				animated_sprite.visible = true
+			if animated_sprite.speed_scale == 0.7:
+				animated_sprite.speed_scale = 1.2
 			#if not particles_active:
 				#toggle_particles(true)
 			if proximity >= 0.005:
 				if proximity < 0.05:
 					proximity += 0.0025
 		if distance_from_player > 230 and proximity > 0.005:
+			if animated_sprite.visible:
+				animated_sprite.visible = false
+			if animated_sprite.speed_scale == 1.2:
+				animated_sprite.speed_scale = 0.7
 			#if particles_active:
 				#toggle_particles(false)
 			proximity -= 0.0025
@@ -47,6 +56,7 @@ func _on_visible_on_screen_notifier_2d_screen_entered():
 		hunter_active = true
 		Global.hunters_active = 1
 		timer.start() # increase speed by 1 every ~30 seconds (TBD) - the player is not safe no matter how distant
+		animated_sprite.play("default")
 
 
 func _on_timer_timeout():
