@@ -2,19 +2,19 @@ extends CharacterBody2D
 
 @onready var the_player = get_tree().get_nodes_in_group("player")[0]
 @onready var timer = $Timer
-#@onready var particles_1 = $CPUParticles2D
-#@onready var particles_2 = $CPUParticles2D2
 @onready var animated_sprite = $AnimatedSprite2D
 
 var hunter_active : bool = false
-#var particles_active : bool = false
 var speed = 30
 var proximity = 0.005
 var player_position
 var hunter_position
 var distance_from_player
+var hp : int = 1000
 
 func _physics_process(delta):
+	if hp <= 0:
+		queue_free()
 	if hunter_active:
 		var direction = global_position.direction_to(the_player.global_position)
 		velocity = direction * speed * delta
@@ -28,8 +28,6 @@ func _physics_process(delta):
 				animated_sprite.visible = true
 			if animated_sprite.speed_scale == 0.7:
 				animated_sprite.speed_scale = 1.2
-			#if not particles_active:
-				#toggle_particles(true)
 			if proximity >= 0.005:
 				if proximity < 0.05:
 					proximity += 0.0025
@@ -38,8 +36,6 @@ func _physics_process(delta):
 				animated_sprite.visible = false
 			if animated_sprite.speed_scale == 1.2:
 				animated_sprite.speed_scale = 0.7
-			#if particles_active:
-				#toggle_particles(false)
 			proximity -= 0.0025
 			if proximity < 0.005:
 				proximity = 0.005
@@ -49,9 +45,6 @@ func _physics_process(delta):
 			print(distance_from_player, proximity)
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
-	# enemy is activated by appearing on-screen & then 
-	# remains permanently active - will pursue player across map until destroyed
-	# only 1 hunter active at a time
 	if Global.hunters_active == 0:
 		hunter_active = true
 		Global.hunters_active = 1
@@ -63,8 +56,11 @@ func _on_timer_timeout():
 	if speed < 80:
 		speed += 1
 	timer.start()
-	
-#func toggle_particles(is_on : bool = false):
-	#particles_active = is_on
-	#particles_1.emitting = is_on
-	#particles_2.emitting = is_on
+
+
+func _on_bullet_area_area_entered(area):
+	if area.name == 'bullet':
+		print("HIT HUNTER")
+		hp -= 100
+		if hp <= 0:
+			queue_free()
