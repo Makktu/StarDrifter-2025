@@ -11,6 +11,7 @@ var player_position
 var hunter_position
 var distance_from_player
 var hp : int = 1000
+var current_y_pos = position.y
 
 func _physics_process(delta):
 	if hp <= 0:
@@ -18,7 +19,16 @@ func _physics_process(delta):
 	if hunter_active:
 		var direction = global_position.direction_to(the_player.global_position)
 		velocity = direction * speed * delta
-		move_and_collide(velocity)
+		var collided := move_and_collide(velocity)
+		if collided and not get_floor_normal():
+			var this_collided_with = collided.get_collider()
+			this_collided_with = str(this_collided_with)
+			print("HUNTER COLLISION: ", this_collided_with)
+			if ":" in this_collided_with:
+				this_collided_with = this_collided_with.split(":")[0]
+				if this_collided_with == "barrier":
+					queue_free()
+					Global.hunters_active -= 1
 		rotation += proximity
 		hunter_position = global_transform.origin
 		player_position = the_player.global_position

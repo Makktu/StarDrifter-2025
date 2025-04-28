@@ -82,6 +82,7 @@ radius = 315.56
 
 [node name="barrier" type="StaticBody2D"]
 modulate = Color(0.290055, 0.723581, 0.500269, 1)
+collision_layer = 129
 script = ExtResource("1_hmq70")
 
 [node name="CollisionShape_main" type="CollisionShape2D" parent="."]
@@ -123,6 +124,7 @@ direction = Vector2(0, 0)
 gravity = Vector2(0, 0)
 
 [node name="barrier_area" type="Area2D" parent="."]
+collision_layer = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="barrier_area"]
 position = Vector2(-1.5, 0.5)

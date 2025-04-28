@@ -590,6 +590,9 @@ in proximity to player - sparks, ideally.
 Near-final concept for Hunter. Graphics still dubious.
 Collisions not working correctly yet
 
+### Sun 27 April 2025
+Hunter collisions & behaviour now working as desired.
+
 
 
 

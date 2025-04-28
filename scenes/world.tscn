@@ -103,7 +103,7 @@ polygon = PackedVector2Array(-2854, -1249.4, -2854, -1245.6, -2866.6, -1241, -28
 
 [node name="Player" parent="." instance=ExtResource("3_pecdv")]
 modulate = Color(0.282353, 1, 0.317647, 1)
-position = Vector2(1521, 2977)
+position = Vector2(855, 3998)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)
 
@@ -384,7 +384,7 @@ position = Vector2(1076, 7128)
 position = Vector2(246, -801)
 
 [node name="enemy_hunter" parent="." instance=ExtResource("11_e3hyu")]
-position = Vector2(1479, 3204)
+position = Vector2(844, 3811)
 
 [node name="enemy_hunter2" parent="." instance=ExtResource("11_e3hyu")]
 position = Vector2(1265, 4889)
