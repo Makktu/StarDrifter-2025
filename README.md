@@ -593,6 +593,9 @@ Collisions not working correctly yet
 ### Sun 27 April 2025
 Hunter collisions & behaviour now working as desired.
 
+### Mon 28 April 2025
+Added animation and explosion to Hunter on its death.
+
 
 
 
