@@ -596,14 +596,5 @@ Hunter collisions & behaviour now working as desired.
 ### Mon 28 April 2025
 Added animation and explosion to Hunter on its death.
 
-
-
-
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-TO BE DONE NEXT/SOON
-
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-- particle effect for missile
-- world to go monochrome when Game Over
-- the Start Screen
+### Thu 1 May 2025
+Improved hunter global activation logic & death animation

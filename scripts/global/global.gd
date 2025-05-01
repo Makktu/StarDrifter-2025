@@ -33,7 +33,11 @@ var global_difficulty : int = 1 # if global difficulty needs a number... (nowher
 # potentials for this: 1 - regular 2 - hard 3 - extreme
 var barrier_energy : bool = true
 
-var hunters_active : int = 0
+########### global hunter-related values
+var hunters_active : int = 0 # enemy that is immune to all wepons and obstacles - can only be killed by luring into an energy barrier
+var max_hunters_active: int = 1 # dynamically increases with player survival
+var hunters_vanquished : int = 0 # when 3 hunters defeated, 2 can be active at once; when 6, 3
+########################################
 
 func _ready():
 	# start bgm music if bgm_music ON
