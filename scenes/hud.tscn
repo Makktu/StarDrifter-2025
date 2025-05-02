@@ -205,7 +205,6 @@ libraries = {
 }
 
 [node name="developer_pause" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 191.0
@@ -271,6 +270,15 @@ offset_bottom = 242.0
 text = "Continue with max energy restored"
 alignment = 0
 
+[node name="Regular Mode" type="Button" parent="developer_pause"]
+layout_mode = 0
+offset_top = 246.0
+offset_right = 157.0
+offset_bottom = 277.0
+scale = Vector2(1.04, 1)
+text = "Regular Mode"
+alignment = 0
+
 [node name="SmartBomb" type="Label" parent="."]
 visible = false
 offset_left = 205.0
@@ -288,3 +296,4 @@ horizontal_alignment = 1
 [connection signal="pressed" from="developer_pause/Bullets" to="." method="_on_bullets_pressed"]
 [connection signal="pressed" from="developer_pause/Screenshake" to="." method="_on_screenshake_pressed"]
 [connection signal="pressed" from="developer_pause/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="developer_pause/Regular Mode" to="." method="_on_regular_mode_pressed"]

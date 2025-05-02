@@ -8,8 +8,8 @@ extends Node
 # ========================================================================================
 # ======= DEVELOPER MENU OPTIONS VARIABLES ===============================================
 var game_paused : bool = false
-var dev_damage_on : bool = false # start each play session with damage to player craft and energy penalties ON
-var dev_enemies_on : bool = false # start with enemies present in world
+var dev_damage_on : bool = true # start each play session with damage to player craft and energy penalties ON
+var dev_enemies_on : bool = true # start with enemies present in world
 var dev_screenshake_on : bool = true
 # all variables controllable from dev pause menu, in hud scene
 # ========================================================================================
@@ -38,6 +38,10 @@ var hunters_active : int = 0 # enemy that is immune to all wepons and obstacles 
 var max_hunters_active: int = 1 # dynamically increases with player survival
 var hunters_vanquished : int = 0 # when 3 hunters defeated, 2 can be active at once; when 6, 3
 ########################################
+
+########### universal speed experiment
+var universal_speed : float = 100.0
+var play_mode : int = 1 # 1 for Regular, 2 for Arcade
 
 func _ready():
 	# start bgm music if bgm_music ON

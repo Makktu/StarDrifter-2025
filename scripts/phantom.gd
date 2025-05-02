@@ -14,8 +14,10 @@ var time_to_next_phase_in = 4.0 # time in seconds to next appearance on map
 @onready var bullet_area = $bullet_area
 @onready var second_collision_shape = $bullet_area/CollisionShape2D
 
-var enemy_speed = 10
-var rotation_speed = 2.0  # smoother tracking
+#var enemy_speed = 10
+var enemy_speed = Global.universal_speed / 40
+#var rotation_speed = 2.0  # smoother tracking
+var rotation_speed : float = Global.universal_speed / 200
 var phantom_active = false
 var phantom_energy = 4
 

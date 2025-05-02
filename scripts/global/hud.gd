@@ -128,3 +128,12 @@ func smartbomb_message_toggle(on_or_off = false):
 	else:
 		$SmartBomb.visible = false
 	
+
+
+func _on_regular_mode_pressed():
+	if Global.play_mode == 1:
+		Global.play_mode = 2
+		$"developer_pause/Regular Mode".text = "Arcade Mode"
+	else:
+		Global.play_mode = 1
+		$"developer_pause/Regular Mode".text = "Regular Mode"

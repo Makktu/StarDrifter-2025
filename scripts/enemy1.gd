@@ -6,9 +6,11 @@ extends CharacterBody2D
 @onready var life_timer = $LifeTimer
 @onready var sprite = $Sprite2D
 
-var enemy_speed : float = 3.0
-var enemy_speed_orig : int = enemy_speed
-var max_enemy_speed : int = 32
+#var enemy_speed : float = 3.0
+var enemy_speed : float = Global.universal_speed / 150
+var enemy_speed_orig : float = enemy_speed
+var max_enemy_speed : float = Global.universal_speed / 10
+#var max_enemy_speed : int = 32
 var target_position
 var rotation_speed : float = 0.1
 var this_enemy_shot : int = 0

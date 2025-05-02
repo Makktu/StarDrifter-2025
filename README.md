@@ -598,3 +598,7 @@ Added animation and explosion to Hunter on its death.
 
 ### Thu 1 May 2025
 Improved hunter global activation logic & death animation
+
+### Fri 2 May 2025
+Started implemeting universal speed that all objects will move in relation to.
+Also, Regular Mode and Arcade Mode idea.

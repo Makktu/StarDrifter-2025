@@ -8,8 +8,10 @@ extends CharacterBody2D
 
 var target_position: Vector2
 var launched : bool = false
-var speed : int = 40
-var acceleration : float = 1.5
+#var speed : int = 40
+var speed : float = Global.universal_speed / 30
+#var acceleration : float = 1.5
+var acceleration : float = Global.universal_speed / 200
 var missile_active : bool = false
 var direction_of_movement = Vector2(0, -1).rotated(rotation)
 var random_activation_time = Global.random_float_number(4.0, 10.0)
