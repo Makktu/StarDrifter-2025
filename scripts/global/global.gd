@@ -41,6 +41,7 @@ var hunters_vanquished : int = 0 # when 3 hunters defeated, 2 can be active at o
 
 ########### universal speed experiment
 var universal_speed : float = 100.0
+signal game_mode_changed(mode_now)
 var play_mode : int = 1 # 1 for Regular, 2 for Arcade
 
 func _ready():
@@ -48,6 +49,10 @@ func _ready():
 	if global_music_on:
 		bgm_manager.start_bg_music()
 	#debug_msg_timer.start()
+	
+func toggle_arcade_regular():
+	print("Success???")
+	game_mode_changed.emit(play_mode)
 		
 
 func random_float_number(lower_value = 0, upper_value = 1): # returns random val between these parameters
@@ -55,7 +60,7 @@ func random_float_number(lower_value = 0, upper_value = 1): # returns random val
 	random_generator.randomize()
 	var random_value = random_generator.randf_range(lower_value, upper_value)
 	return random_value
-				
+
 
 func sound_alarm():
 	sfx_manager.sound_alarm()

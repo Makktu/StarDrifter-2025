@@ -23,6 +23,7 @@ var distance_from_player : float
 var alerted_distance_from_player: int = 200
 
 func _ready():
+	Global.game_mode_changed.connect(_change_speed)
 	# fade in!
 	if global.random_float_number(1, 11) > (10 - global.global_difficulty):
 		# each spawner has random chance of being double speed
@@ -31,6 +32,13 @@ func _ready():
 		enemy_speed *= (global.global_difficulty + 1) * 1.5
 		enemy_speed_orig = enemy_speed
 	fade_in()
+
+func _change_speed():
+	print("SUCCESS!!!")
+	if Global.play_mode == 2:
+		enemy_speed *= 10
+		enemy_speed_orig *= 10
+		max_enemy_speed *= 10	
 		
 func fade_in():
 	# create Tween object
