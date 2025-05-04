@@ -20,4 +20,14 @@ position = Vector2(360, 634.5)
 scale = Vector2(1.05833, 0.899324)
 texture = ExtResource("2_qpm65")
 
+[node name="Regular Mode" type="Button" parent="."]
+offset_left = 358.0
+offset_top = 989.0
+offset_right = 576.0
+offset_bottom = 1081.0
+scale = Vector2(1.04, 1)
+text = "Regular Mode"
+alignment = 0
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Regular Mode" to="." method="_on_regular_mode_pressed"]

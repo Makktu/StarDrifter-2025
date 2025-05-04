@@ -605,3 +605,7 @@ Also, Regular Mode and Arcade Mode idea.
 
 ### Sat 3 May 2025
 Working on arcade/regular mode toggle
+
+### Sun 4 May 2025
+Moved Arcade/Regular toggle into Start menu.
+Values will need lots of testing.

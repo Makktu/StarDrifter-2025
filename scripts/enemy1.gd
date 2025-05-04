@@ -6,13 +6,13 @@ extends CharacterBody2D
 @onready var life_timer = $LifeTimer
 @onready var sprite = $Sprite2D
 
-#var enemy_speed : float = 3.0
+############################# speed
 var enemy_speed : float = Global.universal_speed / 150
 var enemy_speed_orig : float = enemy_speed
 var max_enemy_speed : float = Global.universal_speed / 10
-#var max_enemy_speed : int = 32
-var target_position
 var rotation_speed : float = 0.1
+#########################################################
+var target_position
 var this_enemy_shot : int = 0
 var this_enemy_killed_at : int = 1
 var this_enemy_onscreen : bool = false
@@ -23,7 +23,6 @@ var distance_from_player : float
 var alerted_distance_from_player: int = 200
 
 func _ready():
-	Global.game_mode_changed.connect(_change_speed)
 	# fade in!
 	if global.random_float_number(1, 11) > (10 - global.global_difficulty):
 		# each spawner has random chance of being double speed
@@ -32,13 +31,6 @@ func _ready():
 		enemy_speed *= (global.global_difficulty + 1) * 1.5
 		enemy_speed_orig = enemy_speed
 	fade_in()
-
-func _change_speed():
-	print("SUCCESS!!!")
-	if Global.play_mode == 2:
-		enemy_speed *= 10
-		enemy_speed_orig *= 10
-		max_enemy_speed *= 10	
 		
 func fade_in():
 	# create Tween object
