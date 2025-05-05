@@ -103,7 +103,7 @@ polygon = PackedVector2Array(-2854, -1249.4, -2854, -1245.6, -2866.6, -1241, -28
 
 [node name="Player" parent="." instance=ExtResource("3_pecdv")]
 modulate = Color(0.282353, 1, 0.317647, 1)
-position = Vector2(855, 3998)
+position = Vector2(1153, 5205)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)
 
@@ -162,6 +162,42 @@ position = Vector2(2587, 8311)
 [node name="enemy_spawner15" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
 position = Vector2(2410, 7994)
 
+[node name="enemy_spawner31" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(1817, 5103)
+
+[node name="enemy_spawner32" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(2113, 5800)
+
+[node name="enemy_spawner33" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(1936, 5483)
+
+[node name="enemy_spawner34" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(2734, 5075)
+
+[node name="enemy_spawner35" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(2798, 5920)
+
+[node name="enemy_spawner36" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(2680, 5287)
+
+[node name="enemy_spawner37" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(1138, 4013)
+
+[node name="enemy_spawner38" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(1395, 4720)
+
+[node name="enemy_spawner39" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(1710, 4584)
+
+[node name="enemy_spawner40" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(1993, 3779)
+
+[node name="enemy_spawner41" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(2727, 4308)
+
+[node name="enemy_spawner42" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
+position = Vector2(2464, 4717)
+
 [node name="enemy_spawner16" parent="enemy_spawners" instance=ExtResource("5_1eq67")]
 position = Vector2(2922, 8688)
 
@@ -212,7 +248,7 @@ rotation = -1.41395
 position = Vector2(1105, 5013)
 rotation = -1.41395
 
-[node name="Phantoms" type="Node" parent="."]
+[node name="Phantoms" type="Node2D" parent="."]
 
 [node name="Phantom" parent="Phantoms" instance=ExtResource("7_n8aou")]
 position = Vector2(2123, 9007)
@@ -359,12 +395,12 @@ position = Vector2(2870, 8783)
 position = Vector2(2671, 8576)
 
 [node name="pickup_spawnpoint21" parent="pickups" instance=ExtResource("13_rgwox")]
-position = Vector2(2547, 6980)
+position = Vector2(3401, 7407)
 
 [node name="pickup_spawnpoint22" parent="pickups" instance=ExtResource("13_rgwox")]
 position = Vector2(2964, 6867)
 
-[node name="energy_barriers_and_nodes" type="Node" parent="."]
+[node name="energy_barriers_and_nodes" type="Node2D" parent="."]
 
 [node name="barrier_1" type="Node2D" parent="energy_barriers_and_nodes"]
 position = Vector2(904, 4501)
@@ -382,6 +418,14 @@ position = Vector2(1076, 7128)
 
 [node name="barrier_power_node" parent="energy_barriers_and_nodes/barrier2" instance=ExtResource("11_crtno")]
 position = Vector2(246, -801)
+
+[node name="barrier3" type="Node2D" parent="energy_barriers_and_nodes"]
+position = Vector2(2725, 6986)
+
+[node name="barrier" parent="energy_barriers_and_nodes/barrier3" instance=ExtResource("10_uw7u5")]
+
+[node name="barrier_power_node" parent="energy_barriers_and_nodes/barrier3" instance=ExtResource("11_crtno")]
+position = Vector2(534, 1389)
 
 [node name="enemy_hunter" parent="." instance=ExtResource("11_e3hyu")]
 position = Vector2(844, 3811)

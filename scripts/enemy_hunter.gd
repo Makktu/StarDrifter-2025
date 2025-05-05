@@ -68,6 +68,8 @@ func _on_visible_on_screen_notifier_2d_screen_entered():
 func _on_timer_timeout():
 	if speed < 80:
 		speed += 1
+	$Sprite2D.scale.x += 0.2
+	$Sprite2D.scale.y += 0.2
 	timer.start()	
 			
 
