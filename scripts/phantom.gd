@@ -33,9 +33,7 @@ func _physics_process(delta):
 			fire_timer.stop()
 			phantom_active = false
 			fade_out()
-			#blow_up_anim.visible = true
-			#collision_particles.emitting = true
-			#blow_up_anim.play("blowup")			
+						
 	
 func fade_out():
 	# create Tween object
@@ -53,6 +51,7 @@ func fade_out():
 	bullet_area.monitoring = false
 	bullet_area.monitorable = false
 	phase_timer.start()
+	
 	
 func fade_in():
 	# create Tween object

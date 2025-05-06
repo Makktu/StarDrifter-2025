@@ -63,13 +63,24 @@ func _on_visible_on_screen_notifier_2d_screen_entered():
 		Global.hunters_active += 1
 		timer.start() # increase speed by 1 every 5 seconds (for testing purposes) - the player is not safe no matter how distant
 		animated_sprite.play("default")
+		
 
+func embiggen():
+	var current_scale = scale.x
+	var tween = get_tree().create_tween()
+	# will only be expanding in size with each speed/power increase
+	tween.tween_property(
+		self, 
+		"scale",
+		Vector2(current_scale + 0.25, current_scale + 0.25),
+		2.0   # Duration in seconds
+		).set_ease(Tween.EASE_IN_OUT)
 
 func _on_timer_timeout():
+	# increases hunter speed every [timer] seconds
 	if speed < 80:
 		speed += 1
-	$Sprite2D.scale.x += 0.2
-	$Sprite2D.scale.y += 0.2
+		embiggen() 	# expanding in size with each speed/power increase
 	timer.start()	
 			
 

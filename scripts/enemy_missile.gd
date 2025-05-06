@@ -28,7 +28,7 @@ func _process(delta):
 		queue_free()
 	if speed > 600:
 		queue_free()
-	
+			
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	player = get_tree().get_first_node_in_group("player")

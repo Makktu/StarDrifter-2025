@@ -150,6 +150,7 @@ func handle_collision(collided, speed_x, speed_y, this_collided_with):
 		if global.player_energy <= 70:
 			damage += (100 - global.player_energy)
 	if this_collided_with.begins_with("enemy_missile"):
+		print("EDGE OF HUNTER")
 		damage = 100
 	velocity.x -= velocity.x / 10
 	velocity.y -= velocity.y / 10

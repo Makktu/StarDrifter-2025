@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bfpsn0igyu3g2" path="res://Assets/graphics/Explosion.png" id="4_k2ed2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k2ed2"]
+resource_local_to_scene = true
 radius = 16.0
 height = 32.0
 
@@ -212,7 +213,7 @@ position = Vector2(1.5, 1.5)
 scale = Vector2(3.25, 3.25)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 4.0
 one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

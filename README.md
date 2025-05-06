@@ -613,3 +613,6 @@ Values will need lots of testing.
 ### Mon 5 May 2025
 Starting to fill out the rest of the map with enemies
 Worked on the Hunter - will increase in size with additional speed (impose limit)
+
+### Tue 6 May 2025
+Refining the Hunter scaling effect over time - still work to do
