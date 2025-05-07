@@ -7,6 +7,8 @@ extends Node2D
 const enemy_basic = preload("res://scenes/enemy_1.tscn")
 const enemy_pusher = preload("res://scenes/enemy_missile.tscn")
 
+@onready var spawning_circles = $Sprite2D
+
 var amount_spawned = 0
 var max_can_spawn = 100
 var spawner_active = false	
@@ -41,7 +43,8 @@ func add_new_enemy():
 				if effect_particles.amount >= 2:
 					effect_particles.amount -= 1
 		effect_particles.emitting = false
-		particles_on = false	
+		particles_on = false
+		embiggen()	
 		$Timer.start()
 
 
@@ -49,15 +52,15 @@ func _on_timer_timeout():
 	if particles_on:
 		add_new_enemy()
 	else:
-		effect_particles.amount = 2
-		effect_particles.emitting = true
+		#effect_particles.amount = 2
+		#effect_particles.emitting = true
 		particles_on = true
 		$Timer.wait_time = 3.0
 		$Timer.start()
-		for n in 8000:
-			if n % 100 == 0:
-				if effect_particles.amount < 80:
-					effect_particles.amount += 1
+		#for n in 8000:
+			#if n % 100 == 0:
+				#if effect_particles.amount < 80:
+					#effect_particles.amount += 1
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
@@ -73,3 +76,23 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func _on_next_pusher_possible_timer_timeout():
 	pusher_spawned = false
 	# can spawn pusher again (if spawnpoint active)
+	
+func embiggen():
+	var current_scale = spawning_circles.scale.x
+	var tween = get_tree().create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	# will only be expanding in size with each speed/power increase
+	tween.tween_property(
+		spawning_circles, 
+		"scale",
+		Vector2(current_scale + 0.35, current_scale + 0.35),
+		0.5   # Duration in seconds
+		)
+	tween.tween_property(
+		spawning_circles, 
+		"scale",
+		Vector2(current_scale, current_scale),
+		0.01   # Duration in seconds
+		)
+	tween.set_loops(8)
+	

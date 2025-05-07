@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cph3l0chuxd5s"]
+[gd_scene load_steps=3 format=3 uid="uid://cph3l0chuxd5s"]
 
 [ext_resource type="Script" uid="uid://n6db2r6775ef" path="res://scripts/enemy_spawner.gd" id="1_jbk74"]
+[ext_resource type="Texture2D" uid="uid://b3wkahy0oysfe" path="res://Assets/graphics/spawncircle.png" id="2_devoi"]
 
 [node name="enemy_spawner" type="Node2D"]
 script = ExtResource("1_jbk74")
@@ -24,6 +25,10 @@ gravity = Vector2(0, 0)
 [node name="next_pusher_possible_timer" type="Timer" parent="."]
 wait_time = 60.0
 one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.01, 0.1)
+texture = ExtResource("2_devoi")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
