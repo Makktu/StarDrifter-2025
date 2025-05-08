@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cph3l0chuxd5s"]
+[gd_scene load_steps=4 format=3 uid="uid://cph3l0chuxd5s"]
 
 [ext_resource type="Script" uid="uid://n6db2r6775ef" path="res://scripts/enemy_spawner.gd" id="1_jbk74"]
 [ext_resource type="Texture2D" uid="uid://b3wkahy0oysfe" path="res://Assets/graphics/spawncircle.png" id="2_devoi"]
+[ext_resource type="Texture2D" uid="uid://cnhah01r33ftg" path="res://Assets/graphics/spawn_pusher_gfx.png" id="3_xl0gr"]
 
 [node name="enemy_spawner" type="Node2D"]
 script = ExtResource("1_jbk74")
@@ -27,10 +28,19 @@ wait_time = 60.0
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.01, 0.1)
+scale = Vector2(0.001, 0.01)
 texture = ExtResource("2_devoi")
+
+[node name="spawn_circles_timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("3_xl0gr")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="timeout" from="next_pusher_possible_timer" to="." method="_on_next_pusher_possible_timer_timeout"]
+[connection signal="timeout" from="spawn_circles_timer" to="." method="_on_spawn_circles_timer_timeout"]

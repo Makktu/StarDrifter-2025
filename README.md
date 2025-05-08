@@ -619,3 +619,7 @@ Refining the Hunter scaling effect over time - still work to do
 
 ### Wed 7 May 2025
 Added new enemy spawning animation.
+
+### Thu 8 May 2025
+Going for 2 separate spawning animations.
+Implementing, currently buggy as heckfire, Ned.
