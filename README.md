@@ -623,3 +623,6 @@ Added new enemy spawning animation.
 ### Thu 8 May 2025
 Going for 2 separate spawning animations.
 Implementing, currently buggy as heckfire, Ned.
+
+### Fri 9 May 2025
+Moved project out of cloud storage (file permission issues).
