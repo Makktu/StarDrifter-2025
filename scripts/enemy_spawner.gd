@@ -23,7 +23,7 @@ var which_enemy
 func add_new_enemy(which_enemy = 5):
 	if spawner_active and amount_spawned < max_can_spawn:
 		if $"/root/Global".dev_enemies_on:
-			if which_enemy < 5.0:
+			if which_enemy < 9.0:
 				var enemy_instance = enemy_basic.instantiate()
 				enemy_instance.scale.x = 0.2
 				enemy_instance.scale.y = 0.2
@@ -37,8 +37,8 @@ func add_new_enemy(which_enemy = 5):
 				amount_spawned += 1	
 				pusher_spawned = true
 				next_pusher_possible_timer.start()
-				$Timer.wait_time = (17 - Global.global_difficulty) # default global difficulty is 1
-	$Timer.start()
+				$Timer.wait_time = (9 - Global.global_difficulty) # default global difficulty is 1
+		$Timer.start()
 				
 
 func _on_timer_timeout():
