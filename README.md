@@ -626,3 +626,9 @@ Implementing, currently buggy as heckfire, Ned.
 
 ### Fri 9 May 2025
 Moved project out of cloud storage (file permission issues).
+
+### Mon 12 May 2025
+Separating the spawners for different enemies to allow
+more flexibility and predictable behaviour from them.
+
+### Tue 13 May 2025

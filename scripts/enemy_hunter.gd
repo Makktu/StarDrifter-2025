@@ -17,6 +17,8 @@ var distance_from_player
 var hunter_death : bool = false
 var growth_stage : bool = false
 var standard_scale = scale.x
+var current_embiggened_stage = 1 # maximum of 5
+var max_embiggening = 10
 
 func _physics_process(delta):
 	if hunter_active:
@@ -39,7 +41,8 @@ func _physics_process(delta):
 		player_position = the_player.global_position
 		distance_from_player = player_position.distance_to(hunter_position)
 		if distance_from_player <= 300:
-			if not growth_stage:
+			if not growth_stage and current_embiggened_stage < max_embiggening:
+				current_embiggened_stage += 1
 				embiggen()
 				growth_stage = true
 			if not animated_sprite.visible:
@@ -52,6 +55,7 @@ func _physics_process(delta):
 		if distance_from_player > 300 and proximity > 0.005:
 			if growth_stage:
 				growth_stage = false
+				current_embiggened_stage = 1
 				ensmallen()
 			if animated_sprite.visible:
 				animated_sprite.visible = false
@@ -99,8 +103,6 @@ func _on_timer_timeout():
 	# increases hunter speed every [timer] seconds
 	if speed < 80:
 		speed += 1
-		if growth_stage:
-			embiggen() 	# expanding in size with each speed/power increase
 	timer.start()	
 			
 
@@ -116,5 +118,6 @@ func _on_timer_2_timeout():
 
 
 func _on_explosion_animation_finished():
-	queue_free()	
 	Global.hunters_active -= 1 # update global hunter count
+	Global.global_difficulty += 1 # increase global difficulty per hunter destroyed
+	queue_free()	
