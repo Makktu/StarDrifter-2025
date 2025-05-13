@@ -172,7 +172,12 @@ func shoot_bullets():
 			continue
 		var bullet_instance = bullet.instantiate()
 		bullet_instance.global_position = n.global_position
-		bullet_instance.rotation_degrees = n.global_rotation_degrees - 90
+		if firing_points == 1 or times_fired == 0:
+			bullet_instance.rotation_degrees = n.global_rotation_degrees - 90
+		if firing_points == 3 and times_fired == 1:
+			bullet_instance.rotation_degrees = n.global_rotation_degrees
+		if firing_points == 3 and times_fired == 2:
+			bullet_instance.rotation_degrees = n.global_rotation_degrees - 180
 		get_parent().add_child(bullet_instance)
 		times_fired += 1
 		if (times_fired == firing_points) and firing_points == 1:
@@ -206,10 +211,6 @@ func picked_up(type = "default"):
 		shield_gfx.visible = true
 		shield_collision_shape.set_deferred("disabled", false)
 		animation_player.play("shields_up")
-		pickup_timer.wait_time = 25
-		pickup_timer.start() # player always gets a fresh 25 seconds
-	if type == "two_bullets":
-		firing_points = 2
 		pickup_timer.wait_time = 25
 		pickup_timer.start() # player always gets a fresh 25 seconds
 	if type == "three_bullets":

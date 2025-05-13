@@ -17,7 +17,7 @@ var distance_from_player
 var hunter_death : bool = false
 var growth_stage : bool = false
 var standard_scale = scale.x
-var current_embiggened_stage = 1 # maximum of 5
+var current_embiggened_stage = 1 # maximum of 5 embiggenings allowed
 var max_embiggening = 10
 
 func _physics_process(delta):
@@ -28,7 +28,6 @@ func _physics_process(delta):
 		if collided and not get_floor_normal():
 			var this_collided_with = collided.get_collider()
 			this_collided_with = str(this_collided_with)
-			print("HUNTER COLLISION: ", this_collided_with)
 			if ":" in this_collided_with:
 				this_collided_with = this_collided_with.split(":")[0]
 				if this_collided_with == "barrier" and not hunter_death:
@@ -52,11 +51,10 @@ func _physics_process(delta):
 			if proximity >= 0.005:
 				if proximity < 0.05:
 					proximity += 0.0025
-		if distance_from_player > 300 and proximity > 0.005:
-			if growth_stage:
-				growth_stage = false
-				current_embiggened_stage = 1
-				ensmallen()
+		if distance_from_player > 300 and proximity > 0.005 and current_embiggened_stage > 1:
+			growth_stage = false
+			current_embiggened_stage = 1
+			ensmallen()
 			if animated_sprite.visible:
 				animated_sprite.visible = false
 			if animated_sprite.speed_scale == 1.2:
@@ -87,7 +85,8 @@ func embiggen():
 		Vector2(current_scale + 0.25, current_scale + 0.25),
 		2.0   # Duration in seconds
 		).set_ease(Tween.EASE_IN_OUT)
-		
+	tween.finished.connect(func(): growth_stage = false)
+			
 func ensmallen():
 	var tween = get_tree().create_tween()
 	# will only be expanding in size with each speed/power increase

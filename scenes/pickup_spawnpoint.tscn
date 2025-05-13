@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://by41fj2hprgq4"]
+[gd_scene load_steps=7 format=3 uid="uid://by41fj2hprgq4"]
 
 [ext_resource type="Script" uid="uid://5iaf075efg2l" path="res://scripts/pickup_spawnpoint.gd" id="1_mpgwa"]
 [ext_resource type="Texture2D" uid="uid://c28xr2h7hxp73" path="res://Assets/graphics/pickup_speed_boost.png" id="2_2qga0"]
 [ext_resource type="Texture2D" uid="uid://42vrkiibpnax" path="res://Assets/graphics/shield.png" id="3_34ika"]
 [ext_resource type="Texture2D" uid="uid://cswr56udg3jmx" path="res://Assets/graphics/pickup_energy.png" id="4_mvyi5"]
-[ext_resource type="Texture2D" uid="uid://2jwfjgkvdxp6" path="res://Assets/graphics/two_bullets_pickup.png" id="5_hmdrd"]
 [ext_resource type="Texture2D" uid="uid://lkd015yixble" path="res://Assets/graphics/three_bullets_pickup.png" id="6_4rt13"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4kll"]
@@ -27,11 +26,6 @@ texture = ExtResource("3_34ika")
 [node name="energy" type="Sprite2D" parent="pickup_node"]
 visible = false
 texture = ExtResource("4_mvyi5")
-
-[node name="two_bullets" type="Sprite2D" parent="pickup_node"]
-visible = false
-position = Vector2(16, -9)
-texture = ExtResource("5_hmdrd")
 
 [node name="three_bullets" type="Sprite2D" parent="pickup_node"]
 visible = false

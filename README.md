@@ -632,3 +632,4 @@ Separating the spawners for different enemies to allow
 more flexibility and predictable behaviour from them.
 
 ### Tue 13 May 2025
+Adjusted 3-bullet pickup to allow 3-way shooting from player craft.

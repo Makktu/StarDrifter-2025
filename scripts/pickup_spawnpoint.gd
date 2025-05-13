@@ -11,7 +11,6 @@ extends Node2D
 	"speed": $pickup_node/speed,
 	"shield": $pickup_node/shield,
 	"energy": $pickup_node/energy,
-	"two_bullets": $pickup_node/two_bullets,
 	"three_bullets": $pickup_node/three_bullets
 }
 @onready var the_player = get_tree().get_nodes_in_group("player")[0]
@@ -20,7 +19,7 @@ extends Node2D
 @onready var spawn_timer = $spawn_timer
 @onready var appearance_timer = $appearance_timer
 
-var pickup_types : Array = ["speed", "shield", "energy", "two_bullets", "three_bullets"]
+var pickup_types : Array = ["speed", "shield", "energy", "three_bullets"]
 var current_pickup : String = ""
 
 
