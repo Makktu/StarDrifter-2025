@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var explosion = $explosion
 @onready var sprite_2d = $Sprite2D
+@onready var particles = $CPUParticles2D
 
 var hunter_active : bool = false
 var speed = 30
@@ -18,7 +19,7 @@ var hunter_death : bool = false
 var growth_stage : bool = false
 var standard_scale = scale.x
 var current_embiggened_stage = 1 # maximum of 5 embiggenings allowed
-var max_embiggening = 10
+var max_embiggening = 4
 
 func _physics_process(delta):
 	if hunter_active:
@@ -40,6 +41,8 @@ func _physics_process(delta):
 		player_position = the_player.global_position
 		distance_from_player = player_position.distance_to(hunter_position)
 		if distance_from_player <= 300:
+			if distance_from_player <= 200 and not particles.emitting:
+				particles.emitting = true
 			if not growth_stage and current_embiggened_stage < max_embiggening:
 				current_embiggened_stage += 1
 				embiggen()
@@ -52,6 +55,8 @@ func _physics_process(delta):
 				if proximity < 0.05:
 					proximity += 0.0025
 		if distance_from_player > 300 and proximity > 0.005 and current_embiggened_stage > 1:
+			if distance_from_player > 200 and particles.emitting:
+				particles.emitting = false
 			growth_stage = false
 			current_embiggened_stage = 1
 			ensmallen()

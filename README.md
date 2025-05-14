@@ -633,3 +633,6 @@ more flexibility and predictable behaviour from them.
 
 ### Tue 13 May 2025
 Adjusted 3-bullet pickup to allow 3-way shooting from player craft.
+
+### Wed 14 May 2025
+Tweaked Hunter size changes and started on particles for its 'damage zone'
