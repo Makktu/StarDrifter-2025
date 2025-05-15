@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var global = $/root/Global
 @onready var effect_particles = $CPUParticles2D
 @onready var spawn_animation_timer = $spawn_circles_timer
 @onready var spawning_circles = $Sprite2D
@@ -21,7 +20,7 @@ func add_new_enemy():
 			enemy_instance.scale.y = 0.2
 			add_child(enemy_instance)
 			amount_spawned += 1
-			global.swarmers_active += 1
+			Global.swarmers_active += 1
 			$Timer.wait_time = (7 - Global.global_difficulty) # default global difficulty is 1
 		$Timer.start()
 				

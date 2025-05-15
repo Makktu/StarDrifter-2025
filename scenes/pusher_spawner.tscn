@@ -1,6 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://do6foa64s8xnb"]
+[gd_scene load_steps=3 format=3 uid="uid://do6foa64s8xnb"]
 
 [ext_resource type="Script" uid="uid://dmqvy51rclmph" path="res://scripts/pusher_spawner.gd" id="1_f01mt"]
+[ext_resource type="Texture2D" uid="uid://cnhah01r33ftg" path="res://Assets/graphics/spawn_pusher_gfx.png" id="2_b7gnm"]
 
 [node name="pusher_spawner" type="Node2D"]
 script = ExtResource("1_f01mt")
+
+[node name="main_timer" type="Timer" parent="."]
+wait_time = 7.5
+one_shot = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(3, 2)
+scale = Vector2(3.2, 4.3)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 2
+lifetime = 0.25
+emission_shape = 1
+emission_sphere_radius = 10.0
+gravity = Vector2(0, 0)
+
+[node name="spawning_timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("2_b7gnm")
+
+[connection signal="timeout" from="main_timer" to="." method="_on_main_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="spawning_timer" to="." method="_on_spawning_timer_timeout"]
