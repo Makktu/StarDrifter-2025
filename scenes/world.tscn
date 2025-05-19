@@ -444,3 +444,9 @@ position = Vector2(839, 8618)
 
 [node name="pusher_spawner" parent="pusher_spawners" instance=ExtResource("12_q5onr")]
 position = Vector2(1446, 3340)
+
+[node name="pusher_spawner2" parent="pusher_spawners" instance=ExtResource("12_q5onr")]
+position = Vector2(1159, 3578)
+
+[node name="pusher_spawner3" parent="pusher_spawners" instance=ExtResource("12_q5onr")]
+position = Vector2(1552, 3085)

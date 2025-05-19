@@ -639,3 +639,7 @@ Tweaked Hunter size changes and started on particles for its 'damage zone'
 
 ### Thu 15 May 2025
 Worked on pusher spawner and logic
+
+### Mon 19 May 2025
+Got pusher spawner logic working correctly
+and in sync with the Global difficulty setting.
