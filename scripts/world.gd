@@ -1,9 +1,23 @@
 extends Node2D
 
 @onready var player = $Player
+@onready var world_environment = $WorldEnvironment
+@onready var glow_timer = $glow_timer
 
-#func _ready():
-	#setup_crt_effect()
+var changing_glow = false
+
+func _ready():
+	change_glow()
+	
+func process():
+	if Global.random_float_number(1, 20) < 4 and not changing_glow:
+		changing_glow = true
+		change_glow()
+		
+func change_glow():
+	print("begun")
+	glow_timer.start()
+		
 
 func _on_zoom_out_1_body_entered(body):
 	print(body.name)
@@ -65,3 +79,14 @@ func _on_first_boss_body_entered(body):
 
 func _on_first_boss_area_entered(area):
 	player.camera_letterbox_effect()
+
+
+func _on_glow_timer_timeout():
+	if !world_environment: return  # Safety check
+	
+	var env = world_environment.environment.duplicate(true)  # deep copy
+	env.glow_intensity = max(env.glow_intensity - 0.01, 0.0)
+	world_environment.environment = env
+	
+	if env.glow_intensity > 1.5:
+		glow_timer.start()

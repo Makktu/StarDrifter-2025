@@ -62,12 +62,23 @@ shader_parameter/brightness = 1.25
 
 [sub_resource type="Environment" id="Environment_25j0p"]
 background_mode = 3
-ambient_light_color = Color(2.04556e-06, 0.56847, 1.92523e-07, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.235027, 0.523703, 0.484952, 1)
+ambient_light_energy = 2.06
+tonemap_mode = 3
+tonemap_exposure = 1.36
+tonemap_white = 1.62
 glow_enabled = true
 glow_normalized = true
-glow_intensity = 2.73
-glow_strength = 1.27
-fog_enabled = true
+glow_intensity = 2.35
+glow_strength = 0.81
+glow_bloom = 0.39
+glow_blend_mode = 1
+volumetric_fog_density = 0.1384
+adjustment_enabled = true
+adjustment_brightness = 0.96
+adjustment_contrast = 1.17
+adjustment_saturation = 1.22
 
 [node name="World" type="Node2D"]
 material = SubResource("ShaderMaterial_ad33l")
@@ -450,3 +461,8 @@ position = Vector2(1159, 3578)
 
 [node name="pusher_spawner3" parent="pusher_spawners" instance=ExtResource("12_q5onr")]
 position = Vector2(1552, 3085)
+
+[node name="glow_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="glow_timer" to="." method="_on_glow_timer_timeout"]

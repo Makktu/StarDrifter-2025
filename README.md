@@ -643,3 +643,7 @@ Worked on pusher spawner and logic
 ### Mon 19 May 2025
 Got pusher spawner logic working correctly
 and in sync with the Global difficulty setting.
+
+## Tue 20 May 2025
+Started on making the game as a whole look better.
+World Environment tweaks. Glow, contrast etc.
