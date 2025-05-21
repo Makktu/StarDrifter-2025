@@ -647,3 +647,8 @@ and in sync with the Global difficulty setting.
 ## Tue 20 May 2025
 Started on making the game as a whole look better.
 World Environment tweaks. Glow, contrast etc.
+
+## Wed 21 May 2025
+Working on appearance of world sprite - trying
+to eliminate jagged lines etc. Blurring the edges 'works'
+but looks about as bad.
