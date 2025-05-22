@@ -462,8 +462,3 @@ position = Vector2(1159, 3578)
 
 [node name="pusher_spawner3" parent="pusher_spawners" instance=ExtResource("12_q5onr")]
 position = Vector2(1552, 3085)
-
-[node name="glow_timer" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="timeout" from="glow_timer" to="." method="_on_glow_timer_timeout"]

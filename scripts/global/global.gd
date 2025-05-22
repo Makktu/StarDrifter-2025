@@ -71,6 +71,7 @@ func damage_player(distance_from_player):#
 func taking_damage(hit = 1):
 	if !shield_active:
 		player_energy -= hit
+		print("HIT: ", player_energy)
 		
 
 func player_energy_replenish(amount = player_energy_replenish_amount):

@@ -652,3 +652,6 @@ World Environment tweaks. Glow, contrast etc.
 Working on appearance of world sprite - trying
 to eliminate jagged lines etc. Blurring the edges 'works'
 but looks about as bad.
+
+## Thu 22 May 2025
+Tried Tween for world environment effect. Not worked.

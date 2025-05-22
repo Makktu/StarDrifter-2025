@@ -2,22 +2,44 @@ extends Node2D
 
 @onready var player = $Player
 @onready var world_environment = $WorldEnvironment
-@onready var glow_timer = $glow_timer
+@onready var health_tween = create_tween()
 
 var changing_glow = false
-
-func _ready():
-	change_glow()
 	
 func process():
-	if Global.random_float_number(1, 20) < 4 and not changing_glow:
+	if Global.player_energy <= 20 and not changing_glow:
 		changing_glow = true
-		change_glow()
+		update_environment_effects()
 		
-func change_glow():
-	print("begun")
-	glow_timer.start()
+func update_environment_effects():
+	print("GOT TO FUNCTION!")
+	var env = world_environment.environment.duplicate()
+	# Calculate target values based on health (0-100)
+	var health_ratio = Global.player_energy / 100.0
+	
+	# Configure tween
+	health_tween.kill()  # Stop any previous tween
+	health_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	# Animate properties (with example values)
+	health_tween.tween_property(env, "adjustment_saturation",
+	clamp(health_ratio, 0.1, 1.0),  # Never go full grayscale
+		0.5  # Duration in seconds
+		)
 		
+	# Example: Add more effects
+	health_tween.parallel().tween_property(env, "adjustment_contrast",
+	clamp(health_ratio * 1.5, 0.8, 1.5),
+		0.5
+		)
+		
+	health_tween.parallel().tween_property(env, "glow_intensity",
+	clamp(health_ratio * 2.0, 0.2, 1.5),
+	0.5
+	)
+	
+	# Apply the modified environment when tween starts
+	health_tween.tween_callback(func(): world_environment.environment = env)
+	
 
 func _on_zoom_out_1_body_entered(body):
 	print(body.name)
@@ -79,14 +101,3 @@ func _on_first_boss_body_entered(body):
 
 func _on_first_boss_area_entered(area):
 	player.camera_letterbox_effect()
-
-
-func _on_glow_timer_timeout():
-	if !world_environment: return  # Safety check
-	
-	var env = world_environment.environment.duplicate(true)  # deep copy
-	env.glow_intensity = max(env.glow_intensity - 0.01, 0.0)
-	world_environment.environment = env
-	
-	if env.glow_intensity > 1.5:
-		glow_timer.start()
