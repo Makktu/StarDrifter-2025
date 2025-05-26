@@ -1,45 +1,29 @@
 extends Node2D
-
 @onready var player = $Player
 @onready var world_environment = $WorldEnvironment
 @onready var health_tween = create_tween()
-
 var changing_glow = false
+
+func _ready() -> void:
+	update_environment(0)
 	
-func process():
-	if Global.player_energy <= 20 and not changing_glow:
-		changing_glow = true
-		update_environment_effects()
-		
-func update_environment_effects():
-	print("GOT TO FUNCTION!")
-	var env = world_environment.environment.duplicate()
-	# Calculate target values based on health (0-100)
-	var health_ratio = Global.player_energy / 100.0
+func update_environment(health_ratio: float = 1.0):
+	# Work directly with the actual environment, don't duplicate
+	var env = world_environment.environment
+	
+	# Calculate target values based on health ratio
+	var target_saturation = clamp(health_ratio, 0.1, 1.0)
+	var target_contrast = clamp(health_ratio * 1.5, 0.8, 1.5)
+	var target_glow_intensity = clamp(health_ratio * 2.0, 0.2, 1.5)
 	
 	# Configure tween
-	health_tween.kill()  # Stop any previous tween
+	health_tween.kill()
 	health_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	# Animate properties (with example values)
-	health_tween.tween_property(env, "adjustment_saturation",
-	clamp(health_ratio, 0.1, 1.0),  # Never go full grayscale
-		0.5  # Duration in seconds
-		)
-		
-	# Example: Add more effects
-	health_tween.parallel().tween_property(env, "adjustment_contrast",
-	clamp(health_ratio * 1.5, 0.8, 1.5),
-		0.5
-		)
-		
-	health_tween.parallel().tween_property(env, "glow_intensity",
-	clamp(health_ratio * 2.0, 0.2, 1.5),
-	0.5
-	)
 	
-	# Apply the modified environment when tween starts
-	health_tween.tween_callback(func(): world_environment.environment = env)
-	
+	# Tween the properties directly on the active environment
+	health_tween.tween_property(env, "adjustment_saturation", target_saturation, 5.0)
+	health_tween.parallel().tween_property(env, "adjustment_contrast", target_contrast, 5.0)
+	health_tween.parallel().tween_property(env, "glow_intensity", target_glow_intensity, 5.0)
 
 func _on_zoom_out_1_body_entered(body):
 	print(body.name)

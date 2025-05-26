@@ -655,3 +655,6 @@ but looks about as bad.
 
 ## Thu 22 May 2025
 Tried Tween for world environment effect. Not worked.
+
+### Mon 26 May 2025
+Got world environment glow change basically working.
