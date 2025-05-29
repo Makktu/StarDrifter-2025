@@ -16,7 +16,8 @@ extends CharacterBody2D
 # =============== SHOOTING
 const bullet = preload("res://scenes/bullet.tscn")
 var player_is_shooting := false # toggle to prevent continuous fire
-@onready var firing_points = 1 # start only able to shoot from tip of craft
+@onready var firing_points = 4
+# TESTING WITH 4 - usually 1, i.e. start only able to shoot from tip of craft
 # ========================
 @onready var energy_replenish_amount = global.player_energy_replenish_amount
 var input_vector : Vector2
@@ -167,20 +168,21 @@ func shoot_bullets():
 	var times_fired = 0
 	var firing_sparkle = $collision_particles
 	for n in $firing_points.get_children():
-		if times_fired == 0 and firing_points == 2: # skip firing from tip if firing points is 2
-			times_fired += 1
-			continue
 		var bullet_instance = bullet.instantiate()
 		bullet_instance.global_position = n.global_position
-		if firing_points == 1 or times_fired == 0:
+		if firing_points == 1:
 			bullet_instance.rotation_degrees = n.global_rotation_degrees - 90
-		if firing_points == 3 and times_fired == 1:
+		if firing_points == 4 and times_fired == 0:
+			bullet_instance.rotation_degrees = n.global_rotation_degrees - 90
+		if firing_points == 4 and times_fired == 1:
 			bullet_instance.rotation_degrees = n.global_rotation_degrees
-		if firing_points == 3 and times_fired == 2:
-			bullet_instance.rotation_degrees = n.global_rotation_degrees - 180
+		if firing_points == 4 and times_fired == 2:
+			bullet_instance.rotation_degrees = n.global_rotation_degrees + 90
+		if firing_points == 4 and times_fired == 3:
+			bullet_instance.rotation_degrees = n.global_rotation_degrees + 180
 		get_parent().add_child(bullet_instance)
 		times_fired += 1
-		if (times_fired == firing_points) and firing_points == 1:
+		if firing_points == 1:
 			break
 			
 			
@@ -214,7 +216,7 @@ func picked_up(type = "default"):
 		pickup_timer.wait_time = 25
 		pickup_timer.start() # player always gets a fresh 25 seconds
 	if type == "three_bullets":
-		firing_points = 3
+		firing_points = 4
 		pickup_timer.wait_time = 25
 		pickup_timer.start() # player always gets a fresh 25 seconds
 		

@@ -229,6 +229,9 @@ position = Vector2(-24, -31)
 [node name="firing_point_right" type="Node2D" parent="firing_points"]
 position = Vector2(-24, 31)
 
+[node name="firing_point_rear" type="Node2D" parent="firing_points"]
+position = Vector2(-21, -1)
+
 [node name="player_enemy_collision" type="Area2D" parent="."]
 scale = Vector2(1.1, 1.1)
 

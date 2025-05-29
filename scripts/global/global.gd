@@ -43,9 +43,6 @@ var hunters_vanquished : int = 0 # when 3 hunters defeated, 2 can be active at o
 var universal_speed : float = 100.0
 var play_mode : int = 0 # 0 for Regular, 1 for Arcade
 
-########### world environment glow monitoring
-var underglow : bool = false
-
 func _ready():
 	# start bgm music if bgm_music ON
 	if global_music_on:
@@ -70,17 +67,9 @@ func damage_player(distance_from_player):#
 	player_damage = true
 	player_amount_damaged = distance_from_player / 2
 	
-
 func taking_damage(hit = 1):
 	if !shield_active:
 		player_energy -= hit
-		# print("HIT: ", player_energy)
-		if player_energy <= 20 and not underglow:
-			underglow = true
-		if player_energy > 20 and underglow:
-			underglow = false
-		
-		
 
 func player_energy_replenish(amount = player_energy_replenish_amount):
 	# top up the player's energy by a fixed amount

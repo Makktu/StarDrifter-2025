@@ -658,3 +658,14 @@ Tried Tween for world environment effect. Not worked.
 
 ### Mon 26 May 2025
 Got world environment glow change basically working.
+
+### Tue 27 May 2025
+Starting on logic for world glow effect/health link.
+
+### Wed 28 May 2025
+World glow health effect now basically working properly.
+Values need lots of tweaking and experimentation.
+Added to the pile of to-be-testeds....
+
+### Thu 29 May 2025
+Adding 4-way shooting as a special pickup, replacing all other shooting pickups.

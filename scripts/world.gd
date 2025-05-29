@@ -1,29 +1,49 @@
 extends Node2D
+
 @onready var player = $Player
 @onready var world_environment = $WorldEnvironment
 @onready var health_tween = create_tween()
-var changing_glow = false
+var up_glow : bool = true
+var down_glow : bool = false
+var glow_is_changing : bool = false
 
-func _ready() -> void:
-	update_environment(0)
-	
+# ------------------------------------------------
+
+func _process(delta):
+	# handling the world glow health effect entirely in its own node
+	if Global.player_energy <= 20 and up_glow and not glow_is_changing:
+		up_glow = false
+		down_glow = true
+		glow_is_changing = true # ensure current change can complete if cancelled mid-change
+		update_environment(0)
+	if Global.player_energy > 20 and down_glow and not glow_is_changing:
+		up_glow = true
+		down_glow = false
+		glow_is_changing = true
+		update_environment(1)	
+			
+
 func update_environment(health_ratio: float = 1.0):
 	# Work directly with the actual environment, don't duplicate
 	var env = world_environment.environment
 	
 	# Calculate target values based on health ratio
-	var target_saturation = clamp(health_ratio, 0.1, 1.0)
-	var target_contrast = clamp(health_ratio * 1.5, 0.8, 1.5)
-	var target_glow_intensity = clamp(health_ratio * 2.0, 0.2, 1.5)
+	var target_saturation = clamp(health_ratio, 0.3, 1.0)
+	#var target_contrast = clamp(health_ratio * 1.5, 0.8, 1.5)
+	var target_glow_intensity = clamp(health_ratio * 2.0, 0.4, 1.5)
 	
 	# Configure tween
 	health_tween.kill()
 	health_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	
 	# Tween the properties directly on the active environment
-	health_tween.tween_property(env, "adjustment_saturation", target_saturation, 5.0)
-	health_tween.parallel().tween_property(env, "adjustment_contrast", target_contrast, 5.0)
-	health_tween.parallel().tween_property(env, "glow_intensity", target_glow_intensity, 5.0)
+	health_tween.tween_property(env, "adjustment_saturation", target_saturation, 10.0)
+	#health_tween.parallel().tween_property(env, "adjustment_contrast", target_contrast, 8.0)
+	health_tween.parallel().tween_property(env, "glow_intensity", target_glow_intensity, 10.0)
+	
+	health_tween.tween_callback(func():
+		glow_is_changing = false
+		)
 
 func _on_zoom_out_1_body_entered(body):
 	print(body.name)
