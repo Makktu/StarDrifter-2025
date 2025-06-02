@@ -105,8 +105,8 @@ func _physics_process(delta):
 	if Input.is_action_pressed("Thrust"):
 		global.player_energy -= 0.001 # decide what if any impact thrust has on energy
 		$Thrust_Manager.thrust_pressed()
-		#if !player_is_thrusting:
-			#player_is_thrusting = true
+		if !player_is_thrusting:
+			player_is_thrusting = true
 			#$hud.thrust_pressed()
 					
 	if Input.is_action_just_released("Thrust"):
@@ -170,16 +170,25 @@ func shoot_bullets():
 	for n in $firing_points.get_children():
 		var bullet_instance = bullet.instantiate()
 		bullet_instance.global_position = n.global_position
+		
+		# Account for the player sprite being oriented at 90 degrees by default
 		if firing_points == 1:
-			bullet_instance.rotation_degrees = n.global_rotation_degrees - 90
-		if firing_points == 4 and times_fired == 0:
-			bullet_instance.rotation_degrees = n.global_rotation_degrees - 90
-		if firing_points == 4 and times_fired == 1:
-			bullet_instance.rotation_degrees = n.global_rotation_degrees
-		if firing_points == 4 and times_fired == 2:
-			bullet_instance.rotation_degrees = n.global_rotation_degrees + 90
-		if firing_points == 4 and times_fired == 3:
-			bullet_instance.rotation_degrees = n.global_rotation_degrees + 180
+			# Single firing point - forward direction
+			bullet_instance.rotation = rotation
+		elif firing_points == 4:
+			# Multiple firing points - each in its own direction relative to player
+			match times_fired:
+				0: # Top firing point - shoots in the direction the player is facing (90° offset)
+					bullet_instance.rotation = rotation - PI/2
+				1: # Left firing point - shoots 90° counter-clockwise from player facing (0° offset)
+					bullet_instance.rotation = rotation + PI
+				2: # Right firing point - shoots 90° clockwise from player facing (180° offset)
+					bullet_instance.rotation = rotation - PI * 2
+				3: # Rear firing point - shoots opposite to player facing (270° offset)
+					if player_is_thrusting:
+						break
+					bullet_instance.rotation = rotation + PI/2
+		
 		get_parent().add_child(bullet_instance)
 		times_fired += 1
 		if firing_points == 1:

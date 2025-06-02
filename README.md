@@ -669,3 +669,7 @@ Added to the pile of to-be-testeds....
 
 ### Thu 29 May 2025
 Adding 4-way shooting as a special pickup, replacing all other shooting pickups.
+
+### Mon 2 June 2025
+Got 4-way shooting working. Works well.
+Adjusted to not fire from rear when player craft is actively thrusting.
