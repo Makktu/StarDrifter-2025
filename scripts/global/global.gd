@@ -40,13 +40,14 @@ var hunters_vanquished : int = 0 # when 3 hunters defeated, 2 can be active at o
 ########################################
 
 ########### universal speed experiment
-var universal_speed : float = 100.0
+var universal_speed : float = 200.0
 var play_mode : int = 0 # 0 for Regular, 1 for Arcade
 
 func _ready():
 	# start bgm music if bgm_music ON
 	if global_music_on:
 		bgm_manager.start_bg_music()
+	universal_speed = universal_speed * global_difficulty
 	#debug_msg_timer.start()
 		
 

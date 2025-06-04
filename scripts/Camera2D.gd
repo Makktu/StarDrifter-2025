@@ -17,24 +17,16 @@ func _process(delta):
 		shake_strength = lerpf(shake_strength, 0, shakeFade * (delta / 2))
 		offset = randomShakeOffset()
 
-func dynamic_zoom(player_velocity_x, player_velocity_y, special = null):
-	if player_velocity_x > 50 or player_velocity_y > 50 or player_velocity_x < -50 or player_velocity_y < -50:
-		if zoom.x > 1.2:
-			zoom.x -= zoomout_amount
-			zoom.y -= zoomout_amount
-	else:
-		if zoom.x < starting_zoom:
-			zoom.x += zoomin_amount
-			zoom.y += zoomin_amount
-			
-func zoom_special(direction):
-	if direction == 'zoomin':
+func dynamic_zoom(zoom_direction = "out"):
+	if zoom_direction == "in":
 		for n in 2000:
 			zoom.x += zoomin_amount * 0.2
 			zoom.y += zoomin_amount * 0.2
-	pass
+	else:
+		for n in 2000:
+			zoom.x -= zoomin_amount * 0.2
+			zoom.y -= zoomin_amount * 0.2
 			
-
 func thrust_shake():
 	if thrust_shaking:
 		return

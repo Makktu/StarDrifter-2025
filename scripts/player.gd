@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var camera_2d = $Camera2D
 @onready var pewpewpew = $pewpewpew
+@onready var camera_timer: Timer = $camera_timer
 
 # =============== SHOOTING
 const bullet = preload("res://scenes/bullet.tscn")
@@ -34,8 +35,21 @@ var heavy_damage_taken : int = 70
 var damage_light_animation_playing : bool = false
 var damage_heavy_animation_playing : bool = false
 
+var dynamic_zoom_in : bool = false
+var camera_is_zooming : bool = false
+
 
 func _physics_process(delta):
+	if (velocity.x > 20 or velocity.x < -20 or velocity.y > 20 or velocity.y < -20) and dynamic_zoom_in and not camera_is_zooming:
+		dynamic_zoom_in = false
+		camera_is_zooming = true
+		camera_2d.dynamic_zoom("out")
+		camera_timer.start()
+	if (velocity.x < 20 or velocity.x < -20 or velocity.y > 20 or velocity.y < -20) and not dynamic_zoom_in and not camera_is_zooming:
+		dynamic_zoom_in = true
+		camera_is_zooming = true
+		camera_2d.dynamic_zoom("in")
+		camera_timer.start()
 	$hud.show_energy(global.player_energy)
 	# always check on status of damage animations if energy < light damage
 	if global.player_energy <= light_damage_taken:
@@ -120,7 +134,9 @@ func _physics_process(delta):
 	# background global.player_energy replenishment	
 	global.player_energy_replenish()
 	
-
+func dynamic_zoom(zoom_direction = "out"):
+	pass
+	
 
 func handle_collision(collided, speed_x, speed_y, this_collided_with):
 	# ______________________________________________
@@ -174,7 +190,7 @@ func shoot_bullets():
 		# Account for the player sprite being oriented at 90 degrees by default
 		if firing_points == 1:
 			# Single firing point - forward direction
-			bullet_instance.rotation = rotation
+			bullet_instance.rotation = rotation - PI/2
 		elif firing_points == 4:
 			# Multiple firing points - each in its own direction relative to player
 			match times_fired:
@@ -259,4 +275,7 @@ func check_damage():
 		animation_player.play("damage_light")
 		damage_light_animation_playing = false
 		damage_heavy_animation_playing = true
-	
+
+
+func _on_camera_timer_timeout() -> void:
+	camera_is_zooming = false

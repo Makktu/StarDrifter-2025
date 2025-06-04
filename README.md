@@ -673,3 +673,7 @@ Adding 4-way shooting as a special pickup, replacing all other shooting pickups.
 ### Mon 2 June 2025
 Got 4-way shooting working. Works well.
 Adjusted to not fire from rear when player craft is actively thrusting.
+
+### Wed 4 June 2025
+Adding dynamic camera zoom-in when player craft moving slowly.
+As is traditional by now... not quite working properly yet.
