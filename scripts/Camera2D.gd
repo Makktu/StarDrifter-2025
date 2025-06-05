@@ -17,7 +17,7 @@ func _process(delta):
 		shake_strength = lerpf(shake_strength, 0, shakeFade * (delta / 2))
 		offset = randomShakeOffset()
 
-func dynamic_zoom(zoom_direction = "out"):
+func dynamic_zoom(zoom_direction):
 	if zoom_direction == "in":
 		for n in 2000:
 			zoom.x += zoomin_amount * 0.2

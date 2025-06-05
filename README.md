@@ -677,3 +677,9 @@ Adjusted to not fire from rear when player craft is actively thrusting.
 ### Wed 4 June 2025
 Adding dynamic camera zoom-in when player craft moving slowly.
 As is traditional by now... not quite working properly yet.
+
+### Thu 5 June 2025
+Got the camera zoom responding properly to speed changes - 
+still got to implement smooth zooming.
+Also made player craft start already in motion
+and drifting toward the game world.

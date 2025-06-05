@@ -37,15 +37,21 @@ var damage_heavy_animation_playing : bool = false
 
 var dynamic_zoom_in : bool = false
 var camera_is_zooming : bool = false
+var camera_speed_threshold = 60 # arbitrary for testing purposes
+
+func _ready() -> void:
+	# Start moving forward (relative to player's rotation)
+	velocity = Vector2(0, -50).rotated(rotation)  # -Y is forward in Godot's 2D space
 
 
 func _physics_process(delta):
-	if (velocity.x > 20 or velocity.x < -20 or velocity.y > 20 or velocity.y < -20) and dynamic_zoom_in and not camera_is_zooming:
+	var current_speed = velocity.length()
+	if current_speed > camera_speed_threshold and dynamic_zoom_in and not camera_is_zooming:
 		dynamic_zoom_in = false
 		camera_is_zooming = true
 		camera_2d.dynamic_zoom("out")
 		camera_timer.start()
-	if (velocity.x < 20 or velocity.x < -20 or velocity.y > 20 or velocity.y < -20) and not dynamic_zoom_in and not camera_is_zooming:
+	if current_speed <= camera_speed_threshold and not dynamic_zoom_in and not camera_is_zooming:
 		dynamic_zoom_in = true
 		camera_is_zooming = true
 		camera_2d.dynamic_zoom("in")
